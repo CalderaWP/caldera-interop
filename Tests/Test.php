@@ -1,7 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
 
-class StackTest extends TestCase
+class StackTest extends PHPUnit_Framework_TestCase
 {
 	public function testPushAndPop()
 	{
