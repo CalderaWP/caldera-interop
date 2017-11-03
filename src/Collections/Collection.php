@@ -1,17 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: josh
- * Date: 11/2/17
- * Time: 12:55 AM
- */
 
 namespace calderawp\interop\Collections;
 
 
-use calderawp\interop\Container;
+use calderawp\interop\Arrayable\JsonArrayable;
 
-abstract class Collection extends Container
+abstract class Collection implements JsonArrayable
 {
+	/** @inheritdoc */
+	public function jsonSerialize()
+	{
+		return $this->toArray();
+	}
 
 }

@@ -24,6 +24,4 @@ class Field extends Model
 	}
 
 
-
-
 }

@@ -64,7 +64,8 @@ class FieldEntityTest extends EntityTestCase
 	 *
 	 * @covers \calderawp\interop\Entities\Field::getConfigKey()
 	 */
-	public function testGetConfigKey(){
+	public function testGetConfigKey()
+	{
 
 		$field = array(
 			'ID' => 42,
@@ -85,6 +86,60 @@ class FieldEntityTest extends EntityTestCase
 		$entity = new \calderawp\interop\Entities\Field( $field );
 		$this->assertSame( array(), $entity->getConfigKey() );
 	}
+
+	/**
+	 * Test getting slug array key
+	 *
+	 * @covers \calderawp\interop\Entities\Field::getConfigKey()
+	 */
+	public function testGetSlug()
+	{
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( $field[ 'slug' ], $entity->getSlug() );
+
+	}
+
+	/**
+	 * Test getting other field key
+	 *
+	 * @covers \calderawp\interop\Entities\Field::fieldKey()
+	 */
+	public function testGetFieldKeyOther()
+	{
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'other' => 'Other'
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( $field[ 'other' ], $entity->fieldKey( 'other') );
+	}
+
+	/**
+	 * Test getting other field key default
+	 *
+	 * @covers \calderawp\interop\Entities\Field::fieldKey()
+	 */
+	public function testGetFieldKeyOtherDefault()
+	{
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'other' => 'Other'
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( 'Roy', $entity->fieldKey( 'roy', 'Hi' ) );
+		$this->assertSame( array( 'Hi' => 'Roy' ), $entity->fieldKey( array( 'Hi' => 'Roy' ) ) );
+	}
+
+
 
 
 }
