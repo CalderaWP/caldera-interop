@@ -5,46 +5,39 @@ namespace calderawp\interop\Models;
 
 
 use calderawp\interop\Container;
+use calderawp\interop\Entities\Entity;
+use calderawp\interop\Traits\HasId;
 
-abstract class Model extends Container
+abstract class Model
 {
 
+	use HasId;
+
 	/**
-	 * Item ID
-	 *
-	 * @var int
+	 * @var Entity
 	 */
-	protected $id;
+	protected $entity;
+
+	public function __construct( Entity $entity )
+	{
+		$this->entity = $entity;
+	}
+
+	/**
+	 * @return Entity
+	 */
+	public function toEntity()
+	{
+		return $this->entity;
+	}
 
 	/**
 	 * @param $id
 	 */
 	public function setId( $id )
 	{
+		$this->entity->setId( $id );
 		$this->id = $id;
 	}
 
-	/**
-	 * Set item ID
-	 *
-	 * @return int
-	 */
-	public function getId(){
-		return $this->id;
-	}
-
-	/**
-	 * Fix 'ID' param
-	 *
-	 * @param array $data
-	 * @return array
-	 */
-	protected static function fixId( array $data )
-	{
-		if (isset($data['id']) && !isset($data['ID'])) {
-			$data['ID'] = $data['id'];
-		}
-
-		return $data;
-	}
 }

@@ -14,7 +14,7 @@ use calderawp\interop\Models\Field as FieldModel;
  *
  * @covers \calderawp\interop\Models\Field
  */
-class FieldTest extends ModelTestCase
+class FieldModelTest extends ModelTestCase
 {
 	/**
 	 * Test ID set of this model
@@ -24,9 +24,11 @@ class FieldTest extends ModelTestCase
 	 */
 	public function testIdSet()
 	{
-		$field = new FieldModel();
+		$entity = $this->entityFactory( 'field', 42 );
+		$field = new FieldModel( $entity ) ;
 		$field->setId(42);
 		$this->assertEquals(42, $field->getId());
+
 	}
 
 	/**
@@ -41,15 +43,6 @@ class FieldTest extends ModelTestCase
 	}
 
 
-	/**
-	 * Makes sure "id" is reset to "ID"
-	 *
-	 * @covers \calderawp\interop\Models\Field::fromArray()
-	 */
-	public function testIdSetFromArrayLowerCase(){
-		$field = FieldModel::fromArray( array( 'id' => 42 ) );
-		$this->assertEquals( 42, $field->getId() );
-	}
 
 	/**
 	 * Test that if created using using fromArray() factory we can manipulate ID properly
@@ -65,6 +58,7 @@ class FieldTest extends ModelTestCase
 		$field->setId( 21 );
 		$this->assertEquals( 21, $field->getId() );
 	}
+
 
 
 }

@@ -1,0 +1,90 @@
+<?php
+
+class FieldEntityTest extends EntityTestCase
+{
+
+	/**
+	 * Test getting and setting from array
+	 *
+	 * @requires PHP 7.0
+	 *
+	 * @covers \calderawp\interop\Entities\Field::toArray()
+	 * @covers \calderawp\interop\Entities\Field::fromArray()
+	 */
+	public function testToArray(){
+
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'config' => array(
+				'option' => array()
+			)
+		);
+
+		$entity = new class( array( 'ID' => 42 ) ) extends \calderawp\interop\Entities\Field {
+			public function __construct(array $field)
+			{
+					parent::__construct($field);
+					$this->field = array(
+						'ID' => 42,
+						'slug' => 'Noms',
+						'config' => array(
+							'option' => array()
+						)
+				)	;
+			}
+		};
+
+		$this->assertSame( $field, $entity->toArray() );
+	}
+
+	/**
+	 * Test getting and setting from array
+	 *
+	 * @covers \calderawp\interop\Entities\Field::toArray()
+	 * @covers \calderawp\interop\Entities\Field::fromArray()
+	 */
+	public function testFromToArray(){
+
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'config' => array(
+				'option' => array()
+			)
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( $field, $entity->toArray() );
+
+	}
+
+	/**
+	 * Test getting config array key
+	 *
+	 * @covers \calderawp\interop\Entities\Field::getConfigKey()
+	 */
+	public function testGetConfigKey(){
+
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'config' => array(
+				'option' => array()
+			)
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( $field[ 'config' ], $entity->getConfigKey() );
+
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( array(), $entity->getConfigKey() );
+	}
+
+
+}

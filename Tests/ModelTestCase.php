@@ -6,9 +6,9 @@
  * Time: 10:10 PM
  */
 
-use calderawp\interop\Models\Field as FieldModel;
 
-abstract class ModelTestCase extends PHPUnit_Framework_TestCase
+abstract class ModelTestCase extends TestCase
 {
+
 
 }

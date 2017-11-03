@@ -1,7 +1,7 @@
 <?php
 
 namespace calderawp\interop\Models;
-
+use \calderawp\interop\Entities\Field as FieldEntity;
 /**
  * Class Field
  *
@@ -12,11 +12,15 @@ class Field extends Model
 {
 
 	public static function fromArray( array $data ){
-		$obj = new static( );
-		$data = self::fixId($data);
+		self::fixId( $data );
+
+		$entity = new FieldEntity( $data );
+
+		$obj = new static($entity  );
 		$obj->setId( $data[ 'ID' ] );
 
 		return $obj;
+
 	}
 
 

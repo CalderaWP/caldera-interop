@@ -11,23 +11,20 @@ class ModelTest extends ModelTestCase
 	 */
 	public function testIdSet()
 	{
-		$field = new class extends  \calderawp\interop\Models\Model {};
-		$field->setId(42);
-		$this->assertEquals(42, $field->getId());
+		$model = new class( $this->entityFactory( 'Generic' ) ) extends  \calderawp\interop\Models\Model {};
+		$model->setId(42);
+		$this->assertEquals(42, $model->getId());
 	}
 
 	/**
-	 * Test getId() from internal property.
+	 * Test get entity from model
 	 *
-	 * @requires PHP 7.0
-	 * @covers \calderawp\interop\Models\Model::getId()
+	 * @covers  \calderawp\interop\Models\Model::toEntity();
 	 */
-	public function testIdGet()
+	public function testToEntity()
 	{
-		$field = new class extends  \calderawp\interop\Models\Model {
-			protected  $id = 42;
-		};
-
-		$this->assertEquals(42, $field->getId());
+		$entity = $this->entityFactory( 'Generic' );
+		$model = new class(  $entity ) extends  \calderawp\interop\Models\Model {};
+		$this->assertEquals($entity, $model->toEntity() );
 	}
 }
