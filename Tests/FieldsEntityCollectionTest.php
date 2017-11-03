@@ -28,6 +28,37 @@ class FieldsEntityCollectionTest extends CollectionTestCase
 	}
 
 	/**
+	 * Test field set/get with initial fields
+	 *
+	 * @covers  \calderawp\interop\Collections\EntityCollections\Fields::addField()
+	 * @covers  \calderawp\interop\Collections\EntityCollections\Fields::getField()
+	 */
+	public function testGetField()
+	{
+		$extraFieldArray = $this->fieldArrayFactory( 400 );
+		$extraField = new \calderawp\interop\Entities\Field(  $extraFieldArray );
+		$fieldsEntityCollection = $this->fieldEntityCollection( [10,20] );
+		$fieldsEntityCollection->addField( $extraField );
+		$this->assertEquals( $extraField, $fieldsEntityCollection->getField( 400 ) );
+
+		$field10 = $fieldsEntityCollection->getField( 10 );
+		$this->assertEquals( 10,  $field10->getId() );
+		$this->assertNotSame( $fieldsEntityCollection->getField( 10 ), $fieldsEntityCollection->getField( 400 ) );
+	}
+
+	/**
+	 * Test that get field returns null for unknown field
+	 *
+	 * @covers  \calderawp\interop\Collections\EntityCollections\Fields::addField()
+	 */
+	public function testGetNotSetField()
+	{
+		$fieldsEntityCollection = $this->fieldEntityCollection( [10,20] );
+
+		$this->assertTrue( is_null( $fieldsEntityCollection->getField( 500 ) ) );
+
+	}
+	/**
 	 * Test array conversion
 	 *
 	 * @covers  \calderawp\interop\Collections\EntityCollections\Fields::addField()

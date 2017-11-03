@@ -21,12 +21,13 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 		$form = $this->formArrayFactory($id);
 
 		switch( ucwords( $type ) ){
-			case 'Field':
+			case 'FIELD':
 				$entity = new \calderawp\interop\Entities\Field( $field );
 				break;
-			case 'Form':
+			case 'FORM':
 				$entity = new \calderawp\interop\Entities\Form(  $form );
-			case 'Generic';
+				break;
+			case 'GENERIC';
 			default :
 				$entity = new class( ) extends \calderawp\interop\Entities\Entity {};
 				$entity->setId( $id );
@@ -34,6 +35,48 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 		}
 
 		return $entity;
+	}
+
+	/**
+	 * @param $type
+	 * @return \calderawp\interop\Collections\EntityCollections\EntityCollection|\calderawp\interop\Collections\EntityCollections\Fields|__anonymous@1205
+	 */
+	protected function entityCollectionFactory( $type )
+	{
+		switch( ucwords( $type ) ){
+			case 'FIELD':
+			case 'FIELDS':
+				$collection = $this->fieldEntityCollection();
+				break;
+			case 'FORM':
+			case 'FORMS':
+			case 'GENERIC';
+			default :
+				$collection = new class( ) extends \calderawp\interop\Collections\EntityCollections\EntityCollection {
+					public function toArray()
+					{
+						return [];
+					}
+				};
+				break;
+		}
+
+		return $collection;
+	}
+
+
+	/**
+	 * @param array $ids
+	 * @return \calderawp\interop\Collections\EntityCollections\Fields
+	 */
+	protected function fieldEntityCollection( $ids = [ 4, 8 ] ){
+		$fields = [];
+		foreach ( $ids as $id ){
+			$fields[] = $this->entityFactory( 'FIELD', $id );
+
+		}
+
+		return new \calderawp\interop\Collections\EntityCollections\Fields( $fields );
 	}
 
 	/**
