@@ -25,7 +25,7 @@ abstract class Container implements \JsonSerializable
 	public function __construct( array $attributes = array(), array  $defaults = array() )
 	{
 		$this->setProps( $attributes, $defaults);
-		$this->pimple = new \calderawp\ghost\Container();
+		$this->pimple = new \Pimple\Container();
 	}
 
 

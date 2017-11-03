@@ -14,8 +14,6 @@ use calderawp\interop\Collections\Fields;
 class Form extends Model
 {
 
-
-
 	public static function fromArray( array  $form ){
 		$defaults = array(
 			'fields' => new Fields(),
