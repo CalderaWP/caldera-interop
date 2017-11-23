@@ -25,8 +25,42 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 				$entity = new \calderawp\interop\Entities\Field( $field );
 				break;
 			case 'FORM':
-				$entity = new \calderawp\interop\Entities\Form(  $form );
+				$entity = new \calderawp\interop\Entities\Form( $form );
 				break;
+            case 'ENTRY' :
+                $entity = new \calderawp\interop\Entities\Entry(
+                    $this->entityFactory( 'ENTRY_DETAILS', 40 ),
+                    new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
+                        [
+                            $this->entityFactory( 'ENTRY_VALUE', 40 ),
+                            $this->entityFactory( 'ENTRY_VALUE', 41 ),
+                            $this->entityFactory( 'ENTRY_VALUE', 42 )
+                        ]
+                    ),
+                    new \calderawp\interop\Entities\Form( $form )
+                );
+                break;
+            case 'ENTRY_DETAILS' :
+                $entity = \calderawp\interop\Entities\Entry\Details::fromArray(
+                    [
+                        'id' => $id,
+                        'form_id' => 'cf12345',
+                        'user_id' => 1,
+                        'datestamp' => '11:42:01',
+                        'status' => 'active'
+                    ]
+                );
+                break;
+            case 'ENTRY_VALUE' :
+                $entity = \calderawp\interop\Entities\Entry\Field::fromArray(
+                    [
+                        'entry_id' => $id,
+                        'field_id' => 'fld' . rand(),
+                        'slug' => random_bytes( 42 ),
+                        'value' => random_bytes( 42 )
+                    ]
+                );
+                break;
 			case 'GENERIC';
 			default :
 				$entity = new class( ) extends \calderawp\interop\Entities\Entity {

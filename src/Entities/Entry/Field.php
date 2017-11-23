@@ -1,0 +1,52 @@
+<?php
+
+
+namespace calderawp\interop\Entities\Entry;
+
+
+use calderawp\interop\Entities\Entity;
+
+/**
+ * Class Field
+ *
+ * Object representation of an entry field. In Caldera Forms stored as a row in $prefix_cf_form_entry_values
+ *
+ * @package calderawp\interop\Entities\Entry
+ */
+class Field extends Entity
+{
+
+    /** @var  int */
+    protected $entry_id;
+
+    /** @var  string */
+    protected $field_id;
+
+    /** @var  string */
+    protected $slug;
+
+    /** @var  string|array */
+    protected $value;
+
+
+    /**
+     * Get field slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Get field value
+     *
+     * @return array|string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+}

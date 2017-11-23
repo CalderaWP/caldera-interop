@@ -10,6 +10,23 @@ abstract class Entity implements JsonArrayable
 {
 	use HasId;
 
+    /**
+     * Create from array
+     *
+     * @param array $items
+     * @return static
+     */
+	public static function fromArray( array  $items )
+    {
+        $obj = new static();
+        foreach ( $items as $key => $item ){
+            $obj->$key = $item;
+        }
+
+        return $obj;
+    }
+
+
 	/** @inheritdoc */
 	public function jsonSerialize()
 	{
@@ -28,9 +45,16 @@ abstract class Entity implements JsonArrayable
 	/** @inheritdoc */
 	public function __get($name)
 	{
+
 		if( property_exists( $this, $name ) ){
 			return $this->$name;
 		}
 	}
+
+    /** @inheritdoc */
+	public function toArray()
+    {
+        return  get_object_vars( $this );
+    }
 
 }

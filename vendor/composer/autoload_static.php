@@ -687,7 +687,7 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
         'calderawp\\interop\\Collections\\Collection' => __DIR__ . '/../..' . '/src/Collections/Collection.php',
         'calderawp\\interop\\Collections\\EntityCollections\\EntityCollection' => __DIR__ . '/../..' . '/src/Collections/EntityCollections/EntityCollection.php',
         'calderawp\\interop\\Collections\\EntityCollections\\Fields' => __DIR__ . '/../..' . '/src/Collections/EntityCollections/Fields.php',
-        'calderawp\\interop\\Collections\\ModelCollections\\ModelCollection' => __DIR__ . '/../..' . '/src/Collections/EntityCollections/ModelCollections/ModelCollection.php',
+        'calderawp\\interop\\Collections\\ModelCollections\\ModelCollection' => __DIR__ . '/../..',
         'calderawp\\interop\\Container' => __DIR__ . '/../..' . '/src/Container.php',
         'calderawp\\interop\\Entities\\Entity' => __DIR__ . '/../..' . '/src/Entities/Entity.php',
         'calderawp\\interop\\Entities\\Field' => __DIR__ . '/../..' . '/src/Entities/Field.php',
