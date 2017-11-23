@@ -19,6 +19,9 @@ class Fields extends EntityCollection
 	{
 		if( ! empty( $fields ) ){
 			foreach ( $fields as $field ){
+			    if( is_array( $field ) ){
+			        $field = new Field( $field );
+                }
 				$this->addField( $field );
 			}
 		}

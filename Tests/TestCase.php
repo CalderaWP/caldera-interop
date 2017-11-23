@@ -29,10 +29,16 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 				break;
 			case 'GENERIC';
 			default :
-				$entity = new class( ) extends \calderawp\interop\Entities\Entity {};
-				$entity->setId( $id );
+				$entity = new class( ) extends \calderawp\interop\Entities\Entity {
+				    public function toArray()
+                    {
+                        return [];
+                    }
+                };
 				break;
 		}
+
+        $entity->setId( $id );
 
 		return $entity;
 	}

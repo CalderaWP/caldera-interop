@@ -15,7 +15,12 @@ class FormEntityTest extends EntityTestCase
 		$formArray = $this->formArrayFactory( 42 );
 		$formEntity = new \calderawp\interop\Entities\Form( $formArray );
 
-		$this->assertSame( $formArray[ 'fields' ], $formEntity->getFields() );
+		$entityFields = $formEntity->getFields()->toArray();
+		foreach ( $formArray[ 'fields' ]  as $id => $field ){
+		    $this->assertArrayHasKey( $id, $entityFields );
+            $this->assertSame( $field, $entityFields[ $id ] );
+
+        }
 
 	}
 
@@ -28,10 +33,15 @@ class FormEntityTest extends EntityTestCase
 	 */
 	public function testGetField()
 	{
-		$formArray = $this->formArrayFactory( 42 );
+		$formArray = $this->formArrayFactory( 'Cf12345' );
 		$formEntity = new \calderawp\interop\Entities\Form( $formArray );
+        foreach ( $formArray[ 'fields' ] as $id => $field ){
+            $_field = $formEntity->getFieldById( $id );
+            $this->assertNotNull( $_field );
+            $this->assertSame( $id, $_field->getId() );
+            $this->assertSame( $field, $_field->toArray() );
+        }
 
-		$this->assertSame( $formArray[ 'fields' ][4], $formEntity->getFieldById(4 )  );
 
 	}
 

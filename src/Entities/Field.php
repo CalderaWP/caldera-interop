@@ -29,7 +29,7 @@ class Field extends Entity
 	 */
 	public function getConfigKey()
 	{
-		return $this->fieldKey( 'config', 'config' );
+		return $this->fieldKey( 'config', [] );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Field extends Entity
 	/** @inheritdoc */
 	public function setId( $id )
 	{
-		$this->setId($id);
+		//$this->setId($id);
 		parent::setId($id);
 	}
 

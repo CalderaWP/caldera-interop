@@ -30,7 +30,7 @@ class FormModelTest extends ModelTestCase
 
 		$fieldEntity = $this->entityFactory( 'FIELD', 7 );
 		/** @var \calderawp\interop\Entities\Form $formEntity */
-		$formEntity = $this->entityFactory( 'Form' );
+		$formEntity = $this->entityFactory( 'FORM' );
 		$formEntity->addField( $fieldEntity );
 		$formModel = new \calderawp\interop\Models\Form( $formEntity );
 		$this->assertEquals( $fieldEntity, $formModel->getFields()->getField(7 ) );
@@ -47,17 +47,18 @@ class FormModelTest extends ModelTestCase
 	public function testGetFields()
 	{
 
-		$fieldEntity2 = $this->entityFactory( 'FIELD', 7 );
+		$fieldEntity7 = $this->entityFactory( 'FIELD', 7 );
 		$fieldEntity2 = $this->entityFactory( 'FIELD', 2 );
 		/** @var \calderawp\interop\Entities\Form $formEntity */
-		$formEntity = $this->entityFactory( 'Form' );
-		$formEntity->addField( $fieldEntity2 );
+		$formEntity = $this->entityFactory( 'FORM' );
+		$formEntity->addField( $fieldEntity2 )->addField( $fieldEntity7 );
 		$formModel = new \calderawp\interop\Models\Form( $formEntity );
 
 		$fields = $formModel->getFields()->toArray();
+
 		$this->assertArrayHasKey( 7, $fields );
 		$this->assertEquals( $fields[7], $formModel->getFields()->getField( 7 )->toArray() );
-		$this->assertEquals( $fieldEntity2, $formModel->getFields()->getField( 7 ) );
+		$this->assertEquals( $fieldEntity7, $formModel->getFields()->getField( 7 ) );
 
 		$this->assertArrayHasKey( 2, $fields );
 		$this->assertEquals( $fields[2], $formModel->getFields()->getField( 2 )->toArray() );

@@ -135,8 +135,7 @@ class FieldEntityTest extends EntityTestCase
 		);
 
 		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( 'Roy', $entity->fieldKey( 'roy', 'Hi' ) );
-		$this->assertSame( array( 'Hi' => 'Roy' ), $entity->fieldKey( array( 'Hi' => 'Roy' ) ) );
+		$this->assertSame( 'Hi', $entity->fieldKey( 'roy', 'Hi' ) );
 	}
 
 
