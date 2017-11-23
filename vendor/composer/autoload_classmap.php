@@ -602,7 +602,7 @@ return array(
     'Symfony\\Component\\Yaml\\Yaml' => $vendorDir . '/symfony/yaml/Yaml.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
-    'calderawp\\interop\\Arrayable\\Arraybale' => $baseDir . '/src/Interfaces/Arraybale.php',
+    'calderawp\\interop\\Arrayable\\Arrayable' => $baseDir . '/src/Interfaces/Arraybale.php',
     'calderawp\\interop\\Arrayable\\JsonArrayable' => $baseDir . '/src/Interfaces/JsonArrayable.php',
     'calderawp\\interop\\Collections\\Collection' => $baseDir . '/src/Collections/Collection.php',
     'calderawp\\interop\\Collections\\EntityCollections\\EntityCollection' => $baseDir . '/src/Collections/EntityCollections/EntityCollection.php',

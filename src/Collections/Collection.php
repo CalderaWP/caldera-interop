@@ -3,7 +3,8 @@
 namespace calderawp\interop\Collections;
 
 
-use calderawp\interop\Arrayable\JsonArrayable;
+
+use calderawp\interop\Interfaces\JsonArrayable;
 
 abstract class Collection implements JsonArrayable
 {

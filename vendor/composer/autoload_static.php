@@ -682,7 +682,7 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
         'Symfony\\Component\\Yaml\\Yaml' => __DIR__ . '/..' . '/symfony/yaml/Yaml.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
-        'calderawp\\interop\\Arrayable\\Arraybale' => __DIR__ . '/../..' . '/src/Interfaces/Arraybale.php',
+        'calderawp\\interop\\Arrayable\\Arrayable' => __DIR__ . '/../..',
         'calderawp\\interop\\Arrayable\\JsonArrayable' => __DIR__ . '/../..' . '/src/Interfaces/JsonArrayable.php',
         'calderawp\\interop\\Collections\\Collection' => __DIR__ . '/../..' . '/src/Collections/Collection.php',
         'calderawp\\interop\\Collections\\EntityCollections\\EntityCollection' => __DIR__ . '/../..' . '/src/Collections/EntityCollections/EntityCollection.php',

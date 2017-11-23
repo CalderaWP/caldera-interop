@@ -19,16 +19,20 @@ trait HasId
 	 */
 	private $id;
 
-	/**
-	 * @param $id
-	 */
+    /**
+     * Set item ID
+     *
+     * @param string|int $id
+     * @return $this
+     */
 	public function setId( $id )
 	{
 		$this->id = $id;
+		return $this;
 	}
 
 	/**
-	 * Set item ID
+	 * Get item ID
 	 *
 	 * @return int
 	 */

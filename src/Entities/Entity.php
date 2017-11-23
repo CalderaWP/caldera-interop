@@ -3,7 +3,7 @@
 namespace calderawp\interop\Entities;
 
 
-use calderawp\interop\Arrayable\JsonArrayable;
+use calderawp\interop\Interfaces\JsonArrayable;
 use calderawp\interop\Traits\HasId;
 
 abstract class Entity implements JsonArrayable

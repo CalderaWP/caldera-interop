@@ -1,10 +1,11 @@
 <?php
 
 
-namespace calderawp\interop\Arrayable;
+namespace calderawp\interop\Interfaces;
 
 
-interface JsonArrayable extends Arraybale, \JsonSerializable
+
+interface JsonArrayable extends Arrayable, \JsonSerializable
 {
 
 }
