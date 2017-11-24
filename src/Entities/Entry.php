@@ -20,6 +20,12 @@ class Entry extends Entity
     protected  $form;
 
 
+    /**
+     * Entry constructor.
+     * @param Details $entryDetails Entity describing basic details (time, user ID, form ID) of entry
+     * @param Fields $fields Collection of field values (a collection of calderawp\interop\Entities\Entry\Field objects)
+     * @param Form $form Form that created this entry
+     */
     public function __construct( Details $entryDetails, Fields $fields, Form $form )
     {
         $this->entryDetails = $entryDetails;
