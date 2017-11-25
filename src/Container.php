@@ -4,6 +4,9 @@
 namespace calderawp\interop;
 
 
+use calderawp\interop\Interfaces\Factory;
+use calderawp\interop\Interfaces\Service;
+
 abstract class Container implements \JsonSerializable
 {
 
@@ -28,7 +31,34 @@ abstract class Container implements \JsonSerializable
 		$this->pimple = new \Pimple\Container();
 	}
 
+    /**
+     * Register a service in the container
+     *
+     * @param Service $service
+     */
+    public function registerService( Service $service )
+    {
 
+    }
+
+    /**
+     * Register a factory in the container
+     *
+     * @param Factory $factory
+     */
+    public function registerFactory( Factory $factory )
+    {
+        $factories = $this->getFactories();
+        $factories[ $factory->getType() ] = $factory;
+        $this->set( 'factories', $factories );
+    }
+
+    protected function getFactories()
+    {
+        return is_array( $this->get( 'factories' ) )
+            ? $this->get( 'factories' )
+            : [];
+    }
 
 
 	public function get( $property )

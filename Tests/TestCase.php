@@ -12,15 +12,14 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 	/**
 	 * @param $type
 	 * @param int $id
-	 * @return \calderawp\interop\Entities\Field|\calderawp\interop\Models\Model|__anonymous@500
+	 * @return \calderawp\interop\Entities\Entity
 	 */
 	protected function entityFactory( $type, $id = 42 )
 	{
 		$field = $this->fieldArrayFactory($id);
 
 		$form = $this->formArrayFactory($id);
-
-		switch( ucwords( $type ) ){
+		switch(  $type  ){
 			case 'FIELD':
 				$entity = new \calderawp\interop\Entities\Field( $field );
 				break;
@@ -51,6 +50,7 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
                     ]
                 );
                 break;
+            case 'ENTRY_FIELD' :
             case 'ENTRY_VALUE' :
                 $entity = \calderawp\interop\Entities\Entry\Field::fromArray(
                     [
@@ -83,11 +83,23 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 	 */
 	protected function entityCollectionFactory( $type )
 	{
-		switch( ucwords( $type ) ){
+		switch( strtoupper( $type ) ){
 			case 'FIELD':
 			case 'FIELDS':
 				$collection = $this->fieldEntityCollection();
 				break;
+            case 'ENTRY_VALUES' :
+            case 'ENTRY_FIELDS' :
+                $collection = new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
+                    [
+                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
+                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
+                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
+                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
+
+                    ]
+                );
+                break;
 			case 'FORM':
 			case 'FORMS':
 			case 'GENERIC';

@@ -13,4 +13,6 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
+    'BrightNucleus\\Invoker\\' => array($vendorDir . '/brightnucleus/invoker/src'),
+    'BrightNucleus\\Exception\\' => array($vendorDir . '/brightnucleus/exceptions/src'),
 );
