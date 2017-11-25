@@ -163,4 +163,13 @@ abstract  class TestCase extends PHPUnit_Framework_TestCase
 		);
 		return $form;
 	}
+
+    /**
+     * @return \calderawp\interop\Industry
+     */
+    public function industryFactory()
+    {
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        return new \calderawp\interop\Industry($serviceMap);
+    }
 }

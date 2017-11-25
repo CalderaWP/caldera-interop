@@ -4,6 +4,11 @@
 class  IndustryTest extends TestCase
 {
 
+    /**
+     * Test getting service map array
+     *
+     * @covers Industry::getServiceMap()
+     */
     public function testToServiceMap()
     {
 
@@ -115,12 +120,7 @@ class  IndustryTest extends TestCase
 
     }
 
-    /**
-     * @return \calderawp\interop\Industry
-     */
-    public function industryFactory()
-    {
-        $serviceMap = new \calderawp\interop\ServiceMap();
-        return new \calderawp\interop\Industry($serviceMap);
-    }
+
+
+
 }

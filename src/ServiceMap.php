@@ -18,7 +18,9 @@ use Psr\Container\ContainerInterface;
 /**
  * Class ServiceMap
  *
- * Maps continent dot references to the type of object you'd want in current context
+ * Maps continent dot references to the type of object you'd want in current context.
+ *
+ * By default, the type \calderawp\interop\Entities\Entry::class would return a \calderawp\interop\Entities\Entry object, but a framework-specific subclass might be provided.
  *
  * @package calderawp\interop
  */
@@ -35,94 +37,19 @@ class ServiceMap implements ContainerInterface
     /**
      * Array of namespaces that we map objects to
      *
-     *
-     * @TODO set this dynamically
-     *
      * @var array
      */
     private $namespaces = [
-        "calderawp\\interopWP\\",
         "calderawp\\interop\\",
     ];
 
-
-    /**
-     * Get ca
-     *
-     * @param $type
-     * @return mixed
-     * @throws Exception
-     */
-    public function getByType( $type )
+    public function registerNamespace( $namespace, array  $map )
     {
-        $id = $this->typeToId( $type );
-        if( $id ){
-            try{
-                return $this->get( $id );
-            }catch ( Exception $e ){
-                throw $e;
-            }
-        }
-    }
-
-    /**
-     *
-     * @param string $type
-     * @return string|null
-     */
-    public function typeToId( $type )
-    {
-        foreach ( $this->namespaces as $namespace ){
-            $id = '';
-            if( 0 === strpos( $type, $namespace ) ) {
-                $id = str_replace( $namespace, '', $type);
-                $id = str_replace('\\', '.', $id);
-
-
-                if ($this->has($id)) {
-                    return $id;
-                }
-
-            }
-
+        array_unshift( $this->namespaces, $namespace );
+        foreach ( $map as $type => $class ){
+            Arr::set( $this->map, $type, $class );
         }
 
-        return null;
-
-    }
-
-    /**
-     * @param string $id
-     * @return bool
-     */
-    public function has( $id ){
-        return  Arr::has( $this->getMap(), $id );
-    }
-
-    /**
-     * @param string $id
-     * @return Collection|Entity
-     * @throws ContainerException
-     */
-    public function get( $id )
-    {
-
-        if( $this->has( $id ) ){
-            return Arr::get( $this->getMap(), $id );
-        }
-
-        throw new ContainerException( $id );
-    }
-
-    /**
-     * @return array
-     */
-    protected function getMap()
-    {
-        if( ! $this->map ){
-            $this->setMap();
-        }
-        return $this->map;
     }
 
     /**
@@ -150,8 +77,8 @@ class ServiceMap implements ContainerInterface
 
         }
 
-
         throw new ContainerException();
+
     }
 
     /**
@@ -178,6 +105,95 @@ class ServiceMap implements ContainerInterface
 
         throw new ContainerException();
 
+    }
+
+    /**
+     * Get reference to object used in current context by type
+     *
+     * NOTE: Generally, $this->getEntity() or $this->getType() should be used instead of this
+     *
+     * @param string $type Name of base interop object
+     *
+     * @return Collection|Entity
+     * @throws Exception
+     */
+    public function getByType( $type )
+    {
+        $id = $this->typeToId( $type );
+        if( $id ){
+            try{
+                return $this->get( $id );
+            }catch ( Exception $e ){
+                throw $e;
+            }
+        }
+    }
+
+    /**
+     * Convert a type to the $id param for $this->get() or $this->set()
+     *
+     * @param string $type
+     * @return string|null
+     */
+    public function typeToId( $type )
+    {
+        foreach ( $this->namespaces as $namespace ){
+            $id = '';
+            if( 0 === strpos( $type, $namespace ) ) {
+                $id = str_replace( $namespace, '', $type);
+                $id = str_replace('\\', '.', $id);
+
+
+                if ( $this->has( $id ) ) {
+                    return $id;
+                }
+
+            }
+
+        }
+
+        return null;
+
+    }
+
+    /**
+     * Check if identifier is in the map
+     *
+     * @param string $id
+     * @return bool
+     */
+    public function has( $id ){
+        return  Arr::has( $this->getMap(), $id );
+    }
+
+    /**
+     * Get by identifier
+     *
+     * @param string $id
+     * @return Collection|Entity
+     * @throws ContainerException
+     */
+    public function get( $id )
+    {
+
+        if( $this->has( $id ) ){
+            return Arr::get( $this->getMap(), $id );
+        }
+
+        throw new ContainerException( $id );
+    }
+
+    /**
+     *  Get the array mapping services
+     *
+     * @return array
+     */
+    protected function getMap()
+    {
+        if( ! $this->map ){
+            $this->setMap();
+        }
+        return $this->map;
     }
 
     /**

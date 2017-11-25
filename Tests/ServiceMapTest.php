@@ -268,4 +268,101 @@ class ServiceMapTest extends TestCase
 
     }
 
+    /**
+     * Test that mocks entity and collections next few tests will use are instantiable
+     *
+     * @covers \calderawp\interop\Mock\Entity
+     * @covers \calderawp\interop\Mock\Collection
+     */
+    public function testMocks()
+    {
+
+        $entity = new \calderawp\interop\Mock\Entity();
+        $this->assertTrue(
+            is_object( $entity )
+        );
+        $collection = new \calderawp\interop\Mock\Collection();
+        $this->assertTrue(
+            is_object( $collection )
+        );
+
+
+
+    }
+
+    /**
+     * Test overriding an entity
+     *
+     * @covers \calderawp\interop\ServiceMap::registerNamespace()
+     * @covers \calderawp\interop\ServiceMap::get()
+     * @covers \calderawp\interop\ServiceMap::getEntity()
+     */
+    public function testRegisterNamespaceWithEntity()
+    {
+
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        $serviceMap->registerNamespace(
+            "calderawp\\interop\\Mock\\",
+            [
+                'Entities.Entry.Field' => \calderawp\interop\Mock\Entity::class
+            ]
+        );
+
+        //test that dot notation returns overridden entity ::class reference
+        $this->assertSame(
+            $serviceMap->get(
+                'Entities.Entry.Field'
+            ),
+            \calderawp\interop\Mock\Entity::class
+        );
+
+
+        //test that ::class reference returns overridden entity ::class reference
+        $this->assertSame(
+            $serviceMap->getEntity(
+                \calderawp\interop\Entities\Entry\Field::class
+            ),
+            \calderawp\interop\Mock\Entity::class
+        );
+
+    }
+
+
+    /**
+     * Test overriding a collection
+     *
+     * @covers \calderawp\interop\ServiceMap::registerNamespace()
+     * @covers \calderawp\interop\ServiceMap::get()
+     * @covers \calderawp\interop\ServiceMap::getCollection()
+     */
+    public function testRegisterNamespaceWithCollection()
+    {
+
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        $serviceMap->registerNamespace(
+            "calderawp\\interop\\Mock\\",
+            [
+                'Collections.EntityCollections.Fields' => \calderawp\interop\Mock\Collection::class
+            ]
+        );
+
+        //test that dot notation returns overridden entity ::class reference
+        $this->assertSame(
+            $serviceMap->get(
+                'Collections.EntityCollections.Fields'
+            ),
+            \calderawp\interop\Mock\Collection::class
+        );
+
+
+        //test that ::class reference returns overridden entity ::class reference
+        $this->assertSame(
+            $serviceMap->getCollection(
+                \calderawp\interop\Collections\EntityCollections\Fields::class
+            ),
+            \calderawp\interop\Mock\Collection::class
+        );
+
+    }
+
 }
