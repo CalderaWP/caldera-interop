@@ -58,7 +58,6 @@ abstract class App implements \calderawp\interop\Interfaces\App
      */
     public function addPlugin( Plugin $plugin )
     {
-        $plugins = $this->has( 'PLUGINS' );
         if( ! $this->has( 'PLUGINS' ) ){
             $plugins = [];
         }else{

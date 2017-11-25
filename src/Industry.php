@@ -95,12 +95,15 @@ class Industry
      * @param array $args
      * @return object
      */
-    protected function instantiateClass( $class, array  $args )
+    protected function instantiateClass( $class, array  $args = [] )
     {
         $reflectionClass = new \ReflectionClass( $class );
-        return $reflectionClass->newInstanceArgs( $args );
+        if ( ! empty( $args )) {
+            return $reflectionClass->newInstanceArgs($args);
+        } else {
+            return $reflectionClass->newInstanceWithoutConstructor();
+        }
 
     }
-
 
 }
