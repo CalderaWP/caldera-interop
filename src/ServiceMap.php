@@ -43,13 +43,26 @@ class ServiceMap implements ContainerInterface
         "calderawp\\interop\\",
     ];
 
+    /**
+     * Add a namespace and map its object types
+     *
+     * @param string $namespace New namespace to map
+     * @param array $map Array with keys (or dot keys) matching $this->map() to override the object type in map
+     *
+     * @return $this
+     */
     public function registerNamespace( $namespace, array  $map )
     {
         array_unshift( $this->namespaces, $namespace );
         foreach ( $map as $type => $class ){
-            Arr::set( $this->map, $type, $class );
+            $map = $this->getMap();
+            Arr::forget( $map, $type );
+            Arr::set( $map, $type, $class );
+            $this->map = $map;
         }
 
+
+        return $this;
     }
 
     /**
@@ -101,7 +114,6 @@ class ServiceMap implements ContainerInterface
             return $this->get( $id );
 
         }
-
 
         throw new ContainerException();
 
@@ -163,7 +175,11 @@ class ServiceMap implements ContainerInterface
      * @return bool
      */
     public function has( $id ){
-        return  Arr::has( $this->getMap(), $id );
+        if( Arr::has( $this->getMap(), $id ) ){
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -188,7 +204,7 @@ class ServiceMap implements ContainerInterface
      *
      * @return array
      */
-    protected function getMap()
+    public function getMap()
     {
         if( ! $this->map ){
             $this->setMap();

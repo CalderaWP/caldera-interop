@@ -30,6 +30,24 @@ class Field extends Entity
 
 
     /**
+     * Field constructor.
+     * @param array $values
+     */
+    public function __construct( array $values = [] )
+    {
+        if( ! empty( $values ) ){
+            foreach ( $values as $key => $value ){
+                if( property_exists( $this->$key ) ){
+                    $this->$key = $value;
+                }
+
+            }
+
+        }
+    }
+
+
+    /**
      * Get field slug
      *
      * @return string

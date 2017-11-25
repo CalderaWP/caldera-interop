@@ -290,6 +290,53 @@ class ServiceMapTest extends TestCase
 
     }
 
+
+    public function testMapMerge()
+    {
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        $serviceMap->registerNamespace(
+            "calderawp\\interop\\Mock\\",
+            [
+                'Entities.Entry.Field' => \calderawp\interop\Mock\Entity::class
+            ]
+        );
+
+        //Overriden element is present
+        $this->assertTrue(
+            $serviceMap->has( 'Entities.Entry.Field' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Entities.Entry' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Entities.Entry.Details' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Entities.Entry.Entity' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Collections.EntityCollections' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Collections.EntityCollections.Fields' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Collections.EntityCollections.EntryValues' )
+        );
+
+        $this->assertTrue(
+            $serviceMap->has( 'Collections.EntityCollections.EntryValues.Fields' )
+        );
+
+
+    }
+
     /**
      * Test overriding an entity
      *

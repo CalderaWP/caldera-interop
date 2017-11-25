@@ -120,7 +120,60 @@ class  IndustryTest extends TestCase
 
     }
 
+    /**
+     * Test that factory returns ovveriden entity when it should
+     *
+     * @covers \calderawp\interop\ServiceMap::registerNamespace()
+     * @covers \calderawp\interop\ServiceMap::typeToId()
+     * @covers \calderawp\interop\Industry::createEntity()
+     */
+    public function testOverrideEntity()
+    {
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        $serviceMap->registerNamespace(
+            "calderawp\\interop\\Mock\\",
+            [
+                'Entities.Entry.Details' => \calderawp\interop\Mock\Entity::class
+            ]
+        );
 
+        $industry = new \calderawp\interop\Industry( $serviceMap );
+
+        $this->assertSame(
+            'Entities.Entry.Details',
+            $industry->getServiceMap()->typeToId( \calderawp\interop\Entities\Entry\Details::class )
+        );
+
+        $this->assertTrue(
+            is_a(
+                $industry->createEntity( \calderawp\interop\Entities\Entry\Details::class,
+                    [
+                       [
+                           'ID' => uniqid( 'CF' )
+                       ]
+
+                    ]
+                ),
+                '\calderawp\interop\Mock\Entity'
+            )
+        );
+
+        //double check that default mapping is still correct
+        $this->assertTrue(
+            is_a(
+                $industry->createEntity( \calderawp\interop\Entities\Entry\Field::class,
+                    [
+                        [
+
+                        ]
+
+                    ]
+                ),
+                '\calderawp\interop\Entities\Entry\Field'
+            )
+        );
+
+    }
 
 
 }
