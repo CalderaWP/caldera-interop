@@ -8,6 +8,8 @@ use calderawp\interop\Entities\Entity;
 use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Exceptions\InvalidServiceArgsException;
 use calderawp\interop\Exceptions\MissingServiceException;
+use calderawp\interop\Interfaces\CollectionFactory;
+use calderawp\interop\Interfaces\EntityFactory;
 
 
 /**
@@ -19,7 +21,6 @@ use calderawp\interop\Exceptions\MissingServiceException;
  */
 class Industry
 {
-
 
     /**
      * @var ServiceMap

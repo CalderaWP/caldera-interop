@@ -18,7 +18,8 @@
     "autoload": {
         "psr-4": {
             "calderawp\\interop\\": "src"
-        }
+        },
+        "files": ["src/functions.php"]
     },
 	"scripts" : {
 	  "tests" : "phpunit Tests"

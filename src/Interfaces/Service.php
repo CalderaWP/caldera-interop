@@ -3,7 +3,13 @@
 
 namespace calderawp\interop\Interfaces;
 
-
+/**
+ * Interface Service
+ *
+ * Interface that any class acting as a service MUST implement
+ *
+ * @package calderawp\interop\Interfaces
+ */
 interface Service
 {
 
@@ -13,4 +19,5 @@ interface Service
      * @return string
      */
     public function getType();
+
 }

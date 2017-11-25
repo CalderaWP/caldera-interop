@@ -4,10 +4,10 @@
 namespace calderawp\interop;
 
 
-use calderawp\interop\Interfaces\Factory;
-use calderawp\interop\Interfaces\Service;
 
-abstract class Container implements \JsonSerializable
+use Psr\Container\ContainerInterface;
+
+abstract class Container implements \JsonSerializable, ContainerInterface
 {
 
 	/**
@@ -31,43 +31,14 @@ abstract class Container implements \JsonSerializable
 		$this->pimple = new \Pimple\Container();
 	}
 
-    /**
-     * Register a service in the container
-     *
-     * @param Service $service
-     */
-    public function registerService( Service $service )
-    {
-
-    }
-
-    /**
-     * Register a factory in the container
-     *
-     * @param Factory $factory
-     */
-    public function registerFactory( Factory $factory )
-    {
-        $factories = $this->getFactories();
-        $factories[ $factory->getType() ] = $factory;
-        $this->set( 'factories', $factories );
-    }
-
-    protected function getFactories()
-    {
-        return is_array( $this->get( 'factories' ) )
-            ? $this->get( 'factories' )
-            : [];
-    }
-
-
-	public function get( $property )
+	/** @inheritdoc */
+	public function get($id )
 	{
-		if( $this->allowed( $property ) ){
-			if ( $this->pimple->offsetExists( $property )) {
-				return $this->pimple->offsetGet($property);
-			}elseif( array_key_exists( $property, $this->defaults ) ){
-				return $this->defaults[ $property ];
+		if( $this->allowed( $id ) ){
+			if ( $this->pimple->offsetExists( $id )) {
+				return $this->pimple->offsetGet($id);
+			}elseif( array_key_exists( $id, $this->defaults ) ){
+				return $this->defaults[ $id ];
 			}else{
 				return null;
 			}
@@ -76,16 +47,27 @@ abstract class Container implements \JsonSerializable
 		return null;
 	}
 
-	public function set( $property, $value )
+    /**
+     * @param string $id
+     * @param mixed $value
+     * @return $this
+     */
+	public function set( $id, $value )
 	{
-		if( $this->pimple->offsetExists( $property ) ){
-			$this->pimple->offsetSet( $property, $value );
+		if( $this->allowed( $id ) ){
+			$this->pimple->offsetSet( $id, $value );
 		}
 
 		return $this;
 
 
 	}
+
+    /** @inheritdoc */
+    public function has( $id )
+    {
+        return $this->pimple->offsetExists( $id );
+    }
 
 	/**
 	 * @param $property

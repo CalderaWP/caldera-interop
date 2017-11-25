@@ -8,6 +8,7 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '60e1a8672f1e507aa312378de32fbd2a' => __DIR__ . '/../..' . '/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,11 +36,6 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
-        ),
-        'B' => 
-        array (
-            'BrightNucleus\\Invoker\\' => 22,
-            'BrightNucleus\\Exception\\' => 24,
         ),
     );
 
@@ -73,14 +69,6 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
-        ),
-        'BrightNucleus\\Invoker\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/brightnucleus/invoker/src',
-        ),
-        'BrightNucleus\\Exception\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/brightnucleus/exceptions/src',
         ),
     );
 
