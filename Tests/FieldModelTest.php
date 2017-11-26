@@ -14,7 +14,7 @@ use calderawp\interop\Models\Field as FieldModel;
  *
  * @covers \calderawp\interop\Models\Field
  */
-class FieldModelTest extends ModelTestCase
+class FieldModelTest extends ModelCalderaInteropTestCase
 {
 	/**
 	 * Test ID set of this model

@@ -5,7 +5,7 @@
  *
  * @covers \calderawp\interop\Models\Form
  */
-class FormModelTest extends ModelTestCase
+class FormModelTest extends ModelCalderaInteropTestCase
 {
 
 	/**

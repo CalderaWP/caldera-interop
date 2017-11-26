@@ -1,7 +1,7 @@
 <?php
 
 
-class ServiceMapTest extends TestCase
+class ServiceMapCalderaInteropTest extends CalderaInteropTestCase
 {
 
     /**

@@ -3,7 +3,7 @@
 /**
  * @covers \calderawp\interop\Collections\EntityCollections\Fields
  */
-class FieldsEntityCollectionTest extends CollectionTestCase
+class FieldsEntityCollectionTest extends CollectionCalderaInteropTestCase
 {
 
 	/**

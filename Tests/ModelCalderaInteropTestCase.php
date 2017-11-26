@@ -7,7 +7,7 @@
  */
 
 
-abstract class ModelTestCase extends TestCase
+abstract class ModelCalderaInteropTestCase extends CalderaInteropTestCase
 {
 
 

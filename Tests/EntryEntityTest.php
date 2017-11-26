@@ -5,7 +5,7 @@
  *
  *= @covers  \calderawp\interop\Entities\Entry
  */
-class EntryEntityTest extends EntityTestCase
+class EntryEntityTest extends EntityCalderaInteropTestCase
 {
 
     /**

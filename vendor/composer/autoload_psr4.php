@@ -10,7 +10,10 @@ return array(
     'calderawp\\interop\\' => array($baseDir . '/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
+    'Psr\\Event\\' => array($vendorDir . '/srayner/psr14/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'NetRivet\\WordPress\\Http\\' => array($vendorDir . '/netrivet/wp-http/src'),
+    'NetRivet\\WordPress\\' => array($vendorDir . '/netrivet/wp-event-emitter/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );

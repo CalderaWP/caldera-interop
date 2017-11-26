@@ -1,7 +1,7 @@
 <?php
 
 
-class EntryDetailsEntityTest extends EntityTestCase
+class EntryDetailsEntityTest extends EntityCalderaInteropTestCase
 {
 
     /**

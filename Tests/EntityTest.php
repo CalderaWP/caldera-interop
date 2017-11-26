@@ -1,5 +1,5 @@
 <?php
-class EntityTest extends EntityTestCase
+class EntityTest extends EntityCalderaInteropTestCase
 {
 
 	/**

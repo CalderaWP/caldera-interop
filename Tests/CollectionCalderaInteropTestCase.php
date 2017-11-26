@@ -6,7 +6,7 @@
  * Time: 10:10 PM
  */
 
-abstract class CollectionTestCase extends TestCase
+abstract class CollectionCalderaInteropTestCase extends CalderaInteropTestCase
 {
 
 }

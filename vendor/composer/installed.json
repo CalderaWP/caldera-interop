@@ -1407,5 +1407,142 @@
             "filesystem",
             "iterator"
         ]
+    },
+    {
+        "name": "netrivet/wp-http",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/netrivet/wp-http.git",
+            "reference": "565018b869ac56d8c3b1ab0e2ce127e2e190ca12"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/netrivet/wp-http/zipball/565018b869ac56d8c3b1ab0e2ce127e2e190ca12",
+            "reference": "565018b869ac56d8c3b1ab0e2ce127e2e190ca12",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.7",
+            "symfony/var-dumper": "~2.0"
+        },
+        "time": "2017-02-28T15:11:02+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "NetRivet\\WordPress\\Http\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jared Henderson",
+                "email": "jared@netrivet.com"
+            }
+        ],
+        "description": "A psr7-ish, Guzzle-ish, set of request/response classes for WordPress."
+    },
+    {
+        "name": "netrivet/wp-event-emitter",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/netrivet/wp-event-emitter.git",
+            "reference": "3ae11f766aa3521bce16500113cc51140677312d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/netrivet/wp-event-emitter/zipball/3ae11f766aa3521bce16500113cc51140677312d",
+            "reference": "3ae11f766aa3521bce16500113cc51140677312d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.6",
+            "symfony/var-dumper": "~2.6.0"
+        },
+        "time": "2017-09-06T17:25:02+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "NetRivet\\WordPress\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Brian Scaturro",
+                "email": "scaturrob@gmail.com"
+            }
+        ],
+        "description": "An object oriented event emitter for WordPress actions"
+    },
+    {
+        "name": "srayner/psr14",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/srayner/psr14.git",
+            "reference": "ad50f10c17e9b65dcc7f95e68f2c7c58ad8cf5d7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/srayner/psr14/zipball/ad50f10c17e9b65dcc7f95e68f2c7c58ad8cf5d7",
+            "reference": "ad50f10c17e9b65dcc7f95e68f2c7c58ad8cf5d7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-04-04T20:34:54+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Event\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            },
+            {
+                "name": "Steve Rayner",
+                "homepage": "http://github.com/srayner"
+            }
+        ],
+        "description": "Common interfaces for events",
+        "homepage": "https://github.com/srayner/psr14",
+        "keywords": [
+            "event",
+            "psr",
+            "psr-14"
+        ]
     }
 ]

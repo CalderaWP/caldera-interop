@@ -1,10 +1,10 @@
 <?php
 if ( file_exists( dirname( __FILE__, 2  ) . '/vendor/autoload.php' ) ) {
 
-	include_once __DIR__ . '/TestCase.php';
-	include_once __DIR__ . '/ModelTestCase.php';
-	include_once __DIR__ . '/CollectionTestCase.php';
-	include_once __DIR__ . '/EntityTestCase.php';
+	include_once __DIR__ . '/CalderaInteropTestCase.php';
+	include_once __DIR__ . '/ModelCalderaInteropTestCase.php';
+	include_once __DIR__ . '/CollectionCalderaInteropTestCase.php';
+	include_once __DIR__ . '/EntityCalderaInteropTestCase.php';
 	function loader($class)
 	{
 		$file = $class . '.php';

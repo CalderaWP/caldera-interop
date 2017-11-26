@@ -30,7 +30,13 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
         ),
         'P' => 
         array (
+            'Psr\\Event\\' => 10,
             'Psr\\Container\\' => 14,
+        ),
+        'N' => 
+        array (
+            'NetRivet\\WordPress\\Http\\' => 24,
+            'NetRivet\\WordPress\\' => 19,
         ),
         'D' => 
         array (
@@ -58,9 +64,21 @@ class ComposerStaticInita9ce468d637e8eefadc5bae52432d499
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
+        'Psr\\Event\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srayner/psr14/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'NetRivet\\WordPress\\Http\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/netrivet/wp-http/src',
+        ),
+        'NetRivet\\WordPress\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/netrivet/wp-event-emitter/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

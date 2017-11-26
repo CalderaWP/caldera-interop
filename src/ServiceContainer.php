@@ -4,7 +4,9 @@
 namespace calderawp\interop;
 
 
+use calderawp\interop\Events\Events;
 use calderawp\interop\Interfaces\Factory;
+use NetRivet\WordPress\EventEmitter;
 
 class ServiceContainer extends Container
 {
@@ -78,6 +80,24 @@ class ServiceContainer extends Container
 
         return $this->pimple[ $offset ];
 
+
+    }
+
+    /**
+     * Get event manager
+     *
+     * @return Events
+     */
+    public function getEventsManager()
+    {
+        $offset = 'eventManager';
+        if( $this->has( $offset ) )
+        {
+            $this->set( $offset, new Events( new EventEmitter() ) );
+
+        }
+
+        return $this->get( $offset );
 
     }
 }

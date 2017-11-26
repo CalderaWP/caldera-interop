@@ -1,7 +1,7 @@
 <?php
 
 
-class EntryFieldsCollectionTest extends  CollectionTestCase
+class EntryFieldsCollectionTest extends  CollectionCalderaInteropTestCase
 {
 
     /**

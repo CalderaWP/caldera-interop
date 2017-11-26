@@ -5,7 +5,7 @@
  *
  * @covers  \calderawp\interop\ArrayLike\Form
  */
-class FormArrayLikeTest extends TestCase
+class FormArrayLikeCalderaInteropTest extends CalderaInteropTestCase
 {
 
     /**

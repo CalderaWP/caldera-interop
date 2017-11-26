@@ -1,6 +1,6 @@
 <?php
 
-class ModelTest extends ModelTestCase
+class ModelTest extends ModelCalderaInteropTestCase
 {
 
 	/**

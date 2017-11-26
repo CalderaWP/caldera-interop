@@ -10,8 +10,10 @@
     ],
     "minimum-stability": "dev",
     "require": {
-	  "pimple/pimple": "^3.2"
-	},
+	  "pimple/pimple": "^3.2",
+      "netrivet/wp-http": "dev-master",
+      "netrivet/wp-event-emitter": "dev-master"
+    },
     "require-dev": {
 	  "phpunit/phpunit": "5.0.*"
     },

@@ -5,7 +5,7 @@
  *
  * Tests for src/functions.php
  */
-class FunctionsTest extends TestCase
+class FunctionsCalderaInteropTest extends CalderaInteropTestCase
 {
 
     /**

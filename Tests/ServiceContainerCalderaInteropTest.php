@@ -1,7 +1,7 @@
 <?php
 
 
-class ServiceContainerTest extends TestCase
+class ServiceContainerCalderaInteropTest extends CalderaInteropTestCase
 {
 
     /**

@@ -7,6 +7,6 @@
  */
 
 
-class Form extends ModelTestCase {
+class Form extends ModelCalderaInteropTestCase {
 
 }
