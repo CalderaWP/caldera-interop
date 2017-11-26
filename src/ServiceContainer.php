@@ -5,11 +5,20 @@ namespace calderawp\interop;
 
 
 use calderawp\interop\Events\Events;
+use calderawp\interop\Exceptions\NotImplemented;
 use calderawp\interop\Interfaces\Factory;
+use calderawp\interop\Interfaces\Service;
 use NetRivet\WordPress\EventEmitter;
 
 class ServiceContainer extends Container
 {
+
+    /** @inheritdoc */
+    protected $attributes = [
+        'industry',
+        'serviceMap',
+        'eventManager'
+    ];
 
     /**
      * Register a service in the container
@@ -49,15 +58,15 @@ class ServiceContainer extends Container
     public function getIndustry()
     {
         $offset = 'industry';
-        if( ! $this->pimple->offsetExists( $offset ) ){
-            $this->pimple->offsetSet(
+        if( ! $this->has( $offset ) ){
+            $this->set(
                 $offset, new Industry(
                     $this->getServiceMap()
                 )
             );
         }
 
-        return $this->pimple[ $offset ];
+        return $this->get( $offset );
     }
 
 
@@ -71,14 +80,14 @@ class ServiceContainer extends Container
     public function getServiceMap()
     {
         $offset = 'serviceMap';
-        if( ! $this->pimple->offsetExists( $offset ) ){
-            $this->pimple->offsetSet(
+        if( ! $this->has( $offset ) ){
+            $this->set(
                 $offset,
                 new ServiceMap()
             );
         }
 
-        return $this->pimple[ $offset ];
+        return $this->get( $offset );
 
 
     }
@@ -91,13 +100,17 @@ class ServiceContainer extends Container
     public function getEventsManager()
     {
         $offset = 'eventManager';
-        if( $this->has( $offset ) )
+        if( ! $this->has( $offset ) )
         {
-            $this->set( $offset, new Events( new EventEmitter() ) );
+            $this->set(
+                $offset,
+                new Events( new EventEmitter() )
+            );
 
         }
 
         return $this->get( $offset );
 
     }
+
 }

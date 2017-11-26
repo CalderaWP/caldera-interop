@@ -50,6 +50,14 @@ abstract class App implements \calderawp\interop\Interfaces\App
 
     }
 
+    public function loadPlugins(){
+
+        $plugins = $this->getServiceContainer()
+            ->getEventsManager()
+            ->applyFilters(
+
+            );
+    }
     /**
      * Register a plugin with App
      *

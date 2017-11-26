@@ -74,16 +74,16 @@ class Events
      *
      * @since 0.0.1
      *
-     * @param Event $event Hook
+     * @param string|Event $eventName Filter event
      * @param mixed $value Value for callback
      * @param array $args Other args
      * @return $this|mixed
      */
-    public function applyFilters( Event $event, $value, array $args  )
+    public function applyFilters(  $eventName, $value, array $args  )
     {
-
+        $eventName = $this->eventToName($eventName);
         return $this->eventsStysem->applyFilters(
-            $event->getName(),
+            $eventName,
             $value,
             $args
         );
@@ -94,16 +94,30 @@ class Events
      *
      * @since 0.0.1
      *
-     * @param Event $event Hook
+     * @param string|Event $eventName Action name
      * @param array $args Other args
      * @return $this|mixed
      */
-    public function doAction( Event $event, array $args )
+    public function doAction( $eventName, array $args )
     {
+        $eventName = $this->eventToName($eventName);
+
         return $this->eventsStysem->emit(
-            $event->getName(),
+            $eventName,
             $args
         );
+    }
+
+    /**
+     * @param $eventName
+     * @return mixed
+     */
+    public function eventToName($eventName)
+    {
+        if (is_a($eventName, Event::class)) {
+            $eventName = $eventName->getName();
+        }
+        return $eventName;
     }
 
 }

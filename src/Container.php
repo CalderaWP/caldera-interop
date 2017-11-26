@@ -5,6 +5,7 @@ namespace calderawp\interop;
 
 
 
+use function calderawp\interop\Support\value;
 use Psr\Container\ContainerInterface;
 
 abstract class Container implements \JsonSerializable, ContainerInterface
@@ -66,16 +67,17 @@ abstract class Container implements \JsonSerializable, ContainerInterface
     /** @inheritdoc */
     public function has( $id )
     {
-        return $this->pimple->offsetExists( $id );
+        return  $this->allowed( $id )  && $this->pimple->offsetExists( $id  );
+
     }
 
 	/**
-	 * @param $property
+	 * @param $id
 	 * @return bool
 	 */
-	public function allowed( $property )
+	public function allowed( $id )
 	{
-		return ( array_key_exists( $property, $this->attributes ) && $this->pimple->offsetExists( $property ) );
+        return isset( $id, $this->attributes );
 	}
 
 	/**
@@ -116,8 +118,14 @@ abstract class Container implements \JsonSerializable, ContainerInterface
 	 * @param array $new
 	 */
 	private function propArrayMerge( $prop, array  $new = array() ){
+
 		if( ! empty( $new ) ){
-			$this->$prop = array_merge( $new, $this->$prop );
+		    if( ! empty( $this->$prop ) ){
+                $this->$prop = $new;
+            }else{
+		        var_dump( $this->prop );exit;
+                $this->$prop = array_merge( $new, $this->$prop );
+            }
 		}
 	}
 
