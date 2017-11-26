@@ -1,7 +1,7 @@
 <?php
 
 
-class  IndustryCalderaInteropTest extends CalderaInteropTestCase
+class  IndustryTest extends CalderaInteropTestCase
 {
 
     /**

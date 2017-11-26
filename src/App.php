@@ -50,12 +50,31 @@ abstract class App implements \calderawp\interop\Interfaces\App
 
     }
 
+    /**
+     * Adds plugins at the calderaInterop.plugins.load event
+     */
     public function loadPlugins(){
 
+        $plugins = [];
         $plugins = $this->getServiceContainer()
             ->getEventsManager()
             ->applyFilters(
+                'calderaInterop.plugins.load',
+                $plugins,
+                [$this]
+        );
 
+        if( ! empty( $plugins ) ){
+            foreach ( $plugins as $plugin ){
+                $this->addPlugin( $plugin );
+            }
+        }
+
+        $this->getServiceContainer()
+            ->getEventsManager()
+            ->doAction(
+                'calderaInterop.plugins.loaded',
+                [ $this ]
             );
     }
     /**

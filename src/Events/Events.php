@@ -79,7 +79,7 @@ class Events
      * @param array $args Other args
      * @return $this|mixed
      */
-    public function applyFilters(  $eventName, $value, array $args  )
+    public function applyFilters(  $eventName, $value, array $args = []  )
     {
         $eventName = $this->eventToName($eventName);
         return $this->eventsStysem->applyFilters(

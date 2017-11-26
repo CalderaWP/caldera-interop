@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * Class EventsTest
+ *
+ * @covers \calderawp\interop\Events\Events::class
+ */
 class EventsTest extends CalderaInteropTestCase
 {
 
@@ -123,7 +127,6 @@ class EventsTest extends CalderaInteropTestCase
         $events->doAction( $action[ 'name' ], $args );
 
     }
-
 
     /**
      * Test that we can add and apply a filter without WordPress

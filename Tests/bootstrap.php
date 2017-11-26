@@ -19,6 +19,16 @@ if ( file_exists( dirname( __FILE__, 2  ) . '/vendor/autoload.php' ) ) {
         if( \calderawp\interop\Mock\Collection::class === $class ){
             require __DIR__ . '/Mocks/Collection.php';
         }
+
+        if( \calderawp\interop\Mock\Plugin::class === $class ){
+            require __DIR__ . '/Mocks/Plugin.php';
+        }
+
+        if( \calderawp\interop\Mock\App::class === $class ){
+            require __DIR__ . '/Mocks/App.php';
+        }
+
+
 	}
 
 	spl_autoload_register('loader');

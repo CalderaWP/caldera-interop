@@ -123,7 +123,6 @@ abstract class Container implements \JsonSerializable, ContainerInterface
 		    if( ! empty( $this->$prop ) ){
                 $this->$prop = $new;
             }else{
-		        var_dump( $this->prop );exit;
                 $this->$prop = array_merge( $new, $this->$prop );
             }
 		}
