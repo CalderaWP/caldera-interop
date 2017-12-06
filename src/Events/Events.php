@@ -15,18 +15,20 @@ class Events
      *
      * @var EventEmitter
      */
-    protected $eventsStysem;
+    protected $eventEmitter;
 
     /**
      * Hooks constructor.
      *
      * @since 0.0.1
      *
-     * @param EventEmitter $eventsStysem
+     * @TODO change type hint to EventEmitterInterface
+     *
+     * @param EventEmitter $eventEmitter
      */
-    public function __construct( EventEmitter $eventsStysem  )
+    public function __construct( EventEmitter $eventEmitter  )
     {
-        $this->eventsStysem = $eventsStysem;
+        $this->eventEmitter = $eventEmitter;
     }
 
     /**
@@ -40,7 +42,7 @@ class Events
      */
     public function addAction( Event $hook )
     {
-        $this->eventsStysem->on(
+        $this->eventEmitter->on(
             $hook->getName(),
             $hook->callback,
             $hook->args,
@@ -60,7 +62,7 @@ class Events
      */
     public function addFilter( Event $event )
     {
-        $this->eventsStysem->filter(
+        $this->eventEmitter->filter(
             $event->getName(),
             $event->callback,
             $event->args,
@@ -82,7 +84,7 @@ class Events
     public function applyFilters(  $eventName, $value, array $args = []  )
     {
         $eventName = $this->eventToName($eventName);
-        return $this->eventsStysem->applyFilters(
+        return $this->eventEmitter->applyFilters(
             $eventName,
             $value,
             $args
@@ -102,7 +104,7 @@ class Events
     {
         $eventName = $this->eventToName($eventName);
 
-        return $this->eventsStysem->emit(
+        return $this->eventEmitter->emit(
             $eventName,
             $args
         );

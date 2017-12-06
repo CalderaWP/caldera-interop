@@ -81,6 +81,7 @@ class ServiceMap implements ContainerInterface
         if( null === $id || 0 !== strpos( $id, 'Entities' ) ){
             throw new ContainerException();
         }
+
         if( $this->has( $id ) ){
             if( 'Entities.Entry' === $id ){
                 $id .= '.Entity';

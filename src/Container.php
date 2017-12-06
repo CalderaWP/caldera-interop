@@ -81,7 +81,10 @@ abstract class Container implements \JsonSerializable, ContainerInterface
 	}
 
 	/**
-	 * @return array
+	 *
+     * @todo Put this method in trait
+     *
+     * @return array
 	 */
 	public function toArray()
 	{

@@ -57,7 +57,13 @@ class Event
         return $this->name;
     }
 
-
+    /**
+     * Event constructor.
+     *
+     * This constructor, using a stdClass, makes no sense.
+     *
+     * @param \stdClass $obj Pass stdClass object, props must match
+     */
     public function __construct( \stdClass $obj )
     {
         foreach ( get_object_vars( $this ) as $prop => $var ){
