@@ -114,6 +114,24 @@ class Industry
     public function createCollection( $type, array $args = [] )
     {
 
+        $_args =  [
+            'type' => $type,
+            'args' => $args
+        ];
+
+        $collection = $this->serviceContainer
+            ->getEventsManager()
+            ->applyFilters(
+                'calderaInterop.Industry.createCollection.pre',
+                null,
+                $_args
+            );
+
+
+        if( $collection ){
+            return $collection;
+        }
+
 
         try{
             $class = $this->serviceMap->getCollection( $type );

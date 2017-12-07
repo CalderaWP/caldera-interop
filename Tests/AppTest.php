@@ -33,7 +33,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Mock\Entity::class,
-                $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Details::class,
+                $app->createEntity( \calderawp\interop\Entities\Entry\Details::class,
                     [
                         [
                             'ID' => uniqid( 'CF' )
@@ -47,7 +47,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Entities\Entry\Field::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Field::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Field::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -101,7 +101,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Mock\Entity::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Details::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Details::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -115,7 +115,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Entities\Entry\Field::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Field::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Field::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -149,7 +149,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Mock\Entity::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Details::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Details::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -163,7 +163,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Entities\Entry\Field::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Field::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Field::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -217,7 +217,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Mock\Entity::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Details::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Details::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -231,7 +231,7 @@ class AppTest extends CalderaInteropTestCase
 
         $this->assertInstanceOf(
             \calderawp\interop\Entities\Entry\Field::class,
-            $app->getServiceContainer()->getIndustry()->createEntity( \calderawp\interop\Entities\Entry\Field::class,
+            $app->createEntity( \calderawp\interop\Entities\Entry\Field::class,
                 [
                     [
                         'ID' => uniqid( 'CF' )
@@ -245,8 +245,9 @@ class AppTest extends CalderaInteropTestCase
     }
 
     /**
-     * Test registering plugin in app
+     * Test registering plugin in app for entity factories
      *
+     * @covers EntityFactoryPlugin::pluginLoaded()
      * @covers \calderawp\interop\App::addPlugin()
      */
     public function testEntityOvveridePlugin()
@@ -254,13 +255,30 @@ class AppTest extends CalderaInteropTestCase
 
         $app = $this->appFactory();
 
-        $plugin = new \calderawp\interop\Mock\FactoryPlugin();
+        $plugin = new \calderawp\interop\Mock\EntityFactoryPlugin();
         $app->addPlugin( $plugin );
         $this->assertInstanceOf(
             \stdClass::class,
-            $app->getServiceContainer()
-                ->getIndustry()
-                ->createEntity( 'Entities.Foo.Entity', [] )
+            $app->createEntity( 'Entities.Foo.Entity', [] )
+        );
+    }
+
+    /**
+     * Test registering plugin in app for collection factories
+     *
+     * @covers  CollectionFactoryPlugin::pluginLoaded();
+     * @covers \calderawp\interop\App::addPlugin()
+     */
+    public function testCollectionOvveridePlugin()
+    {
+
+        $app = $this->appFactory();
+
+        $plugin = new \calderawp\interop\Mock\CollectionFactoryPlugin();
+        $app->addPlugin( $plugin );
+        $this->assertInstanceOf(
+            \stdClass::class,
+            $app->createCollection( 'Collections.Foo', [] )
         );
     }
 

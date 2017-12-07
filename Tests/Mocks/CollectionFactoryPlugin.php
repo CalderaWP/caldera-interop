@@ -7,19 +7,19 @@ namespace calderawp\interop\Mock;
 use calderawp\interop\Events\Event;
 use calderawp\interop\Events\Events;
 
-class FactoryPlugin extends Plugin
+class CollectionFactoryPlugin extends Plugin
 {
 
     /** @inheritdoc */
     public function pluginLoaded( Events $events)
     {
         $event = Event::fromArray( [
-            'name' => 'calderaInterop.Industry.createEntity.pre',
+            'name' => 'calderaInterop.Industry.createCollection.pre',
             'callback' => function( $entity, $_args ){
                 $type = $_args[ 'type' ];
                 $args = $_args[ 'args' ];
                 switch ( $type ){
-                    case 'Entities.Foo.Entity' :
+                    case 'Collections.Foo' :
                         $entity = new \stdClass();
                         break;
                 }

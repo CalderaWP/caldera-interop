@@ -24,8 +24,12 @@ if ( file_exists( dirname( __FILE__, 2  ) . '/vendor/autoload.php' ) ) {
             require __DIR__ . '/Mocks/Plugin.php';
         }
 
-        if( \calderawp\interop\Mock\FactoryPlugin::class === $class ){
-            require __DIR__ . '/Mocks/FactoryPlugin.php';
+        if( \calderawp\interop\Mock\EntityFactoryPlugin::class === $class ){
+            require __DIR__ . '/Mocks/EntityFactoryPlugin.php';
+        }
+
+        if( \calderawp\interop\Mock\CollectionFactoryPlugin::class === $class ){
+            require __DIR__ . '/Mocks/CollectionFactoryPlugin.php';
         }
 
         if( \calderawp\interop\Mock\App::class === $class ){
