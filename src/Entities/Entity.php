@@ -52,6 +52,12 @@ abstract class Entity implements JsonArrayable
 	}
 
     /** @inheritdoc */
+    public function __isset($name)
+    {
+        return property_exists( $this, $name ) && ! empty( $this->$name );
+    }
+
+    /** @inheritdoc */
 	public function toArray()
     {
         return  get_object_vars( $this );
