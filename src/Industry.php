@@ -61,7 +61,6 @@ class Industry
     {
 
         $entity = Interop()
-            ->getServiceContainer()
             ->getEventsManager()
             ->applyFilters(
                 'calderaInterop.Industry.createEntity.pre',

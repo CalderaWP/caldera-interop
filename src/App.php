@@ -94,7 +94,7 @@ abstract class App implements \calderawp\interop\Interfaces\App
         $this->mapServices( $plugin );
         $plugins[ $plugin->getNamespace() ] = $plugin;
         $this->container->offsetSet( 'PLUGINS', $plugins );
-        $plugin->pluginLoaded( $this->getServiceContainer()->getEventsManager() );
+        $plugin->pluginLoaded( $this->getEventsManager() );
         return $this;
 
     }
@@ -153,4 +153,11 @@ abstract class App implements \calderawp\interop\Interfaces\App
         return $this->serviceContainer;
     }
 
+    /**
+     * @return Events\Events
+     */
+    public function getEventsManager()
+    {
+        return $this->getServiceContainer()->getEventsManager();
+    }
 }
