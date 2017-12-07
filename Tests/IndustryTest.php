@@ -12,9 +12,9 @@ class  IndustryTest extends CalderaInteropTestCase
     public function testToServiceMap()
     {
 
-        $serviceMap = new \calderawp\interop\ServiceMap();
-        $industry = new \calderawp\interop\Industry($serviceMap);
-        $this->assertSame( $serviceMap, $industry->getServiceMap() );
+        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $industry =  new \calderawp\interop\Industry($serviceContainer);
+        $this->assertEquals( new \calderawp\interop\ServiceMap(), $industry->getServiceMap() );
 
     }
 
@@ -137,7 +137,9 @@ class  IndustryTest extends CalderaInteropTestCase
             ]
         );
 
-        $industry = new \calderawp\interop\Industry( $serviceMap );
+        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $serviceContainer->resetServiceMap( $serviceMap );
+        $industry =  new \calderawp\interop\Industry($serviceContainer);
 
         $this->assertSame(
             'Entities.Entry.Details',
@@ -218,50 +220,6 @@ class  IndustryTest extends CalderaInteropTestCase
         );
 
     }
-
-    /**
-     * Test creating entity with filter
-     *
-     * @covers  \calderawp\interop\Industry::createEntity()
-     */
-    public function testOverrideEntityWithEvent()
-    {
-
-
-        $industry = $this->industryFactory();
-
-        $filter = [
-            'name' => 'calderaInterop.Industry.createEntity.pre',
-            'callback' => function( $entity, $args ) {
-
-                return 42;
-            },
-            'args' => 2,
-            'priority' => 5
-        ];
-
-        $event = \calderawp\interop\Events\Event::fromArray( $filter );
-
-
-        \calderawp\interop\Interop()
-            ->getServiceContainer()
-            ->getEventsManager()
-            ->addFilter( $event );
-
-        $this->assertSame(
-            42,
-            $industry->createEntity(
-                \calderawp\interop\Entities\Form::class,
-                [
-                    $this->formArrayFactory( 'cf1234' )
-                ]
-            )
-        );
-
-
-
-    }
-
 
 
 }

@@ -163,7 +163,7 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
      */
     public function industryFactory()
     {
-        $serviceMap = new \calderawp\interop\ServiceMap();
-        return new \calderawp\interop\Industry($serviceMap);
+        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        return new \calderawp\interop\Industry($serviceContainer);
     }
 }

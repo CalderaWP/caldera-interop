@@ -32,6 +32,23 @@ class ServiceContainer extends Container
     }
 
     /**
+     * Reset underlying serviceMap object
+     *
+     * @param ServiceMap $serviceMap
+     * @return $this
+     */
+    public function resetServiceMap( ServiceMap $serviceMap )
+    {
+
+        $this->set(
+            'serviceMap',
+            $serviceMap
+        );
+
+        return $this;
+
+    }
+    /**
      * Register a Service factory in the container
      *
      * @param Factory $factory
@@ -61,7 +78,7 @@ class ServiceContainer extends Container
         if( ! $this->has( $offset ) ){
             $this->set(
                 $offset, new Industry(
-                    $this->getServiceMap()
+                    $this
                 )
             );
         }

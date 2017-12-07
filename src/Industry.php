@@ -28,13 +28,19 @@ class Industry
     protected $serviceMap;
 
     /**
+     * @var ServiceContainer
+     */
+    protected $serviceContainer;
+
+    /**
      * Industry constructor.
      *
-     * @param ServiceMap $serviceMap
+     * @param ServiceContainer $serviceContainer
      */
-    public function __construct( ServiceMap $serviceMap )
+    public function __construct( ServiceContainer $serviceContainer )
     {
-        $this->serviceMap = $serviceMap;
+        $this->serviceContainer = $serviceContainer;
+        $this->serviceMap = $this->serviceContainer->getServiceMap();
     }
 
     /**
@@ -47,6 +53,13 @@ class Industry
         return $this->serviceMap;
     }
 
+    /**
+     * @return ServiceContainer
+     */
+    public function getServiceContainer()
+    {
+        return $this->serviceContainer;
+    }
 
     /**
      * Create a new entity that has a service mapping
@@ -64,7 +77,8 @@ class Industry
             'type' => $type,
             'args' => $args
         ];
-        $entity = Interop()
+
+        $entity = $this->serviceContainer
             ->getEventsManager()
             ->applyFilters(
                 'calderaInterop.Industry.createEntity.pre',
@@ -117,7 +131,7 @@ class Industry
     protected function instantiateClass( $class, array  $args = [] )
     {
         $reflectionClass = new \ReflectionClass( $class );
-        if ( ! empty( $args )) {
+        if ( ! empty( $args ) && $reflectionClass->hasMethod( '__construct' )) {
             return $reflectionClass->newInstanceArgs($args);
         } else {
             return $reflectionClass->newInstanceWithoutConstructor();

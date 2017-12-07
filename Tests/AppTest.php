@@ -281,7 +281,7 @@ class AppTest extends CalderaInteropTestCase
             \stdClass::class,
             $app->getServiceContainer()
                 ->getIndustry()
-                ->createEntity( 'Entities.Field', [] )
+                ->createEntity( 'Entities.Foo.Entity', [] )
         );
     }
 
