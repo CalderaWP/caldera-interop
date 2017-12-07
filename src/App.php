@@ -6,7 +6,7 @@ namespace calderawp\interop;
 
 use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Interfaces\Plugin;
-use calderawp\interop\Interfaces\PluginOrApp;
+
 
 abstract class App implements \calderawp\interop\Interfaces\App
 {
@@ -171,12 +171,32 @@ abstract class App implements \calderawp\interop\Interfaces\App
      *
      * @return Entities\Entity
      */
-    public function createEntity( $type, $args )
+    public function createEntity( $type, $args = [] )
     {
         return $this
             ->getServiceContainer()
             ->getIndustry()
             ->createEntity(
+                $type, $args
+            );
+    }
+
+    /**
+     * Create an collection
+     *
+     * Wrapper for the current container's Industry instance's createCollection method
+     *
+     * @param string $type Entity type -- as ::class reference
+     * @param array $args Optional. Array of args to pass to constructor.
+     *
+     * @return \calderawp\interop\Collections\Collection
+     */
+    public function createCollection( $type, $args = [] )
+    {
+        return $this
+            ->getServiceContainer()
+            ->getIndustry()
+            ->createCollection(
                 $type, $args
             );
     }

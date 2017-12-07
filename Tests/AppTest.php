@@ -18,11 +18,7 @@ class AppTest extends CalderaInteropTestCase
      */
     public function testAddPlugin()
     {
-        $app = new \calderawp\interop\Mock\App(
-            new \calderawp\interop\ServiceContainer(),
-            dirname( __FILE__ ),
-            '0.1.1'
-        );
+        $app = $this->appFactory();
 
         $plugin = new \calderawp\interop\Mock\Plugin();
 
@@ -72,11 +68,7 @@ class AppTest extends CalderaInteropTestCase
      */
     public function testAddPluginViaEvent()
     {
-        $app = new \calderawp\interop\Mock\App(
-            new \calderawp\interop\ServiceContainer(),
-            dirname( __FILE__ ),
-            '0.1.1'
-        );
+        $app = $this->appFactory();
 
         $plugin = new \calderawp\interop\Mock\Plugin();
 
@@ -143,12 +135,7 @@ class AppTest extends CalderaInteropTestCase
      */
     public function testAddPluginToInteropApp()
     {
-        $app = new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceContainer(),
-            dirname( __FILE__ ),
-            '0.1.1'
-        );
-
+        $app = $this->appFactory();
         $plugin = new \calderawp\interop\Mock\Plugin();
 
         $app->addPlugin( $plugin );
@@ -197,11 +184,7 @@ class AppTest extends CalderaInteropTestCase
      */
     public function testAddPluginViaEventToInteropApp()
     {
-        $app = new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceContainer(),
-            dirname( __FILE__ ),
-            '0.1.1'
-        );
+        $app = $this->appFactory();
 
         $plugin = new \calderawp\interop\Mock\Plugin();
 
@@ -269,11 +252,7 @@ class AppTest extends CalderaInteropTestCase
     public function testEntityOvveridePlugin()
     {
 
-        $app = new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceContainer(),
-            dirname( __FILE__ ),
-            '0.1.1'
-        );
+        $app = $this->appFactory();
 
         $plugin = new \calderawp\interop\Mock\FactoryPlugin();
         $app->addPlugin( $plugin );
@@ -292,18 +271,14 @@ class AppTest extends CalderaInteropTestCase
      */
     public function testCreateEntity()
     {
-        $app = new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceContainer(),
-            dirname( __FILE__ ),
-            '0.1.1'
-        );
-
+        $app = $this->appFactory();
 
         $expectedEntity = $this->entityFactory( 'FIELD' );
 
         $this->assertSame(
             get_class( $expectedEntity ),
-            get_class( $app->createEntity(
+            get_class(
+                $app->createEntity(
                 \calderawp\interop\Entities\Field::class,
                 [
                     $this->fieldArrayFactory( rand() )
@@ -312,6 +287,62 @@ class AppTest extends CalderaInteropTestCase
 
         );
 
+        $industry = $this->industryFactory();
+
+        $this->assertSame(
+            get_class(
+                $industry->createEntity(
+                    \calderawp\interop\Entities\Field::class,
+                    [
+                        $this->fieldArrayFactory( rand() )
+                    ]
+                )
+            ),
+            get_class(
+                $app->createEntity(
+                    \calderawp\interop\Entities\Field::class,
+                    [
+                        $this->fieldArrayFactory( rand() )
+                    ]
+                )
+            )
+
+        );
+
+
+
+
+
+
     }
+
+    /**
+     * Test creating collection from main app
+     *
+     * @covers \calderawp\interop\App::createCollection()
+     */
+    public function testCreateCollection()
+    {
+        $app = $this->appFactory();
+        $industry = $this->industryFactory();
+
+        $this->assertTrue(
+            is_object(
+                $app->createCollection( \calderawp\interop\Collections\EntityCollections\Fields::class )
+            )
+        );
+
+        $this->assertSame(
+            get_class(
+                $industry->createCollection(\calderawp\interop\Collections\EntityCollections\Fields::class )
+            ),
+            get_class(
+                $app->createCollection( \calderawp\interop\Collections\EntityCollections\Fields::class )
+            )
+        );
+
+    }
+
+
 
 }

@@ -166,4 +166,16 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
         $serviceContainer = new \calderawp\interop\ServiceContainer();
         return new \calderawp\interop\Industry($serviceContainer);
     }
+
+    /**
+     * @return \calderawp\interop\InteropApp
+     */
+    public function appFactory()
+    {
+        return new \calderawp\interop\InteropApp(
+            new \calderawp\interop\ServiceContainer(),
+            dirname(__FILE__),
+            '0.1.1'
+        );
+    }
 }
