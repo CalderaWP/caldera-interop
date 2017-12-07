@@ -35,6 +35,14 @@ class Field extends Entity
      */
     public function __construct( array $values = [] )
     {
+        if( ! empty( $values[ 'id' ] ) ) {
+            $this->setId($values['id']);
+        }
+
+        if( ! empty( $values[ 'ID' ] ) ) {
+            $this->setId($values['ID']);
+        }
+
         if( ! empty( $values ) ){
             foreach ( $values as $key => $value ){
                 if( property_exists( $this, $key ) ){

@@ -18,7 +18,7 @@ abstract class Entity implements JsonArrayable
      */
 	public static function fromArray( array  $items )
     {
-        $obj = new static();
+        $obj = new static( $items );
         foreach ( $items as $key => $item ){
             $obj->$key = $item;
         }
