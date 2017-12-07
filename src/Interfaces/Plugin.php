@@ -27,5 +27,12 @@ interface Plugin extends PluginOrApp
      */
     public function getOverrideMap();
 
+    /**
+     * Method of Plugin class called when plugin is loaded
+     *
+     * @return void
+     */
+    public function pluginLoaded();
+
 
 }

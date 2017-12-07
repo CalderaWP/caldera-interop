@@ -42,4 +42,10 @@ class Plugin implements \calderawp\interop\Interfaces\Plugin
     {
         return dirname( __FILE__ );
     }
+
+    /** @inheritdoc */
+    public function pluginLoaded()
+    {
+        // TODO: Implement pluginLoaded() method.
+    }
 }
