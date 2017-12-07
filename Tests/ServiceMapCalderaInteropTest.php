@@ -412,4 +412,87 @@ class ServiceMapCalderaInteropTest extends CalderaInteropTestCase
 
     }
 
+    /**
+     * Test getting field entity
+     *
+     * @covers \calderawp\interop\ServiceMap::get()
+     * @covers \calderawp\interop\ServiceMap::getEntity()
+     */
+    public function testMapEntitiesField()
+    {
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        $id = $serviceMap->typeToId( \calderawp\interop\Entities\Field::class );
+        $this->assertTrue(
+            $serviceMap->has( $id  )
+        );
+
+        $this->assertTrue( $serviceMap->has(
+            'Entities.Field'
+            )
+        );
+
+
+        $this->assertSame(
+            $serviceMap->get(
+                'Entities.Field.Entity'
+            ),
+            \calderawp\interop\Entities\Field::class
+        );
+
+        $this->assertSame(
+            $serviceMap->get(
+                'Entities.Field'
+            ),
+            \calderawp\interop\Entities\Field::class
+        );
+
+        $this->assertSame(
+            $serviceMap->getEntity(
+                \calderawp\interop\Entities\Field::class
+            ),
+            \calderawp\interop\Entities\Field::class
+        );
+
+
+    }
+
+    /**
+     * Test getting form entity
+     *
+     * @covers \calderawp\interop\ServiceMap::get()
+     * @covers \calderawp\interop\ServiceMap::getEntity()
+     */
+    public function testMapEntitiesForm()
+    {
+        $serviceMap = new \calderawp\interop\ServiceMap();
+        $id = $serviceMap->typeToId( \calderawp\interop\Entities\Form::class );
+        $this->assertTrue(
+            $serviceMap->has( $id  )
+        );
+
+        $this->assertSame(
+            $serviceMap->get(
+                'Entities.Form.Entity'
+            ),
+            \calderawp\interop\Entities\Form::class
+        );
+
+        $this->assertSame(
+            $serviceMap->get(
+                'Entities.Form'
+            ),
+            \calderawp\interop\Entities\Form::class
+        );
+
+        $this->assertSame(
+            $serviceMap->getEntity(
+                \calderawp\interop\Entities\Form::class
+            ),
+            \calderawp\interop\Entities\Form::class
+        );
+
+
+
+    }
+
 }

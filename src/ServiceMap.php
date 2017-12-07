@@ -11,6 +11,8 @@ use calderawp\interop\Entities\Entity;
 use calderawp\interop\Entities\Entry;
 use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Exceptions\Exception;
+use calderawp\interop\Entities\Field;
+use calderawp\interop\Entities\Form;
 use calderawp\interop\Support\Arr;
 use Psr\Container\ContainerInterface;
 
@@ -79,19 +81,16 @@ class ServiceMap implements ContainerInterface
         $id = $this->typeToId( $type );
 
         if( null === $id || 0 !== strpos( $id, 'Entities' ) ){
-            throw new ContainerException();
+            throw new ContainerException( sprintf( 'Not Entity. Type called: %s', $type ) );
         }
 
         if( $this->has( $id ) ){
-            if( 'Entities.Entry' === $id ){
-                $id .= '.Entity';
-            }
             return $this->get( $id );
 
 
         }
 
-        throw new ContainerException();
+        throw new ContainerException( sprintf( 'Entity not found. Type called: %s', $type ) );
 
     }
 
@@ -108,7 +107,7 @@ class ServiceMap implements ContainerInterface
         $id = $this->typeToId( $type );
 
         if( null === $id || 0 !== strpos( $id, 'Collections' ) ){
-            throw new ContainerException();
+            throw new ContainerException( );
         }
 
         if( $this->has( $id ) ){
@@ -176,6 +175,7 @@ class ServiceMap implements ContainerInterface
      * @return bool
      */
     public function has( $id ){
+        $id = $this->idShortHandFix( $id );
         if( Arr::has( $this->getMap(), $id ) ){
             return true;
         }
@@ -192,7 +192,7 @@ class ServiceMap implements ContainerInterface
      */
     public function get( $id )
     {
-
+        $id = $this->idShortHandFix( $id );
         if( $this->has( $id ) ){
             return Arr::get( $this->getMap(), $id );
         }
@@ -224,6 +224,12 @@ class ServiceMap implements ContainerInterface
                     'Entity'    => Entry::class,
                     'Details'   => Entry\Details::class,
                     'Field'     => Entry\Field::class,
+                ],
+                'Field' => [
+                    'Entity' => Field::class
+                ],
+                'Form' => [
+                    'Entity' => Form::class
                 ]
             ],
             'Collections' => [
@@ -236,5 +242,26 @@ class ServiceMap implements ContainerInterface
                 ]
             ]
         ];
+    }
+
+    /**
+     * If id is shorthand style, adjust back to full dot notation
+     *
+     * @param $id
+     * @return string
+     */
+    protected function idShortHandFix( $id )
+    {
+        if( 'Entities' !== $id && 0 === strpos( $id, 'Entities' ) ){
+
+            $type = str_replace( 'Entities.', '', $id );
+            $map = $this->getMap();
+            if( array_key_exists( $type, $map[ 'Entities' ] ) ){
+                $id .= '.Entity';
+            }
+
+        }
+
+        return $id;
     }
 }
