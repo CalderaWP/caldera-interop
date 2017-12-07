@@ -261,4 +261,28 @@ class AppTest extends CalderaInteropTestCase
 
     }
 
+    /**
+     * Test registering plugin in app
+     *
+     * @covers \calderawp\interop\App::addPlugin()
+     */
+    public function testEntityOvveridePlugin()
+    {
+
+        $app = new \calderawp\interop\InteropApp(
+            new \calderawp\interop\ServiceContainer(),
+            dirname( __FILE__ ),
+            '0.1.1'
+        );
+
+        $plugin = new \calderawp\interop\Mock\FactoryPlugin();
+        $app->addPlugin( $plugin );
+        $this->assertInstanceOf(
+            \stdClass::class,
+            $app->getServiceContainer()
+                ->getIndustry()
+                ->createEntity( 'Entities.Field', [] )
+        );
+    }
+
 }

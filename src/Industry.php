@@ -60,13 +60,18 @@ class Industry
     public function createEntity( $type, array $args = [] )
     {
 
+        $_args =  [
+            'type' => $type,
+            'args' => $args
+        ];
         $entity = Interop()
             ->getEventsManager()
             ->applyFilters(
                 'calderaInterop.Industry.createEntity.pre',
                 null,
-                $args
+                $_args
             );
+
 
         if( $entity ){
             return $entity;
