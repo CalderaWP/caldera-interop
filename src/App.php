@@ -91,6 +91,7 @@ abstract class App implements \calderawp\interop\Interfaces\App
             $plugins = $this->get( 'PLUGINS' );
         }
 
+        $plugin->setApp( $this );
         $this->mapServices( $plugin );
         $plugins[ $plugin->getNamespace() ] = $plugin;
         $this->container->offsetSet( 'PLUGINS', $plugins );

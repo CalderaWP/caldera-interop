@@ -4,6 +4,7 @@
 namespace calderawp\interop\Mock;
 
 
+use calderawp\interop\App;
 use calderawp\interop\Events\Events;
 
 class Plugin implements \calderawp\interop\Interfaces\Plugin
@@ -49,5 +50,10 @@ class Plugin implements \calderawp\interop\Interfaces\Plugin
     public function pluginLoaded( Events $events )
     {
         // TODO: Implement pluginLoaded() method.
+    }
+
+    public function setApp(App $app)
+    {
+        // TODO: Implement setApp() method.
     }
 }

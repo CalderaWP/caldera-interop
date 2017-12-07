@@ -309,11 +309,6 @@ class AppTest extends CalderaInteropTestCase
 
         );
 
-
-
-
-
-
     }
 
     /**

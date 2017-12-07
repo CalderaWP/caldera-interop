@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Interfaces;
 use calderawp\interop\Events\Events;
+use calderawp\interop\App;
 
 /**
  * Interface Plugin
@@ -27,6 +28,15 @@ interface Plugin extends PluginOrApp
      * @return array
      */
     public function getOverrideMap();
+
+    /**
+     * Set app instance
+     *
+     * @param App $app
+     *
+     * @return $this
+     */
+    public function setApp( App $app );
 
     /**
      * Method of Plugin class called when plugin is loaded
