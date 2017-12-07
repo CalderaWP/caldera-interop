@@ -60,6 +60,19 @@ class Industry
     public function createEntity( $type, array $args = [] )
     {
 
+        $entity = Interop()
+            ->getServiceContainer()
+            ->getEventsManager()
+            ->applyFilters(
+                'calderaInterop.Industry.createEntity.pre',
+                null,
+                $args
+            );
+
+        if( $entity ){
+            return $entity;
+        }
+
         try{
             $class = $this->getServiceMap()->getEntity( $type  );
             return $this->instantiateClass( $class, $args);
@@ -79,6 +92,8 @@ class Industry
      */
     public function createCollection( $type, array $args = [] )
     {
+
+
         try{
             $class = $this->serviceMap->getCollection( $type );
             return $this->instantiateClass( $class, $args);
