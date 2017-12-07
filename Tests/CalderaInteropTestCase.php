@@ -129,7 +129,7 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	 * @param $id
 	 * @return array
 	 */
-	protected function fieldArrayFactory($id): array
+	protected function fieldArrayFactory($id)
 	{
 		$field = array(
 			'ID' => $id,
@@ -145,7 +145,7 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	 * @param $id
 	 * @return array
 	 */
-	protected function formArrayFactory($id): array
+	protected function formArrayFactory($id)
 	{
 		$form = array(
 			'ID' => $id,

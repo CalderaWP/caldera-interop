@@ -175,5 +175,50 @@ class  IndustryTest extends CalderaInteropTestCase
 
     }
 
+    /**
+     * Test creating Field Entity from industry
+     *
+     * @covers \calderawp\interop\Industry::createEntity()
+     */
+    public function testCreateField()
+    {
+
+        $industry = $this->industryFactory();
+
+        $this->assertInstanceOf(
+            \calderawp\interop\Entities\Field::class,
+                $industry->createEntity(
+                   \calderawp\interop\Entities\Field::class,
+                   [
+                       $this->fieldArrayFactory( 'fld1111' )
+                   ]
+                )
+        );
+
+    }
+
+    /**
+     * Test creating Form Entity from industry
+     *
+     * @covers \calderawp\interop\Industry::createEntity()
+     */
+    public function testCreateForm()
+    {
+
+        $industry = $this->industryFactory();
+
+        $this->assertInstanceOf(
+            \calderawp\interop\Entities\Form::class,
+            $industry->createEntity(
+                \calderawp\interop\Entities\Form::class,
+                [
+                    $this->formArrayFactory( 'cf1234' )
+                ]
+            )
+        );
+
+    }
+
+
 
 }
