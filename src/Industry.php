@@ -64,8 +64,11 @@ class Industry
     /**
      * Create a new entity that has a service mapping
      *
-     * @param $type
-     * @param array $args
+     * NOTE: Entities are created using reflection class, and may be cached.
+     *
+     * @param string $type Entity type -- as ::class reference
+     * @param array $args Optional. Array of args to pass to constructor.
+     *
      * @return Entity
      * @throws InvalidServiceArgsException
      * @throws MissingServiceException

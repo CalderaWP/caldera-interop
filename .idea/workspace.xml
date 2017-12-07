@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af2b8f7d-47c0-4866-9f59-6d93bed05592" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entities/Entity.php" afterPath="$PROJECT_DIR$/src/Entities/Entity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/AppTest.php" afterPath="$PROJECT_DIR$/Tests/AppTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.php" afterPath="$PROJECT_DIR$/src/App.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Industry.php" afterPath="$PROJECT_DIR$/src/Industry.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,23 +14,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.67741936">
+    <splitter split-orientation="horizontal" split-proportion="0.5219415">
       <split-first>
         <leaf>
           <file leaf-file-name="IndustryTest.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Tests/IndustryTest.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="538">
-                  <caret line="165" column="42" lean-forward="true" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
+                  <caret line="165" column="42" lean-forward="false" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Field.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Field.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Entities/Entry/Field.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-86">
+                <state relative-caret-position="574">
+                  <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Fields.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Collections/EntityCollections/EntryValues/Fields.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
@@ -39,7 +51,7 @@
             <entry file="file://$PROJECT_DIR$/src/Entities/Field.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="345">
-                  <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -49,7 +61,7 @@
             <entry file="file://$PROJECT_DIR$/Tests/EntryFieldValueEntityCalderaInteropTest.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="300">
-                  <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+                  <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
                   <folding />
                 </state>
               </provider>
@@ -65,38 +77,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ServiceMap.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ServiceMap.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="221" column="21" lean-forward="false" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#40#85#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CalderaInteropTestCase.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tests/CalderaInteropTestCase.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="161" column="40" lean-forward="false" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AppTest.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tests/AppTest.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="457">
-                  <caret line="277" column="46" lean-forward="false" selection-start-line="277" selection-start-column="46" selection-end-line="277" selection-end-column="46" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="InteropApp.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/InteropApp.php">
               <provider selected="true" editor-type-id="text-editor">
@@ -107,21 +87,79 @@
               </provider>
             </entry>
           </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="ServiceContainer.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ServiceContainer.php">
+          <file leaf-file-name="App.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/App.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="35" />
+                <state relative-caret-position="601">
+                  <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Industry.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Industry.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="172">
+                  <caret line="69" column="73" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
         </leaf>
+      </split-first>
+      <split-second>
+        <splitter split-orientation="vertical" split-proportion="0.5">
+          <split-first>
+            <leaf>
+              <file leaf-file-name="ServiceContainer.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/ServiceContainer.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="525">
+                      <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="35" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="AppTest.php" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/Tests/AppTest.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="136">
+                      <caret line="290" column="53" lean-forward="false" selection-start-line="290" selection-start-column="53" selection-end-line="290" selection-end-column="53" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="EntityTest.php" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/Tests/EntityTest.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="330">
+                      <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file leaf-file-name="CalderaInteropTestCase.php" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/Tests/CalderaInteropTestCase.php">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="180">
+                      <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="46" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
@@ -134,8 +172,9 @@
       <find>field</find>
       <find>Entities.Entry</find>
       <find>calderaInterop.Industry.createEntity.pre</find>
-      <find>serviceMap</find>
       <find>$serviceMap</find>
+      <find>get_clas</find>
+      <find>serviceMap</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -157,14 +196,15 @@
         <option value="$PROJECT_DIR$/Tests/ServiceMapCalderaInteropTest.php" />
         <option value="$PROJECT_DIR$/src/Interfaces/Plugin.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/Plugin.php" />
-        <option value="$PROJECT_DIR$/src/App.php" />
         <option value="$PROJECT_DIR$/Tests/CalderaInteropTestCase.php" />
-        <option value="$PROJECT_DIR$/Tests/AppTest.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/FactoryPlugin.php" />
-        <option value="$PROJECT_DIR$/src/Industry.php" />
         <option value="$PROJECT_DIR$/src/ServiceContainer.php" />
         <option value="$PROJECT_DIR$/Tests/IndustryTest.php" />
         <option value="$PROJECT_DIR$/src/Entities/Entity.php" />
+        <option value="$PROJECT_DIR$/src/Entities/Entry/Field.php" />
+        <option value="$PROJECT_DIR$/src/Industry.php" />
+        <option value="$PROJECT_DIR$/src/App.php" />
+        <option value="$PROJECT_DIR$/Tests/AppTest.php" />
       </list>
     </option>
   </component>
@@ -177,7 +217,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="y" value="30" />
-    <option name="width" value="1749" />
+    <option name="width" value="1920" />
     <option name="height" value="1015" />
   </component>
   <component name="ProjectView">
@@ -212,6 +252,21 @@
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Collections" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Collections" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="EntityCollections" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Collections" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="EntityCollections" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="EntryValues" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
@@ -283,21 +338,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16853000" />
+    <option name="totallyTimeSpent" value="20716000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1749" height="1015" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="30" width="1920" height="1015" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21909784" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19914803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24673913" sideWeight="0.5020504" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24673913" sideWeight="0.5021299" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24673913" sideWeight="0.49794963" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24673913" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -338,28 +392,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/netrivet/wp-event-emitter/src/EventEmitterTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="6" lean-forward="false" selection-start-line="80" selection-start-column="6" selection-end-line="82" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meta.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/netrivet/wp-event-emitter/src/EventEmitter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -377,13 +409,6 @@
     <entry file="file://$PROJECT_DIR$/Tests/FieldModelTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-68">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/EntityTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -506,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Exceptions/ContainerException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ServiceMapCalderaInteropTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
@@ -609,58 +627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InteropApp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaces/Plugin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
           <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="96" column="28" lean-forward="false" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/AppTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="277" column="46" lean-forward="false" selection-start-line="277" selection-start-column="46" selection-end-line="277" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/CalderaInteropTestCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="161" column="40" lean-forward="false" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Industry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="49" column="7" lean-forward="true" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ServiceContainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -702,7 +672,7 @@
     <entry file="file://$PROJECT_DIR$/Tests/IndustryTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
-          <caret line="165" column="42" lean-forward="true" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
+          <caret line="165" column="42" lean-forward="false" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -710,7 +680,7 @@
     <entry file="file://$PROJECT_DIR$/Tests/EntryFieldValueEntityCalderaInteropTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+          <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
           <folding />
         </state>
       </provider>
@@ -726,15 +696,103 @@
     <entry file="file://$PROJECT_DIR$/src/Entities/Field.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entities/Entry/Field.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
+        <state relative-caret-position="574">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Collections/EntityCollections/EntryValues/Fields.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InteropApp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/ContainerException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Industry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="69" column="73" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServiceContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/EntityTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="181" column="5" lean-forward="true" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="1046" column="19" lean-forward="false" selection-start-line="1046" selection-start-column="19" selection-end-line="1046" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/Core/Core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="335" column="6" lean-forward="true" selection-start-line="335" selection-start-column="6" selection-end-line="335" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/CalderaInteropTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/AppTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="290" column="53" lean-forward="false" selection-start-line="290" selection-start-column="53" selection-end-line="290" selection-end-column="53" />
           <folding />
         </state>
       </provider>

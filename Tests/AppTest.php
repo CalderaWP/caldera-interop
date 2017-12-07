@@ -285,4 +285,33 @@ class AppTest extends CalderaInteropTestCase
         );
     }
 
+    /**
+     * Test creating Entity from main app
+     *
+     * @covers \calderawp\interop\App::createEntity()
+     */
+    public function testCreateEntity()
+    {
+        $app = new \calderawp\interop\InteropApp(
+            new \calderawp\interop\ServiceContainer(),
+            dirname( __FILE__ ),
+            '0.1.1'
+        );
+
+
+        $expectedEntity = $this->entityFactory( 'FIELD' );
+
+        $this->assertSame(
+            get_class( $expectedEntity ),
+            get_class( $app->createEntity(
+                \calderawp\interop\Entities\Field::class,
+                [
+                    $this->fieldArrayFactory( rand() )
+                ]
+            ))
+
+        );
+
+    }
+
 }

@@ -160,4 +160,24 @@ abstract class App implements \calderawp\interop\Interfaces\App
     {
         return $this->getServiceContainer()->getEventsManager();
     }
+
+    /**
+     * Create an entity
+     *
+     * Wrapper for the current container's Industry instance's createEntity method
+     *
+     * @param string $type Entity type -- as ::class reference
+     * @param array $args Optional. Array of args to pass to constructor.
+     *
+     * @return Entities\Entity
+     */
+    public function createEntity( $type, $args )
+    {
+        return $this
+            ->getServiceContainer()
+            ->getIndustry()
+            ->createEntity(
+                $type, $args
+            );
+    }
 }
