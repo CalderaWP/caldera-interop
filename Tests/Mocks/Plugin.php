@@ -4,6 +4,8 @@
 namespace calderawp\interop\Mock;
 
 
+use calderawp\interop\Events\Events;
+
 class Plugin implements \calderawp\interop\Interfaces\Plugin
 {
     /** @inheritdoc */
@@ -44,7 +46,7 @@ class Plugin implements \calderawp\interop\Interfaces\Plugin
     }
 
     /** @inheritdoc */
-    public function pluginLoaded()
+    public function pluginLoaded( Events $events )
     {
         // TODO: Implement pluginLoaded() method.
     }

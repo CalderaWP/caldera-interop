@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop\Interfaces;
+use calderawp\interop\Events\Events;
 
 /**
  * Interface Plugin
@@ -30,9 +31,10 @@ interface Plugin extends PluginOrApp
     /**
      * Method of Plugin class called when plugin is loaded
      *
+     * @param Events $events Events manager
      * @return void
      */
-    public function pluginLoaded();
+    public function pluginLoaded( Events $events );
 
 
 }
