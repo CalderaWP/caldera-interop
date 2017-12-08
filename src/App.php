@@ -85,11 +85,7 @@ abstract class App implements \calderawp\interop\Interfaces\App
      */
     public function addPlugin( Plugin $plugin )
     {
-        if( ! $this->has( 'PLUGINS' ) ){
-            $plugins = [];
-        }else{
-            $plugins = $this->get( 'PLUGINS' );
-        }
+        $plugins = $this->getPlugins();
 
         $plugin->setApp( $this );
         $this->mapServices( $plugin );
@@ -98,6 +94,30 @@ abstract class App implements \calderawp\interop\Interfaces\App
         $plugin->pluginLoaded( $this->getEventsManager() );
         return $this;
 
+    }
+
+    /**
+     * Check if plugin is registered by namespace
+     *
+     * @param string $namespace
+     * @return bool
+     */
+    public function hasPluginByNamespace( $namespace )
+    {
+        $plugins = $this->getPlugins();
+        return ! empty( $plugins ) && isset( $plugins[ $namespace ] );
+    }
+
+    /**
+     * Check if plugin is registered by passing Plugin object
+     *
+     * @param Plugin $plugin
+     * @return bool
+     */
+    public function hasPlugin( Plugin $plugin )
+    {
+        $plugins = $this->getPlugins();
+        return ! empty( $plugins ) && isset( $plugins[ $plugin->getNamespace() ] );
     }
 
     /**
@@ -200,5 +220,18 @@ abstract class App implements \calderawp\interop\Interfaces\App
             ->createCollection(
                 $type, $args
             );
+    }
+
+    /**
+     * @return array|Industry|ServiceMap|mixed
+     */
+    protected function getPlugins()
+    {
+        if (!$this->has('PLUGINS')) {
+            $plugins = [];
+        } else {
+            $plugins = $this->get('PLUGINS');
+        }
+        return $plugins;
     }
 }

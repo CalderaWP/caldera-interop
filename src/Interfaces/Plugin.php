@@ -16,7 +16,7 @@ interface Plugin extends PluginOrApp
 {
 
     /**
-     * Get namespace to register in ServiceConta
+     * Get namespace to register in
      *
      * @return string
      */

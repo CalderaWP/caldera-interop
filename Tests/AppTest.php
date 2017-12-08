@@ -356,6 +356,37 @@ class AppTest extends CalderaInteropTestCase
 
     }
 
+    /**
+     * Test for plugin by object
+     *
+     * @covers \calderawp\interop\App::hasPlugin()
+     */
+    public function testHasPlugin()
+    {
+        $app = $this->appFactory();
+
+        $plugin = new \calderawp\interop\Mock\Plugin();
+
+        $app->addPlugin( $plugin );
+
+        $this->assertTrue( $app->hasPlugin( $plugin ) );
+        $this->assertTrue( $app->hasPluginByNamespace( $plugin->getNamespace() ) );
+    }
+
+    /**
+     * Test checking for plugin by namespace
+     *
+     * @covers \calderawp\interop\App::hasPluginByNamespace()
+     */
+    public function testHasPluginByNamespace()
+    {
+        $app = $this->appFactory();
+
+        $plugin = new \calderawp\interop\Mock\Plugin();
+
+        $app->addPlugin( $plugin );
+        $this->assertTrue( $app->hasPluginByNamespace( $plugin->getNamespace() ) );
+    }
 
 
 }
