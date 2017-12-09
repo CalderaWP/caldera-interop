@@ -186,5 +186,38 @@ class EventsTest extends CalderaInteropTestCase
 
     }
 
+    /**
+     * Test that hasFilter reports correctly
+     *
+     * @covers Events::hasFilter()
+     */
+    public function testHasFilter()
+    {
+
+        $filter = [
+            'name' => 'the_content',
+            'callback' => function() {
+                return 42;
+            },
+            'args' => 2,
+            'priority' => 5
+        ];
+
+        $event = \calderawp\interop\Events\Event::fromArray( $filter );
+        $events = new \calderawp\interop\Events\Events( new \NetRivet\WordPress\EventEmitter() );
+
+        $events->addFilter( $event );
+        $this->assertTrue( $events->hasFilter( 'the_content' ) );
+        $this->assertTrue( $events->hasFilter( $event->getName() ) );
+
+
+        $this->assertFalse( $events->hasFilter( 'init' ) );
+
+        $events2 = new \calderawp\interop\Events\Events( new \NetRivet\WordPress\EventEmitter() );
+
+        $this->assertFalse( $events2->hasFilter( 'the_content' ) );
+
+    }
+
 
 }

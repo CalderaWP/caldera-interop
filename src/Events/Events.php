@@ -111,6 +111,18 @@ class Events
     }
 
     /**
+     * @param string $eventName Event name.
+     * @param bool|string $callback Optional. Name of callback to check.
+     * @return bool
+     */
+    public function hasFilter( $eventName, $callback = false )
+    {
+        return $this->eventEmitter->hasFilter( $eventName, $callback );
+    }
+
+
+
+    /**
      * @param $eventName
      * @return mixed
      */
