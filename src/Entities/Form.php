@@ -83,7 +83,7 @@ class Form extends Entity
 	 *
 	 * @param array $formArray
 	 */
-	private function setFields(array $formArray): void
+	private function setFields(array $formArray)
 	{
 		$_fields = isset($formArray['fields']) && is_array($formArray['fields'])
 			? $formArray['fields']
@@ -98,7 +98,7 @@ class Form extends Entity
 	 * @param array $formArray
 	 * @return array
 	 */
-	private function setName(array $formArray): array
+	private function setName(array $formArray)
 	{
 		$this->name = isset($formArray['name'])
 			? $formArray['name']
