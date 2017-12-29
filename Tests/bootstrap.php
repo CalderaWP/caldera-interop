@@ -41,7 +41,15 @@ if ( file_exists( dirname( __FILE__, 2  ) . '/vendor/autoload.php' ) ) {
         }
 
 
-	}
+        if( \calderawp\interop\Mock\CastingEntity::class === $class ){
+            require __DIR__ . '/Mocks/CastingEntity.php';
+        }
+
+
+
+
+
+    }
 
 	spl_autoload_register('loader');
 
