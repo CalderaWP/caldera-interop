@@ -4,6 +4,7 @@
 namespace calderawp\interop\Traits;
 
 
+
 use calderawp\interop\Exceptions\Exception;
 
 trait CanCastProps
@@ -78,7 +79,6 @@ trait CanCastProps
      */
     private function castString($string,$default='')
     {
-        var_dump(__LINE__);
         return is_string( $string ) ? $string : $default;
     }
 
