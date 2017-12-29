@@ -3,31 +3,26 @@
 namespace calderawp\interop\Collections\EntityCollections;
 
 
+use calderawp\interop\Collections\IteratingCollection;
 use calderawp\interop\Entities\Field;
 
-class Fields extends EntityCollection
+class Fields extends IteratingCollection
 {
 
-	/** @var array */
-	protected $fields;
 
-	/**
-	 * Fields constructor.
-	 * @param array $fields Array of Field entity object
-	 */
-	public function __construct( array  $fields = [] )
-	{
-		if( ! empty( $fields ) ){
-			foreach ( $fields as $field ){
-			    if( is_array( $field ) ){
-			        $field = new Field( $field );
-                }
-				$this->addField( $field );
-			}
-		}
-	}
+    /** @inheritdoc */
+	public function getEntitySetter()
+    {
+        return 'addField';
+    }
 
-	/**
+    /** @inheritdoc */
+    public function getEntityType()
+    {
+       return Field::class;
+    }
+
+    /**
 	 * Add a field to collection
 	 *
 	 * @param Field $field
@@ -35,7 +30,7 @@ class Fields extends EntityCollection
 	 */
 	public function addField( Field $field )
 	{
-		$this->fields[ $field->getId() ] = $field;
+		$this->items[ $field->getId() ] = $field;
 		return $this;
 	}
 
@@ -47,7 +42,7 @@ class Fields extends EntityCollection
 	 */
 	public function getField( $id )
 	{
-		return isset( $this->fields[ $id ] ) ? $this->fields[ $id ] : null;
+		return isset( $this->items[ $id ] ) ? $this->items[ $id ] : null;
 
 	}
 
@@ -57,7 +52,7 @@ class Fields extends EntityCollection
 		 $fields = [];
 
 		 /** @var Field $field */
-			foreach ( $this->fields as  $field ){
+			foreach ( $this->items as  $field ){
 			$fields[ $field->getId() ] = $field->toArray();
 		 }
 		 return $fields;

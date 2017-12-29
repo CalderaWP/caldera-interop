@@ -24,6 +24,7 @@
         "files": ["src/functions.php"]
     },
 	"scripts" : {
-	  "tests" : "phpunit Tests"
+	  "tests" : "phpunit Tests",
+	  "tests-now" : "phpunit Tests --group=now"
 	}
 }

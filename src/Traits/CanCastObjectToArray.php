@@ -15,7 +15,6 @@ trait CanCastObjectToArray
      */
     protected function maybeCastObject($data)
     {
-
         if (is_object($data) && is_a($data, '\stdClass')) {
             $data = (array)$data;
 
