@@ -31,6 +31,7 @@ class Fields extends IteratingCollection
 	public function addField( Field $field )
 	{
 		$this->items[ $field->getId() ] = $field;
+		$this->mapPosition($field->getId());
 		return $this;
 	}
 

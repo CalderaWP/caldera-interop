@@ -89,6 +89,16 @@ class IteratingCollectionTest extends CollectionCalderaInteropTestCase
         $this->assertSame( $fieldOne->getId(), 'fld42' );
     }
 
+
+    /**
+     *
+     * @covers IteratingCollection::mapPosition()
+     */
+    public function testPositionMap()
+    {
+
+    }
+
     /**
      * Test creating collection from array of items
      *
@@ -124,9 +134,13 @@ class IteratingCollectionTest extends CollectionCalderaInteropTestCase
             $this->assertTrue( $collection->valid());
             $this->assertSame( $i, $collection->key() );
             $this->assertSame( $collection->current(), $item );
+            $this->assertSame( $fields[$i]['ID'], $item->getId() );
             $this->assertTrue( $collection->isCorrectEntity($item));
             $i++;
         }
+
+        //This test fails if no items were returned by loop.
+        $this->assertEquals($collection->count(), $i);
 
     }
 

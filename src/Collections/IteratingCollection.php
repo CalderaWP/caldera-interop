@@ -23,6 +23,8 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
      */
     protected $position;
 
+    private $positionMap;
+
     /**
      * Get name of setter function for adding items to collection
      *
@@ -58,8 +60,19 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
         if( ! empty( $items)){
             $this->setEntitiesFromArray($items,$this);
         }
+
+
     }
 
+    /**
+     * @param $id
+     * @return int
+     */
+    protected function mapPosition($id)
+    {
+        $this->positionMap[] = $id;
+        return count($this->positionMap) -1;
+    }
 
     /**
      * Create collection from array
@@ -135,7 +148,7 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 
     /** @inheritdoc */
     public function current() {
-        return $this->items[$this->position];
+        return $this->items[$this->positionMap[$this->position]];
     }
 
     /** @inheritdoc */
@@ -150,7 +163,7 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 
     /** @inheritdoc */
     public function valid() {
-        return isset($this->items[$this->position]);
+        return isset($this->positionMap[$this->position],$this->items[$this->positionMap[$this->position]]);
     }
 
 }
