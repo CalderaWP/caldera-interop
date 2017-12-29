@@ -47,6 +47,7 @@ trait CanCastProps
             throw new Exception( json_encode($callable));
         }
         $this->$propName = call_user_func( $callable,$value);
+        return $this->$propName;
     }
 
     /**
