@@ -5,6 +5,7 @@ namespace calderawp\interop\Collections;
 
 
 use calderawp\interop\Entities\Entity;
+use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Exceptions\Exception;
 use calderawp\interop\Interfaces\CreateFromStdClass;
 use calderawp\interop\Traits\CanCastObjectToArray;
@@ -116,7 +117,7 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
      * @param Entity[] $data Array of compatible entities
      * @param static|null $obj Object to set on. If null $this is used.
      *
-     * @throws Exception
+     * @throws ContainerException
      */
     public  function setEntitiesFromArray(array $data, $obj = null )
     {
@@ -134,7 +135,7 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
             if ( $this->isCorrectEntity($entity)) {
                 call_user_func([$obj, $obj->getEntitySetter()], $entity);
             }else{
-                throw new Exception( sprintf( 'Not valid type to set as entity. Type is: %s. Type should be %s', getType($entity),$this->getEntityType()));
+                throw new ContainerException( sprintf( 'Not valid type to set as entity. Type is: %s. Type should be %s', getType($entity),$this->getEntityType()));
             }
         }
     }
