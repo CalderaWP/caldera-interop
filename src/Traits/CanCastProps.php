@@ -97,5 +97,14 @@ trait CanCastProps
         return is_int($maybeInt) ? $maybeInt : $default;
     }
 
+    /**
+     * @param $value
+     * @return bool
+     */
+    protected function castBool($value)
+    {
+        return boolval($value);
+    }
+
 
 }
