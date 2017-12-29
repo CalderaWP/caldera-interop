@@ -15,10 +15,11 @@ trait CanCastObjectToArray
      */
     protected function maybeCastObject($data)
     {
-        if (is_object($data) && is_a($data, '\stdClass')) {
+        if (is_object($data)) {
             $data = (array)$data;
 
         }
+
 
         return $data;
     }
