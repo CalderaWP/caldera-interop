@@ -110,5 +110,30 @@ class CastingEntityTest extends EntityCalderaInteropTestCase
         $this->assertEmpty( $entity->a );
     }
 
+    /**
+     * Test an  integer is NOT effected by castNumeric
+     *
+     * @covers CanCastProps::castNumeric()
+     */
+    public function testCastNumericInteger()
+    {
+        $entity = new \calderawp\interop\Mock\CastingEntity();
+        $entity->xp = 42;
+        $this->assertEquals( 42, $entity->xp );
+    }
+
+
+    /**
+     * Test a numeric string is cast to an integer by castNumeric
+     *
+     * @covers CanCastProps::castNumeric()
+     */
+    public function testCastNumericString()
+    {
+        $entity = new \calderawp\interop\Mock\CastingEntity();
+        $entity->xp = '42';
+        $this->assertTrue(is_integer( $entity->xp ) );
+        $this->assertEquals( 42, $entity->xp );
+    }
 
 }

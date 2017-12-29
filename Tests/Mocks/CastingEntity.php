@@ -14,10 +14,11 @@ class CastingEntity extends Entity
 
     protected $hi;
     protected  $title;
-
+    protected $xp;
     protected $casts = [
         'hi' => 'array',
-        'title' => 'string'
+        'title' => 'string',
+        'xp' => 'numeric',
     ];
 
 

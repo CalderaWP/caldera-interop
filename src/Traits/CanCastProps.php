@@ -82,5 +82,19 @@ trait CanCastProps
         return is_string( $string ) ? $string : $default;
     }
 
+    /**
+     * @param int|string $maybeInt Integer or string to cast. If other type default is returned
+     * @param int $default
+     * @return int
+     */
+    protected function castNumeric($maybeInt,$default=0)
+    {
+        if( is_string( $maybeInt)&&is_numeric($maybeInt)){
+            $maybeInt = intval($maybeInt);
+        }
+
+        return is_int($maybeInt) ? $maybeInt : $default;
+    }
+
 
 }
