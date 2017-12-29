@@ -136,4 +136,84 @@ class CastingEntityTest extends EntityCalderaInteropTestCase
         $this->assertEquals( 42, $entity->xp );
     }
 
+    /**
+     * Test casting  boolean leaves booleans booleans
+     *
+     * @covers CanCastProps::castBool()
+     */
+    public function testCastBool()
+    {
+        $entity = new \calderawp\interop\Mock\CastingEntity();
+        $entity->has = true;
+        $this->assertTrue( is_bool( $entity->has ) );
+        $this->assertEquals( true, $entity->has );
+
+        $entity2 = new \calderawp\interop\Mock\CastingEntity();
+        $entity2->has = false;
+        $this->assertEquals( false, $entity2->has );
+        $this->assertTrue( is_bool( $entity2->has ) );
+
+    }
+
+
+    /**
+     * Test casting string to boolean
+     *
+     * @covers CanCastProps::castBool()
+     */
+    public function testCastBoolString()
+    {
+        $entity = new \calderawp\interop\Mock\CastingEntity();
+        $entity->has = 'true';
+        $this->assertTrue( is_bool( $entity->has ) );
+        $this->assertEquals( true, $entity->has );
+
+        $entity2 = new \calderawp\interop\Mock\CastingEntity();
+        $entity2->has = 'false';
+        $this->assertEquals( false, $entity2->has );
+        $this->assertTrue( is_bool( $entity2->has ) );
+
+        $entity3 = new \calderawp\interop\Mock\CastingEntity();
+        $entity3->has = '1';
+        $this->assertTrue( is_bool( $entity3->has ) );
+        $this->assertEquals( true, $entity3->has );
+
+        $entity4 = new \calderawp\interop\Mock\CastingEntity();
+        $entity4->has = '0';
+        $this->assertEquals( false, $entity4->has );
+        $this->assertTrue( is_bool( $entity4->has ) );
+
+    }
+
+    /**
+     * Test casting string to boolean
+     *
+     * @covers CanCastProps::castBool()
+     */
+    public function testCastBoolInteger()
+    {
+        $entity = new \calderawp\interop\Mock\CastingEntity();
+        $entity->has = 1;
+        $this->assertTrue( is_bool( $entity->has ) );
+        $this->assertEquals( true, $entity->has );
+
+        $entity2 = new \calderawp\interop\Mock\CastingEntity();
+        $entity2->has = 0;
+        $this->assertEquals( false, $entity2->has );
+        $this->assertTrue( is_bool( $entity2->has ) );
+
+    }
+
+    /**
+     * Test alias of castBool
+     *
+     * @covers CanCastProps::castBoolean()
+     */
+    public function testCastBoolean()
+    {
+        $entity = new \calderawp\interop\Mock\CastingEntity();
+        $entity->otherhas = 'true';
+        $this->assertEquals( true, $entity->otherhas );
+    }
+
 }

@@ -98,12 +98,29 @@ trait CanCastProps
     }
 
     /**
-     * @param $value
+     * @param bool|mixed $value Possibly boolean value to cast
      * @return bool
      */
     protected function castBool($value)
     {
-        return boolval($value);
+        // Copied from WordPress' rest_sanitize_boolean()
+        if ( is_string( $value )  ) {
+            $value = strtolower( $value );
+            if ( in_array( $value, array( 'false', '0' ), true ) ) {
+                $value = false;
+            }
+        }
+
+        return (boolean) $value;
+    }
+
+    /**
+     * @param bool|mixed $value Possibly boolean value to cast
+     * @return bool
+     */
+    protected function castBoolean($value)
+    {
+        return $this->castBool($value);
     }
 
 
