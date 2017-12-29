@@ -14,15 +14,24 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 
     use CanCastObjectToArray;
     /**
+     * Collection items
+     *
      * @var array
      */
     protected $items;
 
     /**
+     * Current iterator position
+     *
      * @var int
      */
     protected $position;
 
+    /**
+     * Maps entity ID to position for iteration
+     *
+     * @var array
+     */
     private $positionMap;
 
     /**
