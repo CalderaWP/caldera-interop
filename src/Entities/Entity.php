@@ -20,7 +20,7 @@ abstract class Entity implements JsonArrayable
     {
         $obj = new static( $items );
         foreach ( $items as $key => $item ){
-            $obj->$key = $item;
+            $obj->__set( $key, $item );
         }
 
         return $obj;
