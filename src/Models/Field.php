@@ -16,8 +16,9 @@ class Field extends Model
     }
 
 
-    public function toResponse()
+    /** @inheritdoc */
+    public static function getType()
     {
-        return new Response();
+        return 'field';
     }
 }

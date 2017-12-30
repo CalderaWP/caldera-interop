@@ -25,7 +25,16 @@ interface Interoperable
     public function isValid();
 
     /**
+     * Convert model to array
+     *
      * @return array
      */
     public function toArray();
+
+    /**
+     * Get type of model
+     *
+     * @return string
+     */
+    public static function getType();
 }

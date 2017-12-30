@@ -8,7 +8,30 @@
 class FormModelTest extends ModelCalderaInteropTestCase
 {
 
-	/**
+    /**
+     * Test getting type static
+     *
+     * @covers Form::getType()
+     */
+    public function testGetType()
+    {
+        $this->assertSame('form', \calderawp\interop\Models\Form::getType() );
+    }
+
+    /**
+     * Test getting type
+     *
+     * @covers Form::getType()
+     */
+    public function testGetTheType()
+    {
+        $formEntity = $this->entityFactory( 'FORM' );
+        $formModel = new \calderawp\interop\Models\Form( $formEntity );
+        $this->assertSame('form', $formModel->getTheType() );
+
+    }
+
+    /**
 	 * Test get entity from model
 	 *
 	 * @covers  \calderawp\interop\Models\Model::toEntity();
@@ -66,7 +89,10 @@ class FormModelTest extends ModelCalderaInteropTestCase
 
 	}
 
-
+    /**
+     *
+     * @covers Fields::addField()
+     */
 	public function testAddField()
 	{
 

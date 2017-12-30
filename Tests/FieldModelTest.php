@@ -16,6 +16,16 @@ use calderawp\interop\Models\Field as FieldModel;
  */
 class FieldModelTest extends ModelCalderaInteropTestCase
 {
+    /**
+     * Test getting type
+     *
+     * @covers Field::getType()
+     */
+    public function testGetType()
+    {
+        $this->assertSame('field', \calderawp\interop\Models\Field::getType() );
+    }
+
 	/**
 	 * Test ID set of this model
 	 *

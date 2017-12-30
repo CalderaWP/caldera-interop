@@ -17,11 +17,6 @@ class Form extends Model
         return FormEntity::class;
     }
 
-    /** @inheritdoc */
-    public function toResponse()
-    {
-        return new Response();
-    }
 
     /**
      * @return FormEntity
@@ -37,5 +32,11 @@ class Form extends Model
     public function getFields()
     {
         return $this->entity->getFields();
+    }
+
+    /** @inheritdoc */
+    public static function getType()
+    {
+        return 'form';
     }
 }
