@@ -6,11 +6,11 @@ namespace calderawp\interop\Collections;
 
 use calderawp\interop\Entities\Entity;
 use calderawp\interop\Exceptions\ContainerException;
-use calderawp\interop\Exceptions\Exception;
 use calderawp\interop\Interfaces\CreateFromStdClass;
+use calderawp\interop\Interfaces\EntitySpecific;
 use calderawp\interop\Traits\CanCastObjectToArray;
 
-abstract class IteratingCollection extends Collection implements \Iterator, CreateFromStdClass
+abstract class IteratingCollection extends Collection implements \Iterator, CreateFromStdClass, EntitySpecific
 {
 
     use CanCastObjectToArray;
@@ -42,14 +42,6 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
      */
     abstract public function getEntitySetter();
 
-
-
-    /**
-     * Get class reference for entity being collected
-     *
-     * @return string
-     */
-    abstract public function getEntityType();
 
     /**
      * Get number of items in collection

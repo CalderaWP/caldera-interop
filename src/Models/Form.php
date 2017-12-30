@@ -1,47 +1,41 @@
 <?php
 
+
 namespace calderawp\interop\Models;
 
-use calderawp\interop\Collections\EntityCollections\Fields;
-use calderawp\interop\Entities\Form as FormEntity;
+use \calderawp\interop\Entities\Form as FormEntity;
+use \calderawp\interop\Entities\Field as FieldEntity;
+
+use GuzzleHttp\Psr7\Response;
 
 class Form extends Model
 {
-	/** @var Form */
-	protected $entity;
 
-	/**
-	 * Get fields of form
-	 *
-	 * @return Fields
-	 */
-	public function getFields()
-	{
-		return $this->entity->getFields();
-	}
+    /** @inheritdoc */
+    public function getEntityType()
+    {
+        return FormEntity::class;
+    }
 
-	/**
-	 * Get form name
-	 *
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->entity->getName();
-	}
+    /** @inheritdoc */
+    public function toResponse()
+    {
+        return new Response();
+    }
 
-	public static function fromArray( array $data ){
-		self::fixId( $data );
+    /**
+     * @return FormEntity
+     */
+    public function getEntity()
+    {
+        return $this->entity;
+    }
 
-		$entity = new FormEntity( $data );
-
-		$obj = new static( $entity  );
-
-		$obj->setId( $data[ 'ID' ] );
-
-		return $obj;
-
-	}
-
-
+    /**
+     * @return \calderawp\interop\Collections\EntityCollections\Fields
+     */
+    public function getFields()
+    {
+        return $this->entity->getFields();
+    }
 }

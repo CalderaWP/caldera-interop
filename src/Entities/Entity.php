@@ -63,4 +63,12 @@ abstract class Entity implements JsonArrayable
         return  get_object_vars( $this );
     }
 
+    /**
+     * @return array
+     */
+    public function getEntityProps()
+    {
+        return array_keys(get_object_vars($this));
+    }
+
 }

@@ -1,27 +1,23 @@
 <?php
 
+
 namespace calderawp\interop\Models;
+
+use \calderawp\interop\Entities\Form as FormEntity;
 use \calderawp\interop\Entities\Field as FieldEntity;
-/**
- * Class Field
- *
- *
- * @package calderawp\interop\Models
- */
+use GuzzleHttp\Psr7\Response;
+
 class Field extends Model
 {
 
-	public static function fromArray( array $data ){
-		self::fixId( $data );
-
-		$entity = new FieldEntity( $data );
-
-		$obj = new static($entity  );
-		$obj->setId( $data[ 'ID' ] );
-
-		return $obj;
-
-	}
+    public function getEntityType()
+    {
+        return FieldEntity::class;
+    }
 
 
+    public function toResponse()
+    {
+        return new Response();
+    }
 }
