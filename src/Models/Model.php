@@ -53,7 +53,20 @@ abstract class Model implements Interoperable, EntitySpecific
 		return $this->entity;
 	}
 
-	/**
+	/** @inheritdoc */
+	public function __get($name)
+    {
+        return $this->entity->$name;
+    }
+
+    /** @inheritdoc */
+    public function __set($name, $value)
+    {
+        $this->entity->$name = $value;
+        return $this;
+    }
+
+    /**
 	 * @param $id
 	 */
 	public function setId( $id )
@@ -104,7 +117,17 @@ abstract class Model implements Interoperable, EntitySpecific
         return $this->entity;
     }
 
-
+    /**
+     * Reset entity of model
+     *
+     * @param Entity $entity
+     * @return $this
+     */
+    public function resetEntity( Entity $entity )
+    {
+        $this->entity = $entity;
+        return $this;
+    }
     /**
      * Cast from array (or stdClass that can be recursively casted to array)
      *
@@ -114,7 +137,11 @@ abstract class Model implements Interoperable, EntitySpecific
     public static function fromArray($data)
     {
         $obj = new static();
-        return call_user_func( [$obj->getEntityType(), 'fromArray'],self::arrayCastRecursiveStatic($data));
+        /** @var Entity $entity */
+        $entity = call_user_func( [$obj->getEntityType(), 'fromArray'],self::arrayCastRecursiveStatic($data));
+        $obj->resetEntity($entity);
+        $obj->setId($entity->getId());
+        return $obj;
     }
 
     /**
