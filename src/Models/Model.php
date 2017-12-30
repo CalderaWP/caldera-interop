@@ -63,8 +63,6 @@ abstract class Model implements Interoperable, EntitySpecific
 	/** @inheritdoc */
 	public static function fromRequest(Request $request)
     {
-
-        $obj = new static();
         $body = json_decode($request->getBody()->getContents());
         return self::fromArray($body);
     }

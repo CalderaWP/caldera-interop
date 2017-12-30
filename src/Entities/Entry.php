@@ -17,7 +17,7 @@ class Entry extends Entity
     protected $fieldValues;
 
     /** @var Form */
-    protected  $form;
+    protected $form;
 
 
     /**
@@ -26,7 +26,7 @@ class Entry extends Entity
      * @param Fields $fields Collection of field values (a collection of calderawp\interop\Entities\Entry\Field objects)
      * @param Form $form Form that created this entry
      */
-    public function __construct( Details $entryDetails, Fields $fields, Form $form )
+    public function __construct(Details $entryDetails, Fields $fields, Form $form)
     {
         $this->entryDetails = $entryDetails;
         $this->fieldValues = $fields;
@@ -59,10 +59,10 @@ class Entry extends Entity
      * @param string|int $id
      * @return Field|null
      */
-    public function getFieldValue( $id )
+    public function getFieldValue($id)
     {
-        if( $this->getFieldValues()->hasField( $id ) ){
-            return $this->fieldValues->getField( $id );
+        if ($this->getFieldValues()->hasField($id)) {
+            return $this->fieldValues->getField($id);
         }
 
         return null;
