@@ -4,24 +4,24 @@
 namespace calderawp\interop\Entities;
 
 /**
- * Class Recipient
+ * Class EmailAddress
  *
- * Object representation of email recipient
+ * Object representation of email with optional name. MUST be implimented in context -- Recipinet, Submitter, CC, BCC et.
  *
  * @package calderawp\interop\Entities
  */
-class Recipient extends Entity
+abstract class EmailAddress extends Entity
 {
 
     /**
-     * The recipient's name
+     * The email's name
      *
      * @var string
      */
     protected $name;
 
     /**
-     * The recipient's email
+     * The email's address
      *
      * @var string
      */

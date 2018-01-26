@@ -1,20 +1,20 @@
 <?php
 
-use \calderawp\interop\Entities\EmailRecipient;
+use \calderawp\interop\Entities\EmailSender;
 
-class RecipientEntityTest extends EntityCalderaInteropTestCase
+class SenderEntityTest extends EntityCalderaInteropTestCase
 {
 
     /**
      * Test get and set name
      *
-     * @covers EmailRecipient::$name
-     * @covers EmailRecipient::__get()
-     * @covers EmailRecipient::__set()
+     * @covers EmailSender::$name
+     * @covers EmailSender::__get()
+     * @covers EmailSender::__set()
      */
     public function testSetName()
     {
-        $entity = new EmailRecipient();
+        $entity = new EmailSender();
         $entity->name = 'Batman';
         $this->assertSame( 'Batman', $entity->name );
     }
@@ -22,13 +22,13 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
     /**
      * Test get and set email
      *
-     * @covers EmailRecipient::$email
-     * @covers EmailRecipient::__get()
-     * @covers EmailRecipient::__set()
+     * @covers EmailSender::$email
+     * @covers EmailSender::__get()
+     * @covers EmailSender::__set()
      */
     public function testSetEmail()
     {
-        $entity = new EmailRecipient();
+        $entity = new EmailSender();
         $entity->email = 'batman@isotrope.net';
         $this->assertSame( 'batman@isotrope.net', $entity->email );
 
@@ -37,14 +37,14 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
     /**
      * Test get and set email together
      *
-     * @covers EmailRecipient::$name
-     * @covers EmailRecipient::$email
-     * @covers EmailRecipient::__get()
-     * @covers EmailRecipient::__set()
+     * @covers EmailSender::$name
+     * @covers EmailSender::$email
+     * @covers EmailSender::__get()
+     * @covers EmailSender::__set()
      */
     public function testSetNameEmail()
     {
-        $entity = new EmailRecipient();
+        $entity = new EmailSender();
         $entity->email = 'batman@isotrope.net';
         $entity->name = 'Batman';
         $this->assertSame( 'Batman', $entity->name );
@@ -55,11 +55,11 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
     /**
      * Test conversion to array
      *
-     * @covers EmailRecipient::toArray()
+     * @covers EmailSender::toArray()
      */
     public function testToArray()
     {
-        $entity = new EmailRecipient();
+        $entity = new EmailSender();
         $entity->email = 'batman@isotrope.net';
         $entity->name = 'Batman';
         $array = $entity->toArray();
@@ -71,11 +71,11 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
     /**
      * Test conversion to array
      *
-     * @covers EmailRecipient::fromArray()
+     * @covers EmailSender::fromArray()
      */
     public function testFromArray()
     {
-        $entity = EmailRecipient::fromArray( array(
+        $entity = EmailSender::fromArray( array(
             'name' => 'Batman',
             'email' => 'batman@isotrope.net'
         ));
@@ -88,11 +88,11 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
     /**
      * Test conversion to string when only an email is present
      *
-     * @covers EmailRecipient::__toString()
+     * @covers EmailSender::__toString()
      */
     public function testToStringWithoutName()
     {
-        $entity = new EmailRecipient();
+        $entity = new EmailSender();
         $entity->email = 'batman@isotrope.net';
         $this->assertSame( 'batman@isotrope.net', $entity->__toString() );
     }
@@ -100,11 +100,11 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
     /**
      * Test conversion to string
      *
-     * @covers EmailRecipient::__toString()
+     * @covers EmailSender::__toString()
      */
     public function testToStringWithName()
     {
-        $entity = new EmailRecipient();
+        $entity = new EmailSender();
         $entity->name = 'Batman';
         $entity->email = 'batman@isotrope.net';
         $this->assertSame( 'Batman <batman@isotrope.net>', $entity->__toString() );
