@@ -37,4 +37,13 @@ abstract class EmailAddress extends Entity
         return $this->name . ' <' . $this->email . '>';
     }
 
+    /** @inheritdoc */
+    public function toArray()
+    {
+        $array = parent::toArray();
+        unset( $array[ 'id' ] );
+        unset( $array[ 'ID' ] );
+        return $array;
+    }
+
 }

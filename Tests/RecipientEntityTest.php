@@ -2,6 +2,9 @@
 
 use \calderawp\interop\Entities\EmailRecipient;
 
+/**
+ * Class RecipientEntityTest
+ */
 class RecipientEntityTest extends EntityCalderaInteropTestCase
 {
 

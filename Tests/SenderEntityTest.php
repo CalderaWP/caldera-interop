@@ -2,6 +2,9 @@
 
 use \calderawp\interop\Entities\EmailSender;
 
+/**
+ * Class SenderEntityTest
+ */
 class SenderEntityTest extends EntityCalderaInteropTestCase
 {
 
