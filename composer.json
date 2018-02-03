@@ -26,7 +26,8 @@
         "files": ["src/functions.php"]
     },
 	"scripts" : {
-	  "tests" : "phpunit Tests",
+	  "tests" : "composer test",
+	  "test" : "phpunit Tests",
 	  "tests-now" : "phpunit Tests --group=now"
 	}
 }
