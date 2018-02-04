@@ -73,20 +73,20 @@ abstract class Container implements \JsonSerializable, Arrayable, ContainerInter
     /** @inheritdoc */
     public function offsetGet($offset)
     {
-        return $this->pimple->offsetGet($offset);
+        return $this->getPimple()->offsetGet($offset);
     }
 
 
     /** @inheritdoc */
     public function offsetSet($offset, $value)
     {
-        return $this->offsetSet($offset, $value);
+        $this->getPimple()->offsetSet($offset, $value);
     }
 
     /** @inheritdoc */
     public function offsetUnset($offset)
     {
-        return $this->offsetUnset($offset);
+        $this->getPimple()->offsetUnset($offset);
     }
 
 
