@@ -12,7 +12,7 @@ function Interop(){
     static $calderaInterop;
     if( ! $calderaInterop ){
         $calderaInterop = new \calderawp\interop\InteropApp(
-            new ServiceContainer(),
+            new ServiceControlledContainer(),
             getBasePath(),
             getMeta()->version
 

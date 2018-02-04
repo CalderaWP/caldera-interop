@@ -4,131 +4,90 @@
 namespace calderawp\interop;
 
 
-
-use function calderawp\interop\Support\value;
+use calderawp\interop\Interfaces\Arrayable;
 use Psr\Container\ContainerInterface;
 
-abstract class Container implements \JsonSerializable, ContainerInterface
+/**
+ * Class Container
+ *
+ * Container that is just pimple + interface implimentations
+ * @package calderawp\interop
+ */
+abstract class Container implements \JsonSerializable, Arrayable, ContainerInterface, \ArrayAccess
 {
 
-	/**
-	 * @var  array
-	 */
-	protected $defaults;
-
-	/**
-	 * @var array
-	 */
-	protected $attributes;
-
-	/**
-	 * @var \Pimple\Container
-	 */
-	protected $pimple;
-
-	public function __construct( array $attributes = array(), array  $defaults = array() )
-	{
-		$this->setProps( $attributes, $defaults);
-		$this->pimple = new \Pimple\Container();
-	}
-
-	/** @inheritdoc */
-	public function get($id )
-	{
-		if( $this->allowed( $id ) ){
-			if ( $this->pimple->offsetExists( $id )) {
-				return $this->pimple->offsetGet($id);
-			}elseif( array_key_exists( $id, $this->defaults ) ){
-				return $this->defaults[ $id ];
-			}else{
-				return null;
-			}
-		}
-
-		return null;
-	}
+    /**
+     * @var \Pimple\Container
+     */
+    private $pimple;
 
     /**
-     * @param string $id
-     * @param mixed $value
-     * @return $this
+     * @return \Pimple\Container
      */
-	public function set( $id, $value )
-	{
-		if( $this->allowed( $id ) ){
-			$this->pimple->offsetSet( $id, $value );
-		}
-
-		return $this;
-
-
-	}
-
-    /** @inheritdoc */
-    public function has( $id )
+    protected function getPimple()
     {
-        return  $this->allowed( $id )  && $this->pimple->offsetExists( $id  );
-
+        if( ! $this->pimple ){
+            $this->pimple = new \Pimple\Container();
+        }
+        return $this->pimple;
     }
 
-	/**
-	 * @param $id
-	 * @return bool
-	 */
-	public function allowed( $id )
-	{
-        return isset( $id, $this->attributes );
-	}
+    /** @inheritdoc */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+    /** @inheritdoc */
+    public function toArray()
+    {
+        return (array)$this->getPimple();
+    }
 
-	/**
-	 *
-     * @todo Put this method in trait
-     *
-     * @return array
-	 */
-	public function toArray()
-	{
-		$data = array();
-		foreach ( $this->attributes as $property ){
-			$data[ $property ] = $this->get( $property );
-		}
+    /** @inheritdoc */
+    public function get($id)
+    {
+        if ($this->has($id)) {
+            return $this->getPimple()->offsetGet($id);
+        }
+    }
 
-		return $data;
-	}
+    /** @inheritdoc */
+    public function has($id)
+    {
+        return $this->getPimple()->offsetExists($id);
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function jsonSerialize()
-	{
-		return $this->toArray();
-	}
+    /** @inheritdoc */
+    public function set($id, $value)
+    {
+        $this->getPimple()->offsetSet($id, $value);
+        return $this;
+    }
 
-	/**
-	 * @param array $attributes
-	 * @param array $defaults
-	 */
-	private function setProps(array $attributes, array $defaults)
-	{
-		$this->attributes = $attributes;
-		$this->defaults = $defaults;
-		$this->propArrayMerge('attributes', $attributes);
-		$this->propArrayMerge('defaults', $defaults);
-	}
+    /** @inheritdoc */
+    public function offsetExists($offset)
+    {
+        return $this->getPimple()->offsetExists($offset);
+    }
 
-	/**
-	 * @param $prop
-	 * @param array $new
-	 */
-	private function propArrayMerge( $prop, array  $new = array() ){
+    /** @inheritdoc */
+    public function offsetGet($offset)
+    {
+        return $this->pimple->offsetGet($offset);
+    }
 
-		if( ! empty( $new ) ){
-		    if( ! empty( $this->$prop ) ){
-                $this->$prop = $new;
-            }else{
-                $this->$prop = array_merge( $new, $this->$prop );
-            }
-		}
-	}
+
+    /** @inheritdoc */
+    public function offsetSet($offset, $value)
+    {
+        return $this->offsetSet($offset, $value);
+    }
+
+    /** @inheritdoc */
+    public function offsetUnset($offset)
+    {
+        return $this->offsetUnset($offset);
+    }
+
 
 }

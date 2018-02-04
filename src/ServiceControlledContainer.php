@@ -10,7 +10,7 @@ use calderawp\interop\Interfaces\Factory;
 use calderawp\interop\Interfaces\Service;
 use NetRivet\WordPress\EventEmitter;
 
-class ServiceContainer extends Container
+class ServiceControlledContainer extends ControlledContainer
 {
 
     /** @inheritdoc */

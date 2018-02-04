@@ -4,7 +4,7 @@ namespace calderawp\interop\Models;
 
 
 
-use calderawp\interop\Container;
+use calderawp\interop\ControlledContainer;
 use calderawp\interop\Entities\Entity;
 use calderawp\interop\Interfaces\EntitySpecific;
 use calderawp\interop\Interfaces\Interoperable;

@@ -4,7 +4,7 @@
 namespace calderawp\interop\Interfaces;
 
 
-use calderawp\interop\ServiceContainer;
+use calderawp\interop\ServiceControlledContainer;
 use Psr\Container\ContainerInterface;
 
 /**

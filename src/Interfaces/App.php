@@ -4,7 +4,7 @@
 namespace calderawp\interop\Interfaces;
 
 
-use calderawp\interop\ServiceContainer;
+use calderawp\interop\ServiceControlledContainer;
 
 interface App extends PluginOrApp
 {
@@ -12,7 +12,7 @@ interface App extends PluginOrApp
     /**
      * Get ServiceContainer object for app
      *
-     * @return ServiceContainer
+     * @return ServiceControlledContainer
      */
     public function getServiceContainer();
 

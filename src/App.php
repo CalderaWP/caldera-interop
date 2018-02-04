@@ -17,7 +17,7 @@ abstract class App implements \calderawp\interop\Interfaces\App
     private $container;
 
     /**
-     * @var ServiceContainer
+     * @var ServiceControlledContainer
      */
     private $serviceContainer;
 
@@ -30,7 +30,7 @@ abstract class App implements \calderawp\interop\Interfaces\App
      */
     private $version;
 
-    public function __construct(ServiceContainer $serviceContainer, $basePath, $version )
+    public function __construct(ServiceControlledContainer $serviceContainer, $basePath, $version )
     {
         $this->container = new \Pimple\Container();
         $this->serviceContainer = $serviceContainer;
@@ -167,7 +167,7 @@ abstract class App implements \calderawp\interop\Interfaces\App
     }
 
     /**
-     * @return ServiceContainer
+     * @return ServiceControlledContainer
      */
     public function getServiceContainer()
     {

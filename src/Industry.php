@@ -28,16 +28,16 @@ class Industry
     protected $serviceMap;
 
     /**
-     * @var ServiceContainer
+     * @var ServiceControlledContainer
      */
     protected $serviceContainer;
 
     /**
      * Industry constructor.
      *
-     * @param ServiceContainer $serviceContainer
+     * @param ServiceControlledContainer $serviceContainer
      */
-    public function __construct( ServiceContainer $serviceContainer )
+    public function __construct( ServiceControlledContainer $serviceContainer )
     {
         $this->serviceContainer = $serviceContainer;
         $this->serviceMap = $this->serviceContainer->getServiceMap();
@@ -54,7 +54,7 @@ class Industry
     }
 
     /**
-     * @return ServiceContainer
+     * @return ServiceControlledContainer
      */
     public function getServiceContainer()
     {

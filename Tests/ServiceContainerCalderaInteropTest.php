@@ -7,11 +7,11 @@ class ServiceContainerCalderaInteropTest extends CalderaInteropTestCase
     /**
      * Test getting the service map object from container
      *
-     * @covers  \calderawp\interop\ServiceContainer::getServiceMap()
+     * @covers  \calderawp\interop\ServiceControlledContainer::getServiceMap()
      */
     public function testServiceMap()
     {
-        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $serviceContainer = new \calderawp\interop\ServiceControlledContainer();
 
         $this->assertTrue(
             is_object(
@@ -37,11 +37,11 @@ class ServiceContainerCalderaInteropTest extends CalderaInteropTestCase
      * Test getting the Industry object from container
      *
      *
-     * @covers  \calderawp\interop\ServiceContainer::getIndustry()
+     * @covers  \calderawp\interop\ServiceControlledContainer::getIndustry()
      */
     public function testIndustry()
     {
-        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $serviceContainer = new \calderawp\interop\ServiceControlledContainer();
 
         $this->assertTrue(
             is_object(

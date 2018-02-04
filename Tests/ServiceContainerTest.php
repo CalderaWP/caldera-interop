@@ -7,9 +7,9 @@ class ServiceContainerTest extends CalderaInteropTestCase
     /**
      * Test we can control allowed props via constructor
      *
-     * @covers \calderawp\interop\ServiceContainer::has()
-     * @covers \calderawp\interop\ServiceContainer::setProps()
-     * @covers \calderawp\interop\ServiceContainer::propArrayMerge()
+     * @covers \calderawp\interop\ServiceControlledContainer::has()
+     * @covers \calderawp\interop\ServiceControlledContainer::setProps()
+     * @covers \calderawp\interop\ServiceControlledContainer::propArrayMerge()
      */
     public function testAllowedWithPassedAttributes()
     {
@@ -18,7 +18,7 @@ class ServiceContainerTest extends CalderaInteropTestCase
             'b',
             'c'
         ];
-        $container = new \calderawp\interop\ServiceContainer( $allowed );
+        $container = new \calderawp\interop\ServiceControlledContainer( $allowed );
 
         foreach ( $allowed as $offset )
         {
@@ -30,9 +30,9 @@ class ServiceContainerTest extends CalderaInteropTestCase
     /**
      * Test that correct default allowed attributes work
      *
-     * @covers \calderawp\interop\ServiceContainer::has()
-     * @covers \calderawp\interop\ServiceContainer::setProps()
-     * @covers \calderawp\interop\ServiceContainer::propArrayMerge()
+     * @covers \calderawp\interop\ServiceControlledContainer::has()
+     * @covers \calderawp\interop\ServiceControlledContainer::setProps()
+     * @covers \calderawp\interop\ServiceControlledContainer::propArrayMerge()
      */
     public function testAllowedWithoutPasssedAttributes()
     {
@@ -41,7 +41,7 @@ class ServiceContainerTest extends CalderaInteropTestCase
             'serviceMap',
             'eventManager'
         ];
-        $container = new \calderawp\interop\ServiceContainer( $allowed );
+        $container = new \calderawp\interop\ServiceControlledContainer( $allowed );
 
         foreach ( $allowed as $offset )
         {
@@ -53,11 +53,11 @@ class ServiceContainerTest extends CalderaInteropTestCase
     /**
      * Test we get right instance from getEventsManager() method
      *
-     * @covers \calderawp\interop\ServiceContainer::getEventsManager()
+     * @covers \calderawp\interop\ServiceControlledContainer::getEventsManager()
      */
     public function testGetEventManager()
     {
-        $container = new \calderawp\interop\ServiceContainer();
+        $container = new \calderawp\interop\ServiceControlledContainer();
         $this->assertInstanceOf(
             \calderawp\interop\Events\Events::class,
             $container->getEventsManager()
@@ -73,11 +73,11 @@ class ServiceContainerTest extends CalderaInteropTestCase
     /**
      * Test we get right instance from getServiceMap() method
      *
-     * @covers \calderawp\interop\ServiceContainer::getServiceMap()
+     * @covers \calderawp\interop\ServiceControlledContainer::getServiceMap()
      */
     public function testGetServiceMap()
     {
-        $container = new \calderawp\interop\ServiceContainer();
+        $container = new \calderawp\interop\ServiceControlledContainer();
         $this->assertInstanceOf(
             \calderawp\interop\ServiceMap::class,
             $container->getServiceMap()
@@ -93,11 +93,11 @@ class ServiceContainerTest extends CalderaInteropTestCase
     /**
      * Test we get right instance from getIndustry() method
      *
-     * @covers \calderawp\interop\ServiceContainer::getIndustry()
+     * @covers \calderawp\interop\ServiceControlledContainer::getIndustry()
      */
     public function testGetIndustry()
     {
-        $container = new \calderawp\interop\ServiceContainer();
+        $container = new \calderawp\interop\ServiceControlledContainer();
         $this->assertInstanceOf(
             \calderawp\interop\Industry::class,
             $container->getIndustry()

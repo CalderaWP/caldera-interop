@@ -163,7 +163,7 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
      */
     public function industryFactory()
     {
-        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $serviceContainer = new \calderawp\interop\ServiceControlledContainer();
         return new \calderawp\interop\Industry($serviceContainer);
     }
 
@@ -173,7 +173,7 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
     public function appFactory()
     {
         return new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceContainer(),
+            new \calderawp\interop\ServiceControlledContainer(),
             dirname(__FILE__),
             '0.1.1'
         );

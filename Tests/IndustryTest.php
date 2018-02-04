@@ -12,7 +12,7 @@ class  IndustryTest extends CalderaInteropTestCase
     public function testToServiceMap()
     {
 
-        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $serviceContainer = new \calderawp\interop\ServiceControlledContainer();
         $industry =  new \calderawp\interop\Industry($serviceContainer);
         $this->assertEquals( new \calderawp\interop\ServiceMap(), $industry->getServiceMap() );
 
@@ -137,7 +137,7 @@ class  IndustryTest extends CalderaInteropTestCase
             ]
         );
 
-        $serviceContainer = new \calderawp\interop\ServiceContainer();
+        $serviceContainer = new \calderawp\interop\ServiceControlledContainer();
         $serviceContainer->resetServiceMap( $serviceMap );
         $industry =  new \calderawp\interop\Industry($serviceContainer);
 

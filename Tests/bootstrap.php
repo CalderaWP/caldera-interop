@@ -46,6 +46,9 @@ if ( file_exists( dirname( __FILE__, 2  ) . '/vendor/autoload.php' ) ) {
         }
 
 
+        if( \calderawp\interop\Mock\Container::class === $class ){
+            require __DIR__ . '/Mocks/Container.php';
+        }
 
 
 
