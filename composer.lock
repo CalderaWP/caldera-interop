@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b17e97b6fac80221afad523427c36d2",
+    "content-hash": "ce237fbabb4ef4c343dfd71b79ee3f07",
     "packages": [
         {
             "name": "netrivet/wp-event-emitter",
-            "version": "dev-master",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/downshiftorg/wp-event-emitter.git",
-                "reference": "c9e799d7464375d39d9bcd2894903d7c64c577de"
+                "reference": "3ae11f766aa3521bce16500113cc51140677312d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/downshiftorg/wp-event-emitter/zipball/c9e799d7464375d39d9bcd2894903d7c64c577de",
-                "reference": "c9e799d7464375d39d9bcd2894903d7c64c577de",
+                "url": "https://api.github.com/repos/downshiftorg/wp-event-emitter/zipball/3ae11f766aa3521bce16500113cc51140677312d",
+                "reference": "3ae11f766aa3521bce16500113cc51140677312d",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +30,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "DownShift\\WordPress\\": "src/"
+                    "NetRivet\\WordPress\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -45,20 +45,20 @@
             ],
             "description": "An object oriented event emitter for WordPress actions",
             "abandoned": "downshiftorg/wp-event-emitter",
-            "time": "2018-01-15T17:42:40+00:00"
+            "time": "2017-09-06T17:25:02+00:00"
         },
         {
             "name": "netrivet/wp-http",
-            "version": "dev-master",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/downshiftorg/wp-http.git",
-                "reference": "d00ebbfd14e9f8229433ad9c930a364cfff919e5"
+                "reference": "565018b869ac56d8c3b1ab0e2ce127e2e190ca12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/downshiftorg/wp-http/zipball/d00ebbfd14e9f8229433ad9c930a364cfff919e5",
-                "reference": "d00ebbfd14e9f8229433ad9c930a364cfff919e5",
+                "url": "https://api.github.com/repos/downshiftorg/wp-http/zipball/565018b869ac56d8c3b1ab0e2ce127e2e190ca12",
+                "reference": "565018b869ac56d8c3b1ab0e2ce127e2e190ca12",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "DownShift\\WordPress\\Http\\": "src/"
+                    "NetRivet\\WordPress\\Http\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -81,12 +81,12 @@
             "authors": [
                 {
                     "name": "Jared Henderson",
-                    "email": "jared@pro.photo"
+                    "email": "jared@netrivet.com"
                 }
             ],
             "description": "A psr7-ish, Guzzle-ish, set of request/response classes for WordPress.",
             "abandoned": "downshiftorg/wp-http",
-            "time": "2018-01-15T16:03:29+00:00"
+            "time": "2017-02-28T15:11:02+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -1681,10 +1681,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "netrivet/wp-http": 20,
-        "netrivet/wp-event-emitter": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
