@@ -45,6 +45,11 @@ if ( file_exists( dirname( __FILE__, 2  ) . '/vendor/autoload.php' ) ) {
             require __DIR__ . '/Mocks/CastingEntity.php';
         }
 
+        if( \calderawp\interop\Mock\EmailCastingEntity::class === $class ){
+            require __DIR__ . '/Mocks/EmailCastingEntity.php';
+        }
+
+
 
         if( \calderawp\interop\Mock\Container::class === $class ){
             require __DIR__ . '/Mocks/Container.php';

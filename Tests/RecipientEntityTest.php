@@ -37,6 +37,35 @@ class RecipientEntityTest extends EntityCalderaInteropTestCase
 
     }
 
+
+    /**
+     * Test set email via setter
+     *
+     * @covers EmailAddress::$email
+     * @covers EmailAddress::setEmail()
+     */
+    public function testSetEmailWithSetter()
+    {
+        $entity = new EmailRecipient();
+        $entity->setEmail( 'batman@isotrope.net' );
+        $this->assertSame( 'batman@isotrope.net', $entity->email );
+
+    }
+
+    /**
+     * Test set email via setter
+     *
+     * @covers EmailAddress::$name
+     * @covers EmailAddress::setName()
+     */
+    public function testSetNameWithSetter()
+    {
+        $entity = new EmailRecipient();
+        $entity->setName( 'Bruce Wayne' );
+        $this->assertSame( 'Bruce Wayne', $entity->name );
+
+    }
+
     /**
      * Test get and set email together
      *

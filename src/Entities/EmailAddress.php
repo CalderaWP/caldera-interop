@@ -46,4 +46,29 @@ abstract class EmailAddress extends Entity
         return $array;
     }
 
+    /**
+     * Set email address
+     *
+     * @param $email
+     * @return $this
+     */
+    public function setEmail( $email )
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * Set name address
+     *
+     * @param string $name
+     *
+     * @return $this
+     */
+    public function setName( $name )
+    {
+        $this->name = $name;
+        return $this;
+    }
+
 }
