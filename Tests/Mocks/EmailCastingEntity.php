@@ -28,6 +28,7 @@ class EmailCastingEntity extends Entity
      * @var EmailSender
      */
     protected $from;
+
     protected $casts = [
         'to' => 'EmailRecipient',
         'from' => 'EmailSender',

@@ -4,36 +4,23 @@
 namespace calderawp\interop\Entities;
 
 
+use calderawp\interop\Traits\CanCastEmail;
+use calderawp\interop\Traits\CanCastProps;
+
+/**
+ * Class Message
+ *
+ * Object-representation of a message, in the format of a CF Pro message
+ *
+ * NOTE: This doesn't have all properties the Laravel model supports. Only props needed by anti-spam are currently implemented.
+ *
+ * @package calderawp\interop\Entities
+ */
 class Message extends Entity
 {
 
-    /**
-     * @inhertidoc
-     */
-    protected $fillable = [
-        'account',
-        'layout',
-        'pdf',
-        'pdf_layout',
-        'to',
-        'reply',
-        'cc',
-        'bcc',
-        'content',
-        'subject',
-        'hash',
-        'opened',
-        'clicked',
-        'spammed',
-        'entry_data',
-        'local_id',
-        'attachments'
-    ];
 
-    /**
-     * @var int
-     */
-    protected $account;
+    use CanCastEmail, CanCastProps;
 
     /**
      * @var EmailRecipient
@@ -41,9 +28,14 @@ class Message extends Entity
     protected $to;
 
     /**
+     * @var EmailSender
+     */
+    protected $from;
+
+    /**
      * @var EmailReplyTo
      */
-    protected $reply;
+    protected $replyto;
 
     /**
      * @var EmailRecipient
@@ -65,33 +57,14 @@ class Message extends Entity
      */
     protected $subject;
 
-    /** @inheritdoc */
-    public function __set($name, $value)
-    {
-       if( in_array( $name, [
-           'to',
-           'cc',
-           'bcc',
-       ])){
-           if( is_a( $value, EmailRecipient::class)){
-               $this->$name = $value;
-           }elseif ( is_array( $value ) ){
-               $this->$name = EmailRecipient::fromArray( $value );
-           }elseif ( is_string( $value ) ){
-               $this->$name = ( new EmailRecipient()  )->email = $value;
-           }
-       }elseif ( 'reply' === $name ){
-           if( is_a( $value, EmailReplyTo::class)){
-               $this->$name = $value;
-           }elseif ( is_array( $value ) ){
-               $this->$name = EmailReplyTo::fromArray( $value );
-           }elseif ( is_string( $value ) ){
-               $this->$name = ( new EmailReplyTo()  )->email = $value;
-           }
-       }else{
-           parent::__set($name, $value );
-       }
-    }
-
+    protected $casts = [
+        'to' => 'EmailRecipient',
+        'cc' => 'EmailRecipient',
+        'bcc' => 'EmailRecipient',
+        'from' => 'EmailSender',
+        'replyto' => 'EmailReplyTo',
+        'subject' => 'string',
+        'content' => 'string'
+    ];
 
 }
