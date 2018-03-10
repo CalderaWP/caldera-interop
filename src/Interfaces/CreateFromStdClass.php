@@ -12,12 +12,11 @@ namespace calderawp\interop\Interfaces;
  */
 interface CreateFromStdClass
 {
-    /**
-     * Create form stdClass
-     *
-     * @param  $data
-     * @return static
-     */
-    public static function fromStdClass($data);
-
+	/**
+	 * Create form stdClass
+	 *
+	 * @param  $data
+	 * @return static
+	 */
+	public static function fromStdClass($data);
 }

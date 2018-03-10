@@ -15,24 +15,22 @@ use calderawp\interop\Traits\HasId;
 class Form extends ArrayLike
 {
 
-    use HasId;
+	use HasId;
 
-    /**
-     * @inheritdoc 
-     */
-    public function getId()
-    {
-        return $this->offsetGet('ID');
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function getId()
+	{
+		return $this->offsetGet('ID');
+	}
 
-    /**
-     * @inheritdoc 
-     */
-    public function setId($id)
-    {
-        $this->offsetSet('ID', $id);
-        return $this;
-    }
-
-
+	/**
+	 * @inheritdoc
+	 */
+	public function setId($id)
+	{
+		$this->offsetSet('ID', $id);
+		return $this;
+	}
 }

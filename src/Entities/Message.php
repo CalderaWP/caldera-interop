@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Entities;
 
-
 use calderawp\interop\Traits\CanCastEmail;
 use calderawp\interop\Traits\CanCastProps;
 
@@ -20,51 +19,50 @@ class Message extends Entity
 {
 
 
-    use CanCastEmail, CanCastProps;
+	use CanCastEmail, CanCastProps;
 
-    /**
-     * @var EmailRecipient
-     */
-    protected $to;
+	/**
+	 * @var EmailRecipient
+	 */
+	protected $to;
 
-    /**
-     * @var EmailSender
-     */
-    protected $from;
+	/**
+	 * @var EmailSender
+	 */
+	protected $from;
 
-    /**
-     * @var EmailReplyTo
-     */
-    protected $replyto;
+	/**
+	 * @var EmailReplyTo
+	 */
+	protected $replyto;
 
-    /**
-     * @var EmailRecipient
-     */
-    protected $cc;
+	/**
+	 * @var EmailRecipient
+	 */
+	protected $cc;
 
-    /**
-     * @var EmailRecipient
-     */
-    protected $bcc;
+	/**
+	 * @var EmailRecipient
+	 */
+	protected $bcc;
 
-    /**
-     * @var string
-     */
-    protected $content;
+	/**
+	 * @var string
+	 */
+	protected $content;
 
-    /**
-     * @var string
-     */
-    protected $subject;
+	/**
+	 * @var string
+	 */
+	protected $subject;
 
-    protected $casts = [
-        'to' => 'EmailRecipient',
-        'cc' => 'EmailRecipient',
-        'bcc' => 'EmailRecipient',
-        'from' => 'EmailSender',
-        'replyto' => 'EmailReplyTo',
-        'subject' => 'string',
-        'content' => 'string'
-    ];
-
+	protected $casts = [
+		'to' => 'EmailRecipient',
+		'cc' => 'EmailRecipient',
+		'bcc' => 'EmailRecipient',
+		'from' => 'EmailSender',
+		'replyto' => 'EmailReplyTo',
+		'subject' => 'string',
+		'content' => 'string'
+	];
 }

@@ -11,36 +11,36 @@ use GuzzleHttp\Psr7\Response;
 class Form extends Model
 {
 
-    /**
-     * @inheritdoc 
-     */
-    public function getEntityType()
-    {
-        return FormEntity::class;
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function getEntityType()
+	{
+		return FormEntity::class;
+	}
 
 
-    /**
-     * @return FormEntity
-     */
-    public function getEntity()
-    {
-        return $this->entity;
-    }
+	/**
+	 * @return FormEntity
+	 */
+	public function getEntity()
+	{
+		return $this->entity;
+	}
 
-    /**
-     * @return \calderawp\interop\Collections\EntityCollections\Fields
-     */
-    public function getFields()
-    {
-        return $this->entity->getFields();
-    }
+	/**
+	 * @return \calderawp\interop\Collections\EntityCollections\Fields
+	 */
+	public function getFields()
+	{
+		return $this->entity->getFields();
+	}
 
-    /**
-     * @inheritdoc 
-     */
-    public static function getType()
-    {
-        return 'form';
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public static function getType()
+	{
+		return 'form';
+	}
 }
