@@ -90,12 +90,12 @@ class FormModelTest extends ModelCalderaInteropTestCase
 	}
 
     /**
+     * Test adding a field to collection
      *
      * @covers Fields::addField()
      */
 	public function testAddField()
 	{
-
 		$extraFieldArray = $this->fieldArrayFactory( 400 );
 		$extraField = new \calderawp\interop\Entities\Field(  $extraFieldArray );
 		$fieldsEntityCollection = $this->fieldEntityCollection( [10,20] );

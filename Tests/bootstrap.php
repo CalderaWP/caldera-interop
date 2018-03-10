@@ -38,6 +38,9 @@ if (file_exists(dirname(__FILE__, 2) . '/vendor/autoload.php')) {
             require __DIR__ . '/Mocks/Container.php';
         }
 
+        if (\calderawp\interop\Mock\Model::class === $class) {
+            require __DIR__ . '/Mocks/Model.php';
+        }
     }
 
     spl_autoload_register('loader');

@@ -2,14 +2,11 @@
 
 namespace calderawp\interop\Models;
 
-use calderawp\interop\ControlledContainer;
 use calderawp\interop\Entities\Entity;
 use calderawp\interop\Interfaces\EntitySpecific;
 use calderawp\interop\Interfaces\Interoperable;
-use function calderawp\interop\Interop;
 use calderawp\interop\Traits\CanRecursivelyCastArray;
 use calderawp\interop\Traits\HasId;
-use NetRivet\WordPress\Http\Response;
 use Psr\Http\Message\RequestInterface as Request;
 
 abstract class Model implements Interoperable, EntitySpecific
@@ -84,37 +81,18 @@ abstract class Model implements Interoperable, EntitySpecific
 	 */
 	public static function fromRequest(Request $request)
 	{
-		$pre = Interop()
-			->getEventsManager()
-			->applyFilters(
-				static::getType() . '.model.preDispatchRequest',
-				null,
-				[$request]
-			);
-
-		if (is_a($pre, static::class)) {
-			return $pre;
-		}
 		$body = json_decode($request->getBody()->getContents());
 		return self::fromArray($body);
 	}
 
-
 	/**
-	 * @inheritdoc
+	 * @return \calderawp\interop\Http\Response
 	 */
 	public function toResponse()
 	{
-		$response = $pre = Interop()
-			->getEventsManager()
-			->applyFilters(
-				static::getType() . '.model.preDispatchResponse',
-				new Response($this->toArray()),
-				[$this]
-			);
-
-		return $response;
+		return new \calderawp\interop\Http\Response($this->toArray());
 	}
+
 
 	/**
 	 * @inheritdoc
@@ -143,6 +121,7 @@ abstract class Model implements Interoperable, EntitySpecific
 		$this->entity = $entity;
 		return $this;
 	}
+
 	/**
 	 * Cast from array (or stdClass that can be recursively casted to array)
 	 *
@@ -153,8 +132,8 @@ abstract class Model implements Interoperable, EntitySpecific
 	{
 		$obj = new static();
 		/**
- * @var Entity $entity
-*/
+		 * @var Entity $entity
+		 */
 		$entity = call_user_func([$obj->getEntityType(), 'fromArray'], self::arrayCastRecursiveStatic($data));
 		$obj->resetEntity($entity);
 		$obj->setId($entity->getId());
