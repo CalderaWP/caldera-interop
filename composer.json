@@ -11,8 +11,6 @@
     "minimum-stability": "dev",
     "require": {
 	  "pimple/pimple": "^3.2",
-      "netrivet/wp-http": "^1.5",
-      "netrivet/wp-event-emitter": "^5.0",
       "psr/http-message" : "*"
     },
     "require-dev": {
@@ -22,8 +20,7 @@
     "autoload": {
         "psr-4": {
             "calderawp\\interop\\": "src"
-        },
-        "files": ["src/functions.php"]
+        }
     },
 	"scripts" : {
 	  "tests" : "composer test",
