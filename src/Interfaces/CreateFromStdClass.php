@@ -15,7 +15,7 @@ interface CreateFromStdClass
     /**
      * Create form stdClass
      *
-     * @param $data
+     * @param  $data
      * @return static
      */
     public static function fromStdClass($data);

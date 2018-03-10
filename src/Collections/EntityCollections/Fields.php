@@ -10,52 +10,60 @@ class Fields extends IteratingCollection
 {
 
 
-    /** @inheritdoc */
-	public function getEntitySetter()
+    /**
+     * @inheritdoc 
+     */
+    public function getEntitySetter()
     {
         return 'addField';
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function getEntityType()
     {
-       return Field::class;
+        return Field::class;
     }
 
     /**
-	 * Add a field to collection
-	 *
-	 * @param Field $field
-	 * @return $this
-	 */
-	public function addField( Field $field )
-	{
-		$this->items[ $field->getId() ] = $field;
-		$this->mapPosition($field->getId());
-		return $this;
-	}
+     * Add a field to collection
+     *
+     * @param  Field $field
+     * @return $this
+     */
+    public function addField( Field $field )
+    {
+        $this->items[ $field->getId() ] = $field;
+        $this->mapPosition($field->getId());
+        return $this;
+    }
 
-	/**
-	 * Get a field by ID
-	 *
-	 * @param int $id
-	 * @return Field|null
-	 */
-	public function getField( $id )
-	{
-		return isset( $this->items[ $id ] ) ? $this->items[ $id ] : null;
+    /**
+     * Get a field by ID
+     *
+     * @param  int $id
+     * @return Field|null
+     */
+    public function getField( $id )
+    {
+        return isset($this->items[ $id ]) ? $this->items[ $id ] : null;
 
-	}
+    }
 
-	/** @inheritdoc */
-	public function toArray()
-	{
-		 $fields = [];
+    /**
+     * @inheritdoc 
+     */
+    public function toArray()
+    {
+        $fields = [];
 
-		 /** @var Field $field */
-			foreach ( $this->items as  $field ){
-			$fields[ $field->getId() ] = $field->toArray();
-		 }
-		 return $fields;
-	}
+        /**
+ * @var Field $field 
+*/
+        foreach ( $this->items as  $field ){
+            $fields[ $field->getId() ] = $field->toArray();
+        }
+        return $fields;
+    }
 }

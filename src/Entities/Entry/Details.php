@@ -16,16 +16,24 @@ use calderawp\interop\Entities\Entity;
 class Details extends Entity
 {
 
-    /** @var  string */
+    /**
+     * @var  string 
+     */
     protected $form_id;
 
-    /** @var  int */
+    /**
+     * @var  int 
+     */
     protected $user_id;
 
-    /** @var  string */
+    /**
+     * @var  string 
+     */
     protected $datestamp;
 
-    /** @var  string */
+    /**
+     * @var  string 
+     */
     protected $status;
 
 }

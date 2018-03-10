@@ -16,36 +16,45 @@ use calderawp\interop\Entities\Entity;
 class Field extends Entity
 {
 
-    /** @var  int */
+    /**
+     * @var  int 
+     */
     protected $entry_id;
 
-    /** @var  string */
+    /**
+     * @var  string 
+     */
     protected $field_id;
 
-    /** @var  string */
+    /**
+     * @var  string 
+     */
     protected $slug;
 
-    /** @var  string|array */
+    /**
+     * @var  string|array 
+     */
     protected $value;
 
 
     /**
      * Field constructor.
+     *
      * @param array $values
      */
     public function __construct( array $values = [] )
     {
-        if( ! empty( $values[ 'id' ] ) ) {
+        if(! empty($values[ 'id' ]) ) {
             $this->setId($values['id']);
         }
 
-        if( ! empty( $values[ 'ID' ] ) ) {
+        if(! empty($values[ 'ID' ]) ) {
             $this->setId($values['ID']);
         }
 
-        if( ! empty( $values ) ){
+        if(! empty($values) ) {
             foreach ( $values as $key => $value ){
-                if( property_exists( $this, $key ) ){
+                if(property_exists($this, $key) ) {
                     $this->$key = $value;
                 }
 

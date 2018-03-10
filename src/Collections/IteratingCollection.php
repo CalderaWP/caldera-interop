@@ -55,12 +55,14 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 
     /**
      * IteratingCollection constructor.
+     *
      * @param Entity[] $items Optional. Array of compatible entities
      */
-    public function __construct( array  $items = []) {
+    public function __construct( array  $items = []) 
+    {
         $this->position = 0;
-        if( ! empty( $items)){
-            $this->setEntitiesFromArray($items,$this);
+        if(! empty($items)) {
+            $this->setEntitiesFromArray($items, $this);
         }
 
 
@@ -79,7 +81,7 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
     /**
      * Create collection from array
      *
-     * @param Entity[] $data Array of compatible entities
+     * @param  Entity[] $data Array of compatible entities
      * @return static
      */
     public static function fromArray(array $data)
@@ -89,7 +91,9 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
         return $obj;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public static function fromStdClass($data)
     {
         $obj = new static();
@@ -106,28 +110,28 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
     /**
      * Set an array of entities on the object
      *
-     * @param Entity[] $data Array of compatible entities
-     * @param static|null $obj Object to set on. If null $this is used.
+     * @param Entity[]    $data Array of compatible entities
+     * @param static|null $obj  Object to set on. If null $this is used.
      *
      * @throws ContainerException
      */
     public  function setEntitiesFromArray(array $data, $obj = null )
     {
-        if( ! $obj ){
+        if(! $obj ) {
             $obj = $this;
         }
         foreach ($data as $entity) {
-            if ( ! $this->isCorrectEntity($entity)) {
+            if (! $this->isCorrectEntity($entity)) {
                 $entity = $this->maybeCastObject($entity);
-                if( is_array($entity)){
-                    $entity = call_user_func([ $this->getEntityType(), 'fromArray'],$entity);
+                if(is_array($entity)) {
+                    $entity = call_user_func([ $this->getEntityType(), 'fromArray'], $entity);
                 }
             }
 
-            if ( $this->isCorrectEntity($entity)) {
+            if ($this->isCorrectEntity($entity)) {
                 call_user_func([$obj, $obj->getEntitySetter()], $entity);
             }else{
-                throw new ContainerException( sprintf( 'Not valid type to set as entity. Type is: %s. Type should be %s', getType($entity),$this->getEntityType()));
+                throw new ContainerException(sprintf('Not valid type to set as entity. Type is: %s. Type should be %s', getType($entity), $this->getEntityType()));
             }
         }
     }
@@ -135,37 +139,52 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
     /**
      * Is object (or whatever) the correct entity type
      *
-     * @param Entity|array|\stdClass $maybeEntity
+     * @param  Entity|array|\stdClass $maybeEntity
      * @return bool
      */
     public function isCorrectEntity( $maybeEntity )
     {
-        return is_object( $maybeEntity ) && is_a( $maybeEntity, $this->getEntityType() );
+        return is_object($maybeEntity) && is_a($maybeEntity, $this->getEntityType());
     }
 
-    /** @inheritdoc */
-    public function rewind() {
+    /**
+     * @inheritdoc 
+     */
+    public function rewind() 
+    {
         $this->position = 0;
     }
 
-    /** @inheritdoc */
-    public function current() {
+    /**
+     * @inheritdoc 
+     */
+    public function current() 
+    {
         return $this->items[$this->positionMap[$this->position]];
     }
 
-    /** @inheritdoc */
-    public function key() {
+    /**
+     * @inheritdoc 
+     */
+    public function key() 
+    {
         return $this->position;
     }
 
-    /** @inheritdoc */
-    public function next() {
+    /**
+     * @inheritdoc 
+     */
+    public function next() 
+    {
         ++$this->position;
     }
 
-    /** @inheritdoc */
-    public function valid() {
-        return isset($this->positionMap[$this->position],$this->items[$this->positionMap[$this->position]]);
+    /**
+     * @inheritdoc 
+     */
+    public function valid() 
+    {
+        return isset($this->positionMap[$this->position], $this->items[$this->positionMap[$this->position]]);
     }
 
 }

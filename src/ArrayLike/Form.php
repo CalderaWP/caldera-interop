@@ -17,15 +17,20 @@ class Form extends ArrayLike
 
     use HasId;
 
-    /** @inheritdoc */
-    public function getId(){
-        return $this->offsetGet( 'ID' );
+    /**
+     * @inheritdoc 
+     */
+    public function getId()
+    {
+        return $this->offsetGet('ID');
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function setId($id)
     {
-        $this->offsetSet( 'ID', $id );
+        $this->offsetSet('ID', $id);
         return $this;
     }
 

@@ -17,49 +17,56 @@ use Psr\Http\Message\RequestInterface as Request;
 abstract class Model implements Interoperable, EntitySpecific
 {
 
-	use HasId, CanRecursivelyCastArray;
+    use HasId, CanRecursivelyCastArray;
 
-	/**
-	 * @var Entity
-	 */
-	protected $entity;
+    /**
+     * @var Entity
+     */
+    protected $entity;
 
     /**
      * @var bool
      */
-	protected $valid;
+    protected $valid;
 
-	/**
-	 * Model constructor.
-	 * @param Entity $entity
-	 */
-	public function __construct( Entity $entity = null )
-	{
-		$this->entity = $entity;
+    /**
+     * Model constructor.
+     *
+     * @param Entity $entity
+     */
+    public function __construct( Entity $entity = null )
+    {
+        $this->entity = $entity;
 
-	}
+    }
 
-	/** @inheritdoc */
-	public function isValid()
+    /**
+     * @inheritdoc 
+     */
+    public function isValid()
     {
         return boolval($this->valid);
     }
 
     /**
-	 * @return Entity
-	 */
-	public function toEntity()
-	{
-		return $this->entity;
-	}
+     * @return Entity
+     */
+    public function toEntity()
+    {
+        return $this->entity;
+    }
 
-	/** @inheritdoc */
-	public function __get($name)
+    /**
+     * @inheritdoc 
+     */
+    public function __get($name)
     {
         return $this->entity->$name;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function __set($name, $value)
     {
         $this->entity->$name = $value;
@@ -67,24 +74,26 @@ abstract class Model implements Interoperable, EntitySpecific
     }
 
     /**
-	 * @param $id
-	 */
-	public function setId( $id )
-	{
-		$this->entity->setId( $id );
-		$this->id = $id;
-	}
+     * @param $id
+     */
+    public function setId( $id )
+    {
+        $this->entity->setId($id);
+        $this->id = $id;
+    }
 
-	/** @inheritdoc */
-	public static function fromRequest(Request $request)
+    /**
+     * @inheritdoc 
+     */
+    public static function fromRequest(Request $request)
     {
         $pre = Interop()
             ->getEventsManager()
             ->applyFilters(
-                static::getType() . '.model.preDispatchRequest', null,[$request]
+                static::getType() . '.model.preDispatchRequest', null, [$request]
             );
 
-        if( is_a( $pre, static::class ) ){
+        if(is_a($pre, static::class) ) {
             return $pre;
         }
         $body = json_decode($request->getBody()->getContents());
@@ -92,19 +101,23 @@ abstract class Model implements Interoperable, EntitySpecific
     }
 
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function toResponse()
     {
         $response = $pre = Interop()
             ->getEventsManager()
             ->applyFilters(
-                static::getType() . '.model.preDispatchResponse', new Response($this->toArray()),[$this]
+                static::getType() . '.model.preDispatchResponse', new Response($this->toArray()), [$this]
             );
 
         return $response;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function toArray()
     {
         return $this->entity->toArray();
@@ -113,14 +126,15 @@ abstract class Model implements Interoperable, EntitySpecific
     /**
      * @return Entity
      */
-    public function getEntity(){
+    public function getEntity()
+    {
         return $this->entity;
     }
 
     /**
      * Reset entity of model
      *
-     * @param Entity $entity
+     * @param  Entity $entity
      * @return $this
      */
     public function resetEntity( Entity $entity )
@@ -131,14 +145,16 @@ abstract class Model implements Interoperable, EntitySpecific
     /**
      * Cast from array (or stdClass that can be recursively casted to array)
      *
-     * @param array|\stdClass $data
+     * @param  array|\stdClass $data
      * @return Entity
      */
     public static function fromArray($data)
     {
         $obj = new static();
-        /** @var Entity $entity */
-        $entity = call_user_func( [$obj->getEntityType(), 'fromArray'],self::arrayCastRecursiveStatic($data));
+        /**
+ * @var Entity $entity 
+*/
+        $entity = call_user_func([$obj->getEntityType(), 'fromArray'], self::arrayCastRecursiveStatic($data));
         $obj->resetEntity($entity);
         $obj->setId($entity->getId());
         return $obj;

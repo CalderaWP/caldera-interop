@@ -11,4 +11,6 @@ namespace calderawp\interop\Entities;
  * @package calderawp\interop\Entities
  */
 class EmailRecipient extends EmailAddress
-{}
+{
+
+}

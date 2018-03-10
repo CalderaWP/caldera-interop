@@ -27,29 +27,33 @@ abstract class EmailAddress extends Entity
      */
     protected $email;
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function __toString()
     {
-        if( empty( $this->name ) ){
+        if(empty($this->name) ) {
             return $this->email;
         }
 
         return $this->name . ' <' . $this->email . '>';
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function toArray()
     {
         $array = parent::toArray();
-        unset( $array[ 'id' ] );
-        unset( $array[ 'ID' ] );
+        unset($array[ 'id' ]);
+        unset($array[ 'ID' ]);
         return $array;
     }
 
     /**
      * Set email address
      *
-     * @param $email
+     * @param  $email
      * @return $this
      */
     public function setEmail( $email )

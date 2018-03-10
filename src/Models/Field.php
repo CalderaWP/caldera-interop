@@ -16,7 +16,9 @@ class Field extends Model
     }
 
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public static function getType()
     {
         return 'field';

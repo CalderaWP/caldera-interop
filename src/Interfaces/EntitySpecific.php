@@ -12,5 +12,5 @@ interface EntitySpecific
      *
      * @return string
      */
-     public function getEntityType();
+    public function getEntityType();
 }

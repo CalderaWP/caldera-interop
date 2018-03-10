@@ -11,7 +11,9 @@ use GuzzleHttp\Psr7\Response;
 class Form extends Model
 {
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function getEntityType()
     {
         return FormEntity::class;
@@ -34,7 +36,9 @@ class Form extends Model
         return $this->entity->getFields();
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public static function getType()
     {
         return 'form';

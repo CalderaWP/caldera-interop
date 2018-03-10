@@ -11,6 +11,7 @@ use Psr\Container\ContainerInterface;
  * Class Container
  *
  * Container that is just pimple + interface implimentations
+ *
  * @package calderawp\interop
  */
 abstract class Container implements \JsonSerializable, Arrayable, ContainerInterface, \ArrayAccess
@@ -26,24 +27,30 @@ abstract class Container implements \JsonSerializable, Arrayable, ContainerInter
      */
     protected function getPimple()
     {
-        if( ! $this->pimple ){
+        if(! $this->pimple ) {
             $this->pimple = new \Pimple\Container();
         }
         return $this->pimple;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function jsonSerialize()
     {
         return $this->toArray();
     }
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function toArray()
     {
         return (array)$this->getPimple();
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function get($id)
     {
         if ($this->has($id)) {
@@ -51,39 +58,51 @@ abstract class Container implements \JsonSerializable, Arrayable, ContainerInter
         }
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function has($id)
     {
         return $this->getPimple()->offsetExists($id);
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function set($id, $value)
     {
         $this->getPimple()->offsetSet($id, $value);
         return $this;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetExists($offset)
     {
         return $this->getPimple()->offsetExists($offset);
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetGet($offset)
     {
         return $this->getPimple()->offsetGet($offset);
     }
 
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetSet($offset, $value)
     {
         $this->getPimple()->offsetSet($offset, $value);
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetUnset($offset)
     {
         $this->getPimple()->offsetUnset($offset);

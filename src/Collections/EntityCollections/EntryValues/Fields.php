@@ -24,13 +24,14 @@ class Fields extends  EntityCollection
 
     /**
      * Fields constructor.
+     *
      * @param array $fields Array of calderawp\interop\Entities\Entry\Field objects
      */
     public function __construct( array  $fields  = [] )
     {
-        if( ! empty( $fields ) ){
+        if(! empty($fields) ) {
             foreach ( $fields as $field ){
-                $this->addField( $field );
+                $this->addField($field);
             }
 
         }
@@ -39,7 +40,7 @@ class Fields extends  EntityCollection
     /**
      * Add field to collection
      *
-     * @param Field $field
+     * @param  Field $field
      * @return $this
      */
     public function addField( Field $field )
@@ -49,11 +50,15 @@ class Fields extends  EntityCollection
 
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function toArray()
     {
         $fields = [];
-        /** @var Field $field */
+        /**
+ * @var Field $field 
+*/
         foreach ($this->fields as $field) {
             $fields[$field->getId()] = $field->toArray();
         }
@@ -64,12 +69,12 @@ class Fields extends  EntityCollection
     /**
      * Get a field entity from collection
      *
-     * @param string|int $id Field ID
+     * @param  string|int $id Field ID
      * @return Field|null Field
      */
     public function getField( $id )
     {
-        if( $this->hasField( $id ) ){
+        if($this->hasField($id) ) {
             return $this->fields[ $id ];
         }
         return null;
@@ -78,12 +83,12 @@ class Fields extends  EntityCollection
     /**
      * Check if field is present in collection
      *
-     * @param string|int $id Field ID
+     * @param  string|int $id Field ID
      * @return bool
      */
     public function hasField( $id )
     {
-        return ! empty( $this->fields[ $id ] );
+        return ! empty($this->fields[ $id ]);
     }
 
 }

@@ -14,7 +14,8 @@ use calderawp\interop\Interfaces\Arrayable;
  *
  * @package calderawp\interop\ArrayLike
  */
-abstract class ArrayLike implements \ArrayAccess, Arrayable {
+abstract class ArrayLike implements \ArrayAccess, Arrayable
+{
 
     /**
      * @var array
@@ -26,13 +27,17 @@ abstract class ArrayLike implements \ArrayAccess, Arrayable {
         $this->items = $items;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function toArray()
     {
         return $this->items;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -42,19 +47,25 @@ abstract class ArrayLike implements \ArrayAccess, Arrayable {
         }
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetExists($offset)
     {
         return isset($this->items[$offset]);
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetUnset($offset)
     {
         unset($this->items[$offset]);
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function offsetGet($offset)
     {
         return isset($this->items[$offset]) ? $this->items[$offset] : null;

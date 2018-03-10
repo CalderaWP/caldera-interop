@@ -10,7 +10,7 @@ trait CanRecursivelyCastArray
     /**
      * Recursively cast object to array
      *
-     * @param \stdClass|array $array
+     * @param  \stdClass|array $array
      * @return array
      */
     protected static function arrayCastRecursiveStatic($array)
@@ -34,7 +34,7 @@ trait CanRecursivelyCastArray
     /**
      * Recursively cast object to array
      *
-     * @param \stdClass|array $array
+     * @param  \stdClass|array $array
      * @return array
      */
     protected function arrayCastRecursive($array)

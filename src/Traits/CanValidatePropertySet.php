@@ -13,13 +13,15 @@ trait CanValidatePropertySet
 
     use  CanCastObjectToArray;
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public function __set($name, $value)
     {
-        if( property_exists( $this, $name ) ){
+        if(property_exists($this, $name) ) {
             $validationCb = $this->getValidationCallbackName($name);
-            if( is_callable( [ $this, $validationCb ]  ) ){
-                $value = call_user_func( [ $this, $validationCb ], $value );
+            if(is_callable([ $this, $validationCb ]) ) {
+                $value = call_user_func([ $this, $validationCb ], $value);
             }
 
             $this->$name = $value;
