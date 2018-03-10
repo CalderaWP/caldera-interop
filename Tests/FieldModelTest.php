@@ -24,11 +24,10 @@ class FieldModelTest extends ModelCalderaInteropTestCase
 	 */
 	public function testIdSet()
 	{
-		$entity = $this->entityFactory( 'field', 42 );
-		$field = new FieldModel( $entity ) ;
+		$entity = $this->entityFactory('field', 42);
+		$field = new FieldModel($entity) ;
 		$field->setId(42);
 		$this->assertEquals(42, $field->getId());
-
 	}
 
 	/**
@@ -37,9 +36,10 @@ class FieldModelTest extends ModelCalderaInteropTestCase
 	 * @covers \calderawp\interop\Models\Field::getId()
 	 * @covers \calderawp\interop\Models\Field::fromArray()
 	 */
-	public function testIdSetFromArray(){
-		$field = FieldModel::fromArray( array( 'ID' => 42 ) );
-		$this->assertEquals( 42, $field->getId() );
+	public function testIdSetFromArray()
+	{
+		$field = FieldModel::fromArray(array( 'ID' => 42 ));
+		$this->assertEquals(42, $field->getId());
 	}
 
 
@@ -52,13 +52,11 @@ class FieldModelTest extends ModelCalderaInteropTestCase
 	 * @covers \calderawp\interop\Models\Field::fromArray()
 	 * @covers \calderawp\interop\Models\Model::fixId()
 	 */
-	public function testIdChangeSetFromArray(){
-		$field = FieldModel::fromArray( array( 'ID' => 42 ) );
-		$this->assertEquals( 42, $field->getId() );
-		$field->setId( 21 );
-		$this->assertEquals( 21, $field->getId() );
+	public function testIdChangeSetFromArray()
+	{
+		$field = FieldModel::fromArray(array( 'ID' => 42 ));
+		$this->assertEquals(42, $field->getId());
+		$field->setId(21);
+		$this->assertEquals(21, $field->getId());
 	}
-
-
-
 }

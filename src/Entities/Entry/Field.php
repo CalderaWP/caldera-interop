@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Entities\Entry;
 
-
 use calderawp\interop\Entities\Entity;
 
 /**
@@ -16,63 +15,60 @@ use calderawp\interop\Entities\Entity;
 class Field extends Entity
 {
 
-    /** @var  int */
-    protected $entry_id;
+	/** @var  int */
+	protected $entry_id;
 
-    /** @var  string */
-    protected $field_id;
+	/** @var  string */
+	protected $field_id;
 
-    /** @var  string */
-    protected $slug;
+	/** @var  string */
+	protected $slug;
 
-    /** @var  string|array */
-    protected $value;
-
-
-    /**
-     * Field constructor.
-     * @param array $values
-     */
-    public function __construct( array $values = [] )
-    {
-        if( ! empty( $values[ 'id' ] ) ) {
-            $this->setId($values['id']);
-        }
-
-        if( ! empty( $values[ 'ID' ] ) ) {
-            $this->setId($values['ID']);
-        }
-
-        if( ! empty( $values ) ){
-            foreach ( $values as $key => $value ){
-                if( property_exists( $this, $key ) ){
-                    $this->$key = $value;
-                }
-
-            }
-
-        }
-    }
+	/** @var  string|array */
+	protected $value;
 
 
-    /**
-     * Get field slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+	/**
+	 * Field constructor.
+	 * @param array $values
+	 */
+	public function __construct(array $values = [])
+	{
+		if (! empty($values[ 'id' ])) {
+			$this->setId($values['id']);
+		}
 
-    /**
-     * Get field value
-     *
-     * @return array|string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+		if (! empty($values[ 'ID' ])) {
+			$this->setId($values['ID']);
+		}
 
+		if (! empty($values)) {
+			foreach ($values as $key => $value) {
+				if (property_exists($this, $key)) {
+					$this->$key = $value;
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * Get field slug
+	 *
+	 * @return string
+	 */
+	public function getSlug()
+	{
+		return $this->slug;
+	}
+
+	/**
+	 * Get field value
+	 *
+	 * @return array|string
+	 */
+	public function getValue()
+	{
+		return $this->value;
+	}
 }

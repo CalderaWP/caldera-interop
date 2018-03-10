@@ -12,16 +12,14 @@ class FormEntityTest extends EntityCalderaInteropTestCase
 	 */
 	public function testGetFields()
 	{
-		$formArray = $this->formArrayFactory( 42 );
-		$formEntity = new \calderawp\interop\Entities\Form( $formArray );
+		$formArray = $this->formArrayFactory(42);
+		$formEntity = new \calderawp\interop\Entities\Form($formArray);
 
 		$entityFields = $formEntity->getFields()->toArray();
-		foreach ( $formArray[ 'fields' ]  as $id => $field ){
-		    $this->assertArrayHasKey( $id, $entityFields );
-            $this->assertSame( $field, $entityFields[ $id ] );
-
-        }
-
+		foreach ($formArray[ 'fields' ] as $id => $field) {
+			$this->assertArrayHasKey($id, $entityFields);
+			$this->assertSame($field, $entityFields[ $id ]);
+		}
 	}
 
 
@@ -33,16 +31,14 @@ class FormEntityTest extends EntityCalderaInteropTestCase
 	 */
 	public function testGetField()
 	{
-		$formArray = $this->formArrayFactory( 'Cf12345' );
-		$formEntity = new \calderawp\interop\Entities\Form( $formArray );
-        foreach ( $formArray[ 'fields' ] as $id => $field ){
-            $_field = $formEntity->getFieldById( $id );
-            $this->assertNotNull( $_field );
-            $this->assertSame( $id, $_field->getId() );
-            $this->assertSame( $field, $_field->toArray() );
-        }
-
-
+		$formArray = $this->formArrayFactory('Cf12345');
+		$formEntity = new \calderawp\interop\Entities\Form($formArray);
+		foreach ($formArray[ 'fields' ] as $id => $field) {
+			$_field = $formEntity->getFieldById($id);
+			$this->assertNotNull($_field);
+			$this->assertSame($id, $_field->getId());
+			$this->assertSame($field, $_field->toArray());
+		}
 	}
 
 	/**
@@ -54,10 +50,10 @@ class FormEntityTest extends EntityCalderaInteropTestCase
 	public function testGetName()
 	{
 		$name = 'Roy R3S Sivan';
-		$formArray = $this->formArrayFactory( 42 );
+		$formArray = $this->formArrayFactory(42);
 		$formArray[ 'name' ] = $name;
 
-		$formEntity = new \calderawp\interop\Entities\Form( $formArray );
-		$this->assertEquals( $name, $formEntity->getName() );
+		$formEntity = new \calderawp\interop\Entities\Form($formArray);
+		$this->assertEquals($name, $formEntity->getName());
 	}
 }

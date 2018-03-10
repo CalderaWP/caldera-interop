@@ -8,9 +8,10 @@ class EntityTest extends EntityCalderaInteropTestCase
 	 *
 	 * @covers \calderawp\interop\Entities\Entity::getId()
 	 */
-	public function testGetId(){
-		$entity = $this->entityFactory( 'Generic', 42 );
-		$this->assertEquals( 42, $entity->getId() );
+	public function testGetId()
+	{
+		$entity = $this->entityFactory('Generic', 42);
+		$this->assertEquals(42, $entity->getId());
 	}
 
 	/**
@@ -19,9 +20,10 @@ class EntityTest extends EntityCalderaInteropTestCase
 	 *
 	 * @covers \calderawp\interop\Entities\Entity::setId()
 	 */
-	public function testSetId(){
-		$entity = $this->entityFactory( 'Generic', 42 );
-		$entity->setId( 21 );
-		$this->assertEquals( 21, $entity->getId() );
+	public function testSetId()
+	{
+		$entity = $this->entityFactory('Generic', 42);
+		$entity->setId(21);
+		$this->assertEquals(21, $entity->getId());
 	}
 }

@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Entities;
 
-
 class Field extends Entity
 {
 
@@ -16,9 +15,9 @@ class Field extends Entity
 	 * Field constructor.
 	 * @param array $field
 	 */
-	public function __construct( array  $field )
+	public function __construct(array  $field)
 	{
-		$this->setId( $field[ 'ID' ] );
+		$this->setId($field[ 'ID' ]);
 		$this->field = $field;
 	}
 
@@ -29,7 +28,7 @@ class Field extends Entity
 	 */
 	public function getConfigKey()
 	{
-		return $this->fieldKey( 'config', [] );
+		return $this->fieldKey('config', []);
 	}
 
 	/**
@@ -39,8 +38,7 @@ class Field extends Entity
 	 */
 	public function getSlug()
 	{
-		return $this->fieldKey( 'slug', '' );
-
+		return $this->fieldKey('slug', '');
 	}
 
 	/**
@@ -50,14 +48,14 @@ class Field extends Entity
 	 * @param null|mixed $default Optional default value
 	 * @return mixed|null
 	 */
-	public function fieldKey( $key, $default = null )
+	public function fieldKey($key, $default = null)
 	{
-		return isset( $this->field[ $key ] ) ? $this->field[ $key ] : $default ;
+		return isset($this->field[ $key ]) ? $this->field[ $key ] : $default ;
 	}
 
 
 	/** @inheritdoc */
-	public function setId( $id )
+	public function setId($id)
 	{
 		//$this->setId($id);
 		parent::setId($id);
@@ -68,8 +66,4 @@ class Field extends Entity
 	{
 		return $this->field;
 	}
-
-
-
-
 }

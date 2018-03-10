@@ -13,9 +13,7 @@ namespace calderawp\interop\Mock;
 class Entity extends \calderawp\interop\Entities\Entity
 {
 
-    public function __construct( array  $items = [] )
-    {
-    }
-
-
+	public function __construct(array  $items = [])
+	{
+	}
 }

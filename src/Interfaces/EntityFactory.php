@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Interfaces;
 
-
 use calderawp\interop\Entities\Entity;
 
 /**
@@ -15,11 +14,10 @@ use calderawp\interop\Entities\Entity;
  */
 interface EntityFactory extends Factory
 {
-    /**
-     * @param $type
-     * @param array $args
-     * @return Entity
-     */
-    public function createEntity( $type, array  $args = [] );
-
+	/**
+	 * @param $type
+	 * @param array $args
+	 * @return Entity
+	 */
+	public function createEntity($type, array  $args = []);
 }

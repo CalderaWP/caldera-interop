@@ -1,7 +1,7 @@
 <?php
 
 
-abstract  class EntityCalderaInteropTestCase extends CalderaInteropTestCase
+abstract class EntityCalderaInteropTestCase extends CalderaInteropTestCase
 {
 
 

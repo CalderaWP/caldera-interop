@@ -11,7 +11,8 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 	 * @covers \calderawp\interop\Entities\Field::toArray()
 	 * @covers \calderawp\interop\Entities\Field::fromArray()
 	 */
-	public function testToArray(){
+	public function testToArray()
+	{
 
 		$field = array(
 			'ID' => 42,
@@ -35,7 +36,7 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 			}
 		};
 
-		$this->assertSame( $field, $entity->toArray() );
+		$this->assertSame($field, $entity->toArray());
 	}
 
 	/**
@@ -44,7 +45,8 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 	 * @covers \calderawp\interop\Entities\Field::toArray()
 	 * @covers \calderawp\interop\Entities\Field::fromArray()
 	 */
-	public function testFromToArray(){
+	public function testFromToArray()
+	{
 
 		$field = array(
 			'ID' => 42,
@@ -54,9 +56,8 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 			)
 		);
 
-		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( $field, $entity->toArray() );
-
+		$entity = new \calderawp\interop\Entities\Field($field);
+		$this->assertSame($field, $entity->toArray());
 	}
 
 	/**
@@ -75,16 +76,16 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 			)
 		);
 
-		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( $field[ 'config' ], $entity->getConfigKey() );
+		$entity = new \calderawp\interop\Entities\Field($field);
+		$this->assertSame($field[ 'config' ], $entity->getConfigKey());
 
 		$field = array(
 			'ID' => 42,
 			'slug' => 'Noms',
 		);
 
-		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( array(), $entity->getConfigKey() );
+		$entity = new \calderawp\interop\Entities\Field($field);
+		$this->assertSame(array(), $entity->getConfigKey());
 	}
 
 	/**
@@ -99,9 +100,8 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 			'slug' => 'Noms',
 		);
 
-		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( $field[ 'slug' ], $entity->getSlug() );
-
+		$entity = new \calderawp\interop\Entities\Field($field);
+		$this->assertSame($field[ 'slug' ], $entity->getSlug());
 	}
 
 	/**
@@ -117,8 +117,8 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 			'other' => 'Other'
 		);
 
-		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( $field[ 'other' ], $entity->fieldKey( 'other') );
+		$entity = new \calderawp\interop\Entities\Field($field);
+		$this->assertSame($field[ 'other' ], $entity->fieldKey('other'));
 	}
 
 	/**
@@ -134,11 +134,7 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 			'other' => 'Other'
 		);
 
-		$entity = new \calderawp\interop\Entities\Field( $field );
-		$this->assertSame( 'Hi', $entity->fieldKey( 'roy', 'Hi' ) );
+		$entity = new \calderawp\interop\Entities\Field($field);
+		$this->assertSame('Hi', $entity->fieldKey('roy', 'Hi'));
 	}
-
-
-
-
 }

@@ -22,11 +22,10 @@ class Form extends Entity
 	/** @var string */
 	protected $name;
 
-	public function __construct( array $formArray = [] )
+	public function __construct(array $formArray = [])
 	{
 		$formArray = $this->setName($formArray);
 		$this->setFields($formArray);
-
 	}
 
 	/**
@@ -35,9 +34,9 @@ class Form extends Entity
 	 * @param Field $field
 	 * @return $this
 	 */
-	public function addField( Field $field )
+	public function addField(Field $field)
 	{
-		$this->fields->addField( $field );
+		$this->fields->addField($field);
 		return $this;
 	}
 
@@ -55,9 +54,9 @@ class Form extends Entity
 	 * @param string  $id
 	 * @return Field|null
 	 */
-	public function getFieldById( $id )
+	public function getFieldById($id)
 	{
-		return $this->fields->getField( $id );
+		return $this->fields->getField($id);
 	}
 
 	/**
@@ -105,5 +104,4 @@ class Form extends Entity
 			: '';
 		return $formArray;
 	}
-
 }

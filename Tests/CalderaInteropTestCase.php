@@ -1,6 +1,6 @@
 <?php
 
-abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
+abstract class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 {
 
 	/**
@@ -8,65 +8,65 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	 * @param int $id
 	 * @return \calderawp\interop\Entities\Entity
 	 */
-	protected function entityFactory( $type, $id = 42 )
+	protected function entityFactory($type, $id = 42)
 	{
 		$field = $this->fieldArrayFactory($id);
 
 		$form = $this->formArrayFactory($id);
-		switch(  $type  ){
+		switch ($type) {
 			case 'FIELD':
-				$entity = new \calderawp\interop\Entities\Field( $field );
+				$entity = new \calderawp\interop\Entities\Field($field);
 				break;
 			case 'FORM':
-				$entity = new \calderawp\interop\Entities\Form( $form );
+				$entity = new \calderawp\interop\Entities\Form($form);
 				break;
-            case 'ENTRY' :
-                $entity = new \calderawp\interop\Entities\Entry(
-                    $this->entityFactory( 'ENTRY_DETAILS', 40 ),
-                    new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
-                        [
-                            $this->entityFactory( 'ENTRY_VALUE', 40 ),
-                            $this->entityFactory( 'ENTRY_VALUE', 41 ),
-                            $this->entityFactory( 'ENTRY_VALUE', 42 )
-                        ]
-                    ),
-                    new \calderawp\interop\Entities\Form( $form )
-                );
-                break;
-            case 'ENTRY_DETAILS' :
-                $entity = \calderawp\interop\Entities\Entry\Details::fromArray(
-                    [
-                        'id' => $id,
-                        'form_id' => 'cf12345',
-                        'user_id' => 1,
-                        'datestamp' => '11:42:01',
-                        'status' => 'active'
-                    ]
-                );
-                break;
-            case 'ENTRY_FIELD' :
-            case 'ENTRY_VALUE' :
-                $entity = \calderawp\interop\Entities\Entry\Field::fromArray(
-                    [
-                        'entry_id' => $id,
-                        'field_id' => 'fld' . rand(),
-                        'slug' => random_bytes( 42 ),
-                        'value' => random_bytes( 42 )
-                    ]
-                );
-                break;
+			case 'ENTRY':
+				$entity = new \calderawp\interop\Entities\Entry(
+					$this->entityFactory('ENTRY_DETAILS', 40),
+					new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
+						[
+							$this->entityFactory('ENTRY_VALUE', 40),
+							$this->entityFactory('ENTRY_VALUE', 41),
+							$this->entityFactory('ENTRY_VALUE', 42)
+						]
+					),
+					new \calderawp\interop\Entities\Form($form)
+				);
+				break;
+			case 'ENTRY_DETAILS':
+				$entity = \calderawp\interop\Entities\Entry\Details::fromArray(
+					[
+						'id' => $id,
+						'form_id' => 'cf12345',
+						'user_id' => 1,
+						'datestamp' => '11:42:01',
+						'status' => 'active'
+					]
+				);
+				break;
+			case 'ENTRY_FIELD':
+			case 'ENTRY_VALUE':
+				$entity = \calderawp\interop\Entities\Entry\Field::fromArray(
+					[
+						'entry_id' => $id,
+						'field_id' => 'fld' . rand(),
+						'slug' => random_bytes(42),
+						'value' => random_bytes(42)
+					]
+				);
+				break;
 			case 'GENERIC';
-			default :
+			default:
 				$entity = new class( ) extends \calderawp\interop\Entities\Entity {
-				    public function toArray()
-                    {
-                        return [];
-                    }
-                };
+					public function toArray()
+					{
+						return [];
+					}
+				};
 				break;
 		}
 
-        $entity->setId( $id );
+		$entity->setId($id);
 
 		return $entity;
 	}
@@ -75,29 +75,29 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	 * @param $type
 	 * @return \calderawp\interop\Collections\EntityCollections\EntityCollection|\calderawp\interop\Collections\EntityCollections\Fields|__anonymous@1205
 	 */
-	protected function entityCollectionFactory( $type )
+	protected function entityCollectionFactory($type)
 	{
-		switch( strtoupper( $type ) ){
+		switch (strtoupper($type)) {
 			case 'FIELD':
 			case 'FIELDS':
 				$collection = $this->fieldEntityCollection();
 				break;
-            case 'ENTRY_VALUES' :
-            case 'ENTRY_FIELDS' :
-                $collection = new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
-                    [
-                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
-                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
-                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
-                        $this->entityFactory( 'ENTRY_FIELD', rand() ),
+			case 'ENTRY_VALUES':
+			case 'ENTRY_FIELDS':
+				$collection = new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
+					[
+						$this->entityFactory('ENTRY_FIELD', rand()),
+						$this->entityFactory('ENTRY_FIELD', rand()),
+						$this->entityFactory('ENTRY_FIELD', rand()),
+						$this->entityFactory('ENTRY_FIELD', rand()),
 
-                    ]
-                );
-                break;
+					]
+				);
+				break;
 			case 'FORM':
 			case 'FORMS':
 			case 'GENERIC';
-			default :
+			default:
 				$collection = new class( ) extends \calderawp\interop\Collections\EntityCollections\EntityCollection {
 					public function toArray()
 					{
@@ -115,14 +115,14 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	 * @param array $ids
 	 * @return \calderawp\interop\Collections\EntityCollections\Fields
 	 */
-	protected function fieldEntityCollection( $ids = [ 4, 8 ] ){
+	protected function fieldEntityCollection($ids = [ 4, 8 ])
+	{
 		$fields = [];
-		foreach ( $ids as $id ){
-			$fields[] = $this->entityFactory( 'FIELD', $id );
-
+		foreach ($ids as $id) {
+			$fields[] = $this->entityFactory('FIELD', $id);
 		}
 
-		return new \calderawp\interop\Collections\EntityCollections\Fields( $fields );
+		return new \calderawp\interop\Collections\EntityCollections\Fields($fields);
 	}
 
 	/**
@@ -158,24 +158,24 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 		return $form;
 	}
 
-    /**
-     * @return \calderawp\interop\Industry
-     */
-    public function industryFactory()
-    {
-        $serviceContainer = new \calderawp\interop\ServiceContainer();
-        return new \calderawp\interop\Industry($serviceContainer);
-    }
+	/**
+	 * @return \calderawp\interop\Industry
+	 */
+	public function industryFactory()
+	{
+		$serviceContainer = new \calderawp\interop\ServiceContainer();
+		return new \calderawp\interop\Industry($serviceContainer);
+	}
 
-    /**
-     * @return \calderawp\interop\InteropApp
-     */
-    public function appFactory()
-    {
-        return new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceContainer(),
-            dirname(__FILE__),
-            '0.1.1'
-        );
-    }
+	/**
+	 * @return \calderawp\interop\InteropApp
+	 */
+	public function appFactory()
+	{
+		return new \calderawp\interop\InteropApp(
+			new \calderawp\interop\ServiceContainer(),
+			dirname(__FILE__),
+			'0.1.1'
+		);
+	}
 }

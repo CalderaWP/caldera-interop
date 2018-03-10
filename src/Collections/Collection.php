@@ -2,8 +2,6 @@
 
 namespace calderawp\interop\Collections;
 
-
-
 use calderawp\interop\Interfaces\JsonArrayable;
 
 abstract class Collection implements JsonArrayable
@@ -13,5 +11,4 @@ abstract class Collection implements JsonArrayable
 	{
 		return $this->toArray();
 	}
-
 }

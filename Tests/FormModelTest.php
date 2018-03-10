@@ -16,9 +16,9 @@ class FormModelTest extends ModelCalderaInteropTestCase
 	 */
 	public function testToEntity()
 	{
-		$formEntity = $this->entityFactory( 'FORM' );
-		$formModel = new \calderawp\interop\Models\Form( $formEntity );
-		$this->assertEquals( $formEntity, $formModel->toEntity() );
+		$formEntity = $this->entityFactory('FORM');
+		$formModel = new \calderawp\interop\Models\Form($formEntity);
+		$this->assertEquals($formEntity, $formModel->toEntity());
 	}
 
 	/**
@@ -28,13 +28,12 @@ class FormModelTest extends ModelCalderaInteropTestCase
 	public function testGetField()
 	{
 
-		$fieldEntity = $this->entityFactory( 'FIELD', 7 );
+		$fieldEntity = $this->entityFactory('FIELD', 7);
 		/** @var \calderawp\interop\Entities\Form $formEntity */
-		$formEntity = $this->entityFactory( 'FORM' );
-		$formEntity->addField( $fieldEntity );
-		$formModel = new \calderawp\interop\Models\Form( $formEntity );
-		$this->assertEquals( $fieldEntity, $formModel->getFields()->getField(7 ) );
-
+		$formEntity = $this->entityFactory('FORM');
+		$formEntity->addField($fieldEntity);
+		$formModel = new \calderawp\interop\Models\Form($formEntity);
+		$this->assertEquals($fieldEntity, $formModel->getFields()->getField(7));
 	}
 
 	/**
@@ -47,37 +46,32 @@ class FormModelTest extends ModelCalderaInteropTestCase
 	public function testGetFields()
 	{
 
-		$fieldEntity7 = $this->entityFactory( 'FIELD', 7 );
-		$fieldEntity2 = $this->entityFactory( 'FIELD', 2 );
+		$fieldEntity7 = $this->entityFactory('FIELD', 7);
+		$fieldEntity2 = $this->entityFactory('FIELD', 2);
 		/** @var \calderawp\interop\Entities\Form $formEntity */
-		$formEntity = $this->entityFactory( 'FORM' );
-		$formEntity->addField( $fieldEntity2 )->addField( $fieldEntity7 );
-		$formModel = new \calderawp\interop\Models\Form( $formEntity );
+		$formEntity = $this->entityFactory('FORM');
+		$formEntity->addField($fieldEntity2)->addField($fieldEntity7);
+		$formModel = new \calderawp\interop\Models\Form($formEntity);
 
 		$fields = $formModel->getFields()->toArray();
 
-		$this->assertArrayHasKey( 7, $fields );
-		$this->assertEquals( $fields[7], $formModel->getFields()->getField( 7 )->toArray() );
-		$this->assertEquals( $fieldEntity7, $formModel->getFields()->getField( 7 ) );
+		$this->assertArrayHasKey(7, $fields);
+		$this->assertEquals($fields[7], $formModel->getFields()->getField(7)->toArray());
+		$this->assertEquals($fieldEntity7, $formModel->getFields()->getField(7));
 
-		$this->assertArrayHasKey( 2, $fields );
-		$this->assertEquals( $fields[2], $formModel->getFields()->getField( 2 )->toArray() );
-		$this->assertEquals( $fieldEntity2, $formModel->getFields()->getField( 2 ) );
-
+		$this->assertArrayHasKey(2, $fields);
+		$this->assertEquals($fields[2], $formModel->getFields()->getField(2)->toArray());
+		$this->assertEquals($fieldEntity2, $formModel->getFields()->getField(2));
 	}
 
 
 	public function testAddField()
 	{
 
-		$extraFieldArray = $this->fieldArrayFactory( 400 );
-		$extraField = new \calderawp\interop\Entities\Field(  $extraFieldArray );
-		$fieldsEntityCollection = $this->fieldEntityCollection( [10,20] );
-		$fieldsEntityCollection->addField( $extraField );
-		$this->assertEquals( $extraField, $fieldsEntityCollection->getField( 400 ) );
-
-
+		$extraFieldArray = $this->fieldArrayFactory(400);
+		$extraField = new \calderawp\interop\Entities\Field($extraFieldArray);
+		$fieldsEntityCollection = $this->fieldEntityCollection([10,20]);
+		$fieldsEntityCollection->addField($extraField);
+		$this->assertEquals($extraField, $fieldsEntityCollection->getField(400));
 	}
-
-
 }

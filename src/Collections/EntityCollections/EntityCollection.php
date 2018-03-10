@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Collections\EntityCollections;
 
-
 use calderawp\interop\Collections\Collection;
 
 abstract class EntityCollection extends Collection
@@ -13,6 +12,4 @@ abstract class EntityCollection extends Collection
 	{
 		return $this->toArray();
 	}
-
-
 }

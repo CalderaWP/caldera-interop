@@ -2,8 +2,6 @@
 
 namespace calderawp\interop\Models;
 
-
-
 use calderawp\interop\Container;
 use calderawp\interop\Entities\Entity;
 use calderawp\interop\Traits\HasId;
@@ -22,7 +20,7 @@ abstract class Model
 	 * Model constructor.
 	 * @param Entity $entity
 	 */
-	public function __construct( Entity $entity )
+	public function __construct(Entity $entity)
 	{
 		$this->entity = $entity;
 	}
@@ -38,10 +36,9 @@ abstract class Model
 	/**
 	 * @param $id
 	 */
-	public function setId( $id )
+	public function setId($id)
 	{
-		$this->entity->setId( $id );
+		$this->entity->setId($id);
 		$this->id = $id;
 	}
-
 }

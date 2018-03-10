@@ -11,10 +11,11 @@ class ModelTest extends ModelCalderaInteropTestCase
 	 */
 	public function testIdSet()
 	{
-		$model = new class( $this->entityFactory( 'Generic' ) ) extends  \calderawp\interop\Models\Model {};
+		$model = new class( $this->entityFactory('Generic') ) extends  \calderawp\interop\Models\Model {
+		};
 		$model->setId(42);
 		$this->assertEquals(42, $model->getId());
-		$this->assertEquals( $model->getId(), $model->toEntity()->getId() );
+		$this->assertEquals($model->getId(), $model->toEntity()->getId());
 	}
 
 	/**
@@ -24,9 +25,9 @@ class ModelTest extends ModelCalderaInteropTestCase
 	 */
 	public function testToEntity()
 	{
-		$entity = $this->entityFactory( 'Generic' );
-		$model = new class(  $entity ) extends  \calderawp\interop\Models\Model {};
-		$this->assertEquals( $entity , $model->toEntity() );
-
+		$entity = $this->entityFactory('Generic');
+		$model = new class(  $entity ) extends  \calderawp\interop\Models\Model {
+		};
+		$this->assertEquals($entity, $model->toEntity());
 	}
 }

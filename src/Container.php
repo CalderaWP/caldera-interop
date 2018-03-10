@@ -3,8 +3,6 @@
 
 namespace calderawp\interop;
 
-
-
 use function calderawp\interop\Support\value;
 use Psr\Container\ContainerInterface;
 
@@ -26,21 +24,21 @@ abstract class Container implements \JsonSerializable, ContainerInterface
 	 */
 	protected $pimple;
 
-	public function __construct( array $attributes = array(), array  $defaults = array() )
+	public function __construct(array $attributes = array(), array  $defaults = array())
 	{
-		$this->setProps( $attributes, $defaults);
+		$this->setProps($attributes, $defaults);
 		$this->pimple = new \Pimple\Container();
 	}
 
 	/** @inheritdoc */
-	public function get($id )
+	public function get($id)
 	{
-		if( $this->allowed( $id ) ){
-			if ( $this->pimple->offsetExists( $id )) {
+		if ($this->allowed($id)) {
+			if ($this->pimple->offsetExists($id)) {
 				return $this->pimple->offsetGet($id);
-			}elseif( array_key_exists( $id, $this->defaults ) ){
+			} elseif (array_key_exists($id, $this->defaults)) {
 				return $this->defaults[ $id ];
-			}else{
+			} else {
 				return null;
 			}
 		}
@@ -48,49 +46,46 @@ abstract class Container implements \JsonSerializable, ContainerInterface
 		return null;
 	}
 
-    /**
-     * @param string $id
-     * @param mixed $value
-     * @return $this
-     */
-	public function set( $id, $value )
+	/**
+	 * @param string $id
+	 * @param mixed $value
+	 * @return $this
+	 */
+	public function set($id, $value)
 	{
-		if( $this->allowed( $id ) ){
-			$this->pimple->offsetSet( $id, $value );
+		if ($this->allowed($id)) {
+			$this->pimple->offsetSet($id, $value);
 		}
 
 		return $this;
-
-
 	}
 
-    /** @inheritdoc */
-    public function has( $id )
-    {
-        return  $this->allowed( $id )  && $this->pimple->offsetExists( $id  );
-
-    }
+	/** @inheritdoc */
+	public function has($id)
+	{
+		return  $this->allowed($id)  && $this->pimple->offsetExists($id);
+	}
 
 	/**
 	 * @param $id
 	 * @return bool
 	 */
-	public function allowed( $id )
+	public function allowed($id)
 	{
-        return isset( $id, $this->attributes );
+		return isset($id, $this->attributes);
 	}
 
 	/**
 	 *
-     * @todo Put this method in trait
-     *
-     * @return array
+	 * @todo Put this method in trait
+	 *
+	 * @return array
 	 */
 	public function toArray()
 	{
 		$data = array();
-		foreach ( $this->attributes as $property ){
-			$data[ $property ] = $this->get( $property );
+		foreach ($this->attributes as $property) {
+			$data[ $property ] = $this->get($property);
 		}
 
 		return $data;
@@ -120,15 +115,15 @@ abstract class Container implements \JsonSerializable, ContainerInterface
 	 * @param $prop
 	 * @param array $new
 	 */
-	private function propArrayMerge( $prop, array  $new = array() ){
+	private function propArrayMerge($prop, array  $new = array())
+	{
 
-		if( ! empty( $new ) ){
-		    if( ! empty( $this->$prop ) ){
-                $this->$prop = $new;
-            }else{
-                $this->$prop = array_merge( $new, $this->$prop );
-            }
+		if (! empty($new)) {
+			if (! empty($this->$prop)) {
+				$this->$prop = $new;
+			} else {
+				$this->$prop = array_merge($new, $this->$prop);
+			}
 		}
 	}
-
 }

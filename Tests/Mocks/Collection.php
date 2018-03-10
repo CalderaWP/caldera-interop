@@ -12,10 +12,9 @@ namespace calderawp\interop\Mock;
  */
 class Collection extends \calderawp\interop\Collections\Collection
 {
-    /** @inheritdoc */
-    public function toArray()
-    {
-        return [];
-    }
-
+	/** @inheritdoc */
+	public function toArray()
+	{
+		return [];
+	}
 }

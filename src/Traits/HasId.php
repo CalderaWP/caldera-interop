@@ -8,7 +8,6 @@
 
 namespace calderawp\interop\Traits;
 
-
 trait HasId
 {
 
@@ -19,13 +18,13 @@ trait HasId
 	 */
 	private $id;
 
-    /**
-     * Set item ID
-     *
-     * @param string|int $id
-     * @return $this
-     */
-	public function setId( $id )
+	/**
+	 * Set item ID
+	 *
+	 * @param string|int $id
+	 * @return $this
+	 */
+	public function setId($id)
 	{
 		$this->id = $id;
 		return $this;
@@ -36,7 +35,8 @@ trait HasId
 	 *
 	 * @return int
 	 */
-	public function getId(){
+	public function getId()
+	{
 		return $this->id;
 	}
 
@@ -46,7 +46,7 @@ trait HasId
 	 * @param array $data
 	 * @return array
 	 */
-	protected static function fixId( array $data = array() )
+	protected static function fixId(array $data = array())
 	{
 
 		if (isset($data['id'])) {
