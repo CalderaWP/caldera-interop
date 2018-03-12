@@ -3,9 +3,9 @@
 
 namespace calderawp\interop\Http;
 
+use calderawp\interop\Interfaces\InteroperabeResponse;
 use GuzzleHttp\Psr7\MessageTrait;
 use function GuzzleHttp\Psr7\stream_for;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Response
@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @package calderawp\interop\Http
  */
-class Response implements ResponseInterface
+class Response implements InteroperabeResponse
 {
 
 	use MessageTrait;
