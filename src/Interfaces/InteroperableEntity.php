@@ -12,12 +12,11 @@ namespace calderawp\interop\Interfaces;
  */
 interface InteroperableEntity extends Interoperable, Arrayable
 {
-    /**
-     * Create entity from array
-     *
-     * @param  array $items
-     * @return static
-     */
-    public static function fromArray(array  $items);
-
+	/**
+	 * Create entity from array
+	 *
+	 * @param  array $items
+	 * @return static
+	 */
+	public static function fromArray(array  $items);
 }

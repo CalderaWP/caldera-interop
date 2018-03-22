@@ -13,15 +13,15 @@ namespace calderawp\interop\Interfaces;
 interface InteroperableModel extends Interoperable
 {
 
-    /**
-     * @return bool
-     */
-    public function isValid();
+	/**
+	 * @return bool
+	 */
+	public function isValid();
 
-    /**
-     * Get type of model
-     *
-     * @return string
-     */
-    public static function getType();
+	/**
+	 * Get type of model
+	 *
+	 * @return string
+	 */
+	public static function getType();
 }

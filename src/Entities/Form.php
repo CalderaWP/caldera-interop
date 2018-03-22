@@ -47,9 +47,15 @@ class Form extends Entity
 	 */
 	public function toArray()
 	{
-		return [
-		'fields' => $this->getFields(),
-		];
+		$fields = $this->getFields();
+		if (!empty($fields)) {
+			foreach ($fields as $i => $field) {
+				$fields[$i] = $field->toArray();
+			}
+		}
+		return array_merge(parent::toArray(), [
+			'fields' => $this->getFields(),
+		]);
 	}
 
 	/**

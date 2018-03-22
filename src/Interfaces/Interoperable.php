@@ -34,5 +34,4 @@ interface Interoperable
 	 * @return array
 	 */
 	public function toArray();
-
 }
