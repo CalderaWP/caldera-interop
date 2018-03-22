@@ -26,7 +26,7 @@ interface InteroperableServiceContainer
 	 *
 	 * @param string $alias Alias for class
 	 * @param object|\Closure $concrete Concrete class
-	 */
+co	 */
 	public function bind($alias, $concrete);
 
 	/**

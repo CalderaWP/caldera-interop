@@ -79,8 +79,7 @@ class ServiceContainerTest extends CalderaInteropTestCase
         $container = new \calderawp\interop\Service\Container();
 
         $classRef = \calderawp\interop\Entities\Field::class;
-        $container->singleton( $classRef, new \calderawp\interop\Collections\EntityCollections\Fields()
-        );
+        $container->singleton( $classRef, new \calderawp\interop\Collections\EntityCollections\Fields());
 
         $this->assertSame( $container->make($classRef), $container->make($classRef));
 
@@ -117,6 +116,40 @@ class ServiceContainerTest extends CalderaInteropTestCase
         $container = new \calderawp\interop\Service\Container();
         $this->assertFalse( $container->doesProvide( $classRef ) );
         $this->assertFalse( $container->doesProvide( \calderawp\interop\Mock\Entity::class ) );
+    }
+
+    /**
+     * Test a mock provider to make sure it works
+     *
+     * @covers ProvidesService::registerService()
+     */
+    public function testProviders(){
+       $provider = new \calderawp\interop\Mock\Provider();
+       $container = new \calderawp\interop\Service\Container();
+       $provider->registerService( $container );
+       $this->assertEquals( new stdClass(), $container->make( 'MOCK' ) );
+       $this->assertEquals( 'bar', $container->make( 'S_MOCK' )->foo );
+    }
+
+    /**
+     * Test a entity provider provides all entities we need.
+     *
+     * @covers EntityProvider::registerService()
+     */
+    public function testEntities()
+    {
+        $provider = new \calderawp\interop\Providers\EntityProvider();
+        $container = new \calderawp\interop\Service\Container();
+        $provider->registerService( $container );
+
+        $this->assertSame( \calderawp\interop\Entities\Form::class, get_class( $container->make( \calderawp\interop\Entities\Form::class )));
+        $this->assertSame( \calderawp\interop\Entities\Field::class, get_class( $container->make( \calderawp\interop\Entities\Field::class)));
+        $this->assertSame( \calderawp\interop\Entities\EmailReplyTo::class, get_class( $container->make( \calderawp\interop\Entities\EmailReplyTo::class )));
+        $this->assertSame( \calderawp\interop\Entities\EmailRecipient::class, get_class( $container->make( \calderawp\interop\Entities\EmailRecipient::class )));
+        $this->assertSame( \calderawp\interop\Entities\EmailSender::class, get_class( $container->make( \calderawp\interop\Entities\EmailSender::class )));
+        $this->assertSame( \calderawp\interop\Entities\Message::class, get_class( $container->make( \calderawp\interop\Entities\Message::class )));
+        $this->assertSame( \calderawp\interop\Entities\Entry\Details::class, get_class( $container->make( \calderawp\interop\Entities\Entry\Details::class )));
+        $this->assertSame( \calderawp\interop\Entities\Entry\Field::class, get_class( $container->make( \calderawp\interop\Entities\Entry\Field::class )));
     }
 
 }
