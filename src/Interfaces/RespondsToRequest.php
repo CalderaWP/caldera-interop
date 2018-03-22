@@ -13,10 +13,9 @@ namespace calderawp\interop\Interfaces;
 interface RespondsToRequest
 {
 
-    /**
-     * @param InteroperableRequest $request
-     * @return InteroperabeResponse
-     */
-    public function respond( InteroperableRequest $request );
-
+	/**
+	 * @param InteroperableRequest $request
+	 * @return InteroperabeResponse
+	 */
+	public function respond(InteroperableRequest $request);
 }

@@ -3,22 +3,20 @@
 
 namespace calderawp\interop\Providers;
 
-
 class ServiceFactory
 {
 
-    /**
-     * @var EntityProvider
-     */
-    protected $entityProvider;
+	/**
+	 * @var EntityProvider
+	 */
+	protected $entityProvider;
 
 
-    public function __construct( EntityProvider $entityProvider )
-    {
-    }
+	public function __construct(EntityProvider $entityProvider)
+	{
+	}
 
-    public function getEntity($type, array $args = [] )
-    {
-
-    }
+	public function getEntity($type, array $args = [])
+	{
+	}
 }

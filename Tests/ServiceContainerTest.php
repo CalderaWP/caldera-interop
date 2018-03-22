@@ -33,7 +33,7 @@ class ServiceContainerTest extends CalderaInteropTestCase
             return new \calderawp\interop\Entities\Form();
         });
 
-        $classRef2 = \calderawp\interop\Entities\Field::class;
+        $classRef2 = \calderawp\interop\Collections\EntityCollections\Fields::class;
         $container->bind( $classRef2, function (){
             return new \calderawp\interop\Collections\EntityCollections\Fields();
         });
@@ -78,9 +78,7 @@ class ServiceContainerTest extends CalderaInteropTestCase
         $container = new \calderawp\interop\ServiceContainer();
 
         $classRef = \calderawp\interop\Entities\Field::class;
-        $container->singleton( $classRef, function (){
-            return new \calderawp\interop\Collections\EntityCollections\Fields();
-        });
+        $container->singleton( $classRef, new \calderawp\interop\Collections\EntityCollections\Fields() );
 
         $this->assertSame( $container->make($classRef), $container->make($classRef));
 

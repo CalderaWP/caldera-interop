@@ -3,110 +3,109 @@
 
 namespace calderawp\interop;
 
-
 use calderawp\interop\Interfaces\ProvidesService;
 
 class ServiceContainer
 {
 
-    /**
-     * @var ProvidesService[]
-     */
-    protected $services;
+	/**
+	 * @var ProvidesService[]
+	 */
+	protected $services;
 
 
-    public function doesProvide( $serviceName ){
-        return array_key_exists( $serviceName, $this->services );
-    }
+	public function doesProvide($serviceName)
+	{
+		return array_key_exists($serviceName, $this->services);
+	}
 
-    /**
-     * Bind a service to the container.
-     *
-     * @param $alias
-     * @param $concrete
-     * @return mixed
-     */
-    public function bind($alias, $concrete)
-    {
-        $this->services[$alias] = $concrete;
-    }
+	/**
+	 * Bind a service to the container.
+	 *
+	 * @param $alias
+	 * @param $concrete
+	 * @return mixed
+	 */
+	public function bind($alias, $concrete)
+	{
+		$this->services[$alias] = $concrete;
+	}
 
-    /**
-     * Request a service from the container.
-     *
-     * @param $alias
-     * @return mixed
-     */
-    public function make($alias)
-    {
-        if( ! isset(isset($this->services[$alias]  ){
-            return $this->resolve($alias);
-        }
-        if ( is_callable($this->services[$alias])) {
-            return call_user_func_array($this->services[$alias], array($this));
-        }
+	/**
+	 * Request a service from the container.
+	 *
+	 * @param $alias
+	 * @return mixed
+	 */
+	public function make($alias)
+	{
+		if (! isset($this->services[$alias])) {
+			return $this->resolve($alias);
+		}
+		if (is_callable($this->services[$alias])) {
+			return call_user_func_array($this->services[$alias], array($this));
+		}
 
-        if ( is_object($this->services[$alias])) {
-            return $this->services[$alias];
-        }
+		if (is_object($this->services[$alias])) {
+			return $this->services[$alias];
+		}
 
-        if ( class_exists($this->services[$alias])) {
-            return $this->resolve($this->services[$alias]);
-        }
+		if (class_exists($this->services[$alias])) {
+			return $this->resolve($this->services[$alias]);
+		}
 
-        return $this->resolve($alias);
-    }
+		return $this->resolve($alias);
+	}
 
-    /**
-     * Bind a singleton instance to the container.
-     *
-     * @param $alias
-     * @param $binding
-     */
-    public function singleton($alias, $binding)
-    {
-        $this->bind($alias, $this->make($binding));
-    }
+	/**
+	 * Bind a singleton instance to the container.
+	 *
+	 * @param $alias
+	 * @param $binding
+	 */
+	public function singleton($alias, $binding)
+	{
+        $this->services[$alias] = $binding;
+	}
 
 
-    private function resolve($class)
-    {
-        $reflection = new \ReflectionClass($class);
+	private function resolve($class)
+	{
+		$reflection = new \ReflectionClass($class);
 
-        $constructor = $reflection->getConstructor();
+		$constructor = $reflection->getConstructor();
 
-        // Constructor is null
-        if ( ! $constructor) {
-            return new $class;
-        }
+		// Constructor is null
+		if (! $constructor) {
+			return new $class;
+		}
 
-        // Constructor with no parameters
-        $params = $constructor->getParameters();
+		// Constructor with no parameters
+		$params = $constructor->getParameters();
 
-        if (count($params) === 0) {
-            return new $class;
-        }
+		if (count($params) === 0) {
+			return new $class;
+		}
 
-        $newInstanceParams = array();
+		$newInstanceParams = array();
 
-        foreach ($params as $param) {
-            // @todo Here we should probably perform a bunch of checks, such as:
-            // isArray(), isCallable(), isDefaultValueAvailable()
-            // isOptional() etc.
+		foreach ($params as $param) {
+			// @todo Here we should probably perform a bunch of checks, such as:
+			// isArray(), isCallable(), isDefaultValueAvailable()
+			// isOptional() etc.
 
-            if (is_null($param->getClass())) {
-                $newInstanceParams[] = null;
-                continue;
-            }
+			if (is_null($param->getClass())) {
+				$newInstanceParams[] = null;
+				continue;
+			}
 
-            $newInstanceParams[] = $this->make(
-                $param->getClass()->getName()
-            );
-        }
+			$newInstanceParams[] = $this->make(
+				$param->getClass()->getName()
+			);
+		}
 
-        return $reflection->newInstanceArgs(
-            $newInstanceParams
-        );
-    }
-
+		return $reflection->newInstanceArgs(
+			$newInstanceParams
+		);
+	}
 }
