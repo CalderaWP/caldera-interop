@@ -42,6 +42,11 @@ class ServiceFactoryTest extends CalderaInteropTestCase
         $factory->entity( \calderawp\interop\Mock\Entity::class );
     }
 
+    /**
+     * Test creating entity from array
+     *
+     * @covers \calderawp\interop\Service\Factory::entity()
+     */
     public function testFromArray()
     {
         $classRef = \calderawp\interop\Entities\Form::class;
@@ -56,6 +61,11 @@ class ServiceFactoryTest extends CalderaInteropTestCase
         $this->assertSame( $args['name'], $entity->name );
     }
 
+    /**
+     * Test creating entity from Request
+     *
+     * @covers \calderawp\interop\Service\Factory::entity()
+     */
     public function testFromRequest()
     {
         $classRef = \calderawp\interop\Entities\Form::class;
@@ -66,10 +76,18 @@ class ServiceFactoryTest extends CalderaInteropTestCase
 
         $factory = new \calderawp\interop\Service\Factory($container);
 
-        $entity = $this->entityFactory( 'Form' );
+        /** @var \calderawp\interop\Entities\Form $entity */
+        $entity = $this->entityFactory( 'FORM' );
         $request = new \GuzzleHttp\Psr7\Request('GET', 'https://roysivan.com', [], json_encode( $entity ) );
+
+
+        /** @var \calderawp\interop\Entities\Form $entity */
         $entityFromRequest = $factory->entity( $classRef, $request );
-        $this->assertEquals( $entity->toArray(), $entityFromRequest->toArray() );
+        $this->assertEquals( $entity->name, $entityFromRequest->name );
+        $this->assertEquals(
+            $entity->getFields()->toArray(),
+            $entityFromRequest->getFields()->toArray()
+        );
 
 
     }

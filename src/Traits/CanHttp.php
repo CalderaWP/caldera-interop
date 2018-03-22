@@ -16,7 +16,7 @@ trait CanHttp
 	 */
 	public static function fromRequest(Request $request)
 	{
-		$body = json_decode($request->getBody()->getContents());
+		$body = json_decode($request->getBody()->getContents(),true);
 		return self::fromArray($body);
 	}
 

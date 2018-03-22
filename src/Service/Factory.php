@@ -31,12 +31,12 @@ class Factory implements InteroperableFactory
 
 	/** @inheritdoc */
 	public function getContainer()
-    {
-        return $this->container;
-    }
+	{
+		return $this->container;
+	}
 
-    /** @inheritdoc */
-    public function entity($type, $data = null)
+	/** @inheritdoc */
+	public function entity($type, $data = null)
 	{
 		if ($this->getContainer()->doesProvide($type)) {
 			if (is_array($data)) {

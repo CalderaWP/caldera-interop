@@ -21,8 +21,8 @@ class Container implements InteroperableServiceContainer
 	 */
 	protected $services;
 
-    /** @inheritdoc */
-    public function doesProvide($serviceName)
+	/** @inheritdoc */
+	public function doesProvide($serviceName)
 	{
 		if (! is_array($this->services)) {
 			$this->services = [];
@@ -31,14 +31,14 @@ class Container implements InteroperableServiceContainer
 		return ! empty($this->services) && array_key_exists($serviceName, $this->services);
 	}
 
-    /** @inheritdoc */
-    public function bind($alias, $concrete)
+	/** @inheritdoc */
+	public function bind($alias, $concrete)
 	{
 		$this->services[$alias] = $concrete;
 	}
 
-    /** @inheritdoc */
-    public function make($alias)
+	/** @inheritdoc */
+	public function make($alias)
 	{
 		if (! isset($this->services[$alias])) {
 			return $this->resolve($alias);
