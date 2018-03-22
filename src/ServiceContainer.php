@@ -39,15 +39,18 @@ class ServiceContainer
      */
     public function make($alias)
     {
-        if (isset($this->services[$alias]) and is_callable($this->services[$alias])) {
+        if( ! isset(isset($this->services[$alias]  ){
+            return $this->resolve($alias);
+        }
+        if ( is_callable($this->services[$alias])) {
             return call_user_func_array($this->services[$alias], array($this));
         }
 
-        if (isset($this->services[$alias]) and is_object($this->services[$alias])) {
+        if ( is_object($this->services[$alias])) {
             return $this->services[$alias];
         }
 
-        if (isset($this->services[$alias]) and class_exists($this->services[$alias])) {
+        if ( class_exists($this->services[$alias])) {
             return $this->resolve($this->services[$alias]);
         }
 

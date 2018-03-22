@@ -82,9 +82,7 @@ class ServiceContainerTest extends CalderaInteropTestCase
             return new \calderawp\interop\Collections\EntityCollections\Fields();
         });
 
-
         $this->assertSame( $container->make($classRef), $container->make($classRef));
-
 
     }
 
