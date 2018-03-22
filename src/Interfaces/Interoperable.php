@@ -6,6 +6,13 @@ namespace calderawp\interop\Interfaces;
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
+/**
+ * Interface Interoperable
+ *
+ * Base interface for interoperables, should NOT be used directly. Implement InteroperableModel/Entity/Request/etc instead.
+ *
+ * @package calderawp\interop\Interfaces
+ */
 interface Interoperable
 {
 
@@ -20,10 +27,6 @@ interface Interoperable
 	 */
 	public function toResponse();
 
-	/**
-	 * @return bool
-	 */
-	public function isValid();
 
 	/**
 	 * Convert model to array
@@ -32,10 +35,4 @@ interface Interoperable
 	 */
 	public function toArray();
 
-	/**
-	 * Get type of model
-	 *
-	 * @return string
-	 */
-	public static function getType();
 }

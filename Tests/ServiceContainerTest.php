@@ -78,7 +78,8 @@ class ServiceContainerTest extends CalderaInteropTestCase
         $container = new \calderawp\interop\ServiceContainer();
 
         $classRef = \calderawp\interop\Entities\Field::class;
-        $container->singleton( $classRef, new \calderawp\interop\Collections\EntityCollections\Fields() );
+        $container->singleton( $classRef, new \calderawp\interop\Collections\EntityCollections\Fields()
+        );
 
         $this->assertSame( $container->make($classRef), $container->make($classRef));
 

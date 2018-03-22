@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af2b8f7d-47c0-4866-9f59-6d93bed05592" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Interfaces/InteroperableEntity.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Interfaces/InteroperableModel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ServiceFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Traits/CanHttp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/Mocks/Entity.php" afterPath="$PROJECT_DIR$/Tests/Mocks/Entity.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ServiceContainerTest.php" afterPath="$PROJECT_DIR$/Tests/ServiceContainerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/ContainsServices.php" afterPath="$PROJECT_DIR$/src/Interfaces/ContainsServices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/InteroperabeResponse.php" afterPath="$PROJECT_DIR$/src/Interfaces/InteroperabeResponse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/InteroperableRequest.php" afterPath="$PROJECT_DIR$/src/Interfaces/InteroperableRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/ProvidesService.php" afterPath="$PROJECT_DIR$/src/Interfaces/ProvidesService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/RespondsToRequest.php" afterPath="$PROJECT_DIR$/src/Interfaces/RespondsToRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Providers/EntityProvider.php" afterPath="$PROJECT_DIR$/src/Providers/EntityProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Providers/ServiceFactory.php" afterPath="$PROJECT_DIR$/src/Providers/ServiceFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ServiceContainer.php" afterPath="$PROJECT_DIR$/src/ServiceContainer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entities/Entity.php" afterPath="$PROJECT_DIR$/src/Entities/Entity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interfaces/Interoperable.php" afterPath="$PROJECT_DIR$/src/Interfaces/Interoperable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/Model.php" afterPath="$PROJECT_DIR$/src/Models/Model.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,38 +21,112 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ServiceContainerTest.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tests/ServiceContainerTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="80" column="104" lean-forward="false" selection-start-line="80" selection-start-column="104" selection-end-line="80" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceContainer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ServiceContainer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Form.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entities/Form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.66729856">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="InteroperableModel.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableModel.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="285">
+                  <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="EmailAddress.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Entities/EmailAddress.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Entities/Entity.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="67" lean-forward="false" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+                  <folding>
+                    <element signature="e#46#99#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InteroperableEntity.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableEntity.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Entry.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Entities/Entry.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Models/Model.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="43">
+                  <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#44#82#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tests/Mocks/Entity.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InteroperableRequest.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableRequest.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="CanHttp.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Traits/CanHttp.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#46#93#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -74,6 +149,7 @@
       <find>abs</find>
       <find>_con</find>
       <find>__co</find>
+      <find>Request</find>
     </findStrings>
     <replaceStrings>
       <replace>createEntity</replace>
@@ -96,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/ServiceMap.php" />
         <option value="$PROJECT_DIR$/Tests/ServiceMapCalderaInteropTest.php" />
         <option value="$PROJECT_DIR$/Tests/IndustryTest.php" />
-        <option value="$PROJECT_DIR$/src/Entities/Entity.php" />
         <option value="$PROJECT_DIR$/src/Entities/Entry/Field.php" />
         <option value="$PROJECT_DIR$/Tests/CalderaInteropTestCase.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/Plugin.php" />
@@ -119,8 +194,6 @@
         <option value="$PROJECT_DIR$/Tests/FormModelTest.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/Model.php" />
         <option value="$PROJECT_DIR$/Tests/bootstrap.php" />
-        <option value="$PROJECT_DIR$/Tests/Mocks/Entity.php" />
-        <option value="$PROJECT_DIR$/src/Models/Model.php" />
         <option value="$PROJECT_DIR$/Tests/ModelTest.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Entities/EmailAddress.php" />
@@ -132,6 +205,14 @@
         <option value="$PROJECT_DIR$/src/Interfaces/RespondsToRequest.php" />
         <option value="$PROJECT_DIR$/src/ServiceContainer.php" />
         <option value="$PROJECT_DIR$/Tests/ServiceContainerTest.php" />
+        <option value="$PROJECT_DIR$/src/ServiceFactory.php" />
+        <option value="$PROJECT_DIR$/src/Interfaces/InteroperableEntity.php" />
+        <option value="$PROJECT_DIR$/src/Entities/Entity.php" />
+        <option value="$PROJECT_DIR$/Tests/Mocks/Entity.php" />
+        <option value="$PROJECT_DIR$/src/Traits/CanHttp.php" />
+        <option value="$PROJECT_DIR$/src/Models/Model.php" />
+        <option value="$PROJECT_DIR$/src/Interfaces/Interoperable.php" />
+        <option value="$PROJECT_DIR$/src/Interfaces/InteroperableModel.php" />
       </list>
     </option>
   </component>
@@ -178,6 +259,12 @@
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entities" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -189,7 +276,25 @@
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Traits" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Mocks" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -247,12 +352,12 @@
       <workItem from="1520865948890" duration="1133000" />
       <workItem from="1520889715604" duration="2568000" />
       <workItem from="1521731475523" duration="640000" />
-      <workItem from="1521740613085" duration="460000" />
+      <workItem from="1521740613085" duration="1291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50496000" />
+    <option name="totallyTimeSpent" value="51327000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -325,37 +430,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tests/Model.php" />
-    <entry file="file://$PROJECT_DIR$/Tests/CalderaInteropTestCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/FieldsEntityCollectionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="73" lean-forward="false" selection-start-line="5" selection-start-column="73" selection-end-line="5" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/Factory.php" />
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/EntityFactory.php" />
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/EntitySpecific.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/CastingEmailEntityTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/com.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -435,13 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/Mocks/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/HttpResponseTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -499,14 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/Field.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Collections/EntityCollections/EntityCollection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -523,18 +582,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/EmailAddress.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -542,13 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -573,32 +618,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/psr/http-message/src/RequestInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/Interoperable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -650,9 +673,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/Form.php">
+    <entry file="file://$PROJECT_DIR$/Tests/ServiceContainerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
+          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
           <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
           <folding />
         </state>
@@ -660,16 +691,128 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServiceContainer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
+        <state relative-caret-position="1020">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ServiceContainerTest.php">
+    <entry file="file://$PROJECT_DIR$/src/ServiceFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="80" column="104" lean-forward="false" selection-start-line="80" selection-start-column="104" selection-end-line="80" selection-end-column="104" />
+        <state relative-caret-position="345">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/EntitySpecific.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/ContainsServices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/EmailAddress.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/Mocks/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/CanHttp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#93#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="67" lean-forward="false" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+          <folding>
+            <element signature="e#46#99#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableEntity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Field.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Entry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#44#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/Interoperable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="e#49#98#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding />
         </state>
       </provider>

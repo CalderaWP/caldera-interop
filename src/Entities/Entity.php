@@ -2,12 +2,14 @@
 
 namespace calderawp\interop\Entities;
 
+use calderawp\interop\Interfaces\InteroperableEntity;
 use calderawp\interop\Interfaces\JsonArrayable;
+use calderawp\interop\Traits\CanHttp;
 use calderawp\interop\Traits\HasId;
 
-abstract class Entity implements JsonArrayable
+abstract class Entity implements JsonArrayable, InteroperableEntity
 {
-	use HasId;
+	use HasId, CanHttp;
 
 	/**
 	 * Create from array
