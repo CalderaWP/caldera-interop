@@ -31,18 +31,18 @@ class Form extends Entity
 		$this->setFields($formArray);
 	}
 
-    /** @inheritdoc */
+	/** @inheritdoc */
 	public static function fromArray(array $items)
-    {
-        /** @var Form $obj */
-        $obj = parent::fromArray($items);
-        if( isset( $items['fields'] ) && is_array( $items['fields' ] ) ){
-            $obj->fields = $obj->collectFields($items);
-        }
-        return $obj;
-    }
+	{
+		/** @var Form $obj */
+		$obj = parent::fromArray($items);
+		if (isset($items['fields']) && is_array($items['fields' ])) {
+			$obj->fields = $obj->collectFields($items);
+		}
+		return $obj;
+	}
 
-    /**
+	/**
 	 * Add field to collection of fields
 	 *
 	 * @param  Field $field
@@ -90,9 +90,9 @@ class Form extends Entity
 	 */
 	public function getFields()
 	{
-	    if( is_array( $this->fields ) ){
-	        $this->fields = $this->collectFields( [ 'fields' => $this->fields ] );
-        }
+		if (is_array($this->fields)) {
+			$this->fields = $this->collectFields([ 'fields' => $this->fields ]);
+		}
 		return $this->fields;
 	}
 
@@ -106,19 +106,20 @@ class Form extends Entity
 		$this->fields = $this->collectFields($formArray);
 	}
 
-    /**
-     * Create fields collection from form config array
-     *
-     * @param array $formArray
-     *
-     * @return Fields
-     */
-	public function collectFields(array $formArray){
-        $fields = isset($formArray['fields']) && is_array($formArray['fields'])
-            ? $formArray['fields']
-            : [];
-        return new Fields($fields);
-    }
+	/**
+	 * Create fields collection from form config array
+	 *
+	 * @param array $formArray
+	 *
+	 * @return Fields
+	 */
+	public function collectFields(array $formArray)
+	{
+		$fields = isset($formArray['fields']) && is_array($formArray['fields'])
+			? $formArray['fields']
+			: [];
+		return new Fields($fields);
+	}
 
 	/**
 	 * Set name property
@@ -133,5 +134,4 @@ class Form extends Entity
 		: '';
 		return $formArray;
 	}
-
 }

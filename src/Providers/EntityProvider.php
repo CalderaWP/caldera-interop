@@ -23,37 +23,37 @@ use calderawp\interop\Service\Container;
 class EntityProvider implements ProvidesService
 {
 
-    /**
-     * Register all entities in container
-     *
-     * @param Container $container
-     */
-    public function registerService(Container $container)
-    {
-        $container->bind(Form::class, function () {
-            return new Form();
-        });
-        $container->bind(Field::class, function () {
-            return new Field();
-        });
-        $container->bind(EmailReplyTo::class, function () {
-            return new EmailReplyTo();
-        });
-        $container->bind(EmailRecipient::class, function () {
-            return new EmailRecipient();
-        });
-        $container->bind(EmailSender::class, function () {
-            return new EmailSender();
-        });
-        $container->bind(Message::class, function () {
-            return new Message();
-        });
-        $container->bind(Entry\Details::class, function () {
-            return new Entry\Details();
-        });
+	/**
+	 * Register all entities in container
+	 *
+	 * @param Container $container
+	 */
+	public function registerService(Container $container)
+	{
+		$container->bind(Form::class, function () {
+			return new Form();
+		});
+		$container->bind(Field::class, function () {
+			return new Field();
+		});
+		$container->bind(EmailReplyTo::class, function () {
+			return new EmailReplyTo();
+		});
+		$container->bind(EmailRecipient::class, function () {
+			return new EmailRecipient();
+		});
+		$container->bind(EmailSender::class, function () {
+			return new EmailSender();
+		});
+		$container->bind(Message::class, function () {
+			return new Message();
+		});
+		$container->bind(Entry\Details::class, function () {
+			return new Entry\Details();
+		});
 
-        $container->bind(Entry\Field::class, function () {
-            return new Entry\Field();
-        });
-    }
+		$container->bind(Entry\Field::class, function () {
+			return new Entry\Field();
+		});
+	}
 }

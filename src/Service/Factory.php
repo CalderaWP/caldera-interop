@@ -55,4 +55,14 @@ class Factory implements InteroperableFactory
 
 		throw new ContainerException(sprintf('Entity of type %s could not be resolved via entity service', $type));
 	}
+
+	public function collection($type, $data = null)
+	{
+		// TODO: Implement collection() method.
+	}
+
+	public function model($type, $data = null)
+	{
+		// TODO: Implement model() method.
+	}
 }

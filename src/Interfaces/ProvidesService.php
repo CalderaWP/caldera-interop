@@ -14,10 +14,10 @@ use calderawp\interop\Service\Container;
  */
 interface ProvidesService
 {
-    /**
-     * Register provider
-     *
-     * @param Container $container
-     */
+	/**
+	 * Register provider
+	 *
+	 * @param Container $container
+	 */
 	public function registerService(Container $container);
 }
