@@ -3,7 +3,7 @@
 
 namespace calderawp\interop\Interfaces;
 
-interface ContainsServices
+interface ContainsServices extends \calderawp\CalderaContainers\Interfaces\ContainsServices
 {
 
 }

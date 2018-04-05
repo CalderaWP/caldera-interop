@@ -3,8 +3,6 @@
 
 namespace calderawp\interop\Interfaces;
 
-use calderawp\interop\Service\Container;
-
 /**
  * Interface ProvidesService
  *
@@ -12,12 +10,7 @@ use calderawp\interop\Service\Container;
  *
  * @package calderawp\interop\Interfaces
  */
-interface ProvidesService
+interface ProvidesService extends \calderawp\CalderaContainers\Interfaces\ProvidesService
 {
-	/**
-	 * Register provider
-	 *
-	 * @param Container $container
-	 */
-	public function registerService(Container $container);
+
 }

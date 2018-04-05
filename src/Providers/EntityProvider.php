@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Providers;
 
+use calderawp\CalderaContainers\Interfaces\ServiceContainer;
 use calderawp\interop\Entities\Form;
 use calderawp\interop\Entities\Field;
 use calderawp\interop\Entities\EmailSender;
@@ -28,7 +29,7 @@ class EntityProvider implements ProvidesService
 	 *
 	 * @param Container $container
 	 */
-	public function registerService(Container $container)
+	public function registerService(ServiceContainer $container)
 	{
 		$container->bind(Form::class, function () {
 			return new Form();

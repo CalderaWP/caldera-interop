@@ -3,13 +3,13 @@
 
 namespace calderawp\interop\Providers;
 
+use calderawp\CalderaContainers\Interfaces\ServiceContainer;
 use calderawp\interop\Interfaces\ProvidesService;
-use calderawp\interop\Service\Container;
 
 class CollectionProvider implements ProvidesService
 {
 	/** @inheritdoc */
-	public function registerService(Container $container)
+	public function registerService(ServiceContainer $container)
 	{
 	}
 }
