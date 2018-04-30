@@ -80,4 +80,10 @@ class Field extends Entity
 	{
 		return $this->value;
 	}
+
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'entry.field';
+	}
 }

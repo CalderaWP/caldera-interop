@@ -15,5 +15,15 @@ class Entity extends \calderawp\interop\Entities\Entity
 
     protected $foo;
 
+    public static function getType()
+    {
+        return 'mock';
+    }
+
+    public function isValid()
+    {
+        return true;
+    }
+
 
 }

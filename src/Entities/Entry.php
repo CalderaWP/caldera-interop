@@ -39,6 +39,12 @@ class Entry extends Entity
 		$this->form = $form;
 	}
 
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'entry';
+	}
+
 	/**
 	 * Get entry details entity
 	 *

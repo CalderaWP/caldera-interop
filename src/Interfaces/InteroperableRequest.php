@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Interfaces;
 
-
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -13,4 +12,5 @@ use Psr\Http\Message\RequestInterface;
  * @package calderawp\interop\Interfaces
  */
 interface InteroperableRequest extends Interoperable, RequestInterface
-{}
+{
+}

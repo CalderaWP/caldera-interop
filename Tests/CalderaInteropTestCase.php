@@ -62,7 +62,12 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
                     {
                         return [];
                     }
-                };
+
+                    public static function getType()
+					{
+						return 'GENERIC';
+					}
+				};
 				break;
 		}
 

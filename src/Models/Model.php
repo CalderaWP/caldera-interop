@@ -4,15 +4,15 @@ namespace calderawp\interop\Models;
 
 use calderawp\interop\Entities\Entity;
 use calderawp\interop\Interfaces\EntitySpecific;
-use calderawp\interop\Interfaces\Interoperable;
+use calderawp\interop\Interfaces\InteroperableModel;
+use calderawp\interop\Traits\CanHttp;
 use calderawp\interop\Traits\CanRecursivelyCastArray;
 use calderawp\interop\Traits\HasId;
-use Psr\Http\Message\RequestInterface as Request;
 
-abstract class Model implements Interoperable, EntitySpecific
+abstract class Model implements InteroperableModel, EntitySpecific
 {
 
-	use HasId, CanRecursivelyCastArray;
+	use HasId, CanRecursivelyCastArray, CanHttp;
 
 	/**
 	 * @var Entity
@@ -76,23 +76,6 @@ abstract class Model implements Interoperable, EntitySpecific
 		$this->id = $id;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
-	public static function fromRequest(Request $request)
-	{
-		$body = json_decode($request->getBody()->getContents());
-		return self::fromArray($body);
-	}
-
-	/**
-	 * @return \calderawp\interop\Http\Response
-	 */
-	public function toResponse()
-	{
-		return new \calderawp\interop\Http\Response($this->toArray());
-	}
-
 
 	/**
 	 * @inheritdoc
@@ -107,7 +90,7 @@ abstract class Model implements Interoperable, EntitySpecific
 	 */
 	public function getEntity()
 	{
-		return $this->entity;
+		return $this->toEntity();
 	}
 
 	/**
@@ -141,7 +124,7 @@ abstract class Model implements Interoperable, EntitySpecific
 	}
 
 	/**
-	 * Get type
+	 * Get the type of model
 	 *
 	 * @return string
 	 */

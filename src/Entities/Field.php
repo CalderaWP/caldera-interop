@@ -16,9 +16,10 @@ class Field extends Entity
 	 *
 	 * @param array $field
 	 */
-	public function __construct(array  $field)
+	public function __construct(array  $field = [])
 	{
-		$this->setId($field[ 'ID' ]);
+		$id = isset($field[ 'ID' ]) ? $field[ 'ID' ] : '';
+		$this->setId($id);
 		$this->field = $field;
 	}
 
@@ -70,5 +71,11 @@ class Field extends Entity
 	public function toArray()
 	{
 		return $this->field;
+	}
+
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'field';
 	}
 }

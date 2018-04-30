@@ -3,10 +3,7 @@
 
 namespace calderawp\interop\Interfaces;
 
-interface Arrayable
+interface Arrayable extends \calderawp\CalderaContainers\Interfaces\Arrayable
 {
-	/**
-	 * @return array
-	 */
-	public function toArray();
+
 }

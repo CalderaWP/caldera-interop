@@ -4,6 +4,7 @@ namespace calderawp\interop\Entities;
 
 use calderawp\interop\Collections\EntityCollections\Fields as FieldsCollection;
 use calderawp\interop\Collections\EntityCollections\Fields;
+use Psr\Http\Message\RequestInterface as Request;
 
 class Form extends Entity
 {
@@ -30,6 +31,17 @@ class Form extends Entity
 		$this->setFields($formArray);
 	}
 
+	/** @inheritdoc */
+	public static function fromArray(array $items)
+	{
+		/** @var Form $obj */
+		$obj = parent::fromArray($items);
+		if (isset($items['fields']) && is_array($items['fields' ])) {
+			$obj->fields = $obj->collectFields($items);
+		}
+		return $obj;
+	}
+
 	/**
 	 * Add field to collection of fields
 	 *
@@ -47,9 +59,9 @@ class Form extends Entity
 	 */
 	public function toArray()
 	{
-		return [
-		'fields' => $this->getFields(),
-		];
+		return array_merge(parent::toArray(), [
+			'fields' => $this->getFields()->toArray(),
+		]);
 	}
 
 	/**
@@ -78,6 +90,9 @@ class Form extends Entity
 	 */
 	public function getFields()
 	{
+		if (is_array($this->fields)) {
+			$this->fields = $this->collectFields([ 'fields' => $this->fields ]);
+		}
 		return $this->fields;
 	}
 
@@ -88,11 +103,22 @@ class Form extends Entity
 	 */
 	private function setFields(array $formArray)
 	{
-		$_fields = isset($formArray['fields']) && is_array($formArray['fields'])
-		? $formArray['fields']
-		: array();
+		$this->fields = $this->collectFields($formArray);
+	}
 
-		$this->fields = new Fields($_fields);
+	/**
+	 * Create fields collection from form config array
+	 *
+	 * @param array $formArray
+	 *
+	 * @return Fields
+	 */
+	public function collectFields(array $formArray)
+	{
+		$fields = isset($formArray['fields']) && is_array($formArray['fields'])
+			? $formArray['fields']
+			: [];
+		return new Fields($fields);
 	}
 
 	/**
@@ -107,5 +133,11 @@ class Form extends Entity
 		? $formArray['name']
 		: '';
 		return $formArray;
+	}
+
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'form';
 	}
 }
