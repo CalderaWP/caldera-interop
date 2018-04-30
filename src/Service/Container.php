@@ -12,7 +12,7 @@ use calderawp\interop\Interfaces\InteroperableServiceContainer;
  *
  * @package calderawp\interop\Service
  */
-class Container extends \calderawp\CalderaContainers\Service\Container implements  InteroperableServiceContainer
+class Container extends \calderawp\CalderaContainers\Service\Container implements InteroperableServiceContainer
 {
 
 }

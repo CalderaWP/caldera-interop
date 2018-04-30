@@ -15,6 +15,7 @@ use calderawp\interop\Entities\Entity;
 class Details extends Entity
 {
 
+
 	/**
 	 * @var  string
 	 */
@@ -34,4 +35,10 @@ class Details extends Entity
 	 * @var  string
 	 */
 	protected $status;
+
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'entry.details';
+	}
 }

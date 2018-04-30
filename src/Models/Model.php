@@ -124,7 +124,7 @@ abstract class Model implements InteroperableModel, EntitySpecific
 	}
 
 	/**
-	 * Get type
+	 * Get the type of model
 	 *
 	 * @return string
 	 */

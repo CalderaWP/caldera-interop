@@ -12,5 +12,9 @@ namespace calderawp\interop\Entities;
  */
 class EmailReplyTo extends EmailAddress
 {
-
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'email.replyTo';
+	}
 }

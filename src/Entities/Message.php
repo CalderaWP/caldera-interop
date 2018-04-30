@@ -65,4 +65,10 @@ class Message extends Entity
 		'subject' => 'string',
 		'content' => 'string'
 	];
+
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'message';
+	}
 }

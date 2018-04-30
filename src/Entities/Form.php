@@ -134,4 +134,10 @@ class Form extends Entity
 		: '';
 		return $formArray;
 	}
+
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'form';
+	}
 }

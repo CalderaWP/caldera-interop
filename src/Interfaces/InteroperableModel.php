@@ -19,13 +19,6 @@ interface InteroperableModel extends Interoperable
 	public function isValid();
 
 	/**
-	 * Get type of model
-	 *
-	 * @return string
-	 */
-	public static function getType();
-
-	/**
 	 * Convert to entity
 	 *
 	 * @return InteroperableEntity

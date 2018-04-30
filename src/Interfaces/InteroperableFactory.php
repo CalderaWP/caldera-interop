@@ -15,16 +15,11 @@ use calderawp\interop\Service\Container;
  */
 interface InteroperableFactory
 {
-	/**
-	 * Get service container used by this factory
-	 *
-	 * @return Container
-	 */
-	public function getContainer();
+
 	/**
 	 * Request an entity from the container
 	 *
-	 * @param string $type ::class reference for entity.
+	 * @param string $type of entity
 	 * @param null $data
 	 *
 	 * @return InteroperableEntity
@@ -40,4 +35,5 @@ interface InteroperableFactory
 	 * @throws ContainerException Thrown if underlying container does not provide requested entity
 	 */
 	public function model($entity);
+
 }

@@ -80,4 +80,15 @@ abstract class Entity implements JsonArrayable, InteroperableEntity
 	{
 		return array_keys(get_object_vars($this));
 	}
+
+	/**
+	 * Get the type of entity
+	 *
+	 * @return string
+	 */
+	public function getTheType()
+	{
+		return strtolower(substr(strrchr(get_class($this), '\\'), 1));
+	}
+
 }

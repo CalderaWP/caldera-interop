@@ -13,4 +13,9 @@ namespace calderawp\interop\Entities;
 class EmailRecipient extends EmailAddress
 {
 
+	/** @inheritdoc */
+	public static function getType()
+	{
+		return 'email.address';
+	}
 }
