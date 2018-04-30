@@ -45,7 +45,7 @@ class Factory implements InteroperableFactory
 	 */
 	public function bindInterop($identifierPrefix, $entityClassRef, $modelClassRef, $collectionClassRef)
 	{
-		$this->mapEntity($identifierPrefix,$entityClassRef);
+		$this->mapEntity($identifierPrefix, $entityClassRef);
 
 
 		$this
@@ -114,7 +114,7 @@ class Factory implements InteroperableFactory
 	public function entity($type, $data = null)
 	{
 		if ($this->isProvidedEntity($type)) {
-			if( ! $data ){
+			if (! $data) {
 				return $this
 					->getContainer()
 					->make(
@@ -135,7 +135,6 @@ class Factory implements InteroperableFactory
 					/** @var InteroperableEntity $ref */
 					return $ref::fromRequest($data);
 			}
-
 		}
 
 		throw new ContainerException(sprintf('Entity of type %s could not be resolved via entity service', $type));
@@ -198,7 +197,7 @@ class Factory implements InteroperableFactory
 	 * @param string $identifierPrefix Main identifier used for container resolution.
 	 * @param string $entityClassRef Class ref (::class) for entity.
 	 */
-	private function mapEntity($identifierPrefix,$entityClassRef)
+	private function mapEntity($identifierPrefix, $entityClassRef)
 	{
 		$this->map[$identifierPrefix]=$entityClassRef;
 		$this

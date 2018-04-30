@@ -90,5 +90,4 @@ abstract class Entity implements JsonArrayable, InteroperableEntity
 	{
 		return strtolower(substr(strrchr(get_class($this), '\\'), 1));
 	}
-
 }

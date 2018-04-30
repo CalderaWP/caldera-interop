@@ -13,4 +13,11 @@ namespace calderawp\interop\Interfaces;
 interface ProvidesService extends \calderawp\CalderaContainers\Interfaces\ProvidesService
 {
 
+	/**
+	 * Get the container identifier for this service
+	 *
+	 * @return string
+	 */
+	public function getAlias();
+
 }

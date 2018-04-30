@@ -21,4 +21,11 @@ class Provider implements ProvidesService
         $single->foo = 'bar';
         $container->singleton( 'S_MOCK', $single );
     }
+
+	/** @inheritdoc */
+	public function getAlias()
+	{
+		return 'MOCK';
+	}
+
 }

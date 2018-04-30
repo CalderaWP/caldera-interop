@@ -35,5 +35,4 @@ interface InteroperableFactory
 	 * @throws ContainerException Thrown if underlying container does not provide requested entity
 	 */
 	public function model($entity);
-
 }
