@@ -90,7 +90,7 @@ abstract class Model implements InteroperableModel, EntitySpecific
 	 */
 	public function getEntity()
 	{
-		return $this->entity;
+		return $this->toEntity();
 	}
 
 	/**

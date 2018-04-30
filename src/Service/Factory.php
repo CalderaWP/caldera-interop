@@ -29,6 +29,12 @@ class Factory implements InteroperableFactory
 	}
 
 
+	public function registerInterop()
+	{
+
+	}
+
+
 	/** @inheritdoc */
 	public function getContainer()
 	{
@@ -38,7 +44,7 @@ class Factory implements InteroperableFactory
 	/** @inheritdoc */
 	public function entity($type, $data = null)
 	{
-		if ($this->getContainer()->doesProvide($type)) {
+		if ($this->isProvidedEntity($type)) {
 			if (is_array($data)) {
 				/** @var InteroperableEntity $type */
 				return $type::fromArray($data);
@@ -56,13 +62,25 @@ class Factory implements InteroperableFactory
 		throw new ContainerException(sprintf('Entity of type %s could not be resolved via entity service', $type));
 	}
 
-	public function collection($type, $data = null)
+	/** @inheritdoc */
+	public function model($entity)
 	{
-		// TODO: Implement collection() method.
-	}
+		if (!$this->isProvidedEntity(get_class($entity))) {
+			throw new ContainerException(sprintf(
+				'Entity of type %s could not be resolved via entity service', get_class()));
+		}
 
-	public function model($type, $data = null)
+	}
+	/**
+	 * Check if this type of entity can be created by this factory
+	 *
+	 * @param string $type Class reference to entity type
+	 * @return bool
+	 */
+	protected function isProvidedEntity($type)
 	{
-		// TODO: Implement model() method.
+		return $this->
+			getContainer()
+			->doesProvide($type);
 	}
 }

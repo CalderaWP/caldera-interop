@@ -32,6 +32,12 @@ interface InteroperableFactory
 	 */
 	public function entity($type, $data = null);
 
-	public function collection($type, $data = null);
-	public function model($type, $data = null);
+	/**
+	 * Create a model from an entity that could be provided by this factory
+	 *
+	 * @param InteroperableEntity $entity
+	 * @return InteroperableModel
+	 * @throws ContainerException Thrown if underlying container does not provide requested entity
+	 */
+	public function model($entity);
 }

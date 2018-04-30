@@ -24,4 +24,11 @@ interface InteroperableModel extends Interoperable
 	 * @return string
 	 */
 	public static function getType();
+
+	/**
+	 * Convert to entity
+	 *
+	 * @return InteroperableEntity
+	 */
+	public function toEntity();
 }
