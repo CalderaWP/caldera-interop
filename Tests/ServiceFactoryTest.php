@@ -165,10 +165,16 @@ class ServiceFactoryTest extends CalderaInteropTestCase
 
 		$entity = $factory->entity($identifier );
 
+		/** @var \calderawp\interop\Models\Model $model */
 		$model = $factory->model($entity );
 		$this->assertSame(
 			\calderawp\interop\Models\Field::class,
 			get_class(  $model  )
+		);
+
+		$this->assertSame(
+			$entity,
+			$model->getEntity()
 		);
 	}
 
@@ -227,8 +233,31 @@ class ServiceFactoryTest extends CalderaInteropTestCase
 		$this->assertEquals( $entity->getSlug(), $entityFromRequest->getSlug() );
 		$this->assertEquals( $entity->toArray(), $entityFromRequest->toArray() );
 
+	}
 
+	/**
+	 * Test creating Collection from factory
+	 *
+	 * @covers \calderawp\interop\Service\Factory::collection()
+	 * @covers \calderawp\interop\Service\Factory::bindInterop()
+	 */
+	public function testCollection()
+	{
+		$identifier = 'field';
+		$container = new \calderawp\interop\Service\Container();
+		$factory = new \calderawp\interop\Service\Factory($container);
+		$factory->bindInterop(
+			$identifier,
+			\calderawp\interop\Entities\Field::class,
+			\calderawp\interop\Models\Field::class,
+			\calderawp\interop\Collections\EntityCollections\Fields::class
+		);
 
+		$collection = $factory->collection($identifier);
+		$this->assertSame(
+			\calderawp\interop\Collections\EntityCollections\Fields::class,
+			get_class( $collection )
+		);
 	}
 
 }

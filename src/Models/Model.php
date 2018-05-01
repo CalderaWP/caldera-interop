@@ -34,7 +34,8 @@ abstract class Model implements InteroperableModel, EntitySpecific
 	/**
 	 * Model constructor.
 	 *
-	 * @param Entity $entity
+	 * @param Entity|null $entity
+	 * @param EntityCollection|null $collection
 	 */
 	public function __construct(Entity $entity = null,EntityCollection $collection=null)
 	{

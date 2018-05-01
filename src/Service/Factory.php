@@ -162,7 +162,11 @@ class Factory implements InteroperableFactory
 		return $model;
 	}
 
-
+	/**
+	 * @param $type
+	 * @return mixed|object
+	 * @throws ContainerException
+	 */
 	public function collection($type){
 		if (!$this->isProvidedCollection($type)) {
 			throw new ContainerException(sprintf(

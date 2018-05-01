@@ -13,11 +13,6 @@ class Form extends Model
 {
 
 
-	public function __construct(Entity $entity = null)
-	{
-		parent::__construct($entity);
-	}
-
 	/**
 	 * @inheritdoc
 	 */
