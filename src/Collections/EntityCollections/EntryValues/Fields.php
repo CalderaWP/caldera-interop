@@ -16,6 +16,18 @@ use calderawp\interop\Entities\Entry\Field;
 class Fields extends EntityCollection
 {
 
+	/** @inheritdoc */
+	public function getEntitySetter()
+	{
+		return 'addField';
+	}
+
+	/** @inheritdoc */
+	public function getEntityType()
+	{
+		return Field::getType();
+	}
+
 	/**
 	 * @var array
 	 */

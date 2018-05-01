@@ -3,9 +3,10 @@
 
 namespace calderawp\interop\Collections\EntityCollections;
 
-use calderawp\interop\Collections\Collection;
+use calderawp\interop\Collections\IteratingCollection;
+use calderawp\interop\Interfaces\CollectsEntities;
 
-abstract class EntityCollection extends Collection
+abstract class EntityCollection extends IteratingCollection implements CollectsEntities
 {
 	/**
 	 * @inheritdoc

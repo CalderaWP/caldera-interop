@@ -24,4 +24,20 @@ interface InteroperableModel extends Interoperable
 	 * @return InteroperableEntity
 	 */
 	public function toEntity();
+
+	/**
+	 * (re)Set the collection of model
+	 *
+	 * @param CollectsEntities $collection
+	 * @return $this
+	 */
+	public function setCollection(CollectsEntities$collection);
+
+	/**
+	 * re(set) Model
+	 *
+	 * @param InteroperableEntity $interoperableEntity
+	 * @return $this
+	 */
+	public function setEntity(InteroperableEntity$interoperableEntity);
 }

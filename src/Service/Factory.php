@@ -5,8 +5,10 @@ namespace calderawp\interop\Service;
 
 use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Exceptions\Exception;
+use calderawp\interop\Interfaces\CollectsEntities;
 use calderawp\interop\Interfaces\InteroperableEntity;
 use calderawp\interop\Interfaces\InteroperableFactory;
+use calderawp\interop\Interfaces\InteroperableModel;
 use calderawp\interop\Interfaces\InteroperableRequest;
 use calderawp\interop\Interfaces\InteroperableServiceContainer;
 use Psr\Http\Message\RequestInterface;
@@ -62,7 +64,7 @@ class Factory implements InteroperableFactory
 			->bind(
 				$this->collectionRef($identifierPrefix),
 				function () use ($collectionClassRef) {
-					return new $collectionClassRef;
+					return new $collectionClassRef();
 				}
 			);
 		return $this;
@@ -141,21 +143,46 @@ class Factory implements InteroperableFactory
 	}
 
 	/** @inheritdoc */
-	public function model($entity)
+	public function model($entity,CollectsEntities $collection = null )
 	{
-		if (!$this->isProvidedModel($entity::getType())) {
+		$type = $entity->getTheType();
+		if (!$this->isProvidedModel($type)) {
 			throw new ContainerException(sprintf(
-				'Entity of type %s could not be resolved via entity service',
-				get_class($entity)
+				'Model for entity type %s could not be resolved via entity service',
+				$type
 			));
 		}
-		return $this->container->make($this->modelRef($entity->getType()));
+		/** @var InteroperableModel $model */
+		$model = $this->container->make($this->modelRef($type));
+		$model
+			->setEntity($entity)
+			->setCollection(
+				$this->collection($type)
+			);
+		return $model;
+	}
+
+
+	public function collection($type){
+		if (!$this->isProvidedCollection($type)) {
+			throw new ContainerException(sprintf(
+				'Collections of type %s could not be resolved via collection service',
+				$type
+			));
+		}
+		if( $this->isProvidedCollection($type)){
+			return $this
+				->getContainer()
+				->make(
+					$this->collectionRef($type)
+				);
+		}
 	}
 
 	/**
 	 * Check if this type of entity can be created by this factory
 	 *
-	 * @param string $type Identifier prefix
+	 * @param string $type Type of entity
 	 * @return bool
 	 */
 	protected function isProvidedEntity($type)
@@ -170,7 +197,7 @@ class Factory implements InteroperableFactory
 	/**
 	 * Check if this type of model can be created by this factory
 	 *
-	 * @param string $type Class reference to entity type
+	 * @param string $type Type of model
 	 * @return bool
 	 */
 	protected function isProvidedModel($type)
@@ -180,6 +207,21 @@ class Factory implements InteroperableFactory
 				->doesProvide(
 					$this->modelRef($type)
 				);
+	}
+
+	/**
+	 * Check if this type of model can be created by this factory
+	 *
+	 * @param string $type Type of collection
+	 * @return bool
+	 */
+	protected function isProvidedCollection($type)
+	{
+		return $this->
+		getContainer()
+			->doesProvide(
+				$this->collectionRef($type)
+			);
 	}
 
 	/**

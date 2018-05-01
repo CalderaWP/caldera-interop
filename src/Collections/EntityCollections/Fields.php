@@ -4,8 +4,9 @@ namespace calderawp\interop\Collections\EntityCollections;
 
 use calderawp\interop\Collections\IteratingCollection;
 use calderawp\interop\Entities\Field;
+use calderawp\interop\Interfaces\CollectsEntities;
 
-class Fields extends IteratingCollection
+class Fields extends IteratingCollection implements CollectsEntities
 {
 
 
@@ -25,43 +26,16 @@ class Fields extends IteratingCollection
 		return Field::class;
 	}
 
-	/**
-	 * Add a field to collection
-	 *
-	 * @param  Field $field
-	 * @return $this
-	 */
+	/** @inheritdoc */
 	public function addField(Field $field)
 	{
-		$this->items[ $field->getId() ] = $field;
-		$this->mapPosition($field->getId());
-		return $this;
+		return $this->addEntity($field);
 	}
 
-	/**
-	 * Get a field by ID
-	 *
-	 * @param  int $id
-	 * @return Field|null
-	 */
+	/** @inheritdoc */
 	public function getField($id)
 	{
-		return isset($this->items[ $id ]) ? $this->items[ $id ] : null;
+		return $this->getEntity($id);
 	}
 
-	/**
-	 * @inheritdoc
-	 */
-	public function toArray()
-	{
-		$fields = [];
-
-		/**
- * @var Field $field
-*/
-		foreach ($this->items as $field) {
-			$fields[ $field->getId() ] = $field->toArray();
-		}
-		return $fields;
-	}
 }

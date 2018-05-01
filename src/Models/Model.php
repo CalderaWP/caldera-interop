@@ -2,8 +2,11 @@
 
 namespace calderawp\interop\Models;
 
+use calderawp\interop\Collections\EntityCollections\EntityCollection;
 use calderawp\interop\Entities\Entity;
+use calderawp\interop\Interfaces\CollectsEntities;
 use calderawp\interop\Interfaces\EntitySpecific;
+use calderawp\interop\Interfaces\InteroperableEntity;
 use calderawp\interop\Interfaces\InteroperableModel;
 use calderawp\interop\Traits\CanHttp;
 use calderawp\interop\Traits\CanRecursivelyCastArray;
@@ -20,6 +23,10 @@ abstract class Model implements InteroperableModel, EntitySpecific
 	protected $entity;
 
 	/**
+	 * @var EntityCollection
+	 */
+	protected $collection;
+	/**
 	 * @var bool
 	 */
 	protected $valid;
@@ -29,9 +36,10 @@ abstract class Model implements InteroperableModel, EntitySpecific
 	 *
 	 * @param Entity $entity
 	 */
-	public function __construct(Entity $entity = null)
+	public function __construct(Entity $entity = null,EntityCollection $collection=null)
 	{
 		$this->entity = $entity;
+		$this->collection = $collection;
 	}
 
 	/**
@@ -50,30 +58,25 @@ abstract class Model implements InteroperableModel, EntitySpecific
 		return $this->entity;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
+	/** @inheritdoc */
 	public function __get($name)
 	{
 		return $this->entity->$name;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
+	/** @inheritdoc */
 	public function __set($name, $value)
 	{
 		$this->entity->$name = $value;
 		return $this;
 	}
 
-	/**
-	 * @param $id
-	 */
+	/** @inheritdoc */
 	public function setId($id)
 	{
 		$this->entity->setId($id);
 		$this->id = $id;
+		return $this;
 	}
 
 
@@ -101,8 +104,20 @@ abstract class Model implements InteroperableModel, EntitySpecific
 	 */
 	public function resetEntity(Entity $entity)
 	{
-		$this->entity = $entity;
+		return $this->setEntity($entity);
+	}
+
+	/** @inheritdoc */
+	public function setEntity(InteroperableEntity $interoperableEntity)
+	{
+		$this->entity = $interoperableEntity;
 		return $this;
+	}
+
+	/** @inheritdoc */
+	public function setCollection(CollectsEntities $collection)
+	{
+		$this->collection = $collection;
 	}
 
 	/**

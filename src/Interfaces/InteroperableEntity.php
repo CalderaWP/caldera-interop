@@ -10,7 +10,7 @@ namespace calderawp\interop\Interfaces;
  *
  * @package calderawp\interop\Interfaces
  */
-interface InteroperableEntity extends Interoperable, Arrayable
+interface InteroperableEntity extends Interoperable, Arrayable, HasId
 {
 	/**
 	 * Create entity from array
@@ -19,4 +19,12 @@ interface InteroperableEntity extends Interoperable, Arrayable
 	 * @return static
 	 */
 	public static function fromArray(array  $items);
+
+
+	/**
+	 * Get the type of entity
+	 *
+	 * @return string
+	 */
+	public function getTheType();
 }

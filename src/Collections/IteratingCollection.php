@@ -5,11 +5,13 @@ namespace calderawp\interop\Collections;
 
 use calderawp\interop\Entities\Entity;
 use calderawp\interop\Exceptions\ContainerException;
+use calderawp\interop\Interfaces\CollectsEntities;
 use calderawp\interop\Interfaces\CreateFromStdClass;
 use calderawp\interop\Interfaces\EntitySpecific;
+use calderawp\interop\Interfaces\InteroperableEntity;
 use calderawp\interop\Traits\CanCastObjectToArray;
 
-abstract class IteratingCollection extends Collection implements \Iterator, CreateFromStdClass, EntitySpecific
+abstract class IteratingCollection implements \Iterator, CreateFromStdClass, EntitySpecific
 {
 
 	use CanCastObjectToArray;
@@ -33,14 +35,6 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 	 * @var array
 	 */
 	private $positionMap;
-
-	/**
-	 * Get name of setter function for adding items to collection
-	 *
-	 * @return string
-	 */
-	abstract public function getEntitySetter();
-
 
 	/**
 	 * Get number of items in collection
@@ -93,6 +87,7 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 	 */
 	public static function fromStdClass($data)
 	{
+
 		$obj = new static();
 		if (! empty($data)) {
 			foreach ($data as $datum) {
@@ -182,5 +177,40 @@ abstract class IteratingCollection extends Collection implements \Iterator, Crea
 	public function valid()
 	{
 		return isset($this->positionMap[$this->position], $this->items[$this->positionMap[$this->position]]);
+	}
+
+	/**
+	 * Add an entity to collection
+	 *
+	 * @param  InteroperableEntity $entity
+	 * @return $this
+	 */
+	protected function addEntity(InteroperableEntity $entity)
+	{
+		$this->items[ $entity->getId() ] = $entity;
+		$this->mapPosition($entity->getId());
+		return $this;
+	}
+
+	/**
+	 * Get a Entity by ID
+	 *
+	 * @param  int $id
+	 * @return InteroperableEntity|null
+	 */
+	protected function getEntity($id)
+	{
+		return isset($this->items[ $id ]) ? $this->items[ $id ] : null;
+	}
+
+	/** @inheritdoc */
+	public function toArray()
+	{
+		$fields = [];
+
+		foreach ($this->items as $entity) {
+			$fields[ $entity->getId() ] = $entity->toArray();
+		}
+		return $fields;
 	}
 }
