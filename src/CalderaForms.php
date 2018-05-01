@@ -4,10 +4,13 @@
 namespace calderawp\interop;
 
 use calderawp\CalderaContainers\Interfaces\ServiceContainer;
+use calderawp\interop\Collections\EntityCollections\EntryValues\Fields;
+use calderawp\interop\Entities\Entry;
 use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Interfaces\CalderaFormsApp;
 use calderawp\interop\Interfaces\InteroperableFactory;
 use calderawp\interop\Interfaces\ProvidesService;
+use calderawp\interop\Models\Form;
 use calderawp\interop\Service\Factory;
 
 /**
@@ -94,6 +97,29 @@ class CalderaForms implements CalderaFormsApp
 				\calderawp\interop\Entities\Field::class,
 				\calderawp\interop\Models\Field::class,
 				\calderawp\interop\Collections\EntityCollections\Fields::class
+			);
+
+		$this
+			->getFactory()
+			->bindInterop(
+				'form',
+				\calderawp\interop\Entities\Form::class,
+				\calderawp\interop\Models\Form::class,
+				\calderawp\interop\Collections\EntityCollections\Forms::class
+			);
+
+		$this
+			->getFactory()
+			->bindInterop(
+				'entry',
+				[
+					\calderawp\interop\Entities\Entry::class,
+					function(){
+						return new Entry(new Entry\Details(), new Fields(), new \calderawp\interop\Entities\Form( ) );
+					}
+				],
+				\calderawp\interop\Models\Entry::class,
+				\calderawp\interop\Collections\EntityCollections\Entries::class
 			);
 	}
 }

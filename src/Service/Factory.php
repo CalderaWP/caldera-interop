@@ -40,15 +40,20 @@ class Factory implements InteroperableFactory
 	 * Bind an interoprable set (entity, model, collection
 	 *
 	 * @param string $identifierPrefix Main identifier used for container resolution.
-	 * @param string $entityClassRef Class ref (::class) for entity.
+	 * @param string|array $entityClassRef Class ref (::class) for entity.
 	 * @param string $modelClassRef Class ref (::class) for model.
 	 * @param string $collectionClassRef Class ref (::class) for container.
 	 * @return $this
 	 */
 	public function bindInterop($identifierPrefix, $entityClassRef, $modelClassRef, $collectionClassRef)
 	{
-		$this->mapEntity($identifierPrefix, $entityClassRef);
+		$entityCallback = null;
+		if( is_array( $entityClassRef ) ){
+			$entityCallback = $entityClassRef[1];
+			$entityClassRef = $entityClassRef[0];
+		}
 
+		$this->mapEntity($identifierPrefix, $entityClassRef,$entityCallback);
 
 		$this
 			->getContainer()
@@ -244,16 +249,20 @@ class Factory implements InteroperableFactory
 	 * @param string $identifierPrefix Main identifier used for container resolution.
 	 * @param string $entityClassRef Class ref (::class) for entity.
 	 */
-	private function mapEntity($identifierPrefix, $entityClassRef)
+	private function mapEntity($identifierPrefix, $entityClassRef,$callback = null )
 	{
+		if( ! $callback ){
+			$callback = function () use ($entityClassRef) {
+				return new $entityClassRef;
+			};
+		}
+
 		$this->map[$identifierPrefix]=$entityClassRef;
 		$this
 			->getContainer()
 			->bind(
 				$this->entityRef($identifierPrefix),
-				function () use ($entityClassRef) {
-					return new $entityClassRef;
-				}
+				$callback
 			);
 	}
 }

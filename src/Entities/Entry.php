@@ -39,6 +39,36 @@ class Entry extends Entity
 		$this->form = $form;
 	}
 
+	/**
+	 * @param Details $entryDetails Entity describing basic details (time, user ID, form ID) of entry
+	 * @return $this
+	 */
+	public function setEntryDetails(Details $entryDetails)
+	{
+		$this->entryDetails = $entryDetails;
+		return $this;
+	}
+
+	/**
+	 * @param Fields  $fields       Collection of field values (a collection of calderawp\interop\Entities\Entry\Field objects)
+	 * @return $this
+	 */
+	public function setFields(Fields$fields)
+	{
+		$this->fieldValues = $fields;
+		return $this;
+	}
+
+	/**
+	 * @param Form    $form         Form that created this entry
+	 * @return $this
+	 */
+	public function setForm(Form $form)
+	{
+		$this->form = $form;
+		return $this;
+	}
+
 	/** @inheritdoc */
 	public static function getType()
 	{
