@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Interfaces;
 
-
 interface CollectsEntities
 {
 	/**
@@ -12,4 +11,10 @@ interface CollectsEntities
 	 * @return string
 	 */
 	public function getEntitySetter();
+	/**
+	 * Get name of getter function for adding items to collection
+	 *
+	 * @return string
+	 */
+	public function getEntityGetter();
 }

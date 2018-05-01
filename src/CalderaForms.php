@@ -62,9 +62,9 @@ class CalderaForms implements CalderaFormsApp
 	 */
 	public function getService($alias)
 	{
-		if( ! $this->serviceContainer->doesProvide($alias)){
+		if (! $this->serviceContainer->doesProvide($alias)) {
 			throw new ContainerException(
-				sprintf( 'Caldera Forms interop app does not provide %s service', $alias )
+				sprintf('Caldera Forms interop app does not provide %s service', $alias)
 			);
 		}
 		return $this

@@ -19,5 +19,4 @@ interface ProvidesService extends \calderawp\CalderaContainers\Interfaces\Provid
 	 * @return string
 	 */
 	public function getAlias();
-
 }

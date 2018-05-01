@@ -143,7 +143,7 @@ class Factory implements InteroperableFactory
 	}
 
 	/** @inheritdoc */
-	public function model($entity,CollectsEntities $collection = null )
+	public function model($entity, CollectsEntities $collection = null)
 	{
 		$type = $entity->getTheType();
 		if (!$this->isProvidedModel($type)) {
@@ -167,14 +167,15 @@ class Factory implements InteroperableFactory
 	 * @return mixed|object
 	 * @throws ContainerException
 	 */
-	public function collection($type){
+	public function collection($type)
+	{
 		if (!$this->isProvidedCollection($type)) {
 			throw new ContainerException(sprintf(
 				'Collections of type %s could not be resolved via collection service',
 				$type
 			));
 		}
-		if( $this->isProvidedCollection($type)){
+		if ($this->isProvidedCollection($type)) {
 			return $this
 				->getContainer()
 				->make(

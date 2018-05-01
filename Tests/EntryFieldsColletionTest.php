@@ -10,6 +10,8 @@ class EntryFieldsCollectionTest extends  CollectionCalderaInteropTestCase
      *
      * @covers \calderawp\interop\Collections\EntityCollections\EntryValues\Fields::addField()
      * @covers \calderawp\interop\Collections\EntityCollections\EntryValues\Fields::getField()
+     * @covers \calderawp\interop\Collections\EntityCollections\EntityCollection::getEntity()
+     * @covers \calderawp\interop\Collections\EntityCollections\EntityCollection::addEntity()
      */
     public function testAdd()
     {
@@ -40,6 +42,7 @@ class EntryFieldsCollectionTest extends  CollectionCalderaInteropTestCase
      *
      * @covers \calderawp\interop\Collections\EntityCollections\EntryValues\Fields::addField()
      * @covers \calderawp\interop\Collections\EntityCollections\EntryValues\Fields::hasField()
+     * @covers \calderawp\interop\Collections\EntityCollections\EntityCollection::has()
      */
     public function testHas()
     {
@@ -55,9 +58,14 @@ class EntryFieldsCollectionTest extends  CollectionCalderaInteropTestCase
 
 
         $this->assertFalse( $fields->hasField( 42 ) );
+        $this->assertFalse( $fields->has( 42 ) );
 
         $this->assertTrue( $fields->hasField( 8 ) );
-        $this->assertTrue( $fields->hasField( 'fld4' ) );
+		$this->assertTrue( $fields->has( 8 ) );
+
+
+		$this->assertTrue( $fields->hasField( 'fld4' ) );
+		$this->assertTrue( $fields->has( 'fld4' ) );
     }
 
 
