@@ -14,6 +14,8 @@ abstract class EntityCollection extends IteratingCollection implements CollectsE
 		return $this->toArray();
 	}
 
+
+
 	/** @inheritdoc */
 	public function __call($name, $arguments)
 	{
