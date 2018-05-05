@@ -88,6 +88,52 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 	}
 
 	/**
+	 * Test getting a key from config array key
+	 *
+	 * @covers \calderawp\interop\Entities\Field::getConfigKey()
+	 * @covers \calderawp\interop\Entities\Field::configKey()
+	 */
+	public function testConfigKey()
+	{
+
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'config' => array(
+				'option' => array(),
+				'foot' => 'bags'
+			)
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( $field[ 'config' ][ 'foot'], $entity->configKey( 'foot') );
+		$this->assertSame( 'pants', $entity->configKey( 'NOT A REAL KEY', 'pants') );
+	}
+
+	/**
+	 * Test getting a key from config array key
+	 *
+	 * @covers \calderawp\interop\Entities\Field::getDefault()
+	 * @covers \calderawp\interop\Entities\Field::configKey()
+	 */
+	public function testDefault()
+	{
+
+		$expectDefault = uniqid('bagsoftacos');
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+			'config' => array(
+				'default' => $expectDefault
+			)
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$this->assertSame( $expectDefault, $entity->configKey( 'default') );
+		$this->assertSame( $expectDefault, $entity->getDefault() );
+	}
+
+	/**
 	 * Test getting slug array key
 	 *
 	 * @covers \calderawp\interop\Entities\Field::getConfigKey()

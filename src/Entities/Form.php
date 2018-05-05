@@ -28,7 +28,7 @@ class Form extends Entity
 	public function __construct(array $formArray = [])
 	{
 		$formArray = $this->setName($formArray);
-		$this->setFields($formArray);
+		$this->setFieldsFromArray($formArray);
 	}
 
 	/** @inheritdoc */
@@ -96,12 +96,18 @@ class Form extends Entity
 		return $this->fields;
 	}
 
+	public function setFields(Fields $fields )
+	{
+		$this->fields = $fields;
+		return $this->fields;
+	}
+
 	/**
 	 * Set fields property
 	 *
 	 * @param array $formArray
 	 */
-	private function setFields(array $formArray)
+	private function setFieldsFromArray(array $formArray)
 	{
 		$this->fields = $this->collectFields($formArray);
 	}

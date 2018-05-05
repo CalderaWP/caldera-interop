@@ -4,6 +4,7 @@
 namespace calderawp\interop\Models;
 
 
+use calderawp\interop\CalderaForms;
 use calderawp\interop\Entities\Entry as EntryEntity;
 class Entry extends Model
 {
@@ -19,6 +20,6 @@ class Entry extends Model
 	 */
 	public static function getType()
 	{
-		return 'entry';
+		return CalderaForms::ENTRY;
 	}
 }

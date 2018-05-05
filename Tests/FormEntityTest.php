@@ -7,7 +7,7 @@ class FormEntityTest extends EntityCalderaInteropTestCase
 	/**
 	 * Test getting fields from fields collection
 	 *
-	 * @covers  \calderawp\interop\Entities\Form::setFields()
+	 * @covers  \calderawp\interop\Entities\Form::setFieldsFromArray()
 	 * @covers  \calderawp\interop\Entities\Form::getFields()
 	 */
 	public function testGetFields()
@@ -24,11 +24,32 @@ class FormEntityTest extends EntityCalderaInteropTestCase
 
 	}
 
+	/**
+	 * Test resetting fields collection
+	 *
+	 * @covers  \calderawp\interop\Entities\Form::setFields()
+	 * @covers  \calderawp\interop\Entities\Form::getFields()
+	 */
+	public function testSetFields()
+	{
+		$formArray = $this->formArrayFactory( 42 );
+		$formEntity = new \calderawp\interop\Entities\Form( $formArray );
+
+		$fields = new \calderawp\interop\Collections\EntityCollections\Fields([
+			$this->entityFactory( 'FIELD'),
+			$this->entityFactory( 'FIELD')
+		]);
+
+		$formEntity->setFields($fields);
+		$this->assertSame( $fields, $formEntity->getFields() );
+
+	}
+
 
 	/**
 	 * Test getting field by ID from fields collection
 	 *
-	 * @covers  \calderawp\interop\Entities\Form::setFields()
+	 * @covers  \calderawp\interop\Entities\Form::setFieldsFromArray()
 	 * @covers  \calderawp\interop\Entities\Form::getField()
 	 */
 	public function testGetField()
@@ -48,7 +69,7 @@ class FormEntityTest extends EntityCalderaInteropTestCase
 	/**
 	 * Test getting form name
 	 *
-	 * @covers  \calderawp\interop\Entities\Form::setFields()
+	 * @covers  \calderawp\interop\Entities\Form::setFieldsFromArray()
 	 * @covers  \calderawp\interop\Entities\Form::getField()
 	 */
 	public function testGetName()

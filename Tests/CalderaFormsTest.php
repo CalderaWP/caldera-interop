@@ -16,8 +16,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 			\calderawp\interop\Entities\Field::class,
 			get_class(
 				$calderaForms
-				->getFactory()
-				->entity( 'field' )
+					->getFactory()
+					->entity('field')
 			)
 		);
 
@@ -30,17 +30,18 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 */
 	public function testBindField()
 	{
-		$identifier = 'field';
+		$identifier = \calderawp\interop\CalderaForms::FIELD;
 		$entityClassRef = \calderawp\interop\Entities\Field::class;
 		$modelClassRef = \calderawp\interop\Models\Field::class;
 		$collectionClassRef = \calderawp\interop\Collections\EntityCollections\Fields::class;
 
 		$calderaForms = $this->createApp();
 
-		$this->assertSame( $entityClassRef, get_class( $calderaForms->getFactory()->entity( $identifier)));
-		$this->assertSame( $modelClassRef, get_class( $calderaForms->getFactory()->model( $calderaForms->getFactory()->entity( $identifier))));
-		$this->assertSame( $collectionClassRef, get_class( $calderaForms->getFactory()->collection( $identifier)));
-		$calderaForms->getFactory()->collection($identifier );
+		$this->assertSame($entityClassRef, get_class($calderaForms->getFactory()->entity($identifier)));
+		$this->assertSame($modelClassRef,
+			get_class($calderaForms->getFactory()->model($calderaForms->getFactory()->entity($identifier))));
+		$this->assertSame($collectionClassRef, get_class($calderaForms->getFactory()->collection($identifier)));
+		$calderaForms->getFactory()->collection($identifier);
 
 	}
 
@@ -51,17 +52,18 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 */
 	public function testBindForm()
 	{
-		$identifier = 'form';
+		$identifier = \calderawp\interop\CalderaForms::FORM;
 		$entityClassRef = \calderawp\interop\Entities\Form::class;
 		$modelClassRef = \calderawp\interop\Models\Form::class;
 		$collectionClassRef = \calderawp\interop\Collections\EntityCollections\Forms::class;
 
 		$calderaForms = $this->createApp();
 
-		$this->assertSame( $entityClassRef, get_class( $calderaForms->getFactory()->entity( $identifier)));
-		$this->assertSame( $modelClassRef, get_class( $calderaForms->getFactory()->model( $calderaForms->getFactory()->entity( $identifier))));
-		$this->assertSame( $collectionClassRef, get_class( $calderaForms->getFactory()->collection( $identifier)));
-		$calderaForms->getFactory()->collection($identifier );
+		$this->assertSame($entityClassRef, get_class($calderaForms->getFactory()->entity($identifier)));
+		$this->assertSame($modelClassRef,
+			get_class($calderaForms->getFactory()->model($calderaForms->getFactory()->entity($identifier))));
+		$this->assertSame($collectionClassRef, get_class($calderaForms->getFactory()->collection($identifier)));
+		$calderaForms->getFactory()->collection($identifier);
 
 	}
 
@@ -72,18 +74,39 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 */
 	public function testBindEntries()
 	{
-		$identifier = 'entry';
+		$identifier = \calderawp\interop\CalderaForms::ENTRY;
 		$entityClassRef = \calderawp\interop\Entities\Entry::class;
 		$modelClassRef = \calderawp\interop\Models\Entry::class;
 		$collectionClassRef = \calderawp\interop\Collections\EntityCollections\Entries::class;
 
 		$calderaForms = $this->createApp();
 
-		$this->assertSame( $entityClassRef, get_class( $calderaForms->getFactory()->entity( $identifier)));
-		$this->assertSame( $modelClassRef, get_class( $calderaForms->getFactory()->model( $calderaForms->getFactory()->entity( $identifier))));
-		$this->assertSame( $collectionClassRef, get_class( $calderaForms->getFactory()->collection( $identifier)));
-		$calderaForms->getFactory()->collection($identifier );
+		$this->assertSame($entityClassRef, get_class($calderaForms->getFactory()->entity($identifier)));
+		$this->assertSame($modelClassRef,
+			get_class($calderaForms->getFactory()->model($calderaForms->getFactory()->entity($identifier))));
+		$this->assertSame($collectionClassRef, get_class($calderaForms->getFactory()->collection($identifier)));
+		$calderaForms->getFactory()->collection($identifier);
 
+	}
+
+	/**
+	 * Test interop bind for entry field values
+	 *
+	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 */
+	public function testEntryValueBind()
+	{
+		$identifier = \calderawp\interop\CalderaForms::ENTRY_VALUE;
+		$entityClassRef = \calderawp\interop\Entities\Entry\Field::class;
+		$modelClassRef = \calderawp\interop\Models\Entry\Field::class;
+		$collectionClassRef = \calderawp\interop\Collections\EntityCollections\EntryValues\Fields::class;
+
+		$calderaForms = $this->createApp();
+
+		$this->assertSame($entityClassRef, get_class($calderaForms->getFactory()->entity($identifier)));
+		$this->assertSame($modelClassRef, get_class($calderaForms->getFactory()->model($calderaForms->getFactory()->entity($identifier))));
+		$this->assertSame($collectionClassRef, get_class($calderaForms->getFactory()->collection($identifier)));
+		$calderaForms->getFactory()->collection($identifier);
 	}
 
 	/**
@@ -100,22 +123,11 @@ class CalderaFormsTest extends CalderaInteropTestCase
 		$calderaForms->registerProvider($provider);
 		$this->assertEquals(
 			new stdClass(),
-			$calderaForms->getService($provider->getAlias() )
+			$calderaForms->getService($provider->getAlias())
 		);
-
 	}
 
-	/**
-	 * @return \calderawp\interop\CalderaForms
-	 */
-	protected function createApp()
-	{
-		$interopContainer = new \calderawp\interop\Service\Container();
-		$factory = new \calderawp\interop\Service\Factory($interopContainer);
-		$serviceContainer = new \calderawp\CalderaContainers\Service\Container();
-		$calderaForms = new \calderawp\interop\CalderaForms($factory, $serviceContainer);
-		return $calderaForms;
-	}
+
 
 
 

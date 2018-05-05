@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Models;
 
+use calderawp\interop\CalderaForms;
 use calderawp\interop\Entities\Entity;
 use \calderawp\interop\Entities\Form as FormEntity;
 use \calderawp\interop\Entities\Field as FieldEntity;
@@ -43,6 +44,6 @@ class Form extends Model
 	 */
 	public static function getType()
 	{
-		return 'form';
+		return CalderaForms::FORM;
 	}
 }

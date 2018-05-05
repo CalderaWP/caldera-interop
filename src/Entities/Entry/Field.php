@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Entities\Entry;
 
+use calderawp\interop\CalderaForms;
 use calderawp\interop\Entities\Entity;
 
 /**
@@ -60,7 +61,6 @@ class Field extends Entity
 		}
 	}
 
-
 	/**
 	 * Get field slug
 	 *
@@ -84,6 +84,12 @@ class Field extends Entity
 	/** @inheritdoc */
 	public static function getType()
 	{
-		return 'entry.field';
+		return CalderaForms::ENTRY_VALUE;
+	}
+
+	/** @inheritdoc */
+	public function getTheType()
+	{
+		return CalderaForms::ENTRY_VALUE;
 	}
 }

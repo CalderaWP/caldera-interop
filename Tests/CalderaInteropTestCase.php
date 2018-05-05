@@ -14,13 +14,16 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 
 		$form = $this->formArrayFactory($id);
 		switch(  $type  ){
+			case \calderawp\interop\CalderaForms::FIELD:
 			case 'FIELD':
 				$entity = new \calderawp\interop\Entities\Field( $field );
 				break;
+			case \calderawp\interop\CalderaForms::FORM:
 			case 'FORM':
 				$entity = new \calderawp\interop\Entities\Form( $form );
 				break;
-            case 'ENTRY' :
+			case \calderawp\interop\CalderaForms::ENTRY:
+			case 'ENTRY' :
                 $entity = new \calderawp\interop\Entities\Entry(
                     $this->entityFactory( 'ENTRY_DETAILS', 40 ),
                     new \calderawp\interop\Collections\EntityCollections\EntryValues\Fields(
@@ -44,7 +47,8 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
                     ]
                 );
                 break;
-            case 'ENTRY_FIELD' :
+			case \calderawp\interop\CalderaForms::ENTRY_VALUE:
+			case 'ENTRY_FIELD' :
             case 'ENTRY_VALUE' :
                 $entity = \calderawp\interop\Entities\Entry\Field::fromArray(
                     [
@@ -163,24 +167,17 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 		return $form;
 	}
 
-    /**
-     * @return \calderawp\interop\Industry
-     */
-    public function industryFactory()
-    {
-        $serviceContainer = new \calderawp\interop\ServiceControlledContainer();
-        return new \calderawp\interop\Industry($serviceContainer);
-    }
+	/**
+	 * @return \calderawp\interop\CalderaForms
+	 */
+	protected function createApp()
+	{
+		$interopContainer = new \calderawp\interop\Service\Container();
+		$factory = new \calderawp\interop\Service\Factory($interopContainer);
+		$serviceContainer = new \calderawp\CalderaContainers\Service\Container();
+		$calderaForms = new \calderawp\interop\CalderaForms($factory, $serviceContainer);
+		return $calderaForms;
+	}
 
-    /**
-     * @return \calderawp\interop\InteropApp
-     */
-    public function appFactory()
-    {
-        return new \calderawp\interop\InteropApp(
-            new \calderawp\interop\ServiceControlledContainer(),
-            dirname(__FILE__),
-            '0.1.1'
-        );
-    }
+
 }

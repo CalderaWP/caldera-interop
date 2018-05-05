@@ -10,7 +10,6 @@ use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Interfaces\CalderaFormsApp;
 use calderawp\interop\Interfaces\InteroperableFactory;
 use calderawp\interop\Interfaces\ProvidesService;
-use calderawp\interop\Models\Form;
 use calderawp\interop\Service\Factory;
 
 /**
@@ -22,6 +21,10 @@ use calderawp\interop\Service\Factory;
  */
 class CalderaForms implements CalderaFormsApp
 {
+	const FIELD = 'field';
+	const FORM = 'form';
+	const ENTRY = 'entry';
+	const ENTRY_VALUE = 'entry.value';
 	/**
 	 * @var Factory
 	 */
@@ -93,7 +96,7 @@ class CalderaForms implements CalderaFormsApp
 		$this
 			->getFactory()
 			->bindInterop(
-				'field',
+				self::FIELD,
 				\calderawp\interop\Entities\Field::class,
 				\calderawp\interop\Models\Field::class,
 				\calderawp\interop\Collections\EntityCollections\Fields::class
@@ -102,7 +105,7 @@ class CalderaForms implements CalderaFormsApp
 		$this
 			->getFactory()
 			->bindInterop(
-				'form',
+				self::FORM,
 				\calderawp\interop\Entities\Form::class,
 				\calderawp\interop\Models\Form::class,
 				\calderawp\interop\Collections\EntityCollections\Forms::class
@@ -111,7 +114,7 @@ class CalderaForms implements CalderaFormsApp
 		$this
 			->getFactory()
 			->bindInterop(
-				'entry',
+				self::ENTRY,
 				[
 					\calderawp\interop\Entities\Entry::class,
 					function(){
@@ -120,6 +123,15 @@ class CalderaForms implements CalderaFormsApp
 				],
 				\calderawp\interop\Models\Entry::class,
 				\calderawp\interop\Collections\EntityCollections\Entries::class
+			);
+
+		$this
+			->getFactory()
+			->bindInterop(
+				self::ENTRY_VALUE,
+				\calderawp\interop\Entities\Entry\Field::class,
+				\calderawp\interop\Models\Entry\Field::class,
+				\calderawp\interop\Collections\EntityCollections\EntryValues\Fields::class
 			);
 	}
 }

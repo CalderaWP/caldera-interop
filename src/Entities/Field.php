@@ -34,6 +34,31 @@ class Field extends Entity
 	}
 
 	/**
+	 * Get default value for field
+	 *
+	 * @return mixed|null
+	 */
+	public function getDefault()
+	{
+		return $this->configKey( 'default','' );
+	}
+
+	/**
+	 * Get field.config.$key
+	 *
+	 * @param string $key
+	 * @param null|mixed $default Optional. Default value
+	 * @return mixed|null
+	 */
+	public function configKey($key,$default=null)
+	{
+		$config = $this->getConfigKey();
+		return array_key_exists( $key, $config )
+			? $config[ $key ]
+			: $default;
+	}
+
+	/**
 	 * Get field field.slug
 	 *
 	 * @return string
