@@ -1,7 +1,7 @@
 <?php
 
 
-class EntryFieldValueEntityCalderaInteropTest extends CalderaInteropTestCase
+class EntryFieldValueEntityTest extends CalderaInteropTestCase
 {
 
     /**
@@ -26,6 +26,19 @@ class EntryFieldValueEntityCalderaInteropTest extends CalderaInteropTestCase
             $this->assertEquals( $v, $fieldToArray[ $k ] );
         }
     }
+
+    public function testSetValue()
+	{
+		$array = [
+			'entry_id' => 42,
+			'field_id' => 'fld1234',
+			'slug' => 'pupper',
+			'value' => 'is Awesome'
+		];
+		$field = \calderawp\interop\Entities\Entry\Field::fromArray($array);
+		$field->setValue('JOSIE');
+		$this->assertSame( 'JOSIE', $field->getValue() );
+	}
 
     /**
      * Test entity factory works with ENTRY_FIELD

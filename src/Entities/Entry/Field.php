@@ -81,6 +81,18 @@ class Field extends Entity
 		return $this->value;
 	}
 
+	/**
+	 * Set a new value
+	 *
+	 * @param mixed $newValue
+	 * @return $this
+	 */
+	public function setValue($newValue)
+	{
+		$this->value = $newValue;
+		return $this;
+	}
+
 	/** @inheritdoc */
 	public static function getType()
 	{

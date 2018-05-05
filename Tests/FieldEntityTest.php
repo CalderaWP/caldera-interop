@@ -134,6 +134,26 @@ class FieldEntityTest extends EntityCalderaInteropTestCase
 	}
 
 	/**
+	 * Test (re)setting slug
+	 *
+	 * @covers \calderawp\interop\Entities\Field::setSlug()
+	 * @covers \calderawp\interop\Entities\Field::getSlug()
+	 */
+	public function testSetSlug()
+	{
+
+		$newSlug = 'pants';
+		$field = array(
+			'ID' => 42,
+			'slug' => 'Noms',
+		);
+
+		$entity = new \calderawp\interop\Entities\Field( $field );
+		$entity->setSlug($newSlug);
+		$this->assertSame( $newSlug, $entity->getSlug() );
+	}
+
+	/**
 	 * Test getting slug array key
 	 *
 	 * @covers \calderawp\interop\Entities\Field::getConfigKey()

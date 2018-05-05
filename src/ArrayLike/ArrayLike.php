@@ -5,9 +5,6 @@ namespace calderawp\interop\ArrayLike;
 
 use calderawp\interop\Interfaces\Arrayable;
 
-;
-
-
 /**
  * Class ArrayLike
  *

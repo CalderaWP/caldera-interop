@@ -3,9 +3,9 @@
 
 namespace calderawp\interop\Models;
 
-
 use calderawp\interop\CalderaForms;
 use calderawp\interop\Entities\Entry as EntryEntity;
+
 class Entry extends Model
 {
 

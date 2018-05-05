@@ -96,7 +96,7 @@ class Form extends Entity
 		return $this->fields;
 	}
 
-	public function setFields(Fields $fields )
+	public function setFields(Fields $fields)
 	{
 		$this->fields = $fields;
 		return $this->fields;

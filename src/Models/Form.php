@@ -4,11 +4,8 @@
 namespace calderawp\interop\Models;
 
 use calderawp\interop\CalderaForms;
-use calderawp\interop\Entities\Entity;
 use \calderawp\interop\Entities\Form as FormEntity;
-use \calderawp\interop\Entities\Field as FieldEntity;
 
-use GuzzleHttp\Psr7\Response;
 
 class Form extends Model
 {

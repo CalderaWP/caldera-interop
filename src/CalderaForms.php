@@ -117,8 +117,8 @@ class CalderaForms implements CalderaFormsApp
 				self::ENTRY,
 				[
 					\calderawp\interop\Entities\Entry::class,
-					function(){
-						return new Entry(new Entry\Details(), new Fields(), new \calderawp\interop\Entities\Form( ) );
+					function () {
+						return new Entry(new Entry\Details(), new Fields(), new \calderawp\interop\Entities\Form());
 					}
 				],
 				\calderawp\interop\Models\Entry::class,

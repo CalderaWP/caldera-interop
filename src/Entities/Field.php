@@ -40,7 +40,7 @@ class Field extends Entity
 	 */
 	public function getDefault()
 	{
-		return $this->configKey( 'default','' );
+		return $this->configKey('default', '');
 	}
 
 	/**
@@ -50,10 +50,10 @@ class Field extends Entity
 	 * @param null|mixed $default Optional. Default value
 	 * @return mixed|null
 	 */
-	public function configKey($key,$default=null)
+	public function configKey($key, $default = null)
 	{
 		$config = $this->getConfigKey();
-		return array_key_exists( $key, $config )
+		return array_key_exists($key, $config)
 			? $config[ $key ]
 			: $default;
 	}
@@ -66,6 +66,12 @@ class Field extends Entity
 	public function getSlug()
 	{
 		return $this->fieldKey('slug', '');
+	}
+
+	public function setSlug($newSlug)
+	{
+		$this->field[ 'slug' ] = $newSlug;
+		return $this;
 	}
 
 	/**

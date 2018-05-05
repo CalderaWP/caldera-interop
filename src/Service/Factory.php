@@ -48,12 +48,12 @@ class Factory implements InteroperableFactory
 	public function bindInterop($identifierPrefix, $entityClassRef, $modelClassRef, $collectionClassRef)
 	{
 		$entityCallback = null;
-		if( is_array( $entityClassRef ) ){
+		if (is_array($entityClassRef)) {
 			$entityCallback = $entityClassRef[1];
 			$entityClassRef = $entityClassRef[0];
 		}
 
-		$this->mapEntity($identifierPrefix, $entityClassRef,$entityCallback);
+		$this->mapEntity($identifierPrefix, $entityClassRef, $entityCallback);
 
 		$this
 			->getContainer()
@@ -249,9 +249,9 @@ class Factory implements InteroperableFactory
 	 * @param string $identifierPrefix Main identifier used for container resolution.
 	 * @param string $entityClassRef Class ref (::class) for entity.
 	 */
-	private function mapEntity($identifierPrefix, $entityClassRef,$callback = null )
+	private function mapEntity($identifierPrefix, $entityClassRef, $callback = null)
 	{
-		if( ! $callback ){
+		if (! $callback) {
 			$callback = function () use ($entityClassRef) {
 				return new $entityClassRef;
 			};
