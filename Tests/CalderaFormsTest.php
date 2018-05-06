@@ -110,6 +110,31 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	}
 
 	/**
+	 * Test interop bind for entry field details
+	 *
+	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 */
+	public function testEntryValueDetails()
+	{
+		$identifier = \calderawp\interop\CalderaForms::ENTRY_DETAILS;
+		$entityClassRef = \calderawp\interop\Entities\Entry\Details::class;
+		$modelClassRef = \calderawp\interop\Models\Entry\Details::class;
+		$collectionClassRef = \calderawp\interop\Collections\EntityCollections\EntryValues\Details::class;
+
+		$calderaForms = $this->createApp();
+
+		$this->assertSame($entityClassRef, get_class($calderaForms->getFactory()->entity($identifier)));
+		$this->assertSame($modelClassRef, get_class(
+				$calderaForms->getFactory()->model(
+					$calderaForms->getFactory()->entity($identifier)
+				)
+			)
+		);
+		$this->assertSame($collectionClassRef, get_class($calderaForms->getFactory()->collection($identifier)));
+		$calderaForms->getFactory()->collection($identifier);
+	}
+
+	/**
 	 * Test service providing/registration
 	 *
 	 * @covers CalderaForms::registerProvider()
@@ -127,7 +152,23 @@ class CalderaFormsTest extends CalderaInteropTestCase
 		);
 	}
 
+	/**
+	 * Ensure we have singleton bound main CF app ref properly
+	 *
+	 * @covers CalderaForms::bindSelf()
+	 */
+	public function testCFBinding()
+	{
+		$identifier = \calderawp\interop\CalderaForms::CALDERA_FORMS;
+		$calderaForms = $this->createApp();
+		$this->assertSame( $calderaForms->getService($identifier ), $calderaForms );
 
+		$this->assertSame( $calderaForms->getService($identifier ), $calderaForms );
+		/** @var \calderawp\interop\CalderaForms $app */
+		$app = $calderaForms->getService($identifier );
+		$this->assertSame( $calderaForms->getService($identifier ), $calderaForms->getService('CF' ) );
+
+	}
 
 
 

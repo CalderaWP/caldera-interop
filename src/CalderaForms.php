@@ -25,6 +25,8 @@ class CalderaForms implements CalderaFormsApp
 	const FORM = 'form';
 	const ENTRY = 'entry';
 	const ENTRY_VALUE = 'entry.value';
+	const ENTRY_DETAILS = 'entry.details';
+	const CALDERA_FORMS = 'CF';
 	/**
 	 * @var Factory
 	 */
@@ -44,6 +46,7 @@ class CalderaForms implements CalderaFormsApp
 	{
 		$this->interoperableFactory = $interoperableFactory;
 		$this->serviceContainer = $serviceContainer;
+		$this->bindSelf();
 		$this->registerInterops();
 	}
 
@@ -133,5 +136,22 @@ class CalderaForms implements CalderaFormsApp
 				\calderawp\interop\Models\Entry\Field::class,
 				\calderawp\interop\Collections\EntityCollections\EntryValues\Fields::class
 			);
+
+		$this
+			->getFactory()
+			->bindInterop(
+				self::ENTRY_DETAILS,
+				\calderawp\interop\Entities\Entry\Details::class,
+				\calderawp\interop\Models\Entry\Details::class,
+				\calderawp\interop\Collections\EntityCollections\EntryValues\Details::class
+			);
+	}
+
+	/**
+	 * Attach a reference to this object to container
+	 */
+	private function bindSelf()
+	{
+		$this->serviceContainer->singleton(self::CALDERA_FORMS, $this);
 	}
 }

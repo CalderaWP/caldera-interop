@@ -9,15 +9,14 @@ use calderawp\interop\Entities\Entry as EntryEntity;
 class Entry extends Model
 {
 
+	/** @inheritdoc */
 	public function getEntityType()
 	{
 		return EntryEntity::class;
 	}
 
 
-	/**
-	 * @inheritdoc
-	 */
+	/** @inheritdoc */
 	public static function getType()
 	{
 		return CalderaForms::ENTRY;

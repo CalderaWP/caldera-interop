@@ -4,7 +4,6 @@ namespace calderawp\interop\Entities;
 
 use calderawp\interop\Collections\EntityCollections\Fields as FieldsCollection;
 use calderawp\interop\Collections\EntityCollections\Fields;
-use Psr\Http\Message\RequestInterface as Request;
 
 class Form extends Entity
 {

@@ -6,7 +6,6 @@ namespace calderawp\interop\Models;
 use calderawp\interop\CalderaForms;
 use \calderawp\interop\Entities\Form as FormEntity;
 
-
 class Form extends Model
 {
 

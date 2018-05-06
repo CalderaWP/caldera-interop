@@ -81,6 +81,21 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * @param array $fieldIds
+	 * @return \calderawp\interop\Models\Form
+	 */
+	protected function formModelFactory(array $fieldIds)
+	{
+		$fields = $this->fieldEntityCollection($fieldIds );
+
+		$formId = uniqid('cf');
+		/** @var \calderawp\interop\Entities\Form $formEntity */
+		$formEntity = $this->entityFactory('FORM', $formId);
+		$formEntity->setFields($fields);
+		return new \calderawp\interop\Models\Form($formEntity, $fields);
+	}
+
+	/**
 	 * @param $type
 	 * @return \calderawp\interop\Collections\EntityCollections\EntityCollection|\calderawp\interop\Collections\EntityCollections\Fields|__anonymous@1205
 	 */

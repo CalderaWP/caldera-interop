@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Entities\Entry;
 
+use calderawp\interop\CalderaForms;
 use calderawp\interop\Entities\Entity;
 
 /**
@@ -39,6 +40,12 @@ class Details extends Entity
 	/** @inheritdoc */
 	public static function getType()
 	{
-		return 'entry.details';
+		return CalderaForms::ENTRY_DETAILS;
+	}
+
+	/** @inheritdoc */
+	public function getTheType()
+	{
+		return CalderaForms::ENTRY_DETAILS;
 	}
 }

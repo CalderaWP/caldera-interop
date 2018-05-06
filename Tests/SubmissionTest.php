@@ -116,6 +116,38 @@ class SubmissionTest extends CalderaInteropTestCase
 
 	}
 
+	/**
+	 * Test submission ID gets updated with entry ID
+	 * @covers Submission::setEntryEntity()
+	 */
+	public function testSetEntity()
+	{
+
+		$submission = $this->createSubmission();
+		$entryEntity = $this->entityFactory( 'ENTRY' );
+		$submission->setEntryEntity($entryEntity);
+		$this->assertSame( $entryEntity, $submission->getEntry() );
+		$submission->getEntry()->setId(42);
+		$this->assertSame( 42, $submission->getId() );
+
+
+	}
+
+	/**
+	 * Test entry ID gets updated with submission ID
+	 *
+	 * @covers Submission::setEntryEntity()
+	 * @covers Submission::setId()
+	 */
+	public function testEntryIdUpdate()
+	{
+		$submission = $this->createSubmission();
+		$entryEntity = $this->entityFactory( 'ENTRY' );
+		$submission->setEntryEntity($entryEntity);
+
+		$submission->setId(500);
+		$this->assertSame( 500, $submission->getEntry()->getId() );
+	}
 
 	/**
 	 * @param string $fieldOneId
@@ -124,7 +156,7 @@ class SubmissionTest extends CalderaInteropTestCase
 	 * @param string $fieldTwoValue
 	 * @return \calderawp\interop\Submissions\Submission
 	 */
-	protected function createSubmission($fieldOneId, $fieldTwoId, $fieldOneValue, $fieldTwoValue)
+	protected function createSubmission($fieldOneId ='fld111', $fieldTwoId = 'fld123', $fieldOneValue = 'f1v', $fieldTwoValue = 'f2v')
 	{
 		$fieldOne = $this->entityFactory('FIELD', $fieldOneId);
 		$fieldTwo = $this->entityFactory('FIELD', $fieldTwoId);
@@ -144,6 +176,7 @@ class SubmissionTest extends CalderaInteropTestCase
 		$formEntity = $this->entityFactory('FORM', $formId);
 		$formEntity->setFields($fields);
 		$this->formModel = new \calderawp\interop\Models\Form($formEntity, $fields);
+
 		$submission = new Submission(
 			$rawData,
 			$this->formModel,

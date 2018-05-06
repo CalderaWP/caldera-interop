@@ -5,6 +5,7 @@ namespace calderawp\interop\Submissions;
 
 use calderawp\CalderaContainers\Service\Container;
 use calderawp\interop\CalderaForms;
+use calderawp\interop\Entities\Entry;
 use calderawp\interop\Entities\Field;
 use calderawp\interop\Interfaces\CalderaFormsApp;
 use calderawp\interop\Interfaces\SanitizesValue;
@@ -39,6 +40,11 @@ class Submission
 	 */
 	private $sanitizer;
 
+	/**
+	 * @var Entry
+	 */
+	protected $entry;
+
 	public function __construct(array $rawData, Form $form, CalderaFormsApp $app)
 	{
 		$this->app = $app;
@@ -47,6 +53,42 @@ class Submission
 		$this->rawData = $rawData;
 		$this->setUpContainer();
 		$this->sanitizer = new NotSanitized();
+	}
+
+	/**
+	 * (re)Set Entry entity
+	 *
+	 * @param Entry $entry
+	 * @return $this
+	 */
+	public function setEntryEntity(Entry $entry)
+	{
+		$this->entry = $entry;
+		$this->entry->setForm($this->form->getEntity());
+		$this->setId($entry->getId());
+		return $this;
+	}
+
+	/** @inheritdoc */
+	public function setId($id)
+	{
+		if ($this->entry) {
+			$this->entry->setId($id);
+		}
+		$this->id = $id;
+		return $this;
+	}
+
+	public function setFieldValuesInEntryEntity()
+	{
+		/** @var Field $field */
+		foreach ($this->form->getFields() as $field) {
+		}
+	}
+
+	public function getEntry()
+	{
+		return $this->entry;
 	}
 
 	public function setSanitizer(SanitizesValue $sanitizer)
