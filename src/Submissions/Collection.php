@@ -25,6 +25,8 @@ class Collection extends Container
 	 * @param Form $form
 	 * @param $id
 	 * @throws ContainerException
+	 *
+	 * @return int|string
 	 */
 	public function startNew(array $rawData, Form $form, $id)
 	{
@@ -40,5 +42,6 @@ class Collection extends Container
 		$submission->setEntryEntity($entryEntity);
 		$submission->setId($id);
 		$this->set($id, $submission);
+		return $submission->getId();
 	}
 }

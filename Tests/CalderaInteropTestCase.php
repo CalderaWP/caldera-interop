@@ -187,11 +187,7 @@ abstract  class CalderaInteropTestCase extends PHPUnit_Framework_TestCase
 	 */
 	protected function createApp()
 	{
-		$interopContainer = new \calderawp\interop\Service\Container();
-		$factory = new \calderawp\interop\Service\Factory($interopContainer);
-		$serviceContainer = new \calderawp\CalderaContainers\Service\Container();
-		$calderaForms = new \calderawp\interop\CalderaForms($factory, $serviceContainer);
-		return $calderaForms;
+		return \calderawp\interop\CalderaForms::factory();
 	}
 
 

@@ -51,6 +51,18 @@ class CalderaForms implements CalderaFormsApp
 	}
 
 	/**
+	 * @return CalderaForms
+	 */
+	public static function factory()
+	{
+		$interopContainer = new \calderawp\interop\Service\Container();
+		$factory = new \calderawp\interop\Service\Factory($interopContainer);
+		$serviceContainer = new \calderawp\CalderaContainers\Service\Container();
+		$calderaForms = new static($factory, $serviceContainer);
+		return $calderaForms;
+	}
+
+	/**
 	 * Register a service
 	 *
 	 * @param ProvidesService $service
