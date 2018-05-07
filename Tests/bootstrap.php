@@ -16,6 +16,10 @@ if (file_exists(dirname(__FILE__, 2) . '/vendor/autoload.php')) {
             require __DIR__ . '/Mocks/Entity.php';
         }
 
+		if (\calderawp\interop\Mock\CastingValidatingEntity::class === $class) {
+			require __DIR__ . '/Mocks/CastingValidatingEntity.php';
+		}
+
         if (\calderawp\interop\Mock\Collection::class === $class) {
             require __DIR__ . '/Mocks/Collection.php';
         }
