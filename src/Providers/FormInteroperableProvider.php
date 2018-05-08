@@ -12,25 +12,30 @@ use calderawp\interop\Interfaces\ProvidesInteropService;
  *
  * Provides forms through the CalderaFormsApp
  */
-class FormInteroperableProvider implements ProvidesInteropService
+class FormInteroperableProvider extends InteropProvider
 {
-
-	/** @inheritdoc */
-	public function bindInterop(CalderaFormsApp $calderaFormsApp)
-	{
-		$calderaFormsApp
-			->getFactory()
-			->bindInterop(
-				$this->getAlias(),
-				\calderawp\interop\Entities\Form::class,
-				\calderawp\interop\Models\Form::class,
-				\calderawp\interop\Collections\EntityCollections\Forms::class
-			);
-	}
 
 	/** @inheritdoc */
 	public function getAlias()
 	{
 		return CalderaForms::FORM;
+	}
+
+	/** @inheritdoc */
+	protected function getEntityClassRef()
+	{
+		return \calderawp\interop\Entities\Form::class;
+	}
+
+	/** @inheritdoc */
+	protected function getModelClassRef()
+	{
+		return \calderawp\interop\Models\Form::class;
+	}
+
+	/** @inheritdoc */
+	protected function getCollectionClassRef()
+	{
+		return \calderawp\interop\Collections\EntityCollections\Forms::class;
 	}
 }
