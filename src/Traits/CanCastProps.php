@@ -25,8 +25,4 @@ trait CanCastProps
 			}
 		}
 	}
-
-
-
-
 }

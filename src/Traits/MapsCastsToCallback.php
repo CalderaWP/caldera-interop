@@ -39,7 +39,7 @@ trait MapsCastsToCallback
 	}
 
 
-	protected function castInteger($maybeInt )
+	protected function castInteger($maybeInt)
 	{
 		return $this->castNumeric($maybeInt);
 	}
@@ -112,14 +112,35 @@ trait MapsCastsToCallback
 	 * @param mixed  $value    Value to set
 	 * @throws Exception Thrown if cast callback not callable
 	 */
-	private function applyCast($propName, $value)
+	protected function applyCast($propName, $value)
+	{
+		$this->$propName = $this->dispatchCast($propName, $value);
+		return $this->$propName;
+	}
+
+	/**
+	 * @param string $propName Property name
+	 * @param mixed $value
+	 * @return mixed
+	 * @throws Exception Thrown if cast callback not callable
+	 */
+	protected function dispatchCast($propName, $value)
 	{
 		$callable = [ $this, $this->castCallback($this->casts[$propName])];
 		if (! is_callable($callable)) {
 			throw new Exception(json_encode($callable));
 		}
-		$this->$propName = call_user_func($callable, $value);
-		return $this->$propName;
+		return call_user_func($callable, $value);
+	}
+	/**
+	 * Is there a casting callback function?
+	 *
+	 * @param string $propName Property name
+	 * @return bool
+	 */
+	protected function hasCastCallback($propName)
+	{
+		return isset($this->casts[$propName]);
 	}
 
 	/**

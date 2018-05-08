@@ -16,7 +16,7 @@ use Psr\Http\Message\RequestInterface;
 /**
  * Class Factory
  *
- * Factory that provides entities, models and collections.
+ * Factory that provides entities, models and Collections.
  *
  * @package calderawp\interop\Service
  */

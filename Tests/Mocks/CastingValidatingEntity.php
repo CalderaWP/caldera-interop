@@ -5,16 +5,18 @@ namespace calderawp\interop\Mock;
 
 
 use calderawp\interop\Traits\CanCastAndValidateProps;
+use calderawp\interop\Traits\HasId;
 
 class CastingValidatingEntity extends Entity
 {
 
-    use CanCastAndValidateProps;
+    use CanCastAndValidateProps, HasId;
 
     protected $face;
 	/** @var  int */
     protected $casts = [
         'face' => 'numeric',
+		'id' => 'string'
     ];
 
 	/**
@@ -25,6 +27,11 @@ class CastingValidatingEntity extends Entity
 	{
 
 		return $value > 10 ? $value : 10;
+	}
+
+	public function toArray()
+	{
+		return array_merge( [ 'id' => $this->getId()], parent::toArray() );
 	}
 
 
