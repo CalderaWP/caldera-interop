@@ -52,10 +52,15 @@ Bind a factory, so each request for service creates and returns a new object.
 
 ``` 
 
-* A function called 
 ## Available Services
 
-### Submission
+
+### Interoperable Providers
+
+#### Forms
+
+### Other Providers
+#### Submission
 Create and track entries
 
 * $app should be `\calderawp\interop\CalderaForms`

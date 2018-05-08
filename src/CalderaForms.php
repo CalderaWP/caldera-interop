@@ -10,6 +10,7 @@ use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Interfaces\CalderaFormsApp;
 use calderawp\interop\Interfaces\InteroperableFactory;
 use calderawp\interop\Interfaces\ProvidesService;
+use calderawp\interop\Providers\FormInteroperableProvider;
 use calderawp\interop\Service\Factory;
 
 /**
@@ -117,14 +118,7 @@ class CalderaForms implements CalderaFormsApp
 				\calderawp\interop\Collections\EntityCollections\Fields::class
 			);
 
-		$this
-			->getFactory()
-			->bindInterop(
-				self::FORM,
-				\calderawp\interop\Entities\Form::class,
-				\calderawp\interop\Models\Form::class,
-				\calderawp\interop\Collections\EntityCollections\Forms::class
-			);
+		(new FormInteroperableProvider() )->bindInterop($this);
 
 		$this
 			->getFactory()

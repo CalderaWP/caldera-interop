@@ -49,6 +49,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 * Test interop bind for forms
 	 *
 	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 * @covers \calderawp\interop\Providers\FormInteroperableProvider()
+	 * @covers \calderawp\interop\Providers\FormInteroperableProvider::bindInterop()
 	 */
 	public function testBindForm()
 	{
