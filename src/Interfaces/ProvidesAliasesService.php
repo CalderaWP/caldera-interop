@@ -18,5 +18,4 @@ interface ProvidesAliasesService
 	 * @return string
 	 */
 	public function getAlias();
-
 }

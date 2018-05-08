@@ -8,11 +8,11 @@ use calderawp\interop\Interfaces\CalderaFormsApp;
 use calderawp\interop\Interfaces\ProvidesInteropService;
 
 /**
- * Class FormInteroperableProvider
+ * Class EntryDetailsInteroperableProvider
  *
- * Provides forms through the CalderaFormsApp
+ * Provides entry details interop set through the CalderaFormsApp service factory
  */
-class FormInteroperableProvider implements ProvidesInteropService
+class EntryDetailsInteroperableProvider implements ProvidesInteropService
 {
 
 	/** @inheritdoc */
@@ -22,15 +22,15 @@ class FormInteroperableProvider implements ProvidesInteropService
 			->getFactory()
 			->bindInterop(
 				$this->getAlias(),
-				\calderawp\interop\Entities\Form::class,
-				\calderawp\interop\Models\Form::class,
-				\calderawp\interop\Collections\EntityCollections\Forms::class
+				\calderawp\interop\Entities\Entry\Details::class,
+				\calderawp\interop\Models\Entry\Details::class,
+				\calderawp\interop\Collections\EntityCollections\EntryValues\Details::class
 			);
 	}
 
 	/** @inheritdoc */
 	public function getAlias()
 	{
-		return CalderaForms::FORM;
+		return CalderaForms::ENTRY_DETAILS;
 	}
 }
