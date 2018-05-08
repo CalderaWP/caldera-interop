@@ -8,7 +8,7 @@ namespace calderawp\interop\Traits\Types;
  *
  * Single source of string identifier for this entity/model/collection set.
  */
-trait Processor
+trait ProcessorType
 {
 	/** @inheritdoc */
 	public static function getType()
