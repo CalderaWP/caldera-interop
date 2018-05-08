@@ -36,8 +36,8 @@ trait CanCastAndValidateProps
 			if ($this->shouldDispatch($name)) {
 				$this->$name = $this->dispatchCallbacks($name, $this->$name);
 			}
+
 			return $this->$name;
-			$this->validated[] = $name;
 		}
 	}
 
@@ -55,14 +55,32 @@ trait CanCastAndValidateProps
 
 		return $array;
 	}
-	
+
+	/**
+	 * Check if we should dispatch callbacks when setting this property.
+	 *
+	 * @param $propName
+	 * @return bool
+	 */
 	private function shouldDispatch($propName)
 	{
-		return 'casts' !== $propName && ! in_array($propName, $this->validated);
+		//@TODO improve this hack to prevent dispatching casts prop reads
+		return 'casts' !== $propName &&
+			//Would be in this array already if callbacks ran
+			! in_array($propName, $this->validated);
 	}
 
+	/**
+	 * Dispatch cast and validation callbacks
+	 *
+	 * @param string $propName
+	 * @param mixed $value
+	 * @return mixed Prepared value
+	 */
 	private function dispatchCallbacks($propName, $value)
 	{
+		//Prevent multiple dispatches
+		$this->validated[] = $propName;
 
 		if ($this->hasCastCallback($propName)) {
 			$value = $this->dispatchCast($propName, $value);

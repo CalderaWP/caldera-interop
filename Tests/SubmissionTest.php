@@ -122,14 +122,12 @@ class SubmissionTest extends CalderaInteropTestCase
 	 */
 	public function testSetEntity()
 	{
-
 		$submission = $this->createSubmission();
 		$entryEntity = $this->entityFactory( 'ENTRY' );
 		$submission->setEntryEntity($entryEntity);
 		$this->assertSame( $entryEntity, $submission->getEntry() );
 		$submission->getEntry()->setId(42);
 		$this->assertSame( 42, $submission->getId() );
-
 
 	}
 
