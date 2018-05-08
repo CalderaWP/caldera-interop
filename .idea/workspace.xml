@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af2b8f7d-47c0-4866-9f59-6d93bed05592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tests/Mocks/Processor/PreProcessController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tests/Mocks/Processor/ValidationExample/PreProcessController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tests/Mocks/Processor/ValidationExample/ValidationExample.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Interfaces/ControlsProcessing.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Interfaces/DoesProcesses.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Process/Dispatcher.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Process/ProcessController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Process/Processor.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/SubmissionTest.php" afterPath="$PROJECT_DIR$/Tests/SubmissionTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Traits/CanCastAndValidateProps.php" afterPath="$PROJECT_DIR$/src/Traits/CanCastAndValidateProps.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entities/Processor.php" afterPath="$PROJECT_DIR$/src/Entities/Processor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Process/Dispatcher.php" afterPath="$PROJECT_DIR$/src/Process/Dispatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Traits/Types/ProcessorType.php" afterPath="$PROJECT_DIR$/src/Traits/Types/ProcessorType.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,89 +16,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SubmissionTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/SubmissionTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="129" column="54" lean-forward="false" selection-start-line="129" selection-start-column="54" selection-end-line="129" selection-end-column="54" />
-              <folding>
-                <element signature="e#6#52#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Processor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Process/Processor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
+            <state relative-caret-position="133">
               <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CanCastAndValidateProps.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Traits/CanCastAndValidateProps.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="81" column="26" lean-forward="false" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProcessController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Process/ProcessController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dispatcher.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Process/Dispatcher.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Collection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Submissions/Collection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding>
-                <element signature="e#50#85#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalderaForms.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="111" column="12" lean-forward="false" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="12" />
-              <folding>
-                <element signature="e#38#98#0#PHP" expanded="true" />
-                <marker date="1525565881475" expanded="true" signature="460:505" ph=" Class CalderaForms ..." />
+                <element signature="e#46#98#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Providers/README.md">
+        <entry file="file://$PROJECT_DIR$/src/Traits/Types/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="435">
-                <caret line="29" column="84" lean-forward="false" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="405">
+                <caret line="22" column="95" lean-forward="false" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="95" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -113,11 +41,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceServiceContainerTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ServiceServiceContainerTest.php">
+      <file leaf-file-name="Interoperable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Interfaces/Interoperable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="615">
+              <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InteroperableEntity.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableEntity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="2" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Processor.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entities/Processor.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+              <folding>
+                <element signature="e#46#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessorType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Traits/Types/ProcessorType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -127,8 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>calderaInterop.Industry.createEntity.pre</find>
-      <find>foo</find>
       <find>getServiceContainer()-&gt;getIndustry()-&gt;createEntity</find>
       <find>plugi</find>
       <find>Industry</find>
@@ -157,6 +115,8 @@
       <find>setId</find>
       <find>model</find>
       <find>body</find>
+      <find>cf.</find>
+      <find>Plural</find>
     </findStrings>
     <replaceStrings>
       <replace>createEntity</replace>
@@ -164,10 +124,10 @@
       <replace>Entries</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/src/Interfaces</dir>
       <dir>$PROJECT_DIR$/Tests</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -176,12 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Collections/EntityCollections/EntityCollection.php" />
-        <option value="$PROJECT_DIR$/Tests/FormCollectionTest.php" />
-        <option value="$PROJECT_DIR$/src/Collections/EntityCollections/Entries.php" />
-        <option value="$PROJECT_DIR$/Tests/EntryCollectionTest.php" />
-        <option value="$PROJECT_DIR$/src/Entities/Entry.php" />
-        <option value="$PROJECT_DIR$/src/Models/Field.php" />
         <option value="$PROJECT_DIR$/Tests/ServiceFactoryTest.php" />
         <option value="$PROJECT_DIR$/src/Service/Factory.php" />
         <option value="$PROJECT_DIR$/src/Models/Entry/Field.php" />
@@ -222,11 +176,17 @@
         <option value="$PROJECT_DIR$/src/Interfaces/DoesProcesses.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/Processor/MockProcessor.php" />
         <option value="$PROJECT_DIR$/src/Process/Process.php" />
-        <option value="$PROJECT_DIR$/src/Process/Dispatcher.php" />
         <option value="$PROJECT_DIR$/src/Process/Processor.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/Processor/PreProcessController.php" />
         <option value="$PROJECT_DIR$/Tests/Mocks/Processor/ValidationExample/ValidationExample.php" />
         <option value="$PROJECT_DIR$/src/Traits/CanCastAndValidateProps.php" />
+        <option value="$PROJECT_DIR$/src/Process/Dispatcher.php" />
+        <option value="$PROJECT_DIR$/src/Traits/Types/Processor.php" />
+        <option value="$PROJECT_DIR$/src/Traits/Types/README.md" />
+        <option value="$PROJECT_DIR$/src/Support/Str.php" />
+        <option value="$PROJECT_DIR$/Tests/StrTest.php" />
+        <option value="$PROJECT_DIR$/src/Traits/Types/ProcessorType.php" />
+        <option value="$PROJECT_DIR$/src/Entities/Processor.php" />
       </list>
     </option>
   </component>
@@ -238,8 +198,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="167" />
-    <option name="y" value="71" />
+    <option name="x" value="-36" />
+    <option name="y" value="62" />
     <option name="width" value="1440" />
     <option name="height" value="982" />
   </component>
@@ -274,40 +234,13 @@
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Collections" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Collections" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="EntityCollections" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Collections" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="EntityCollections" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="EntryValues" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Entities" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Support" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
@@ -318,13 +251,14 @@
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Traits" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Types" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Mocks" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -393,12 +327,12 @@
       <workItem from="1525125892980" duration="1770000" />
       <workItem from="1525441544150" duration="528000" />
       <workItem from="1525549744179" duration="17225000" />
-      <workItem from="1525709626149" duration="8888000" />
+      <workItem from="1525709626149" duration="11060000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108111000" />
+    <option name="totallyTimeSpent" value="110283000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,17 +344,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="167" y="71" width="1440" height="982" extended-state="0" />
+    <frame x="-36" y="62" width="1440" height="982" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2267525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21758737" sideWeight="0.5114449" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.54565954" sideWeight="0.48855507" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29875988" sideWeight="0.48855507" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -429,7 +364,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -482,73 +416,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collections/EntityCollections/EntryValues/Fields.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/x.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Submissions/Collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="e#50#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Container.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ServiceServiceContainerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="111" column="12" lean-forward="false" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="12" />
-          <folding>
-            <element signature="e#38#98#0#PHP" expanded="true" />
-            <marker date="1525565881475" expanded="true" signature="460:505" ph=" Class CalderaForms ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collections/EntityCollections/Fields.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -659,14 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Process/Dispatcher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -869,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfaces/Interoperable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="42" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/Mocks/ValidatingEntity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -885,19 +736,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Process/Processor.php">
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/Interoperable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        <state relative-caret-position="615">
+          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaces/InteroperableEntity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="2" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/EmailAddress.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/Types/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="405">
+            <caret line="22" column="95" lean-forward="false" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="95" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/StrTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Support/Str.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="507" column="75" lean-forward="true" selection-start-line="507" selection-start-column="75" selection-end-line="507" selection-end-column="75" />
+          <folding>
+            <element signature="e#11219#17361#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Traits/CanCastAndValidateProps.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="81" column="26" lean-forward="false" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+        <state relative-caret-position="45">
+          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Process/Dispatcher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Process/Processor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="e#46#98#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/Types/ProcessorType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Processor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+          <folding>
+            <element signature="e#46#80#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

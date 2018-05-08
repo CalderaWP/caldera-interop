@@ -21,4 +21,27 @@ trait ProcessorType
 	{
 		return 'cf.core.processor';
 	}
+
+
+	public function getConfigShapeWithDefaults()
+	{
+		return [
+			'ID' => '',
+			'type' => 'text',
+			'label' => '',
+			'slug' =>  '',
+			'conditions' => [
+
+			],
+			'caption' => '',
+			'config' => [
+				'placeholder' => '',
+				'default' => '',
+				'option' => [
+
+				]
+			],
+
+		];
+	}
 }

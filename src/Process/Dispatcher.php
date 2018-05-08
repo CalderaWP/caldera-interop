@@ -13,9 +13,9 @@ use calderawp\interop\Submissions\Submission;
 class Dispatcher
 {
 
-	const PRE = 'cf.preProcess.0';
-	const PROCESS = 'cf.process.1';
-	const POST = 'cf.process.2';
+	const PRE = 'cf.core.preProcess.0';
+	const PROCESS = 'cf.core.process.1';
+	const POST = 'cf.core.process.2';
 
 	/**
 	 * @var Processor
