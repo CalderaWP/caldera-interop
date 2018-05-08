@@ -33,4 +33,21 @@ class ValidatingCastingEntityTest extends CalderaInteropTestCase
 		$this->assertEquals( 'integer', getType($entity->face) );
 	}
 
+
+	/**
+	 *
+	 * @group now
+	 */
+	public function testDefaults()
+	{
+
+		$entity = new \calderawp\interop\Mock\CastingValidatingEntity();
+		$array = $entity->toArray();
+		$this->assertArrayHasKey( 'face', $array );
+		$this->assertArrayHasKey( 'id', $array );
+		$this->assertEquals( 10, $array[ 'face' ] );
+		$this->assertEquals( 10, $entity->face );
+
+	}
+
 }

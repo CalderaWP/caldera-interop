@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Support;
 
-
 /**
  * Class Str
  *

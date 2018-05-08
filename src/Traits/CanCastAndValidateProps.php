@@ -36,7 +36,6 @@ trait CanCastAndValidateProps
 			if ($this->shouldDispatch($name)) {
 				$this->$name = $this->dispatchCallbacks($name, $this->$name);
 			}
-
 			return $this->$name;
 		}
 	}
@@ -46,10 +45,11 @@ trait CanCastAndValidateProps
 	public function toArray()
 	{
 		$array = Arr::except(parent::toArray(), 'casts');
-
 		foreach ($this->getEntityProps() as $propName) {
 			if ($this->shouldDispatch($propName)) {
-				$array[$propName] = $this->dispatchCallbacks($propName, $array[$propName]);
+				if ($this->shouldDispatch($propName)) {
+					$array[$propName] = $this->dispatchCallbacks($propName, $array[$propName]);
+				}
 			}
 		}
 
@@ -69,7 +69,6 @@ trait CanCastAndValidateProps
 			//Would be in this array already if callbacks ran
 			! in_array($propName, $this->validated);
 	}
-
 	/**
 	 * Dispatch cast and validation callbacks
 	 *
@@ -79,12 +78,12 @@ trait CanCastAndValidateProps
 	 */
 	private function dispatchCallbacks($propName, $value)
 	{
-		//Prevent multiple dispatches
-		$this->validated[] = $propName;
-
 		if ($this->hasCastCallback($propName)) {
 			$value = $this->dispatchCast($propName, $value);
 		}
-		return $this->maybeValidateValue($propName, $value);
+		$value = $this->maybeValidateValue($propName, $value);
+		//Prevent multiple dispatches
+		//$this->validated[] = $propName;
+		return $value;
 	}
 }

@@ -50,7 +50,6 @@ class Processor extends Entity
 	 */
 	protected function validateConfig($newValue)
 	{
-		return array_merge($this->getConfigShapeWithDefaults(), $newValue );
+		return array_merge($this->getConfigShapeWithDefaults(), $newValue);
 	}
-
 }

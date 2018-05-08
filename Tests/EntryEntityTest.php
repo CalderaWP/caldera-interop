@@ -34,9 +34,7 @@ class EntryEntityTest extends EntityCalderaInteropTestCase
 
     /**
      * Test getting field entry values from entity
-     *
-	 * @group now
-     * @covers  \calderawp\interop\Entities\Entry\getFieldValue()
+     ** @covers  \calderawp\interop\Entities\Entry\getFieldValue()
      */
     public function testGetFieldValues()
     {
