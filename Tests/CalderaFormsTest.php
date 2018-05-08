@@ -27,6 +27,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 * Test interop bind for fields
 	 *
 	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 * @covers \calderawp\interop\Providers\FieldInteroperableProvider()
+	 * @covers \calderawp\interop\Providers\FieldInteroperableProvider::bindInterop()
 	 */
 	public function testBindField()
 	{
@@ -49,6 +51,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 * Test interop bind for forms
 	 *
 	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 * @covers \calderawp\interop\Providers\FormInteroperableProvider()
+	 * @covers \calderawp\interop\Providers\FormInteroperableProvider::bindInterop()
 	 */
 	public function testBindForm()
 	{
@@ -71,6 +75,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 * Test interop bind for entries
 	 *
 	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 * @covers \calderawp\interop\Providers\EntryInteroperableProvider()
+	 * @covers \calderawp\interop\Providers\EntryInteroperableProvider::bindInterop()
 	 */
 	public function testBindEntries()
 	{
@@ -93,6 +99,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 * Test interop bind for entry field values
 	 *
 	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 * @covers \calderawp\interop\Providers\EntryValueInteroperableProvider()
+	 * @covers \calderawp\interop\Providers\EntryValueInteroperableProvider::bindInterop()
 	 */
 	public function testEntryValueBind()
 	{
@@ -113,6 +121,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 	 * Test interop bind for entry field details
 	 *
 	 * @covers \calderawp\interop\CalderaForms::registerInterops()
+	 * @covers \calderawp\interop\Providers\EntryDetailsInteroperableProvider()
+	 * @covers \calderawp\interop\Providers\EntryDetailsInteroperableProvider::bindInterop()
 	 */
 	public function testEntryValueDetails()
 	{

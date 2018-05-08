@@ -6,10 +6,15 @@ namespace calderawp\interop;
 use calderawp\CalderaContainers\Interfaces\ServiceContainer;
 use calderawp\interop\Collections\EntityCollections\EntryValues\Fields;
 use calderawp\interop\Entities\Entry;
+use calderawp\interop\Entities\Field;
 use calderawp\interop\Exceptions\ContainerException;
 use calderawp\interop\Interfaces\CalderaFormsApp;
 use calderawp\interop\Interfaces\InteroperableFactory;
 use calderawp\interop\Interfaces\ProvidesService;
+use calderawp\interop\Providers\EntryInteroperableProvider;
+use calderawp\interop\Providers\EntryValueInteroperableProvider;
+use calderawp\interop\Providers\FieldInteroperableProvider;
+use calderawp\interop\Providers\FormInteroperableProvider;
 use calderawp\interop\Service\Factory;
 
 /**
@@ -108,46 +113,10 @@ class CalderaForms implements CalderaFormsApp
 	private function registerInterops()
 	{
 
-		$this
-			->getFactory()
-			->bindInterop(
-				self::FIELD,
-				\calderawp\interop\Entities\Field::class,
-				\calderawp\interop\Models\Field::class,
-				\calderawp\interop\Collections\EntityCollections\Fields::class
-			);
-
-		$this
-			->getFactory()
-			->bindInterop(
-				self::FORM,
-				\calderawp\interop\Entities\Form::class,
-				\calderawp\interop\Models\Form::class,
-				\calderawp\interop\Collections\EntityCollections\Forms::class
-			);
-
-		$this
-			->getFactory()
-			->bindInterop(
-				self::ENTRY,
-				[
-					\calderawp\interop\Entities\Entry::class,
-					function () {
-						return new Entry(new Entry\Details(), new Fields(), new \calderawp\interop\Entities\Form());
-					}
-				],
-				\calderawp\interop\Models\Entry::class,
-				\calderawp\interop\Collections\EntityCollections\Entries::class
-			);
-
-		$this
-			->getFactory()
-			->bindInterop(
-				self::ENTRY_VALUE,
-				\calderawp\interop\Entities\Entry\Field::class,
-				\calderawp\interop\Models\Entry\Field::class,
-				\calderawp\interop\Collections\EntityCollections\EntryValues\Fields::class
-			);
+		(new FieldInteroperableProvider() )->bindInterop($this);
+		(new FormInteroperableProvider() )->bindInterop($this);
+		(new EntryInteroperableProvider() )->bindInterop($this);
+		(new EntryValueInteroperableProvider() )->bindInterop($this);
 
 		$this
 			->getFactory()

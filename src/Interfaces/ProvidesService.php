@@ -10,13 +10,8 @@ namespace calderawp\interop\Interfaces;
  *
  * @package calderawp\interop\Interfaces
  */
-interface ProvidesService extends \calderawp\CalderaContainers\Interfaces\ProvidesService
+interface ProvidesService extends \calderawp\CalderaContainers\Interfaces\ProvidesService, ProvidesAliasesService
 {
 
-	/**
-	 * Get the container identifier for this service
-	 *
-	 * @return string
-	 */
-	public function getAlias();
+
 }
