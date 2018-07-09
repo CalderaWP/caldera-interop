@@ -10,6 +10,7 @@ class Entity extends \calderawp\interop\Entity
 	protected $fields;
 
 
+
 	public function getName()
 	{
 		return is_string($this->name) ? $this->name : $this->getId();

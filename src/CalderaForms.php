@@ -4,7 +4,8 @@
 namespace calderawp\interop;
 
 use calderawp\CalderaContainers\Interfaces\ServiceContainer;
-use League\Fractal;
+use calderawp\interop\CalderaForms\Form\Entity as FormEntity;
+
 
 /**
  * Class CalderaForms
@@ -25,6 +26,7 @@ class CalderaForms extends \calderawp\CalderaContainers\Container
 	public function __construct(ServiceContainer $serviceContainer)
 	{
 		$this->serviceContainer = $serviceContainer;
+		$this->fractal();
 	}
 
 	public function fractal()
@@ -33,11 +35,11 @@ class CalderaForms extends \calderawp\CalderaContainers\Container
 			return new Collection();
 		});
 
-		$this->serviceContainer->singleton(FormEntity::class, $this->collectionFactory());
+		$this->serviceContainer->singleton(FormEntity::class, $this->serviceContainer->make(self::COLLECTION));
 	}
 
 	/**
-	 * @return Fractal\Resource\Collection
+	 * @return Collection
 	 */
 	public function getFormsCollection()
 	{
@@ -46,6 +48,6 @@ class CalderaForms extends \calderawp\CalderaContainers\Container
 
 	public function collectionFactory(array $data = [])
 	{
-		return new Fractal\Resource\Collection(new Collection($data), $this->make(self::TRANSFORMER));
+		return new Collection($data);
 	}
 }

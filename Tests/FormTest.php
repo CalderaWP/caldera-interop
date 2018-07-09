@@ -2,7 +2,11 @@
 namespace calderawp\interop\Tests;
 
 
+use calderawp\CalderaContainers\Service\Container;
+use calderawp\interop\CalderaForms;
 use calderawp\interop\CalderaForms\Form\Entity as FormEntity;
+use calderawp\interop\Collection;
+
 class FormTest extends CalderaInteropTestCase
 {
 
@@ -184,6 +188,25 @@ class FormTest extends CalderaInteropTestCase
             }
 
         }
+    }
+
+    /**
+     * Testing adding forms to collection
+     *
+     * @covers \calderawp\interop\Collection::addEntity()
+     * @covers \calderawp\interop\CalderaForms::getFormsCollection()
+     * @covers \calderawp\interop\CalderaForms::fractal()
+     */
+    public function testAddToCollection(){
+        $id = 'cf1';
+        $entity = $this->formEntityFactory($id);
+        $calderaForms = $this->calderaFormsFactory();
+        $this->assertSame(Collection::class, get_class($calderaForms->getFormsCollection() ) );
+        $this->assertSame(Collection::class, get_class($calderaForms->getFormsCollection() ) );
+        $calderaForms->getFormsCollection()->addEntity($this->formEntityFactory());
+        $calderaForms->getFormsCollection()->addEntity($entity);
+        $calderaForms->getFormsCollection()->addEntity($this->formEntityFactory());
+        $this->assertEquals($entity, $calderaForms->getFormsCollection()->get($id));
     }
 
 

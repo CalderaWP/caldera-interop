@@ -6,9 +6,9 @@ namespace calderawp\interop\Contracts;
 /**
  * Interface InteroperableEntity
  *
- * Basic interface that all Interoperable Entities MUST impliment
+ * Basic interface that all Interoperable Entities MUST implement
  */
-interface InteroperableEntity extends Interoperable
+interface InteroperableEntity extends Interoperable, IdentifiesById
 {
 
 }
