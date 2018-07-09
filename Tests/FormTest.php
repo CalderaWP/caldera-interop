@@ -19,6 +19,7 @@ class FormTest extends CalderaInteropTestCase
     {
         $id = 'cf12';
         $entity = $this->formEntityFactory($id);
+        $this->assertTrue($entity->hasProp('name'));
         $this->assertSame($id, $entity->getName());
     }
     /**
@@ -28,7 +29,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testGetFieldsDefault()
     {
-        $id = 'cf12';
+        $id = 'cf121';
         $entity = $this->formEntityFactory($id);
         $this->assertSame([], $entity->getFields());
     }
@@ -44,6 +45,7 @@ class FormTest extends CalderaInteropTestCase
         $id = 'cf12';
         $entity = $this->formEntityFactory($id);
         $entity->setName('Hi Roy' );
+        $this->assertTrue( $entity->hasProp('name'));
         $this->assertSame('Hi Roy', $entity->getName());
     }
     /**
@@ -55,7 +57,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testSetFields()
     {
-        $id = 'cf12';
+        $id = 'cf1211';
         $fields = [
             [
                 'ID'=> 'fld12345'
@@ -75,7 +77,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testGetNameDefaultProp()
     {
-        $id = 'cf12';
+        $id = 'cf122';
         $entity = $this->formEntityFactory($id);
         $this->assertSame($id, $entity->name);
     }
@@ -88,7 +90,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testGetFieldsDefaultProp()
     {
-        $id = 'cf12';
+        $id = 'cf123';
         $entity = $this->formEntityFactory($id);
         $this->assertSame([], $entity->fields);
     }
@@ -104,7 +106,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testSetNameProps()
     {
-        $id = 'cf12';
+        $id = 'cf124';
         $entity = $this->formEntityFactory($id);
         $entity->name = 'Hi Roy';
         $this->assertSame('Hi Roy', $entity->name);
@@ -121,7 +123,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testSetFieldsProp()
     {
-        $id = 'cf12';
+        $id = 'cf125';
         $fields = [
             [
                 'ID'=> 'fld12345'
@@ -141,7 +143,7 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Entity::toArray()
      */
     public function testToArray(){
-        $id = 'cf11';
+        $id = 'cf126';
         $entity = $this->formEntityFactory($id);
         $asArray = $entity->toArray();
         $this->assertArrayHasKey('fields', $asArray );
@@ -209,5 +211,40 @@ class FormTest extends CalderaInteropTestCase
         $this->assertEquals($entity, $calderaForms->getFormsCollection()->get($id));
     }
 
+    /**
+     *
+     * @covers \calderawp\interop\Entity::hasProp()
+     * @covers \calderawp\interop\Entity::hasPropDefinition()
+     */
+    public function testHasPropForAttributeProp(){
+        $entity = $this->formEntityFactory();
+        $this->assertTrue($entity->hasProp('processors' ) );
+    }
+
+    /**
+     *
+     * @covers \calderawp\interop\Entity::getProp()
+     * @covers \calderawp\interop\Entity::hasProp()
+     * @covers \calderawp\interop\Entity::hasPropDefinition()
+     */
+    public function testGetPropForAttributePropDefault(){
+        $entity = $this->formEntityFactory();
+        $this->assertSame([], $entity->getProp('processors' ) );
+    }
+
+    /**
+     *
+     * @covers \calderawp\interop\Entity::getProp()
+     * @covers \calderawp\interop\Entity::hasProp()
+     * @covers \calderawp\interop\Entity::hasPropDefinition()
+     */
+    public function testSetPropForAttributeProp(){
+        $entity = $this->formEntityFactory();
+        $processors = [
+            'ID' => '1'
+        ];
+        $entity->setProp( 'processors', $processors);
+        $this->assertEquals($processors,$entity->getProp('processors' ) );
+    }
 
 }

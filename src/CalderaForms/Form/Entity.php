@@ -6,36 +6,76 @@ namespace calderawp\interop\CalderaForms\Form;
 class Entity extends \calderawp\interop\Entity
 {
 
-	protected $name;
-	protected $fields;
 
+    public function __construct()
+    {
+        $this->setAttributes([
+            'name' => [
+                'type' => 'string',
+                'default' => $this->getId(),
+                'sanitize' => '',
+                'validate' => 'is_string'
+            ],
+            'description' => [
+                'type' => 'string',
+                'default' => '',
+                'sanitize' => '',
+                'validate' => 'is_string'
+            ],
+            'fields' => [
+                'type' => 'array',
+                'default' => [],
+                'sanitize' => '',
+                'validate' => 'is_array'
+            ],
+            'processors' => [
+                'type' => 'array',
+                'default' => [],
+                'sanitize' => '',
+                'validate' => 'is_array'
+            ]
+        ]);
 
+    }
 
-	public function getName()
+    /**
+     * Get the name of the form
+     *
+     * @return string
+     */
+    public function getName()
 	{
-		return is_string($this->name) ? $this->name : $this->getId();
+		return $this->getProp('name' ) ? $this->getProp( 'name' ) : $this->getId();
 	}
 
+    /**
+     * Set the forms form's name
+     *
+     * @param $name
+     * @return Entity
+     */
+    public function setName($name)
+    {
+        return $this->setProp('name', $name);
+    }
+
+    /**
+     * Get the form's fields
+     *
+     * @return string
+     */
 	public function getFields()
 	{
-		return is_array($this->fields) ? $this->fields : [];
+		return $this->getProp('fields' );
 	}
 
-	public function setName($name)
-	{
-		if (is_string($name)) {
-			$this->name = $name;
-		}
-
-		return $this;
-	}
-
+    /**
+     * (re)set the form's fields
+     *
+     * @param array $fields
+     */
 	public function setFields(array  $fields)
 	{
-		if (is_array($fields)) {
-			$this->fields = $fields;
-		}
-
-		return $this;
+		$this->setProp('fields', $fields );
 	}
 }
