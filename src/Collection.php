@@ -3,7 +3,6 @@
 
 namespace calderawp\interop;
 
-
 use calderawp\interop\Contracts\InteroperableCollection;
 use Doctrine\Common\Collections\ArrayCollection;
 

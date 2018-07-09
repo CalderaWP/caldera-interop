@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop;
+
 use calderawp\interop\Contracts\InteroperableEntity;
 use calderawp\interop\Contracts\InteroperableTransformer;
 use League\Fractal;
@@ -13,10 +14,9 @@ use League\Fractal;
 class Transformer extends Fractal\TransformerAbstract implements InteroperableTransformer
 {
 
-    /** @inheritdoc */
-    public function transform(InteroperableEntity $entity)
-    {
-        return $entity->toArray();
-    }
-
+	/** @inheritdoc */
+	public function transform(InteroperableEntity $entity)
+	{
+		return $entity->toArray();
+	}
 }

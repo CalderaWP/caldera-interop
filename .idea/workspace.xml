@@ -2,40 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4656e4da-6b5f-45d0-a551-fede99481fec" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Tests/CalderaInteropTestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/FormTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ArrayLike/ArrayLike.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ArrayLike/Form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Collection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contracts/Arrayable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contracts/Interoperable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contracts/InteroperableCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contracts/InteroperableEntity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contracts/InteroperableTransformer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/ContainerException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/Exception.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/NotImplemented.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Support/Arr.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Support/Str.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/CanCastObjectToArray.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/CanCastProps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/CanHttp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/CanRecursivelyCastArray.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/CanValidatePropertySet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/HasId.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/MapsCastsToCallback.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traits/MapsPropValidationToCallback.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Transformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caldera-interop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caldera-interop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/FormTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/FormTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalderaForms.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalderaForms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Collection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/Arrayable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/Arrayable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/Interoperable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/Interoperable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/InteroperableCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/InteroperableCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/InteroperableEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/InteroperableEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/InteroperableTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/InteroperableTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transformer.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,47 +26,41 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3352459">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/Entity.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="38" column="21" selection-start-line="3" selection-end-line="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="FormTest.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tests/FormTest.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CalderaInteropTestCase.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tests/CalderaInteropTestCase.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="40" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="40" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="FormTest.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tests/FormTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Entity.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="122" column="10" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
+              <folding>
+                <element signature="e#38#90#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalderaForms.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>foo</find>
       <find>getServiceContainer()-&gt;getIndustry()-&gt;createEntity</find>
       <find>plugi</find>
       <find>Industry</find>
@@ -118,6 +90,7 @@
       <find>model</find>
       <find>@group now</find>
       <find>getFag</find>
+      <find>phpunit</find>
     </findStrings>
     <replaceStrings>
       <replace>createEntity</replace>
@@ -182,11 +155,11 @@
         <option value="$PROJECT_DIR$/src/Contracts/InteroperableCollection.php" />
         <option value="$PROJECT_DIR$/src/Transformer.php" />
         <option value="$PROJECT_DIR$/src/Collection.php" />
-        <option value="$PROJECT_DIR$/src/Entity.php" />
         <option value="$PROJECT_DIR$/src/CalderaForms.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" />
         <option value="$PROJECT_DIR$/Tests/CalderaInteropTestCase.php" />
+        <option value="$PROJECT_DIR$/src/Entity.php" />
         <option value="$PROJECT_DIR$/Tests/FormTest.php" />
       </list>
     </option>
@@ -293,12 +266,6 @@
             <path>
               <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
               <item name="caldera-interop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Traits" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="caldera-interop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="caldera-interop" type="462c0819:PsiDirectoryNode" />
               <item name="Tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -358,27 +325,27 @@
       <workItem from="1525125892980" duration="1770000" />
       <workItem from="1525441544150" duration="528000" />
       <workItem from="1525549744179" duration="15318000" />
-      <workItem from="1531147488219" duration="4190000" />
+      <workItem from="1531147488219" duration="6159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104250000" />
+    <option name="totallyTimeSpent" value="106219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="221" y="28" width="1699" height="982" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5003018" side_tool="true" visible="true" weight="0.32768363" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3826192" side_tool="true" visible="true" weight="0.35706216" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32950193" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49547374" weight="0.21807909" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.6173808" visible="true" weight="0.35706216" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26372963" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49969825" visible="true" weight="0.32768363" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49969825" weight="0.32768363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -434,13 +401,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Providers/FormInteroperableProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Providers/FieldInteroperableProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -698,27 +658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
-          <folding>
-            <element signature="e#37#97#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Http/Response.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1457">
           <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -741,13 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Traits/MapsCastsToCallback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-950">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -775,20 +711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity.php">
+    <entry file="file://$PROJECT_DIR$/src/Traits/MapsCastsToCallback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
-          <caret line="12" column="74" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="74" />
-          <folding>
-            <element signature="e#48#100#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="38" column="21" selection-start-line="3" selection-end-line="4" />
+        <state relative-caret-position="252">
+          <caret line="132" column="49" lean-forward="true" selection-start-line="128" selection-start-column="8" selection-end-line="132" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -799,10 +725,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="383" column="32" selection-start-line="383" selection-start-column="25" selection-end-line="383" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="122" column="10" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
+          <folding>
+            <element signature="e#38#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/FormTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="162">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
         </state>
       </provider>
     </entry>

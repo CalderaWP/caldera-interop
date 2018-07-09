@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 use Doctrine\Common\Collections\Collection;
 
 /**

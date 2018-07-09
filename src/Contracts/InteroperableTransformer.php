@@ -10,14 +10,13 @@ namespace calderawp\interop\Contracts;
  */
 interface InteroperableTransformer
 {
-    /**
-     * Transform an interoperable entity using Fractal transformer
-     *
-     * @see https://fractal.thephpleague.com/transformers/
-     *
-     * @param InteroperableEntity $entity Interoperable entity to transform
-     * @return array
-     */
-    public function transform( InteroperableEntity $entity );
-
+	/**
+	 * Transform an interoperable entity using Fractal transformer
+	 *
+	 * @see https://fractal.thephpleague.com/transformers/
+	 *
+	 * @param InteroperableEntity $entity Interoperable entity to transform
+	 * @return array
+	 */
+	public function transform(InteroperableEntity $entity);
 }
