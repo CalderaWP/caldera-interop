@@ -5,7 +5,7 @@ namespace calderawp\interop\Tests;
 use calderawp\CalderaContainers\Service\Container;
 use calderawp\interop\ArrayLike\Form;
 use calderawp\interop\CalderaForms;
-use calderawp\interop\CalderaForms\Form\Entity as FormEntity;
+use calderawp\interop\CalderaForms\Form\FormEntity as FormEntity;
 use calderawp\interop\Collection;
 
 class FormTest extends CalderaInteropTestCase
@@ -198,7 +198,7 @@ class FormTest extends CalderaInteropTestCase
      *
      * @covers \calderawp\interop\Collection::addEntity()
      * @covers \calderawp\interop\CalderaForms::getFormsCollection()
-     * @covers \calderawp\interop\CalderaForms::fractal()
+     * @covers \calderawp\interop\CalderaForms::setupServiceContainer()
      */
     public function testAddToCollection(){
         $id = 'cf1';
@@ -259,7 +259,7 @@ class FormTest extends CalderaInteropTestCase
             'ID' => '1'
         ];
         $entity->setProp( 'processors', $processors);
-        $model  = CalderaForms\Form\FormModel::fromEntity($entity);
+        $model  = CalderaForms\Form\FormModel::fromEntity($entity,$this->calderaFormsFactory());
         $this->assertEquals($entity, $model->getEntity() );
     }
 
@@ -274,7 +274,7 @@ class FormTest extends CalderaInteropTestCase
             'ID' => '1'
         ];
         $entity->setProp( 'processors', $processors);
-        $model  = new CalderaForms\Form\FormModel($entity);
+        $model  = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
         $this->assertEquals($entity, $model->getEntity() );
     }
 
@@ -284,7 +284,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testModelStatusCode(){
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity);
+        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
         $model->setStatusCode(500);
         $this->assertSame(500, $model->getStatusCode());
 
@@ -296,7 +296,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testModelIsValidByDefault(){
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity);
+        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
         $this->assertTrue($model->isValid());
 
     }
@@ -306,7 +306,7 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testModelIsValidWith200Code(){
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity);
+        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
         $model->setStatusCode(201);
         $this->assertTrue($model->isValid());
 
@@ -317,20 +317,20 @@ class FormTest extends CalderaInteropTestCase
      */
     public function testModelIsNotValidWith500Code(){
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity);
+        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
         $model->setStatusCode(503);
         $this->assertFalse($model->isValid());
     }
 
+
     /**
-     *
-     * @covers \calderawp\interop\CalderaForms\Form\FormModel
+     * @covers \calderawp\interop\Model::setType()
+     * @covers \calderawp\interop\Model::getTyoe()
      */
-    public function testFromArray(){
-        $entity = $this->formEntityFactory();
-        $asArrayFromEntity = $entity->toArray();
-        $model = CalderaForms\Form\FormModel::fromArray($asArrayFromEntity);
-        $this->assertEquals( $asArrayFromEntity, $model->toArray() );
+    public function testSetType(){
+        $collection  = new Collection();
+        $collection->setType( 'foo' );
+        $this->assertSame('foo', $collection->getType() );
     }
 
 

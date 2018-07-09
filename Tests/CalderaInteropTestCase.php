@@ -2,7 +2,7 @@
 namespace calderawp\interop\Tests;
 use calderawp\CalderaContainers\Service\Container;
 use calderawp\interop\CalderaForms;
-use calderawp\interop\CalderaForms\Form\Entity as FormEntity;
+use calderawp\interop\CalderaForms\Form\FormEntity as FormEntity;
 
 abstract class CalderaInteropTestCase extends \PHPUnit_Framework_TestCase
 {

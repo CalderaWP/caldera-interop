@@ -12,9 +12,10 @@ interface InteroperableModel extends Interoperable
 	 * Construct new model from an entity
 	 *
 	 * @param InteroperableEntity $entity
+	 * @param CalderaFormsTwo $calderaForms
 	 * @return $this
 	 */
-	public static function fromEntity(InteroperableEntity $entity);
+	public static function fromEntity(InteroperableEntity $entity, CalderaFormsTwo $calderaForms);
 
 	/**
 	 * Get the model's entity
@@ -22,6 +23,13 @@ interface InteroperableModel extends Interoperable
 	 * @return InteroperableEntity
 	 */
 	public function getEntity();
+
+	/**
+	 * Get Caldera Forms instance
+	 *
+	 * @return CalderaFormsTwo
+	 */
+	public function getCalderaForms();
 
 	/**
 	 * Create new Model from HTTP request
@@ -34,23 +42,23 @@ interface InteroperableModel extends Interoperable
 	/**
 	 * Convert entity to HTTP response
 
-     * @param array $headers Opitonal. Array of response headers
-     * @return ResponseInterface
-     */
-	public function toResponse(array $headers = [] );
+	 * @param array $headers Opitonal. Array of response headers
+	 * @return ResponseInterface
+	 */
+	public function toResponse(array $headers = []);
 
-    /**
-     * Is entity valid
-     *
-     * @return bool
-     */
+	/**
+	 * Is entity valid
+	 *
+	 * @return bool
+	 */
 	public function isValid();
 
-    /**
-     * Set the entity status code
-     *
-     * @param int $statusCode
-     * @return $this
-     */
+	/**
+	 * Set the entity status code
+	 *
+	 * @param int $statusCode
+	 * @return $this
+	 */
 	public function setStatusCode($statusCode = 200);
 }

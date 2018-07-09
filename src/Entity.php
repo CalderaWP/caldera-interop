@@ -18,14 +18,14 @@ abstract class Entity implements InteroperableEntity
 
 	use HasId;
 
-    /**
-     * @var array
-     */
+	/**
+	 * @var array
+	 */
 	protected $attributes;
 
-    /**
-     * @var array
-     */
+	/**
+	 * @var array
+	 */
 	protected $values;
 
 	/**
@@ -52,17 +52,18 @@ abstract class Entity implements InteroperableEntity
 	}
 
 
-    protected function setAttributes(array $attributes = [] ){
-        if (! empty( $attributes)) {
-            foreach ($attributes as $attributeId => $attribute) {
-                $this->attributes[$attributeId] = $attribute;
-                $this->attributes[$attributeId]['ID'] = $attributeId;
-                $this->values[$attributeId] = $attribute['default'];
-            }
-        }
-    }
+	protected function setAttributes(array $attributes = [])
+	{
+		if (! empty($attributes)) {
+			foreach ($attributes as $attributeId => $attribute) {
+				$this->attributes[$attributeId] = $attribute;
+				$this->attributes[$attributeId]['ID'] = $attributeId;
+				$this->values[$attributeId] = $attribute['default'];
+			}
+		}
+	}
 
-    /**
+	/**
 	 * @inheritdoc
 	 */
 	public function __set($name, $value)
@@ -71,9 +72,9 @@ abstract class Entity implements InteroperableEntity
 		if ($this->hasSetter($name)) {
 			return $this->applySetter($name, $value);
 		}
-        if( $this->hasPropDefinition($name ) ){
-            return $this->setProp($name,$value);
-        }
+		if ($this->hasPropDefinition($name)) {
+			return $this->setProp($name, $value);
+		}
 		if (property_exists($this, $name)) {
 			$this->$name = $value;
 			return $this;
@@ -89,9 +90,9 @@ abstract class Entity implements InteroperableEntity
 		if ($this->hasGetter($name)) {
 			return $this->applyGetter($name);
 		}
-        if( $this->hasPropDefinition($name ) ){
-            return $this->getProp($name);
-        }
+		if ($this->hasPropDefinition($name)) {
+			return $this->getProp($name);
+		}
 		if (property_exists($this, $name)) {
 			return $this->$name;
 		}
@@ -112,9 +113,9 @@ abstract class Entity implements InteroperableEntity
 	{
 		$array = [];
 		foreach ($this->getEntityProps() as $prop) {
-		    if( in_array( $prop, [ 'values', 'attributes' ] ) ){
-		        continue;
-            }
+			if (in_array($prop, [ 'values', 'attributes' ])) {
+				continue;
+			}
 			$array[ $prop ] = $this->__get($prop);
 		}
 		return $array;
@@ -126,9 +127,9 @@ abstract class Entity implements InteroperableEntity
 	public function getEntityProps()
 	{
 		return array_merge(
-		    array_keys(get_object_vars($this)),
-            array_keys($this->attributes )
-        );
+			array_keys(get_object_vars($this)),
+			array_keys($this->attributes)
+		);
 	}
 
 	/**
@@ -200,91 +201,95 @@ abstract class Entity implements InteroperableEntity
 		return method_exists($this, $this->setterName($prop));
 	}
 
-    /**
-     * @param string $prop The name of the property to check for
-     * @return bool
-     */
+	/**
+	 * @param string $prop The name of the property to check for
+	 * @return bool
+	 */
 	public function hasProp($prop)
-    {
-        return (
-            property_exists($this, $prop)
-            || $this->hasGetter($prop)
-            ||  $this->hasPropDefinition($prop)
-        );
-    }
+	{
+		return (
+			property_exists($this, $prop)
+			|| $this->hasGetter($prop)
+			||  $this->hasPropDefinition($prop)
+		);
+	}
 
-    /**
-     * @param string $prop The name of the property to get the definition of
-     * @return bool
-     */
-    protected function hasPropDefinition($prop){
-	    return array_key_exists( $prop, $this->attributes );
-    }
+	/**
+	 * @param string $prop The name of the property to get the definition of
+	 * @return bool
+	 */
+	protected function hasPropDefinition($prop)
+	{
+		return array_key_exists($prop, $this->attributes);
+	}
 
-    /**
-     * @param string $prop The name of the property to get the definition of
-     * @return array
-     */
-    protected function getPropDefinition($prop){
-	    return $this->hasPropDefinition($prop) ? $this->attributes[$prop] : [];
-    }
+	/**
+	 * @param string $prop The name of the property to get the definition of
+	 * @return array
+	 */
+	protected function getPropDefinition($prop)
+	{
+		return $this->hasPropDefinition($prop) ? $this->attributes[$prop] : [];
+	}
 
-    /**
-     * Get the value of a prop defined in attributes
-     *
-     * @param string $prop The name of the property to get the value of
-     * @return mixed|null
-     */
-    public function getProp($prop){
-	    if( ! $this->hasPropDefinition($prop) ){
-	        return null;
-        }
-        return $this->values[$prop];
-    }
+	/**
+	 * Get the value of a prop defined in attributes
+	 *
+	 * @param string $prop The name of the property to get the value of
+	 * @return mixed|null
+	 */
+	public function getProp($prop)
+	{
+		if (! $this->hasPropDefinition($prop)) {
+			return null;
+		}
+		return $this->values[$prop];
+	}
 
-    /**
-     * Set a the value of a prop defined in attributes
-     *
-     * @param string $prop The name of the property to set the value of
-     * @param mixed $value Value to set
-     * @return $this
-     */
-    public function setProp($prop,$value){
-        if( ! $this->hasPropDefinition($prop) ){
-           return $this;
-        }
-        $this->values[$prop] = $value;
-        return $this;
-    }
-
-
-    /**
-     * Apply sanitation to a property
-     *
-     * @param array $prop The prop/attribute definition
-     * @param mixed $value Value to set
-     * @return $this
-     */
-    protected function sanitizePropValue(array$prop,$value){
-	    if( is_callable( $prop['sanitize'] ) ){
-	        return call_user_func( $prop['sanitize'],$value);
-        }
-        return $value;
-    }
-
-    /**
-     * Check if prop value is valid
-     *
-     * @param array $prop The prop/attribute definition
-     * @param mixed $value Value to set
-     * @return bool
-     */
-    protected function validatePropValue(array $prop,$value){
-        if( is_callable( $prop['validate'] ) ){
-            return call_user_func( $prop['validate'],$value);
-        }
-        return true;
-    }
+	/**
+	 * Set a the value of a prop defined in attributes
+	 *
+	 * @param string $prop The name of the property to set the value of
+	 * @param mixed $value Value to set
+	 * @return $this
+	 */
+	public function setProp($prop, $value)
+	{
+		if (! $this->hasPropDefinition($prop)) {
+			return $this;
+		}
+		$this->values[$prop] = $value;
+		return $this;
+	}
 
 
+	/**
+	 * Apply sanitation to a property
+	 *
+	 * @param array $prop The prop/attribute definition
+	 * @param mixed $value Value to set
+	 * @return $this
+	 */
+	protected function sanitizePropValue(array$prop, $value)
+	{
+		if (is_callable($prop['sanitize'])) {
+			return call_user_func($prop['sanitize'], $value);
+		}
+		return $value;
+	}
+
+	/**
+	 * Check if prop value is valid
+	 *
+	 * @param array $prop The prop/attribute definition
+	 * @param mixed $value Value to set
+	 * @return bool
+	 */
+	protected function validatePropValue(array $prop, $value)
+	{
+		if (is_callable($prop['validate'])) {
+			return call_user_func($prop['validate'], $value);
+		}
+		return true;
+	}
 }

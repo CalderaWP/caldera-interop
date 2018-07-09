@@ -15,16 +15,33 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Collection extends ArrayCollection implements InteroperableCollection
 {
 
-    /**
-     * Add an entity to the collection
-     *
-     * @param InteroperableEntity $entity Entity to add
-     * @return $this
-     */
-    public function addEntity(InteroperableEntity $entity )
-    {
-        $this->set( $entity->getId(), $entity );
-        return $this;
-    }
+	/**
+	 * @var string
+	 */
+	private $type;
 
+	/**
+	 * Set the type of entity being collected
+	 *
+	 * @param string $type The type identifier
+	 * @return $this
+	 */
+	public function setType($type)
+	{
+		$this->type = $type;
+		return $this;
+	}
+
+	/** @inheritdoc */
+	public function getType()
+	{
+		return $this->type;
+	}
+
+	/** @inheritdoc */
+	public function addEntity(InteroperableEntity $entity)
+	{
+		$this->set($entity->getId(), $entity);
+		return $this;
+	}
 }
