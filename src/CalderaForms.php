@@ -3,19 +3,7 @@
 
 namespace calderawp\interop;
 
-use calderawp\CalderaContainers\Interfaces\ServiceContainer;
-use calderawp\interop\Collections\EntityCollections\EntryValues\Fields;
-use calderawp\interop\Entities\Entry;
-use calderawp\interop\Entities\Field;
-use calderawp\interop\Exceptions\ContainerException;
-use calderawp\interop\Interfaces\CalderaFormsApp;
-use calderawp\interop\Interfaces\InteroperableFactory;
-use calderawp\interop\Interfaces\ProvidesService;
-use calderawp\interop\Providers\EntryInteroperableProvider;
-use calderawp\interop\Providers\EntryValueInteroperableProvider;
-use calderawp\interop\Providers\FieldInteroperableProvider;
-use calderawp\interop\Providers\FormInteroperableProvider;
-use calderawp\interop\Service\Factory;
+
 
 /**
  * Class CalderaForms
@@ -24,115 +12,6 @@ use calderawp\interop\Service\Factory;
  *
  * @package calderawp\interop
  */
-class CalderaForms implements CalderaFormsApp
-{
-	const FIELD = 'field';
-	const FORM = 'form';
-	const ENTRY = 'entry';
-	const ENTRY_VALUE = 'entry.value';
-	const ENTRY_DETAILS = 'entry.details';
-	const CALDERA_FORMS = 'CF';
-	/**
-	 * @var Factory
-	 */
-	private $interoperableFactory;
+class CalderaForms extends \calderawp\CalderaContainers\Container {
 
-	/**
-	 * @var ServiceContainer
-	 */
-	private $serviceContainer;
-
-	/**
-	 * CalderaForms constructor.
-	 * @param InteroperableFactory $interoperableFactory
-	 * @param ServiceContainer $serviceContainer
-	 */
-	public function __construct(InteroperableFactory$interoperableFactory, ServiceContainer $serviceContainer)
-	{
-		$this->interoperableFactory = $interoperableFactory;
-		$this->serviceContainer = $serviceContainer;
-		$this->bindSelf();
-		$this->registerInterops();
-	}
-
-	/**
-	 * @return CalderaForms
-	 */
-	public static function factory()
-	{
-		$interopContainer = new \calderawp\interop\Service\Container();
-		$factory = new \calderawp\interop\Service\Factory($interopContainer);
-		$serviceContainer = new \calderawp\CalderaContainers\Service\Container();
-		$calderaForms = new static($factory, $serviceContainer);
-		return $calderaForms;
-	}
-
-	/**
-	 * Register a service
-	 *
-	 * @param ProvidesService $service
-	 * @return ProvidesService
-	 */
-	public function registerProvider(ProvidesService $service)
-	{
-		$service->registerService($this->serviceContainer);
-		return $service;
-	}
-
-	/**
-	 * Get a registered service
-	 *
-	 * @param $alias
-	 * @return mixed|object
-	 * @throws ContainerException
-	 */
-	public function getService($alias)
-	{
-		if (! $this->serviceContainer->doesProvide($alias)) {
-			throw new ContainerException(
-				sprintf('Caldera Forms interop app does not provide %s service', $alias)
-			);
-		}
-		return $this
-			->serviceContainer
-			->make($alias);
-	}
-	/**
-	 * Get the interop factory
-	 *
-	 * @return InteroperableFactory|Factory
-	 */
-	public function getFactory()
-	{
-		return $this->interoperableFactory;
-	}
-
-	/**
-	 * Register internal, default interops
-	 */
-	private function registerInterops()
-	{
-
-		(new FieldInteroperableProvider() )->bindInterop($this);
-		(new FormInteroperableProvider() )->bindInterop($this);
-		(new EntryInteroperableProvider() )->bindInterop($this);
-		(new EntryValueInteroperableProvider() )->bindInterop($this);
-
-		$this
-			->getFactory()
-			->bindInterop(
-				self::ENTRY_DETAILS,
-				\calderawp\interop\Entities\Entry\Details::class,
-				\calderawp\interop\Models\Entry\Details::class,
-				\calderawp\interop\Collections\EntityCollections\EntryValues\Details::class
-			);
-	}
-
-	/**
-	 * Attach a reference to this object to container
-	 */
-	private function bindSelf()
-	{
-		$this->serviceContainer->singleton(self::CALDERA_FORMS, $this);
-	}
 }
