@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4656e4da-6b5f-45d0-a551-fede99481fec" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/FormTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/FormTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalderaForms/Form/FormModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalderaForms/Form/FormModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,35 +21,14 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50278443">
+    <splitter split-orientation="horizontal" split-proportion="0.53939396">
       <split-first>
         <leaf>
-          <file leaf-file-name="CanCastObjectToArray.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Traits/CanCastObjectToArray.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CalderaForms.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="137">
-                  <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#38#98#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FormTest.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="FormTest.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Tests/FormTest.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="213">
-                  <caret line="80" column="31" lean-forward="true" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+                <state relative-caret-position="424">
+                  <caret line="343" column="40" selection-start-line="343" selection-start-column="40" selection-end-line="343" selection-end-column="40" />
                   <folding>
                     <element signature="e#43#93#0#PHP" expanded="true" />
                   </folding>
@@ -65,10 +48,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/Entity.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="492">
+                <state relative-caret-position="848">
                   <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
                 </state>
               </provider>
@@ -86,17 +69,8 @@
           <file leaf-file-name="IdentifiesById.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Contracts/IdentifiesById.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="24" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Interoperable.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Contracts/Interoperable.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+                <state relative-caret-position="360">
+                  <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -105,13 +79,58 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Entity.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Entity.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="557">
-                  <caret line="221" column="73" selection-start-line="221" selection-start-column="73" selection-end-line="221" selection-end-column="73" />
+                <state relative-caret-position="222">
+                  <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
                   <folding>
                     <element signature="e#38#90#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InteroperableModel.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Contracts/InteroperableModel.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#48#86#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FormModel.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/FormModel.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" column="19" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Model.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="322">
+                  <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#39#81#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Response.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Http/Response.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                  <folding>
+                    <element signature="e#43#76#0#PHP" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -123,8 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_con</find>
-      <find>__co</find>
       <find>Request</find>
       <find>toArray</find>
       <find>request</find>
@@ -153,6 +170,8 @@
       <find>getNameD</find>
       <find>122</find>
       <find>estGetNameDefaultProp</find>
+      <find>to</find>
+      <find>Response</find>
     </findStrings>
     <replaceStrings>
       <replace>createEntity</replace>
@@ -172,9 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Models/Entry.php" />
-        <option value="$PROJECT_DIR$/src/Entities/Form.php" />
-        <option value="$PROJECT_DIR$/src/Models/Entry/Details.php" />
         <option value="$PROJECT_DIR$/src/Collections/EntityCollections/EntryValues/Details.php" />
         <option value="$PROJECT_DIR$/src/Entities/Entry/Details.php" />
         <option value="$PROJECT_DIR$/src/Submissions/Submission.php" />
@@ -204,7 +220,6 @@
         <option value="$PROJECT_DIR$/Tests/bootstrap.php" />
         <option value="$PROJECT_DIR$/src/Contracts/Arrayable.php" />
         <option value="$PROJECT_DIR$/src/Contracts/Interoperable.php" />
-        <option value="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" />
         <option value="$PROJECT_DIR$/src/Entities/Entity.php" />
         <option value="$PROJECT_DIR$/src/Entities/Form/Entity.php" />
         <option value="$PROJECT_DIR$/src/Entities/Form/Transformer.php" />
@@ -220,9 +235,13 @@
         <option value="$PROJECT_DIR$/src/Contracts/IdentifiesById.php" />
         <option value="$PROJECT_DIR$/src/Contracts/InteroperableEntity.php" />
         <option value="$PROJECT_DIR$/src/Collection.php" />
-        <option value="$PROJECT_DIR$/Tests/FormTest.php" />
         <option value="$PROJECT_DIR$/src/CalderaForms/Form/Entity.php" />
+        <option value="$PROJECT_DIR$/src/Contracts/InteroperableModel.php" />
+        <option value="$PROJECT_DIR$/src/Model.php" />
+        <option value="$PROJECT_DIR$/src/CalderaForms/Form/FormModel.php" />
         <option value="$PROJECT_DIR$/src/Entity.php" />
+        <option value="$PROJECT_DIR$/src/Http/Response.php" />
+        <option value="$PROJECT_DIR$/Tests/FormTest.php" />
       </list>
     </option>
   </component>
@@ -393,23 +412,23 @@
       <workItem from="1525125892980" duration="1770000" />
       <workItem from="1525441544150" duration="528000" />
       <workItem from="1525549744179" duration="15318000" />
-      <workItem from="1531147488219" duration="12553000" />
+      <workItem from="1531147488219" duration="14971000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112613000" />
+    <option name="totallyTimeSpent" value="115031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="221" y="28" width="1699" height="982" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3844297" side_tool="true" visible="true" weight="0.20903955" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3856367" side_tool="true" visible="true" weight="0.4180791" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32950193" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.6155703" visible="true" weight="0.20903955" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.6143633" visible="true" weight="0.4180791" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2033796" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -472,40 +491,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Providers/EntryValueInteroperableProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="37" />
-          <folding>
-            <element signature="e#48#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Providers/EntryDetailsInteroperableProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding>
-            <element signature="e#48#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/CalderaFormsTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="124" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/EntryEntityTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ServiceFactoryTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
@@ -640,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Http/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1457">
-          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Traits/CanCastEmail.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -699,11 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Traits/CanRecursivelyCastArray.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Traits/CanCastProps.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -739,23 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Contracts/InteroperableModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-          <folding>
-            <element signature="e#48#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Traits/CanCastObjectToArray.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CalderaForms.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -763,20 +719,6 @@
           <folding>
             <element signature="e#38#98#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Contracts/IdentifiesById.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Contracts/Interoperable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -793,16 +735,6 @@
           <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding>
             <element signature="e#41#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/FormTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="80" column="31" lean-forward="true" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-          <folding>
-            <element signature="e#43#93#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -830,17 +762,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/Entity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
+        <state relative-caret-position="848">
           <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/CanCastObjectToArray.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/jakub-onderka/php-parallel-lint/src/JsonSerializable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Contracts/Interoperable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Contracts/IdentifiesById.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Contracts/InteroperableModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#48#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalderaForms/Form/FormModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Traits/CanRecursivelyCastArray.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="221" column="73" selection-start-line="221" selection-start-column="73" selection-end-line="221" selection-end-column="73" />
+        <state relative-caret-position="222">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
           <folding>
             <element signature="e#38#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+          <folding>
+            <element signature="e#39#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Http/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#43#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/src/Util/Getopt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="50" column="25" lean-forward="true" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/FormTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="343" column="40" selection-start-line="343" selection-start-column="40" selection-end-line="343" selection-end-column="40" />
+          <folding>
+            <element signature="e#43#93#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

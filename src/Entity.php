@@ -112,6 +112,9 @@ abstract class Entity implements InteroperableEntity
 	{
 		$array = [];
 		foreach ($this->getEntityProps() as $prop) {
+		    if( in_array( $prop, [ 'values', 'attributes' ] ) ){
+		        continue;
+            }
 			$array[ $prop ] = $this->__get($prop);
 		}
 		return $array;

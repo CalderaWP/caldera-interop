@@ -33,8 +33,24 @@ interface InteroperableModel extends Interoperable
 
 	/**
 	 * Convert entity to HTTP response
-	 *
-	 * @return ResponseInterface
-	 */
-	public function toResponse();
+
+     * @param array $headers Opitonal. Array of response headers
+     * @return ResponseInterface
+     */
+	public function toResponse(array $headers = [] );
+
+    /**
+     * Is entity valid
+     *
+     * @return bool
+     */
+	public function isValid();
+
+    /**
+     * Set the entity status code
+     *
+     * @param int $statusCode
+     * @return $this
+     */
+	public function setStatusCode($statusCode = 200);
 }
