@@ -4,7 +4,7 @@
 namespace calderawp\interop\Contracts;
 
 
-interface InteroperableAttribute
+interface InteroperableAttribute extends Interoperable
 {
 
     /**

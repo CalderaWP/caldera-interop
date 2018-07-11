@@ -1,9 +1,11 @@
 <?php
+
 namespace calderawp\interop\Tests;
 
 
 use calderawp\CalderaContainers\Service\Container;
 use calderawp\interop\ArrayLike\Form;
+use calderawp\interop\Attribute;
 use calderawp\interop\CalderaForms;
 use calderawp\interop\CalderaForms\Form\FormEntity as FormEntity;
 use calderawp\interop\Collection;
@@ -23,6 +25,7 @@ class FormTest extends CalderaInteropTestCase
         $this->assertTrue($entity->hasProp('name'));
         $this->assertSame($id, $entity->getName());
     }
+
     /**
      * Test that the default value for fields property is returned, using getter function
      *
@@ -34,6 +37,7 @@ class FormTest extends CalderaInteropTestCase
         $entity = $this->formEntityFactory($id);
         $this->assertSame([], $entity->getFields());
     }
+
     /**
      * Test the getter and setter together for the name property
      *
@@ -45,10 +49,11 @@ class FormTest extends CalderaInteropTestCase
     {
         $id = 'cf12';
         $entity = $this->formEntityFactory($id);
-        $entity->setName('Hi Roy' );
-        $this->assertTrue( $entity->hasProp('name'));
+        $entity->setName('Hi Roy');
+        $this->assertTrue($entity->hasProp('name'));
         $this->assertSame('Hi Roy', $entity->getName());
     }
+
     /**
      * Test the getter and setter together for the fields property
      *
@@ -61,7 +66,7 @@ class FormTest extends CalderaInteropTestCase
         $id = 'cf1211';
         $fields = [
             [
-                'ID'=> 'fld12345'
+                'ID' => 'fld12345'
             ]
         ];
         $entity = $this->formEntityFactory($id);
@@ -82,6 +87,7 @@ class FormTest extends CalderaInteropTestCase
         $entity = $this->formEntityFactory($id);
         $this->assertSame($id, $entity->name);
     }
+
     /**
      * Test that the default value for fields property is returned, using the magic accessor
      *
@@ -95,6 +101,7 @@ class FormTest extends CalderaInteropTestCase
         $entity = $this->formEntityFactory($id);
         $this->assertSame([], $entity->fields);
     }
+
     /**
      * Test the getter and setter together for the name property, using the magic accessor and setter
      *
@@ -112,6 +119,7 @@ class FormTest extends CalderaInteropTestCase
         $entity->name = 'Hi Roy';
         $this->assertSame('Hi Roy', $entity->name);
     }
+
     /**
      * Test the getter and setter together for the fields property
      *
@@ -127,7 +135,7 @@ class FormTest extends CalderaInteropTestCase
         $id = 'cf125';
         $fields = [
             [
-                'ID'=> 'fld12345'
+                'ID' => 'fld12345'
             ]
         ];
         $entity = $this->formEntityFactory($id);
@@ -143,12 +151,13 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Entity::applyGetter()
      * @covers \calderawp\interop\Entity::toArray()
      */
-    public function testToArray(){
+    public function testToArray()
+    {
         $id = 'cf126';
         $entity = $this->formEntityFactory($id);
         $asArray = $entity->toArray();
-        $this->assertArrayHasKey('fields', $asArray );
-        $this->assertSame( $entity->getFields(), $asArray['fields'] );
+        $this->assertArrayHasKey('fields', $asArray);
+        $this->assertSame($entity->getFields(), $asArray['fields']);
     }
 
     /**
@@ -158,8 +167,33 @@ class FormTest extends CalderaInteropTestCase
     public function testHasGetter()
     {
         $entity = $this->formEntityFactory();
-        $this->assertTrue($entity->hasGetter('name' ) );
-        $this->assertFalse($entity->hasGetter('roy' ) );
+        $this->assertTrue($entity->hasGetter('name'));
+        $this->assertFalse($entity->hasGetter('roy'));
+    }
+
+    /**
+     * @covers \calderawp\interop\Entity::hasGetter()
+     * @covers \calderawp\interop\Entity::isSpecialProperty()
+     */
+    public function testGetAttributesIsNotAGetter(){
+        $entity = $this->formEntityFactory();
+        $this->assertFalse($entity->hasGetter('attributes' ) );
+    }
+
+    /**
+     * @covers \calderawp\interop\Entity::hasSetter()
+     * @covers \calderawp\interop\Entity::isSpecialProperty()
+     */
+    public function testSetAttributesIsNotASetter(){
+        $entity = $this->formEntityFactory();
+        $this->assertFalse($entity->hasSetter('attributes' ) );
+    }
+
+    public function testAttributesAreAttributesNotArrays(){
+        $entity = $this->formEntityFactory();
+        $attributes = $entity->getAttributes();
+        $this->assertTrue( is_object( $attributes['name']));
+        $this->assertEquals( Attribute::class, get_class( $attributes['name']));
     }
 
     /**
@@ -170,8 +204,19 @@ class FormTest extends CalderaInteropTestCase
     public function testHasSetter()
     {
         $entity = $this->formEntityFactory();
-        $this->assertTrue($entity->hasSetter('name' ) );
-        $this->assertFalse($entity->hasSetter('roy' ) );
+        $this->assertTrue($entity->hasSetter('name'));
+        $this->assertFalse($entity->hasSetter('roy'));
+    }
+
+    /**
+     * @covers  \calderawp\interop\Entity::getEntityProps()
+     * @covers  \calderawp\interop\Entity::isSpecialProperty()
+     */
+    public function testEntityProps()
+    {
+        $entity = $this->formEntityFactory();
+        $this->assertArrayNotHasKey('attributes', $entity->getEntityProps());
+        $this->assertArrayNotHasKey('values', $entity->getEntityProps());
     }
 
     /**
@@ -180,14 +225,18 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Entity::toArray()
      * @covers \calderawp\interop\Entity::hasGetter()
      */
-    public function testAllToArray(){
+    public function testAllToArray()
+    {
         $entity = $this->formEntityFactory();
         $asArray = $entity->toArray();
-        foreach ( $entity->getEntityProps() as $prop ){
-            if( $entity->hasGetter( $prop ) ){
+        foreach ($entity->getEntityProps() as $prop) {
+            if ($entity->hasGetter($prop)) {
                 $ufProp = ucfirst($prop);
                 $getter = "get{$ufProp}";
-                $this->assertSame( $entity->$getter() , $asArray[$prop] );
+                $x = $asArray[$prop];
+                $this->assertSame($entity->$getter(),
+                    $asArray[$prop]
+                );
             }
 
         }
@@ -200,12 +249,13 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\CalderaForms::getFormsCollection()
      * @covers \calderawp\interop\CalderaForms::setupServiceContainer()
      */
-    public function testAddToCollection(){
+    public function testAddToCollection()
+    {
         $id = 'cf1';
         $entity = $this->formEntityFactory($id);
         $calderaForms = $this->calderaFormsFactory();
-        $this->assertSame(Collection::class, get_class($calderaForms->getFormsCollection() ) );
-        $this->assertSame(Collection::class, get_class($calderaForms->getFormsCollection() ) );
+        $this->assertSame(Collection::class, get_class($calderaForms->getFormsCollection()));
+        $this->assertSame(Collection::class, get_class($calderaForms->getFormsCollection()));
         $calderaForms->getFormsCollection()->addEntity($this->formEntityFactory());
         $calderaForms->getFormsCollection()->addEntity($entity);
         $calderaForms->getFormsCollection()->addEntity($this->formEntityFactory());
@@ -217,9 +267,10 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Entity::hasProp()
      * @covers \calderawp\interop\Entity::hasPropDefinition()
      */
-    public function testHasPropForAttributeProp(){
+    public function testHasPropForAttributeProp()
+    {
         $entity = $this->formEntityFactory();
-        $this->assertTrue($entity->hasProp('processors' ) );
+        $this->assertTrue($entity->hasProp('processors'));
     }
 
     /**
@@ -228,9 +279,10 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Entity::hasProp()
      * @covers \calderawp\interop\Entity::hasPropDefinition()
      */
-    public function testGetPropForAttributePropDefault(){
+    public function testGetPropForAttributePropDefault()
+    {
         $entity = $this->formEntityFactory();
-        $this->assertSame([], $entity->getProp('processors' ) );
+        $this->assertSame([], $entity->getProp('processors'));
     }
 
     /**
@@ -239,13 +291,14 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Entity::hasProp()
      * @covers \calderawp\interop\Entity::hasPropDefinition()
      */
-    public function testSetPropForAttributeProp(){
+    public function testSetPropForAttributeProp()
+    {
         $entity = $this->formEntityFactory();
         $processors = [
             'ID' => '1'
         ];
-        $entity->setProp( 'processors', $processors);
-        $this->assertEquals($processors,$entity->getProp('processors' ) );
+        $entity->setProp('processors', $processors);
+        $this->assertEquals($processors, $entity->getProp('processors'));
     }
 
     /**
@@ -253,14 +306,15 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Model::fromEntity()
      * @covers \calderawp\interop\Model::getEntity()
      */
-    public function testCreateModelFromEntity(){
+    public function testCreateModelFromEntity()
+    {
         $entity = $this->formEntityFactory();
         $processors = [
             'ID' => '1'
         ];
-        $entity->setProp( 'processors', $processors);
-        $model  = CalderaForms\Form\FormModel::fromEntity($entity,$this->calderaFormsFactory());
-        $this->assertEquals($entity, $model->getEntity() );
+        $entity->setProp('processors', $processors);
+        $model = CalderaForms\Form\FormModel::fromEntity($entity, $this->calderaFormsFactory());
+        $this->assertEquals($entity, $model->getEntity());
     }
 
     /**
@@ -268,23 +322,25 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Model::__consturct()
      * @covers \calderawp\interop\Model::getEntity()
      */
-    public function testCreateModelFromEntityThroughConstructor(){
+    public function testCreateModelFromEntityThroughConstructor()
+    {
         $entity = $this->formEntityFactory();
         $processors = [
             'ID' => '1'
         ];
-        $entity->setProp( 'processors', $processors);
-        $model  = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
-        $this->assertEquals($entity, $model->getEntity() );
+        $entity->setProp('processors', $processors);
+        $model = new CalderaForms\Form\FormModel($entity, $this->calderaFormsFactory());
+        $this->assertEquals($entity, $model->getEntity());
     }
 
     /**
      *
      * @covers \calderawp\interop\Model::getStatusCode()
      */
-    public function testModelStatusCode(){
+    public function testModelStatusCode()
+    {
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
+        $model = new CalderaForms\Form\FormModel($entity, $this->calderaFormsFactory());
         $model->setStatusCode(500);
         $this->assertSame(500, $model->getStatusCode());
 
@@ -294,30 +350,35 @@ class FormTest extends CalderaInteropTestCase
      *
      * @covers \calderawp\interop\Model::isValid()
      */
-    public function testModelIsValidByDefault(){
+    public function testModelIsValidByDefault()
+    {
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
+        $model = new CalderaForms\Form\FormModel($entity, $this->calderaFormsFactory());
         $this->assertTrue($model->isValid());
 
     }
+
     /**
      *
      * @covers \calderawp\interop\Model::isValid()
      */
-    public function testModelIsValidWith200Code(){
+    public function testModelIsValidWith200Code()
+    {
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
+        $model = new CalderaForms\Form\FormModel($entity, $this->calderaFormsFactory());
         $model->setStatusCode(201);
         $this->assertTrue($model->isValid());
 
     }
+
     /**
      *
      * @covers \calderawp\interop\Model::isValid()
      */
-    public function testModelIsNotValidWith500Code(){
+    public function testModelIsNotValidWith500Code()
+    {
         $entity = $this->formEntityFactory();
-        $model = new CalderaForms\Form\FormModel($entity,$this->calderaFormsFactory());
+        $model = new CalderaForms\Form\FormModel($entity, $this->calderaFormsFactory());
         $model->setStatusCode(503);
         $this->assertFalse($model->isValid());
     }
@@ -327,19 +388,31 @@ class FormTest extends CalderaInteropTestCase
      * @covers \calderawp\interop\Model::setType()
      * @covers \calderawp\interop\Model::getTyoe()
      */
-    public function testSetType(){
-        $collection  = new Collection();
-        $collection->setType( 'foo' );
-        $this->assertSame('foo', $collection->getType() );
+    public function testSetType()
+    {
+        $collection = new Collection();
+        $collection->setType('foo');
+        $this->assertSame('foo', $collection->getType());
     }
 
     /**
      * @covers \calderawp\interop\Entity::setAttributes()
      * @covers \calderawp\interop\CalderaForms\Form\FormEntity::__consturct()
      */
-    public function testSetAttributes(){
+    public function testSetAttributes()
+    {
         $entity = $this->formEntityFactory();
-        $this->assertAttributeNotEmpty('attributes',$entity);
+        $this->assertAttributeNotEmpty('attributes', $entity);
+    }
+
+
+    public function testGetAttributes()
+    {
+        $entity = $this->formEntityFactory();
+        $this->assertArrayHasKey('name', $entity->getAttributes());
+        $this->assertArrayHasKey('description', $entity->getAttributes());
+        $this->assertArrayHasKey('fields', $entity->getAttributes());
+        $this->assertArrayHasKey('processors', $entity->getAttributes());
     }
 
 }

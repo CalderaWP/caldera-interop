@@ -90,4 +90,37 @@ class AttributeTest extends \PHPUnit_Framework_TestCase
         $attribute->setDefault([]);
         $this->assertAttributeEquals([], 'default', $attribute );
     }
+
+
+    /**
+     * @covers \calderawp\interop\Attribute::toArray()
+     * @covers \calderawp\interop\Attribute::fromArray()
+     */
+    public function testFromArray(){
+        $data = [
+            'name',
+            'validate',
+            'sanitize',
+            'default'
+        ];
+        $attribute = Attribute::fromArray($data);
+        $toArray = $attribute->toArray();
+        $toArray = array_keys( $toArray);
+        $toArray = sort($toArray);
+        $this->assertEquals( sort($data), $toArray);
+    }
+
+    /**
+     *
+     * @covers \calderawp\interop\Attribute::setName()
+     * @covers \calderawp\interop\Attribute::offsetSet()
+     * @covers \calderawp\interop\Attribute::offsetGet()
+     */
+    public function testIsArrayLike(){
+        $attribute = new Attribute();
+        $attribute->setName('Mike');
+        $this->assertSame( 'Mike', $attribute[ 'name' ]);
+    }
+
+
 }

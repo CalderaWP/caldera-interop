@@ -3,6 +3,9 @@
 
 namespace calderawp\interop;
 use calderawp\interop\Contracts\InteroperableAttribute;
+use calderawp\interop\Traits\CanBeAcessedLikeAnArray;
+use calderawp\interop\Traits\CanBecomeFromArray;
+use calderawp\interop\Traits\HasId;
 
 
 /**
@@ -10,9 +13,10 @@ use calderawp\interop\Contracts\InteroperableAttribute;
  *
  * Object abstration of an attribute of an entity
  */
-class Attribute implements InteroperableAttribute
+class Attribute implements InteroperableAttribute, \ArrayAccess
 {
 
+    use CanBecomeFromArray, CanBeAcessedLikeAnArray;
     /**
      * The unique identifier for the attribute
      * @var string
@@ -39,11 +43,46 @@ class Attribute implements InteroperableAttribute
     protected $validate;
 
     /**
+     * @inheritDoc
+     */
+    public function __get($name)
+    {
+        if( property_exists( $this, $name )){
+            return $this->offsetGet($name);
+        }
+    }
+
+
+    /** @inheritdoc */
+    public function toArray(){
+        $array = [];
+        foreach (array_keys(get_object_vars($this)) as $prop) {
+            $array[ $prop ] = $this->__get($prop);
+        }
+        return $array;
+    }
+
+    public function __set($name, $value)
+    {
+        if( property_exists( $this, $name )){
+            $this->$name = $value;
+            $this->offsetSet($name, $value );
+
+        }
+        return $this;
+    }
+
+    /** @inheritdoc */
+    public function jsonSerialize(){
+        return $this->toArray();
+    }
+
+    /**
      * @return string
      */
     public function getName()
     {
-        return $this->name;
+        return $this->offsetGet('name');
     }
 
     /**
@@ -53,6 +92,7 @@ class Attribute implements InteroperableAttribute
     public function setName($name)
     {
         $this->name = $name;
+        $this->offsetSet('name',$name);
         return $this;
     }
 
@@ -61,7 +101,7 @@ class Attribute implements InteroperableAttribute
      */
     public function getDefault()
     {
-        return $this->default;
+        return $this->offsetGet('default');
     }
 
     /**
@@ -71,6 +111,8 @@ class Attribute implements InteroperableAttribute
     public function setDefault($default)
     {
         $this->default = $default;
+        return $this->offsetSet('default', $default );
+
         return $this;
     }
 
@@ -79,7 +121,7 @@ class Attribute implements InteroperableAttribute
      */
     public function getSanitize()
     {
-        return $this->sanitize;
+        return $this->offsetGet('sanitize');
     }
 
     /**
@@ -89,6 +131,7 @@ class Attribute implements InteroperableAttribute
     public function setSanitize($sanitize)
     {
         $this->sanitize = $sanitize;
+        $this->offsetSet('sanitize',$sanitize);
         return $this;
     }
 
@@ -97,7 +140,7 @@ class Attribute implements InteroperableAttribute
      */
     public function getValidate()
     {
-        return $this->validate;
+        return $this->offsetGet('validate');
     }
 
     /**
@@ -107,6 +150,7 @@ class Attribute implements InteroperableAttribute
     public function setValidate($validate)
     {
         $this->validate = $validate;
+        $this->offsetSet('validate',$validate);
         return $this;
     }
 
