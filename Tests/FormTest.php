@@ -333,5 +333,13 @@ class FormTest extends CalderaInteropTestCase
         $this->assertSame('foo', $collection->getType() );
     }
 
+    /**
+     * @covers \calderawp\interop\Entity::setAttributes()
+     * @covers \calderawp\interop\CalderaForms\Form\FormEntity::__consturct()
+     */
+    public function testSetAttributes(){
+        $entity = $this->formEntityFactory();
+        $this->assertAttributeNotEmpty('attributes',$entity);
+    }
 
 }
