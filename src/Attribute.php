@@ -42,12 +42,24 @@ class Attribute implements InteroperableAttribute, \ArrayAccess
      */
     protected $validate;
 
-
+    /**
+     * @var bool
+     */
     protected $isRequired;
-
+    /**
+     * @var string
+     */
     protected $description;
 
+    /**
+     * @var array
+     */
     protected $enum;
+
+    /**
+     * @var string
+     */
+    protected $type;
 
     /**
      * @return mixed
@@ -55,6 +67,22 @@ class Attribute implements InteroperableAttribute, \ArrayAccess
     public function getisRequired()
     {
         return $this->isRequired;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 
     /**

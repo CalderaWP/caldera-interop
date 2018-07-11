@@ -17,7 +17,7 @@ class FormEntity extends \calderawp\interop\Entity
 			'name' => [
 				'type' => 'string',
 				'default' => $this->getId(),
-				'sanitize' => '',
+				'sanitize' => 'strip_tags',
 				'validate' => 'is_string'
 			],
 			'description' => [
