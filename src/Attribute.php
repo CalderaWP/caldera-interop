@@ -42,6 +42,65 @@ class Attribute implements InteroperableAttribute, \ArrayAccess
      */
     protected $validate;
 
+
+    protected $isRequired;
+
+    protected $description;
+
+    protected $enum;
+
+    /**
+     * @return mixed
+     */
+    public function getisRequired()
+    {
+        return $this->isRequired;
+    }
+
+    /**
+     * @param mixed $isRequired
+     */
+    public function setIsRequired($isRequired)
+    {
+        $this->isRequired = $isRequired;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->offsetSet('description', $description );
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnum()
+    {
+        return $this->enum;
+    }
+
+    /**
+     * @param mixed $enum
+     */
+    public function setEnum($enum)
+    {
+        $this->enum = $enum;
+        $this->offsetSet( 'enum', $this->enum );
+        return $this;
+    }
+
     /**
      * @inheritDoc
      */
@@ -57,7 +116,7 @@ class Attribute implements InteroperableAttribute, \ArrayAccess
     public function toArray(){
         $array = [];
         foreach (array_keys(get_object_vars($this)) as $prop) {
-            $array[ $prop ] = $this->__get($prop);
+            $array[ $prop ] = $this->offsetGet($prop);
         }
         return $array;
     }

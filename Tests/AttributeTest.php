@@ -122,5 +122,30 @@ class AttributeTest extends \PHPUnit_Framework_TestCase
         $this->assertSame( 'Mike', $attribute[ 'name' ]);
     }
 
+    /**
+     *
+     * @covers \calderawp\interop\Attribute::setDescription()
+     * @covers \calderawp\interop\Attribute::getDescription()
+     * @covers \calderawp\interop\Attribute::offsetSet()
+     * @covers \calderawp\interop\Attribute::offsetGet()
+     */
+    public function testSetDescription()
+    {
+        $attribute = new Attribute();
+        $this->assertSame( 'Does stuff', $attribute->setDescription('Does stuff' )->getDescription() );
+    }
 
+
+    /**
+     *
+     * @covers \calderawp\interop\Attribute::setDescription()
+     * @covers \calderawp\interop\Attribute::getDescription()
+     * @covers \calderawp\interop\Attribute::offsetSet()
+     * @covers \calderawp\interop\Attribute::offsetGet()
+     */
+    public function testSetEnum()
+    {
+        $attribute = new Attribute();
+        $this->assertSame( [1,2,3], $attribute->setEnum([1,2,3] )->getEnum() );
+    }
 }
