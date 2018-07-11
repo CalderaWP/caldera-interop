@@ -18,25 +18,29 @@ class FormEntity extends \calderawp\interop\Entity
 				'type' => 'string',
 				'default' => $this->getId(),
 				'sanitize' => 'strip_tags',
-				'validate' => 'is_string'
+				'validate' => 'is_string',
+				'description' => 'The form\'s name',
 			],
 			'description' => [
 				'type' => 'string',
 				'default' => '',
 				'sanitize' => '',
-				'validate' => 'is_string'
+				'validate' => 'is_string',
+                'description' => 'The form\'s description',
 			],
 			'fields' => [
 				'type' => 'array',
 				'default' => [],
 				'sanitize' => '',
-				'validate' => 'is_array'
+				'validate' => 'is_array',
+                'description' => 'The form\'s fields collection',
 			],
 			'processors' => [
 				'type' => 'array',
 				'default' => [],
 				'sanitize' => '',
-				'validate' => 'is_array'
+				'validate' => 'is_array',
+                'description' => 'The form\'s processors collection',
 			]
 		]);
 	}
