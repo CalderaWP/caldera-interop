@@ -17,9 +17,6 @@ interface InteroperableModel extends Interoperable
 	 */
 	public static function fromEntity(InteroperableEntity $entity, CalderaFormsTwo $calderaForms);
 
-
-	public function find($id);
-	public function findBy($field,$value);
 	/**
 	 * Get the model's entity
 	 *

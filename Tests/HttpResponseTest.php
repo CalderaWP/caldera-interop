@@ -80,7 +80,7 @@ class HttpResponseTest extends CalderaInteropTestCase
      */
     public function testWithStatus()
     {
-        $body = json_encode( [8, new stdClass(), [ 5, 9  ] ] );
+        $body = json_encode( [8, new \stdClass(), [ 5, 9  ] ] );
         $response = new \calderawp\interop\Http\Response( $body, 404 );
         $new = $response->withStatus( 202 );
         $this->assertSame( $body, $new->getBody()->getContents() );

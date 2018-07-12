@@ -97,10 +97,10 @@ class CalderaForms extends \calderawp\CalderaContainers\Container implements Cal
 
 
 	public function find( $entityType, $id ){
-        $model = new FormModel()
+       return new FormModel((new FormEntity())->setId($id), $this );
     }
 
-    public function findBy( $enityType, $field, $value )
+    public function findBy( $entityType, $field, $value )
     {
         
     }
