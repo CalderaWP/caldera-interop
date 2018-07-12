@@ -7,6 +7,7 @@ use calderawp\interop\CalderaForms\Entry\EntryEntity;
 use calderawp\interop\CalderaForms\Entry\EntryFieldEntity;
 use calderawp\interop\CalderaForms\Entry\EntryMetaEntity;
 use calderawp\interop\CalderaForms\Form\FormEntity as FormEntity;
+use calderawp\interop\CalderaForms\Form\FormModel;
 use calderawp\interop\CalderaForms\Processors\ProcessorTypeEntity;
 use calderawp\interop\CalderaForms\Settings\GeneralSettingsEntity;
 use calderawp\interop\CalderaForms\Settings\PrivacySettingsEntity;
@@ -92,6 +93,18 @@ class CalderaForms extends \calderawp\CalderaContainers\Container implements Cal
 		});
 	}
 
+
+
+
+	public function find( $entityType, $id ){
+        $model = new FormModel()
+    }
+
+    public function findBy( $enityType, $field, $value )
+    {
+        
+    }
+
 	/**
 	 * @return GeneralSettingsEntity
 	 */
@@ -134,6 +147,19 @@ class CalderaForms extends \calderawp\CalderaContainers\Container implements Cal
 	{
 		return $this->getFormsCollection()->addEntity($form);
 	}
+
+    /**
+     * Create a new, empty FormEntity
+     *
+     * @param string $id
+     * @return FormEntity
+     */
+	public function createForm($id = ''){
+	    if( ! $id ){
+	        $id = uniqid('cf' );
+        }
+	    return (new FormEntity() )->setId($id);
+    }
 
 	/**
 	 * Get a form from the collection

@@ -18,4 +18,11 @@ interface InteroperableEntity extends Interoperable, IdentifiesById
 	 * @return $this
 	 */
 	public static function fromArray(array $data);
+
+    /**
+     * Get the attributes collection
+     *
+     * @return array
+     */
+	public function getAttributes();
 }
