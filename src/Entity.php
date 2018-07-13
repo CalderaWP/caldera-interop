@@ -18,292 +18,292 @@ use calderawp\interop\Traits\HasId;
 abstract class Entity implements InteroperableEntity
 {
 
-    use HasId, CanBecomeFromArray;
+	use HasId, CanBecomeFromArray;
 
-    /**
-     * @var array
-     */
-    protected $attributes;
+	/**
+	 * @var array
+	 */
+	protected $attributes;
 
-    /**
-     * @var array
-     */
-    protected $values;
+	/**
+	 * @var array
+	 */
+	protected $values;
 
-    /**
-     * @var array
-     */
-    protected $specialProperties = ['attributes', 'value'];
+	/**
+	 * @var array
+	 */
+	protected $specialProperties = ['attributes', 'value'];
 
-    /**
-     * @inheritdoc
-     */
-    public function jsonSerialize()
-    {
-        return $this->toArray();
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function jsonSerialize()
+	{
+		return $this->toArray();
+	}
 
-    /** @inheritdoc */
-    public function getAttributes()
-    {
-        if (!is_array($this->attributes)) {
-            return [];
-        }
-        return $this->attributes;
-    }
+	/** @inheritdoc */
+	public function getAttributes()
+	{
+		if (!is_array($this->attributes)) {
+			return [];
+		}
+		return $this->attributes;
+	}
 
-    /**
-     * (re)Set attributes property
-     *
-     * @param array $attributes A collection of attributes
-     */
-    protected function setAttributes(array $attributes = [])
-    {
-        if (!empty($attributes)) {
-            foreach ($attributes as $attributeId => $attribute) {
-                $this->attributes[$attributeId] = Attribute::fromArray($attribute);
-                $this->values[$attributeId] = $attribute['default'];
-            }
-        }
-    }
+	/**
+	 * (re)Set attributes property
+	 *
+	 * @param array $attributes A collection of attributes
+	 */
+	protected function setAttributes(array $attributes = [])
+	{
+		if (!empty($attributes)) {
+			foreach ($attributes as $attributeId => $attribute) {
+				$this->attributes[$attributeId] = Attribute::fromArray($attribute);
+				$this->values[$attributeId] = $attribute['default'];
+			}
+		}
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function __set($name, $value)
-    {
+	/**
+	 * @inheritdoc
+	 */
+	public function __set($name, $value)
+	{
 
-        if ($this->hasSetter($name)) {
-            return $this->applySetter($name, $value);
-        }
-        if ($this->hasPropDefinition($name)) {
-            return $this->setProp($name, $value);
-        }
-        if (property_exists($this, $name)) {
-            $this->$name = $value;
-            return $this;
-        }
-    }
+		if ($this->hasSetter($name)) {
+			return $this->applySetter($name, $value);
+		}
+		if ($this->hasPropDefinition($name)) {
+			return $this->setProp($name, $value);
+		}
+		if (property_exists($this, $name)) {
+			$this->$name = $value;
+			return $this;
+		}
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function __get($name)
-    {
+	/**
+	 * @inheritdoc
+	 */
+	public function __get($name)
+	{
 
-        if ($this->hasGetter($name)) {
-            return $this->applyGetter($name);
-        }
-        if ($this->hasPropDefinition($name)) {
-            return $this->getProp($name);
-        }
-        if (property_exists($this, $name)) {
-            return $this->$name;
-        }
-    }
+		if ($this->hasGetter($name)) {
+			return $this->applyGetter($name);
+		}
+		if ($this->hasPropDefinition($name)) {
+			return $this->getProp($name);
+		}
+		if (property_exists($this, $name)) {
+			return $this->$name;
+		}
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function __isset($name)
-    {
-        return property_exists($this, $name) && !empty($this->$name);
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function __isset($name)
+	{
+		return property_exists($this, $name) && !empty($this->$name);
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function toArray()
-    {
-        $array = [];
-        foreach ($this->getEntityProps() as $prop) {
-            if ($this->isSpecialProperty($prop)) {
-                continue;
-            }
-            $array[$prop] = $this->__get($prop);
-        }
-        return $array;
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function toArray()
+	{
+		$array = [];
+		foreach ($this->getEntityProps() as $prop) {
+			if ($this->isSpecialProperty($prop)) {
+				continue;
+			}
+			$array[$prop] = $this->__get($prop);
+		}
+		return $array;
+	}
 
-    /**
-     * @return array
-     */
-    public function getEntityProps()
-    {
-        return Arr::except(array_merge(
-            array_keys(get_object_vars($this)),
-            array_keys($this->attributes)
-        ), $this->specialProperties);
-    }
+	/**
+	 * @return array
+	 */
+	public function getEntityProps()
+	{
+		return Arr::except(array_merge(
+			array_keys(get_object_vars($this)),
+			array_keys($this->attributes)
+		), $this->specialProperties);
+	}
 
-    /**
-     * @param string $prop
-     * @return string
-     */
-    private function getterName($prop)
-    {
-        return 'get' . ucfirst($prop);
-    }
+	/**
+	 * @param string $prop
+	 * @return string
+	 */
+	private function getterName($prop)
+	{
+		return 'get' . ucfirst($prop);
+	}
 
-    /**
-     * @param string $prop
-     * @return string
-     */
-    private function setterName($prop)
-    {
-        return 'set' . ucfirst($prop);
-    }
+	/**
+	 * @param string $prop
+	 * @return string
+	 */
+	private function setterName($prop)
+	{
+		return 'set' . ucfirst($prop);
+	}
 
-    /**
-     * Get a value for a property using the getter function
-     *
-     * @param string $prop The name of the property to call the getter function of.
-     * @return mixed
-     * @throws NotImplemented
-     */
-    public function applyGetter($prop)
-    {
-        $callable = [$this, $this->getterName($prop)];
-        if (!is_callable($callable)) {
-            throw new NotImplemented(json_encode($callable));
-        }
-        return call_user_func($callable);
-    }
+	/**
+	 * Get a value for a property using the getter function
+	 *
+	 * @param string $prop The name of the property to call the getter function of.
+	 * @return mixed
+	 * @throws NotImplemented
+	 */
+	public function applyGetter($prop)
+	{
+		$callable = [$this, $this->getterName($prop)];
+		if (!is_callable($callable)) {
+			throw new NotImplemented(json_encode($callable));
+		}
+		return call_user_func($callable);
+	}
 
-    /**
-     * Set a value for a property using its setter
-     *
-     * @param string $prop The property to call the setter function for.
-     * @param mixed $value Value to set for the propety.
-     * @return $this
-     * @throws NotImplemented
-     */
-    public function applySetter($prop, $value)
-    {
-        $callable = [$this, $this->setterName($prop)];
-        if (!is_callable($callable)) {
-            throw new NotImplemented(json_encode($callable));
-        }
-        return call_user_func($callable, $value);
-    }
+	/**
+	 * Set a value for a property using its setter
+	 *
+	 * @param string $prop The property to call the setter function for.
+	 * @param mixed $value Value to set for the propety.
+	 * @return $this
+	 * @throws NotImplemented
+	 */
+	public function applySetter($prop, $value)
+	{
+		$callable = [$this, $this->setterName($prop)];
+		if (!is_callable($callable)) {
+			throw new NotImplemented(json_encode($callable));
+		}
+		return call_user_func($callable, $value);
+	}
 
-    /**
-     * @param string $prop
-     * @return bool
-     */
-    public function hasGetter($prop)
-    {
-        return !$this->isSpecialProperty($prop) && method_exists($this, $this->getterName($prop));
-    }
+	/**
+	 * @param string $prop
+	 * @return bool
+	 */
+	public function hasGetter($prop)
+	{
+		return !$this->isSpecialProperty($prop) && method_exists($this, $this->getterName($prop));
+	}
 
-    /**
-     * @param string $prop
-     * @return bool
-     */
-    public function hasSetter($prop)
-    {
-        return !$this->isSpecialProperty($prop) && method_exists($this, $this->setterName($prop));
-    }
+	/**
+	 * @param string $prop
+	 * @return bool
+	 */
+	public function hasSetter($prop)
+	{
+		return !$this->isSpecialProperty($prop) && method_exists($this, $this->setterName($prop));
+	}
 
-    /**
-     * @param string $prop The name of the property to check for
-     * @return bool
-     */
-    public function hasProp($prop)
-    {
-        return (
-            property_exists($this, $prop)
-            || $this->hasGetter($prop)
-            || $this->hasPropDefinition($prop)
-        );
-    }
+	/**
+	 * @param string $prop The name of the property to check for
+	 * @return bool
+	 */
+	public function hasProp($prop)
+	{
+		return (
+			property_exists($this, $prop)
+			|| $this->hasGetter($prop)
+			|| $this->hasPropDefinition($prop)
+		);
+	}
 
-    /**
-     * @param string $prop The name of the property to get the definition of
-     * @return bool
-     */
-    protected function hasPropDefinition($prop)
-    {
-        return array_key_exists($prop, $this->attributes);
-    }
+	/**
+	 * @param string $prop The name of the property to get the definition of
+	 * @return bool
+	 */
+	protected function hasPropDefinition($prop)
+	{
+		return array_key_exists($prop, $this->attributes);
+	}
 
-    /**
-     * @param string $prop The name of the property to get the definition of
-     * @return array
-     */
-    protected function getPropDefinition($prop)
-    {
-        return $this->hasPropDefinition($prop) ? $this->attributes[$prop] : [];
-    }
+	/**
+	 * @param string $prop The name of the property to get the definition of
+	 * @return array
+	 */
+	protected function getPropDefinition($prop)
+	{
+		return $this->hasPropDefinition($prop) ? $this->attributes[$prop] : [];
+	}
 
-    /**
-     * Get the value of a prop defined in attributes
-     *
-     * @param string $prop The name of the property to get the value of
-     * @return mixed|null
-     */
-    public function getProp($prop)
-    {
-        if (!$this->hasPropDefinition($prop)) {
-            return null;
-        }
-        return $this->values[$prop];
-    }
+	/**
+	 * Get the value of a prop defined in attributes
+	 *
+	 * @param string $prop The name of the property to get the value of
+	 * @return mixed|null
+	 */
+	public function getProp($prop)
+	{
+		if (!$this->hasPropDefinition($prop)) {
+			return null;
+		}
+		return $this->values[$prop];
+	}
 
-    /**
-     * Set a the value of a prop defined in attributes
-     *
-     * @param string $prop The name of the property to set the value of
-     * @param mixed $value Value to set
-     * @return $this
-     */
-    public function setProp($prop, $value)
-    {
-        if (!$this->hasPropDefinition($prop)) {
-            return $this;
-        }
-        $this->values[$prop] = $value;
-        return $this;
-    }
+	/**
+	 * Set a the value of a prop defined in attributes
+	 *
+	 * @param string $prop The name of the property to set the value of
+	 * @param mixed $value Value to set
+	 * @return $this
+	 */
+	public function setProp($prop, $value)
+	{
+		if (!$this->hasPropDefinition($prop)) {
+			return $this;
+		}
+		$this->values[$prop] = $value;
+		return $this;
+	}
 
 
-    /**
-     * Apply sanitation to a property
-     *
-     * @param array $prop The prop/attribute definition
-     * @param mixed $value Value to set
-     * @return $this
-     */
-    protected function sanitizePropValue(array $prop, $value)
-    {
-        if (is_callable($prop['sanitize'])) {
-            return call_user_func($prop['sanitize'], $value);
-        }
-        return $value;
-    }
+	/**
+	 * Apply sanitation to a property
+	 *
+	 * @param array $prop The prop/attribute definition
+	 * @param mixed $value Value to set
+	 * @return $this
+	 */
+	protected function sanitizePropValue(array $prop, $value)
+	{
+		if (is_callable($prop['sanitize'])) {
+			return call_user_func($prop['sanitize'], $value);
+		}
+		return $value;
+	}
 
-    /**
-     * Check if prop value is valid
-     *
-     * @param array $prop The prop/attribute definition
-     * @param mixed $value Value to set
-     * @return bool
-     */
-    protected function validatePropValue(array $prop, $value)
-    {
-        if (is_callable($prop['validate'])) {
-            return call_user_func($prop['validate'], $value);
-        }
-        return true;
-    }
+	/**
+	 * Check if prop value is valid
+	 *
+	 * @param array $prop The prop/attribute definition
+	 * @param mixed $value Value to set
+	 * @return bool
+	 */
+	protected function validatePropValue(array $prop, $value)
+	{
+		if (is_callable($prop['validate'])) {
+			return call_user_func($prop['validate'], $value);
+		}
+		return true;
+	}
 
-    /**
-     * Check if is a special property, not to be serialized
-     * @param string $prop Name of property
-     * @return bool
-     */
-    protected function isSpecialProperty($prop)
-    {
-        return in_array($prop, $this->specialProperties);
-    }
+	/**
+	 * Check if is a special property, not to be serialized
+	 * @param string $prop Name of property
+	 * @return bool
+	 */
+	protected function isSpecialProperty($prop)
+	{
+		return in_array($prop, $this->specialProperties);
+	}
 }

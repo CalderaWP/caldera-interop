@@ -12,10 +12,10 @@ interface InteroperableModel extends Interoperable
 	 * Construct new model from an entity
 	 *
 	 * @param InteroperableEntity $entity
-	 * @param CalderaFormsTwo $calderaForms
+	 * @param CalderaFormsInteroperableComponent $calderaForms
 	 * @return $this
 	 */
-	public static function fromEntity(InteroperableEntity $entity, CalderaFormsTwo $calderaForms);
+	public static function fromEntity(InteroperableEntity $entity, CalderaFormsInteroperableComponent $calderaForms);
 
 	/**
 	 * Get the model's entity
@@ -27,7 +27,7 @@ interface InteroperableModel extends Interoperable
 	/**
 	 * Get Caldera Forms instance
 	 *
-	 * @return CalderaFormsTwo
+	 * @return CalderaFormsInteroperableComponent
 	 */
 	public function getCalderaForms();
 

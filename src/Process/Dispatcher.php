@@ -3,8 +3,8 @@
 
 namespace calderawp\interop\Process;
 
-use calderawp\interop\CalderaForms;
-use calderawp\interop\Contracts\CalderaFormsTwo;
+use calderawp\interop\CalderaFormsInterop;
+use calderawp\interop\Contracts\CalderaFormsInteropComponent;
 use calderawp\interop\Contracts\DoesProcesses;
 use calderawp\interop\Submissions\Collection;
 use calderawp\interop\Submissions\Submission;
@@ -22,7 +22,7 @@ class Dispatcher
 	protected $processor;
 
 	/**
-	 * @var CalderaForms
+	 * @var CalderaFormsInterop
 	 */
 	protected $calderaFormsApp;
 	/**
@@ -30,7 +30,7 @@ class Dispatcher
 	 */
 	protected $submissionId;
 
-	public function __construct(DoesProcesses $processor, CalderaFormsTwo $calderaFormsApp, $submissionId)
+	public function __construct(DoesProcesses $processor, CalderaFormsInteropComponent $calderaFormsApp, $submissionId)
 	{
 		$this->processor = $processor;
 		$this->calderaFormsApp = $calderaFormsApp;
@@ -64,6 +64,5 @@ class Dispatcher
 	 */
 	private function getSubmission()
 	{
-
 	}
 }

@@ -19,10 +19,10 @@ interface InteroperableEntity extends Interoperable, IdentifiesById
 	 */
 	public static function fromArray(array $data);
 
-    /**
-     * Get the attributes collection
-     *
-     * @return array
-     */
+	/**
+	 * Get the attributes collection
+	 *
+	 * @return array
+	 */
 	public function getAttributes();
 }

@@ -11,7 +11,8 @@ use calderawp\interop\CalderaForms\Form\FormModel;
 use calderawp\interop\CalderaForms\Processors\ProcessorTypeEntity;
 use calderawp\interop\CalderaForms\Settings\GeneralSettingsEntity;
 use calderawp\interop\CalderaForms\Settings\PrivacySettingsEntity;
-use calderawp\interop\Contracts\CalderaFormsTwo;
+use calderawp\interop\Contracts\CalderaFormsInteropComponent;
+use calderawp\interop\Contracts\CalderaFormsInteroperableComponent;
 
 /**
  * Class CalderaForms
@@ -20,7 +21,7 @@ use calderawp\interop\Contracts\CalderaFormsTwo;
  *
  * @package calderawp\interop
  */
-class CalderaForms extends \calderawp\CalderaContainers\Container implements CalderaFormsTwo
+class CalderaFormsInterop extends \calderawp\CalderaContainers\Container implements CalderaFormsInteroperableComponent
 {
 
 	const TRANSFORMER = 'TRANSFORMER';
@@ -96,14 +97,14 @@ class CalderaForms extends \calderawp\CalderaContainers\Container implements Cal
 
 
 
-	public function find( $entityType, $id ){
-       return new FormModel((new FormEntity())->setId($id), $this );
-    }
+	public function find($entityType, $id)
+	{
+		return new FormModel((new FormEntity())->setId($id), $this);
+	}
 
-    public function findBy( $entityType, $field, $value )
-    {
-        
-    }
+	public function findBy($entityType, $field, $value)
+	{
+	}
 
 	/**
 	 * @return GeneralSettingsEntity
@@ -148,18 +149,19 @@ class CalderaForms extends \calderawp\CalderaContainers\Container implements Cal
 		return $this->getFormsCollection()->addEntity($form);
 	}
 
-    /**
-     * Create a new, empty FormEntity
-     *
-     * @param string $id
-     * @return FormEntity
-     */
-	public function createForm($id = ''){
-	    if( ! $id ){
-	        $id = uniqid('cf' );
-        }
-	    return (new FormEntity() )->setId($id);
-    }
+	/**
+	 * Create a new, empty FormEntity
+	 *
+	 * @param string $id
+	 * @return FormEntity
+	 */
+	public function createForm($id = '')
+	{
+		if (! $id) {
+			$id = uniqid('cf');
+		}
+		return (new FormEntity() )->setId($id);
+	}
 
 	/**
 	 * Get a form from the collection

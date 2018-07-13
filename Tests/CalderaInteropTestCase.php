@@ -1,7 +1,7 @@
 <?php
 namespace calderawp\interop\Tests;
 use calderawp\CalderaContainers\Service\Container;
-use calderawp\interop\CalderaForms;
+use calderawp\interop\CalderaFormsInterop;
 use calderawp\interop\CalderaForms\Form\FormEntity as FormEntity;
 
 abstract class CalderaInteropTestCase extends \PHPUnit_Framework_TestCase
@@ -20,10 +20,10 @@ abstract class CalderaInteropTestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return CalderaForms
+     * @return CalderaFormsInterop
      */
     protected function calderaFormsFactory(){
-        return new CalderaForms( new Container() );
+        return new CalderaFormsInterop( new Container() );
     }
 
 }
