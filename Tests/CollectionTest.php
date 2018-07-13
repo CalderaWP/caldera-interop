@@ -1,18 +1,21 @@
 <?php
 
-
 namespace calderawp\interop\Tests;
-
 
 use calderawp\interop\CalderaForms\Entry\EntryEntity;
 use calderawp\interop\Collection;
 
+/**
+ * Class CollectionTest
+ *
+ * @covers \calderawp\interop\Collection
+ */
 class CollectionTest extends CalderaInteropTestCase
 {
 
     /**
-     * @covers \calderawp\interop\Collection::reset()
-     * @covers \calderawp\interop\Collection::$elements
+     * @covers Collection::reset()
+     * @covers Collection::$elements
      */
     public function testReset()
     {
