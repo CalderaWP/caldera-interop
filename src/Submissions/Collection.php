@@ -3,11 +3,11 @@
 
 namespace calderawp\interop\Submissions;
 
-use calderawp\interop\CalInterop;
+use calderawp\interop\CalderaFormsInterop;
 
 class Collection
 {
-	/** @var  CalInterop */
+	/** @var  CalderaFormsInterop */
 	protected $calderaFormsApp;
 	public function __construct()
 	{

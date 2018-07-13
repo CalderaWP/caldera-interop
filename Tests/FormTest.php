@@ -7,7 +7,7 @@ use calderawp\CalderaContainers\Service\Container;
 use calderawp\interop\ArrayLike\Form;
 use calderawp\interop\Attribute;
 use calderawp\interop\CalderaForms\Form\FormModel;
-use calderawp\interop\CalInterop;
+use calderawp\interop\CalderaFormsInterop;
 use calderawp\interop\CalderaForms\Form\FormEntity as FormEntity;
 use calderawp\interop\Collection;
 
@@ -247,8 +247,8 @@ class FormTest extends CalderaInteropTestCase
      * Testing adding forms to collection
      *
      * @covers \calderawp\interop\Collection::addEntity()
-     * @covers \calderawp\interop\CalInterop::getFormsCollection()
-     * @covers \calderawp\interop\CalInterop::setupServiceContainer()
+     * @covers \calderawp\interop\CalderaFormsInterop::getFormsCollection()
+     * @covers \calderawp\interop\CalderaFormsInterop::setupServiceContainer()
      */
     public function testAddToCollection()
     {

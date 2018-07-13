@@ -13,6 +13,6 @@ By doing so, the source of state in the application is totally black boxed. The 
 
 A component can contain zero or more components. Components may be contained by zero or more components. `CalderaFormsInteroperableComponent` is an interface extending the base component that provides `InteroperableEntities` and `InteroperableModels`. This code is adapted from the WordPress plugin Caldera Forms' version 1 code base. This will allow us to have a defined schema for Caldera Forms forms and entry data that will have the same API as new data types.
  
-The  `CalderaFormsInteroperableComponent` reference implementation is in the WordPress plugin Caldera Forms (2.0) and the web app Caldera Forms Pro. Some of this architecture is already in use in Caldera Forms Pro microservices. IT is designed to pair well with the caldera-js set of npm modules.
+The  `CalderaFormsInteroperableComponent` reference implementation is `CalderaFormsInterop`, which will be implimented in the WordPress plugin Caldera Forms (2.0) and the web app Caldera Forms Pro. Some of this architecture is already in use in Caldera Forms Pro microservices. IT is designed to pair well with the caldera-js set of npm modules.
 
 A "Caldera Forms" uses a `CalderaFormsInteroperableComponent` and a `CalderaFormsUiComponent`. For `CalderaFormsUiComponent` the interface is defined in this library. Concrete implementation is out of scope.

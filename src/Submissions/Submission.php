@@ -3,7 +3,7 @@
 
 namespace calderawp\interop\Submissions;
 
-use calderawp\interop\CalInterop;
+use calderawp\interop\CalderaFormsInterop;
 use calderawp\interop\CalderaForms\Form\FormEntity;
 use calderawp\interop\Contracts\CalderaFormsInteropComponent;
 
@@ -12,7 +12,7 @@ class Submission
 	use HasId;
 
 	/**
-	 * @var CalInterop
+	 * @var CalderaFormsInterop
 	 */
 	private $calderaForms;
 

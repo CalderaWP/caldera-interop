@@ -17,11 +17,11 @@ use calderawp\interop\Contracts\CalderaInteroperableComponent;
 /**
  * Class CalderaForms
  *
- * The "app" that epsulates Caldera Forms interop features
+ * The "app" that encapsulates Caldera Forms interop features
  *
  * @package calderawp\interop
  */
-class CalInterop extends \calderawp\CalderaContainers\Container implements CalderaInteroperableComponent
+class CalderaFormsInterop extends \calderawp\CalderaContainers\Container implements CalderaInteroperableComponent
 {
 
 	const TRANSFORMER = 'TRANSFORMER';

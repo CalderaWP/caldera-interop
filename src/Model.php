@@ -23,7 +23,7 @@ abstract class Model implements InteroperableModel
 	protected $entity;
 
 	/**
-	 * @var CalInterop
+	 * @var CalderaFormsInterop
 	 */
 	protected $calderaForms;
 
