@@ -6,7 +6,7 @@ namespace calderawp\interop\Contracts;
  *
  * Contact that components that load the UI client for `CalderaFormsInteroperableComponent`s MUST implement
  */
-interface CalderaFormsUiComponent extends CalderaInteroperableComponent
+interface CalderaFormsFormsUiComponent extends CalderaInteroperableComponent
 {
 	/**
 	 * Get the root URI for the assets for this UI component

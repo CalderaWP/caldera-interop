@@ -4,7 +4,7 @@
 namespace calderawp\interop;
 
 use calderawp\interop\Contracts\CalderaFormsInteropComponent;
-use calderawp\interop\Contracts\CalderaFormsInteroperableComponent;
+use calderawp\interop\Contracts\CalderaInteroperableComponent;
 use calderawp\interop\Contracts\InteroperableEntity;
 use calderawp\interop\Contracts\InteroperableModel;
 use calderawp\interop\Http\Response;
@@ -23,23 +23,23 @@ abstract class Model implements InteroperableModel
 	protected $entity;
 
 	/**
-	 * @var CalderaFormsInterop
+	 * @var CalInterop
 	 */
 	protected $calderaForms;
 
 	/**
 	 * Model constructor.
 	 * @param InteroperableEntity $entity
-	 * @param CalderaFormsInteroperableComponent $calderaForms
+	 * @param CalderaInteroperableComponent $calderaForms
 	 */
-	public function __construct(InteroperableEntity $entity, CalderaFormsInteroperableComponent $calderaForms)
+	public function __construct(InteroperableEntity $entity, CalderaInteroperableComponent $calderaForms)
 	{
 		$this->entity = $entity;
 		$this->calderaForms = $calderaForms;
 	}
 
 	/** @inheritdoc */
-	public static function fromEntity(InteroperableEntity $entity, CalderaFormsInteroperableComponent $calderaForms)
+	public static function fromEntity(InteroperableEntity $entity, CalderaInteroperableComponent $calderaForms)
 	{
 		return new static($entity, $calderaForms);
 	}

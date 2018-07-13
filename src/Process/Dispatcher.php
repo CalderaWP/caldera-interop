@@ -3,7 +3,7 @@
 
 namespace calderawp\interop\Process;
 
-use calderawp\interop\CalderaFormsInterop;
+use calderawp\interop\CalInterop;
 use calderawp\interop\Contracts\CalderaFormsInteropComponent;
 use calderawp\interop\Contracts\DoesProcesses;
 use calderawp\interop\Submissions\Collection;
@@ -22,7 +22,7 @@ class Dispatcher
 	protected $processor;
 
 	/**
-	 * @var CalderaFormsInterop
+	 * @var CalInterop
 	 */
 	protected $calderaFormsApp;
 	/**

@@ -17,8 +17,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 {
 
     /**
-     * @covers \calderawp\interop\CalderaFormsInterop::setupServiceContainer()
-     * @covers \calderawp\interop\CalderaFormsInterop::getFormsCollection()
+     * @covers \calderawp\interop\CalInterop::setupServiceContainer()
+     * @covers \calderawp\interop\CalInterop::getFormsCollection()
      */
     public function testGetFormsCollection()
     {
@@ -27,7 +27,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
     }
 
     /**
-     * @covers \calderawp\interop\CalderaFormsInterop::collectionFactory()
+     * @covers \calderawp\interop\CalInterop::collectionFactory()
      */
     public function testCollectionFactory()
     {
@@ -38,8 +38,8 @@ class CalderaFormsTest extends CalderaInteropTestCase
 
 
     /**
-     * @covers \calderawp\interop\CalderaFormsInterop::addForm()
-     * @covers \calderawp\interop\CalderaFormsInterop::getForm()
+     * @covers \calderawp\interop\CalInterop::addForm()
+     * @covers \calderawp\interop\CalInterop::getForm()
      */
     public function testGetForm()
     {
@@ -54,7 +54,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
     /**
      * Test getting general settings from main container
      *
-     * @covers \calderawp\interop\CalderaFormsInterop::getGeneralSettings()
+     * @covers \calderawp\interop\CalInterop::getGeneralSettings()
      */
     public function testGetGeneralSettings()
     {
@@ -67,7 +67,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
     /**
      * Test getting new Entry from main container
      *
-     * @covers \calderawp\interop\CalderaFormsInterop::newEntry()
+     * @covers \calderawp\interop\CalInterop::newEntry()
      */
     public function testGetNewEntry()
     {
@@ -80,7 +80,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
     /**
      * Test getting  new entry field from main container
      *
-     * @covers \calderawp\interop\CalderaFormsInterop::newEntryField()
+     * @covers \calderawp\interop\CalInterop::newEntryField()
      */
     public function testGetNewEntryField()
     {
@@ -93,7 +93,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
     /**
      * Test getting  new entry meta field from main container
      *
-     * @covers \calderawp\interop\CalderaFormsInterop::newEntryMetaField()
+     * @covers \calderawp\interop\CalInterop::newEntryMetaField()
      */
     public function testGetNewEntryMetaField()
     {
@@ -105,7 +105,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
     /**
      * Test getting  processors collection from the main container
      *
-     * @covers \calderawp\interop\CalderaFormsInterop::getProcessorTypesCollection()
+     * @covers \calderawp\interop\CalInterop::getProcessorTypesCollection()
      */
     public function testGetProcessorsCollection()
     {
