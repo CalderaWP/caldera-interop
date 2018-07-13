@@ -12,6 +12,7 @@ use calderawp\interop\CalderaForms\Processors\ProcessorTypeEntity;
 use calderawp\interop\CalderaForms\Settings\GeneralSettingsEntity;
 use calderawp\interop\CalderaForms\Settings\PrivacySettingsEntity;
 use calderawp\interop\Contracts\CalderaFormsInteropComponent;
+use calderawp\interop\Contracts\CalderaFormsInteroperableComponent;
 use calderawp\interop\Contracts\CalderaInteroperableComponent;
 
 /**
@@ -21,7 +22,7 @@ use calderawp\interop\Contracts\CalderaInteroperableComponent;
  *
  * @package calderawp\interop
  */
-class CalderaFormsInterop extends \calderawp\CalderaContainers\Container implements CalderaInteroperableComponent
+class CalderaFormsInterop extends \calderawp\CalderaContainers\Container implements CalderaFormsInteroperableComponent
 {
 
 	const TRANSFORMER = 'TRANSFORMER';
