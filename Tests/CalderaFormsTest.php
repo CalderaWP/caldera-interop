@@ -24,6 +24,17 @@ class CalderaFormsTest extends CalderaInteropTestCase
     {
         $calderaForms = $this->calderaFormsFactory();
         $this->assertEquals(FormEntity::class, $calderaForms->getFormsCollection()->getType());
+        $this->assertEquals(Collection::class, get_class($calderaForms->getFormsCollection()));
+    }
+
+    /**
+     * @covers \calderawp\interop\CalderaFormsInterop::setupServiceContainer()
+     * @covers \calderawp\interop\CalderaFormsInterop::getFormsCollection()
+     */
+    public function testFormsCollectionSingleton()
+    {
+        $calderaForms = $this->calderaFormsFactory();
+        $this->assertSame($calderaForms->getFormsCollection(), $calderaForms->getFormsCollection());
     }
 
     /**
@@ -59,9 +70,24 @@ class CalderaFormsTest extends CalderaInteropTestCase
     public function testGetGeneralSettings()
     {
         $calderaForms = $this->calderaFormsFactory();
-        $this->assertSame(GeneralSettingsEntity::class,
-            get_class($calderaForms->getGeneralSettings()));
+        $this->assertSame(
+            GeneralSettingsEntity::class,
+            get_class($calderaForms->getGeneralSettings())
+        );
+    }
 
+    /**
+     * Test getting general settings from main container is same instance each time
+     *
+     * @covers \calderawp\interop\CalderaFormsInterop::getGeneralSettings()
+     */
+    public function testGetGeneralSettingsSingleton()
+    {
+        $calderaForms = $this->calderaFormsFactory();
+        $this->assertSame(
+            $calderaForms->getGeneralSettings(),
+            $calderaForms->getGeneralSettings()
+        );
     }
 
     /**
@@ -102,6 +128,7 @@ class CalderaFormsTest extends CalderaInteropTestCase
             get_class($calderaForms->newEntryMetaField()));
 
     }
+
     /**
      * Test getting  processors collection from the main container
      *
