@@ -44,4 +44,16 @@ class Collection extends ArrayCollection implements InteroperableCollection
 		$this->set($entity->getId(), $entity);
 		return $this;
 	}
+
+
+	/** @inheritdoc */
+    /**
+     * @param array $items
+     * @return $this
+     */
+	public function reset(array $items ){
+	    $this->clear();
+	    $this->createFrom($items);
+	    return $this;
+    }
 }
