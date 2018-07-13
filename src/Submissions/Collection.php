@@ -3,12 +3,11 @@
 
 namespace calderawp\interop\Submissions;
 
-use calderawp\interop\CalderaForms;
-
+use calderawp\interop\CalderaFormsInterop;
 
 class Collection
 {
-	/** @var  CalderaForms */
+	/** @var  CalderaFormsInterop */
 	protected $calderaFormsApp;
 	public function __construct()
 	{
@@ -27,6 +26,5 @@ class Collection
 	 */
 	public function startNew(array $rawData, Form $form, $id)
 	{
-
 	}
 }

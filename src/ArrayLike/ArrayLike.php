@@ -30,5 +30,4 @@ abstract class ArrayLike implements \ArrayAccess, Arrayable
 	{
 		return $this->items;
 	}
-	
 }

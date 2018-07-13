@@ -26,21 +26,21 @@ class FormEntity extends \calderawp\interop\Entity
 				'default' => '',
 				'sanitize' => '',
 				'validate' => 'is_string',
-                'description' => 'The form\'s description',
+				'description' => 'The form\'s description',
 			],
 			'fields' => [
 				'type' => 'array',
 				'default' => [],
 				'sanitize' => '',
 				'validate' => 'is_array',
-                'description' => 'The form\'s fields collection',
+				'description' => 'The form\'s fields collection',
 			],
 			'processors' => [
 				'type' => 'array',
 				'default' => [],
 				'sanitize' => '',
 				'validate' => 'is_array',
-                'description' => 'The form\'s processors collection',
+				'description' => 'The form\'s processors collection',
 			]
 		]);
 	}

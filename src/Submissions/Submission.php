@@ -3,18 +3,16 @@
 
 namespace calderawp\interop\Submissions;
 
-
-
-use calderawp\interop\CalderaForms;
+use calderawp\interop\CalderaFormsInterop;
 use calderawp\interop\CalderaForms\Form\FormEntity;
-use calderawp\interop\Contracts\CalderaFormsTwo;
+use calderawp\interop\Contracts\CalderaFormsInteropComponent;
 
 class Submission
 {
 	use HasId;
 
 	/**
-	 * @var CalderaForms
+	 * @var CalderaFormsInterop
 	 */
 	private $calderaForms;
 
@@ -34,12 +32,11 @@ class Submission
 	 */
 	protected $entry;
 
-	public function __construct(array $rawData, FormEntity $form, CalderaFormsTwo $calderaForms )
+	public function __construct(array $rawData, FormEntity $form, CalderaFormsInteropComponent $calderaForms)
 	{
 		$this->calderaForms = $calderaForms;
 		$this->form = $form;
 		$this->rawData = $rawData;
-
 	}
 
 	/**
@@ -63,7 +60,4 @@ class Submission
 		$this->id = $id;
 		return $this;
 	}
-
-
-
 }

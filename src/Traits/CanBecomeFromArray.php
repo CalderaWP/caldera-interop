@@ -10,19 +10,18 @@ namespace calderawp\interop\Traits;
  */
 trait CanBecomeFromArray
 {
-    /**
-     * Create from array
-     *
-     * @param  array $items
-     * @return static
-     */
-    public static function fromArray(array $items)
-    {
-        $obj = new static($items);
-        foreach ($items as $key => $item) {
-            $obj->__set($key, $item);
-        }
-        return $obj;
-    }
-
+	/**
+	 * Create from array
+	 *
+	 * @param  array $items
+	 * @return static
+	 */
+	public static function fromArray(array $items)
+	{
+		$obj = new static($items);
+		foreach ($items as $key => $item) {
+			$obj->__set($key, $item);
+		}
+		return $obj;
+	}
 }
