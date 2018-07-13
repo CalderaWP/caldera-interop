@@ -3,6 +3,7 @@
 
 namespace calderawp\interop;
 
+use calderawp\interop\Contracts\Interoperable;
 use calderawp\interop\Contracts\InteroperableCollection;
 use calderawp\interop\Contracts\InteroperableEntity;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -47,13 +48,30 @@ class Collection extends ArrayCollection implements InteroperableCollection
 
 
 	/** @inheritdoc */
-    /**
-     * @param array $items
-     * @return $this
-     */
 	public function reset(array $items ){
 	    $this->clear();
 	    $this->createFrom($items);
 	    return $this;
+    }
+
+    /** @inheritdoc */
+    public function toArray()
+    {
+        $items = [];
+        foreach ( $this as $item ){
+            if( is_a( $item, Interoperable::class ) ){
+                $items[ $item->getId() ] = $item;
+            }else{
+                if( array_key_exists( 'ID', $item) ){
+                    $items[$item['ID']] = $item;
+                }elseif( array_key_exists( 'id', $item) ){
+                    $items[$item['id']] = $item;
+                }else{
+                    $items[] = $item;
+                }
+            }
+        }
+
+        return $items;
     }
 }
