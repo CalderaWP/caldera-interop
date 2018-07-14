@@ -3,6 +3,8 @@
 
 namespace calderawp\interop\Contracts;
 
+use calderawp\interop\Attribute;
+
 interface InteroperableAttribute extends Interoperable
 {
 

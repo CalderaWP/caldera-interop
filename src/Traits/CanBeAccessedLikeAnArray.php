@@ -3,12 +3,32 @@
 
 namespace calderawp\interop\Traits;
 
-trait CanBeAcessedLikeAnArray
+/**
+ * Trait CanBeAccessedLikeAnArray
+ * Makes objects into interoperable ArrayAccess objects
+ */
+trait CanBeAccessedLikeAnArray
 {
 	/**
 	 * @var array
 	 */
 	private $items = [];
+
+
+    /**
+     * @inheritdoc
+     */
+	public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
+    /**
+     * @inheritdoc
+     */
+	public function toArray(){
+	    return $this->items;
+    }
+    
 	/**
 	 * @inheritdoc
 	 */

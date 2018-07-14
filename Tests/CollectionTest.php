@@ -96,5 +96,4 @@ class CollectionTest extends CalderaInteropTestCase
         $this->assertArrayHasKey($idLower, $collection->toArray());
     }
 
-
 }

@@ -4,7 +4,7 @@
 namespace calderawp\interop\ArrayLike;
 
 use calderawp\interop\Interfaces\Arrayable;
-use calderawp\interop\Traits\CanBeAcessedLikeAnArray;
+use calderawp\interop\Traits\CanBeAccessedLikeAnArray;
 
 /**
  * Class ArrayLike
@@ -16,7 +16,7 @@ use calderawp\interop\Traits\CanBeAcessedLikeAnArray;
 abstract class ArrayLike implements \ArrayAccess, Arrayable
 {
 
-	use CanBeAcessedLikeAnArray;
+	use CanBeAccessedLikeAnArray;
 
 	public function __construct(array $items = [])
 	{
