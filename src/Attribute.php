@@ -16,232 +16,236 @@ use calderawp\interop\Traits\HasId;
 class Attribute implements InteroperableAttribute, \ArrayAccess
 {
 
-    use CanBecomeFromArray, CanBeAccessedLikeAnArray;
-    /**
-     * The unique identifier for the attribute
-     * @var string
-     */
-    protected $name;
+	use CanBecomeFromArray, CanBeAccessedLikeAnArray;
+	/**
+	 * The unique identifier for the attribute
+	 * @var string
+	 */
+	protected $name;
 
-    /**
-     * Defautl value for attribute
-     *
-     * @var mixed
-     */
-    protected $default;
-    /**
-     * Sanization callback for attribute
-     *
-     * @var callable|null
-     */
-    protected $sanitize;
-    /**
-     * Validation callback for attribute
-     *
-     * @var callable|null
-     */
-    protected $validate;
+	/**
+	 * Defautl value for attribute
+	 *
+	 * @var mixed
+	 */
+	protected $default;
+	/**
+	 * Sanization callback for attribute
+	 *
+	 * @var callable|null
+	 */
+	protected $sanitize;
+	/**
+	 * Validation callback for attribute
+	 *
+	 * @var callable|null
+	 */
+	protected $validate;
 
-    /**
-     * @var bool
-     */
-    protected $isRequired;
-    /**
-     * @var string
-     */
-    protected $description;
+	/**
+	 * @var bool
+	 */
+	protected $isRequired;
+	/**
+	 * @var string
+	 */
+	protected $description;
 
-    /**
-     * @var array
-     */
-    protected $enum;
+	/**
+	 * @var array
+	 */
+	protected $enum;
 
-    /**
-     * @var string
-     */
-    protected $type;
+	/**
+	 * @var string
+	 */
+	protected $type;
 
-    /**
-     * @return mixed
-     */
-    public function getisRequired()
-    {
-        return $this->isRequired;
-    }
+	/**
+	 * @return mixed
+	 */
+	public function getisRequired()
+	{
+		return $this->isRequired;
+	}
 
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
+	/**
+	 * @return string
+	 */
+	public function getType()
+	{
+		return $this->type;
+	}
 
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
+	/**
+	 * @param string $type
+	 * @return $his
+	 */
+	public function setType($type)
+	{
+		$this->type = $type;
+		return $this;
+	}
 
-    /**
-     * @param mixed $isRequired
-     */
-    public function setIsRequired($isRequired)
-    {
-        $this->isRequired = $isRequired;
-    }
+	/**
+	 * @param mixed $isRequired
+	 * @return $his
+	 */
+	public function setIsRequired($isRequired)
+	{
+		$this->isRequired = $isRequired;
+		return $this;
+	}
 
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-
-    /**
-     * @param string $description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->offsetSet('description', $description);
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getEnum()
-    {
-        return $this->enum;
-    }
-
-    /**
-     * @param array $enum
-     * @return  $this
-     */
-    public function setEnum($enum)
-    {
-        $this->enum = $enum;
-        $this->offsetSet('enum', $this->enum);
-        return $this;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function __get($name)
-    {
-        if (property_exists($this, $name)) {
-            return $this->offsetGet($name);
-        }
-    }
+	/**
+	 * @return mixed
+	 */
+	public function getDescription()
+	{
+		return $this->description;
+	}
 
 
-    /** @inheritdoc */
-    public function toArray()
-    {
-        $array = [];
-        foreach (array_keys(get_object_vars($this)) as $prop) {
-            $array[$prop] = $this->offsetGet($prop);
-        }
-        return $array;
-    }
+	/**
+	 * @param string $description
+	 * @return $this
+	 */
+	public function setDescription($description)
+	{
+		$this->offsetSet('description', $description);
+		$this->description = $description;
+		return $this;
+	}
 
-    public function __set($name, $value)
-    {
-        if (property_exists($this, $name)) {
-            $this->$name = $value;
-            $this->offsetSet($name, $value);
-        }
-        return $this;
-    }
+	/**
+	 * @return array
+	 */
+	public function getEnum()
+	{
+		return $this->enum;
+	}
 
-    /** @inheritdoc */
-    public function jsonSerialize()
-    {
-        return $this->toArray();
-    }
+	/**
+	 * @param array $enum
+	 * @return  $this
+	 */
+	public function setEnum($enum)
+	{
+		$this->enum = $enum;
+		$this->offsetSet('enum', $this->enum);
+		return $this;
+	}
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->offsetGet('name');
-    }
+	/**
+	 * @inheritDoc
+	 */
+	public function __get($name)
+	{
+		if (property_exists($this, $name)) {
+			return $this->offsetGet($name);
+		}
+	}
 
-    /**
-     * @param string $name
-     * @return Attribute
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        $this->offsetSet('name', $name);
-        return $this;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getDefault()
-    {
-        return $this->offsetGet('default');
-    }
+	/** @inheritdoc */
+	public function toArray()
+	{
+		$array = [];
+		foreach (array_keys(get_object_vars($this)) as $prop) {
+			$array[$prop] = $this->offsetGet($prop);
+		}
+		return $array;
+	}
 
-    /**
-     * @param mixed $default
-     * @return Attribute
-     */
-    public function setDefault($default)
-    {
-        $this->default = $default;
-        return $this->offsetSet('default', $default);
+	public function __set($name, $value)
+	{
+		if (property_exists($this, $name)) {
+			$this->$name = $value;
+			$this->offsetSet($name, $value);
+		}
+		return $this;
+	}
 
-        return $this;
-    }
+	/** @inheritdoc */
+	public function jsonSerialize()
+	{
+		return $this->toArray();
+	}
 
-    /**
-     * @return callable|null
-     */
-    public function getSanitize()
-    {
-        return $this->offsetGet('sanitize');
-    }
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->offsetGet('name');
+	}
 
-    /**
-     * @param callable|null $sanitize
-     * @return Attribute
-     */
-    public function setSanitize($sanitize)
-    {
-        $this->sanitize = $sanitize;
-        $this->offsetSet('sanitize', $sanitize);
-        return $this;
-    }
+	/**
+	 * @param string $name
+	 * @return Attribute
+	 */
+	public function setName($name)
+	{
+		$this->name = $name;
+		$this->offsetSet('name', $name);
+		return $this;
+	}
 
-    /**
-     * @return callable|null
-     */
-    public function getValidate()
-    {
-        return $this->offsetGet('validate');
-    }
+	/**
+	 * @return mixed
+	 */
+	public function getDefault()
+	{
+		return $this->offsetGet('default');
+	}
 
-    /**
-     * @param callable|null $validate
-     * @return Attribute
-     */
-    public function setValidate($validate)
-    {
-        $this->validate = $validate;
-        $this->offsetSet('validate', $validate);
-        return $this;
-    }
+	/**
+	 * @param mixed $default
+	 * @return Attribute
+	 */
+	public function setDefault($default)
+	{
+		$this->default = $default;
+		return $this->offsetSet('default', $default);
+
+		return $this;
+	}
+
+	/**
+	 * @return callable|null
+	 */
+	public function getSanitize()
+	{
+		return $this->offsetGet('sanitize');
+	}
+
+	/**
+	 * @param callable|null $sanitize
+	 * @return Attribute
+	 */
+	public function setSanitize($sanitize)
+	{
+		$this->sanitize = $sanitize;
+		$this->offsetSet('sanitize', $sanitize);
+		return $this;
+	}
+
+	/**
+	 * @return callable|null
+	 */
+	public function getValidate()
+	{
+		return $this->offsetGet('validate');
+	}
+
+	/**
+	 * @param callable|null $validate
+	 * @return Attribute
+	 */
+	public function setValidate($validate)
+	{
+		$this->validate = $validate;
+		$this->offsetSet('validate', $validate);
+		return $this;
+	}
 }

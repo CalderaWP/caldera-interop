@@ -15,20 +15,21 @@ trait CanBeAccessedLikeAnArray
 	private $items = [];
 
 
-    /**
-     * @inheritdoc
-     */
+	/**
+	 * @inheritdoc
+	 */
 	public function jsonSerialize()
-    {
-        return $this->toArray();
-    }
-    /**
-     * @inheritdoc
-     */
-	public function toArray(){
-	    return $this->items;
-    }
-    
+	{
+		return $this->toArray();
+	}
+	/**
+	 * @inheritdoc
+	 */
+	public function toArray()
+	{
+		return $this->items;
+	}
+	
 	/**
 	 * @inheritdoc
 	 */

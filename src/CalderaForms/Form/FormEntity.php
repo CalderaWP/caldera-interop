@@ -21,20 +21,20 @@ class FormEntity extends \calderawp\interop\Entity
 				'validate' => 'is_string',
 				'description' => 'The form\'s name',
 			],
-            'form_id' => [
-                'type' => 'string',
-                'default' => $this->getId(),
-                'sanitize' => '',
-                'validate' => 'is_string',
-                'description' => 'The form ID',
-            ],
-            'db_id' => [
-                'type' => 'integer',
-                'default' => $this->getId(),
-                'sanitize' => '',
-                'validate' => 'is_integer',
-                'description' => 'This copy of the form\'s database ID',
-            ],
+			'form_id' => [
+				'type' => 'string',
+				'default' => $this->getId(),
+				'sanitize' => '',
+				'validate' => 'is_string',
+				'description' => 'The form ID',
+			],
+			'db_id' => [
+				'type' => 'integer',
+				'default' => $this->getId(),
+				'sanitize' => '',
+				'validate' => 'is_integer',
+				'description' => 'This copy of the form\'s database ID',
+			],
 			'description' => [
 				'type' => 'string',
 				'default' => '',
@@ -100,7 +100,8 @@ class FormEntity extends \calderawp\interop\Entity
 		$this->setProp('fields', $fields);
 	}
 
-	public function getFormId(){
-	    return $this->getProp('form_id' );
-    }
+	public function getFormId()
+	{
+		return $this->getProp('form_id');
+	}
 }

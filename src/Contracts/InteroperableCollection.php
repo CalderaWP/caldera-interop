@@ -15,25 +15,25 @@ use Doctrine\Common\Collections\Collection;
  */
 interface InteroperableCollection extends Collection
 {
-    /**
-     * Set the type of entity being collected
-     *
-     * @param string $type The type identifier
-     * @return $this
-     */
-    public function setType($type);
+	/**
+	 * Set the type of entity being collected
+	 *
+	 * @param string $type The type identifier
+	 * @return $this
+	 */
+	public function setType($type);
 
-    /**
-     * Get the type of entity being collected
-     *
-     * @return string
-     */
-    public function getType();
+	/**
+	 * Get the type of entity being collected
+	 *
+	 * @return string
+	 */
+	public function getType();
 
-    /**
-     * Reset collection to a new set of items
-     * @param array $items
-     * @return $this
-     */
-    public function reset(array $items);
+	/**
+	 * Reset collection to a new set of items
+	 * @param array $items
+	 * @return $this
+	 */
+	public function reset(array $items);
 }
