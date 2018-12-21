@@ -7,7 +7,7 @@ use calderawp\interop\Tests\Mocks\MockProvidesId;
 class MockProvidesIdTest extends TestCase
 {
 	/**
-	 * @covers \calderawp\interop\Traits\ProvidesId::getId
+	 * @covers \calderawp\interop\Traits\ProvidesIdToModel::getId
 	 */
 	public function testGetIdWithString()
 	{
@@ -18,7 +18,7 @@ class MockProvidesIdTest extends TestCase
 	}
 
 	/**
-	 * @covers \calderawp\interop\Traits\ProvidesId::getId
+	 * @covers \calderawp\interop\Traits\ProvidesIdToModel::getId
 	 */
 	public function testGetIdWithInteger()
 	{
@@ -29,7 +29,7 @@ class MockProvidesIdTest extends TestCase
 	}
 
 	/**
-	 * @covers \calderawp\interop\Traits\ProvidesId::setId
+	 * @covers \calderawp\interop\Traits\ProvidesIdToModel::setId
 	 */
 	public function testSetId()
 	{

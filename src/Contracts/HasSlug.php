@@ -10,7 +10,7 @@ interface HasSlug
 	 *
 	 * @return string
 	 */
-	public function getSlug(): string ;
+	public function getSlug(): string;
 
 	/**
 	 * Set the setting

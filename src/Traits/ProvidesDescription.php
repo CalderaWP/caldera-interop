@@ -3,36 +3,27 @@
 
 namespace calderawp\interop\Traits;
 
-use calderawp\interop\Contracts\HasLabel;
+use calderawp\interop\Contracts\HasDescription;
 
-trait ProvidesLabel
+trait ProvidesDescription
 {
 
 	/**
 	 * @var string
 	 */
-	protected $label;
+	protected $description;
 
-	/**
-	 * Get the label
-	 *
-	 * @return string
-	 */
-	public function getLabel(): string
+	/** @inheritdoc */
+	public function getDescription(): string
 	{
-		return !empty($this->label) ? $this->label : '';
+		return !empty($this->description) ? $this->description : '';
 	}
 
-	/**
-	 * Set the label
-	 *
-	 * @param string $label
-	 *
-	 * @return HasLabel
-	 */
-	public function setLabel(string $label): HasLabel
+
+	/** @inheritdoc */
+	public function setDescription(string $description): HasDescription
 	{
-		$this->label = $label;
+		$this->description = $description;
 		return $this;
 	}
 }

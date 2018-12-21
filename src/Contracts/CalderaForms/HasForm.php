@@ -5,7 +5,6 @@ namespace calderawp\interop\Contracts\CalderaForms;
 
 use calderawp\interop\Contracts\InteroperableModelContract as Model;
 
-
 interface HasForm
 {
 

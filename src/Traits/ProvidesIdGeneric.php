@@ -5,7 +5,7 @@ namespace calderawp\interop\Traits;
 
 use calderawp\interop\Contracts\InteroperableModelContract as Model;
 
-trait ProvidesId
+trait ProvidesIdGeneric
 {
 	/**
 	 * @var string|int
@@ -29,7 +29,7 @@ trait ProvidesId
 	 *
 	 * @return Model
 	 */
-	public function setId($id): Model
+	public function setId($id)
 	{
 		$this->id = $id;
 		return $this;

@@ -11,7 +11,7 @@ trait ProvidesName
 	/**
 	 * @var string
 	 */
-	private $name;
+	protected $name;
 
 	/**
 	 * Get name

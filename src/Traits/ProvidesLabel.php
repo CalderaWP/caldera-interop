@@ -3,35 +3,36 @@
 
 namespace calderawp\interop\Traits;
 
-use calderawp\interop\Contracts\HasSlug;
+use calderawp\interop\Contracts\HasLabel;
 
-trait ProvidesSlug
+trait ProvidesLabel
 {
 
 	/**
 	 * @var string
 	 */
-	protected $slug;
+	protected $label;
+
 	/**
-	 * Get the slug
+	 * Get the label
 	 *
 	 * @return string
 	 */
-	public function getSlug(): string
+	public function getLabel(): string
 	{
-		return ! empty( $this->slug ) ? $this->slug : '';
+		return !empty($this->label) ? $this->label : '';
 	}
 
 	/**
-	 * Set the setting
+	 * Set the label
 	 *
-	 * @param string $slug
+	 * @param string $label
 	 *
-	 * @return HasSlug
+	 * @return HasLabel
 	 */
-	public function setSlug(string $slug): HasSlug
+	public function setLabel(string $label): HasLabel
 	{
-		$this->slug = $slug;
+		$this->label = $label;
 		return $this;
 	}
 }

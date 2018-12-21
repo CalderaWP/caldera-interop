@@ -3,22 +3,21 @@
 
 namespace calderawp\interop\Contracts;
 
-
-interface HasLabel
+interface HasDescription
 {
 	/**
-	 * Get the label
+	 * Get the description
 	 *
 	 * @return string
 	 */
-	public function getLabel(): string;
+	public function getDescription(): string;
 
 	/**
-	 * Set the label
+	 * Set the description
 	 *
-	 * @param string $label
+	 * @param string $description
 	 *
-	 * @return HasLabel
+	 * @return HasDescription
 	 */
-	public function setLabel(string $label): HasLabel;
+	public function setDescription(string $description): HasDescription;
 }

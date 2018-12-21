@@ -2,12 +2,11 @@
 
 
 namespace calderawp\interop\Tests\Mocks;
-use calderawp\interop\Contracts\InteroperableModelContract;
-use calderawp\interop\Traits\ProvidesId;
+use calderawp\interop\Contracts\HasId;
+use calderawp\interop\Traits\ProvidesIdToModel;
 
-class MockProvidesId extends MockCaldera
-	//implements InteroperableModelContract
+class MockProvidesId extends MockCaldera implements HasId
 {
-	use ProvidesId;
+	use ProvidesIdToModel;
 
 }

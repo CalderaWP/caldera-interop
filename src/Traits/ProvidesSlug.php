@@ -19,7 +19,7 @@ trait ProvidesSlug
 	 */
 	public function getSlug(): string
 	{
-		return ! empty( $this->slug ) ? $this->slug : '';
+		return ! empty($this->slug) ? $this->slug : '';
 	}
 
 	/**
