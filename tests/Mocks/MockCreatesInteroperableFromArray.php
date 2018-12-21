@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Tests\Mocks;
 
-
 use calderawp\interop\Traits\CreatesInteropModelFromArray;
 
 class MockCreatesInteroperableFromArray extends MockCaldera
@@ -16,8 +15,8 @@ class MockCreatesInteroperableFromArray extends MockCaldera
 	protected $otherProp;
 
 
-
-	public function setOtherProp(int $value){
+	public function setOtherProp(int $value)
+	{
 		$this->otherProp = 2 + $value;
 	}
 
