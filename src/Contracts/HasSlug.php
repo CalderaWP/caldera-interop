@@ -3,23 +3,21 @@
 
 namespace calderawp\interop\Contracts;
 
-use calderawp\interop\Contracts\CalderaContract;
-
-interface HasSetting
+interface HasSlug
 {
 	/**
-	 * Get the setting
+	 * Get the slug
 	 *
-	 * @return HasSetting
+	 * @return string
 	 */
-	public function getSetting(): HasSetting;
+	public function getSlug(): string ;
 
 	/**
 	 * Set the setting
 	 *
-	 * @param HasSetting $setting
+	 * @param string $slug
 	 *
-	 * @return CalderaContract
+	 * @return HasSlug
 	 */
-	public function setSetting(HasSetting $setting): CalderaContract;
+	public function setSlug(string $slug): HasSlug;
 }
