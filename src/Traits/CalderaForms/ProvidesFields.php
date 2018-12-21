@@ -27,7 +27,7 @@ trait ProvidesFields
 	 *
 	 * @return Caldera
 	 */
-	public function setFields(HasFields $fields): Caldera
+	public function setFields(HasFields $fields): HasFields
 	{
 		$this->fields = $fields;
 		return $this;

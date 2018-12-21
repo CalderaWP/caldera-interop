@@ -22,5 +22,5 @@ interface HasFields
 	 *
 	 * @return Caldera
 	 */
-	public function setFields(HasFields $fields):  Caldera;
+	public function setFields(HasFields $fields):  HasFields;
 }
