@@ -35,5 +35,4 @@ trait ProvidesName
 		$this->name = $name;
 		return$this;
 	}
-
 }

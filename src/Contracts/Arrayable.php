@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 interface Arrayable extends \JsonSerializable
 {
 
@@ -13,5 +12,4 @@ interface Arrayable extends \JsonSerializable
 	 * @return array
 	 */
 	public function toArray() : array;
-
 }

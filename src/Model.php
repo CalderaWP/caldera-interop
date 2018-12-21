@@ -3,7 +3,6 @@
 
 namespace calderawp\interop;
 
-
 use calderawp\interop\Traits\ConvertsInteropModelToArray;
 use calderawp\interop\Traits\CreatesInteropModelFromArray;
 use calderawp\interop\Contracts\InteroperableModelContract as ModelContract;

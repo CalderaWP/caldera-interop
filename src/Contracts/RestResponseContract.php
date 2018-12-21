@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 interface RestResponseContract
 {
 
@@ -19,5 +18,5 @@ interface RestResponseContract
 	 *
 	 * @return array
 	 */
-	public function getHeaders(): array ;
+	public function getHeaders(): array;
 }

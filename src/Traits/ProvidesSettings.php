@@ -32,7 +32,4 @@ trait ProvidesSettings
 		$this->settings = $settings;
 		return $this;
 	}
-
-
-
 }

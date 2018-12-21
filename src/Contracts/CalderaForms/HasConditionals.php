@@ -2,8 +2,8 @@
 
 
 namespace calderawp\interop\Contracts\CalderaForms;
-use calderawp\interop\Contracts\CalderaContract as Caldera;
 
+use calderawp\interop\Contracts\CalderaContract as Caldera;
 
 interface HasConditionals
 {

@@ -3,7 +3,6 @@
 
 namespace calderawp\interop;
 
-
 class Something
 {
 

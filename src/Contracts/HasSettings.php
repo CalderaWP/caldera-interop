@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop\Contracts;
+
 use calderawp\interop\Contracts\CalderaContract;
 
 interface HasSettings

@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop\Traits;
+
 use calderawp\interop\Contracts\InteroperableModelContract;
 use calderawp\interop\Contracts\InteroperableCollectionContract;
 
@@ -36,7 +37,6 @@ trait CollectsModels
 	public function has($id) : bool
 	{
 		return array_key_exists($id, $this->toArray());
-
 	}
 
 	/**

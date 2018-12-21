@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop\Traits;
+
 use calderawp\interop\Contracts\Interoperable;
 
 /**
@@ -29,12 +30,12 @@ trait CreatesCollectionFromArray
 	/** @inheritdoc */
 	public function __set($name, $value)
 	{
-		if( is_callable([$this,$this->getSetterName($name)])){
-			call_user_func([$this,$this->getSetterName($name)],$value);
+		if (is_callable([$this,$this->getSetterName($name)])) {
+			call_user_func([$this,$this->getSetterName($name)], $value);
 			return $this;
 		}
 
-		if( property_exists($this, $name ) ){
+		if (property_exists($this, $name)) {
 			$this->$name = $value;
 		}
 
@@ -51,6 +52,5 @@ trait CreatesCollectionFromArray
 	protected function getSetterName(string $name) : string
 	{
 		return  'set' . ucfirst(strtolower($name));
-
 	}
 }

@@ -16,7 +16,7 @@ trait ConvertsInteropModelToArray
 	public function toArray(): array
 	{
 		$array = [];
-		foreach (get_object_vars($this) as $prop => $value ){
+		foreach (get_object_vars($this) as $prop => $value) {
 			$array[$prop] = $this->$prop;
 		}
 
@@ -26,7 +26,7 @@ trait ConvertsInteropModelToArray
 	/** @inheritdoc */
 	public function __get($name)
 	{
-		if( is_callable([$this,$this->getGetterName($name)])){
+		if (is_callable([$this,$this->getGetterName($name)])) {
 			return call_user_func([$this,$this->getGetterName($name)]);
 		}
 	}
@@ -41,6 +41,5 @@ trait ConvertsInteropModelToArray
 	protected function getGetterName(string $name):string
 	{
 		return  'get' . ucfirst(strtolower($name));
-
 	}
 }

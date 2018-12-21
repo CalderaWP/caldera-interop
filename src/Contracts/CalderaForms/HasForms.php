@@ -2,8 +2,8 @@
 
 
 namespace calderawp\interop\Contracts\CalderaForms;
-use calderawp\interop\Contracts\CalderaContract as Caldera;
 
+use calderawp\interop\Contracts\CalderaContract as Caldera;
 
 interface HasForms
 {
@@ -22,6 +22,5 @@ interface HasForms
 	 *
 	 * @return Caldera
 	 */
-	public function setForms( HasForms $forms ): Caldera;
-
+	public function setForms(HasForms $forms): Caldera;
 }

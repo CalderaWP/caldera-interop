@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 interface InteroperableCollectionContract
 {
 
@@ -31,6 +30,4 @@ interface InteroperableCollectionContract
 	 * @return array
 	 */
 	public function toArray() : array;
-
-
 }

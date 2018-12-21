@@ -2,8 +2,8 @@
 
 
 namespace calderawp\interop\Traits;
-use calderawp\interop\Contracts\InteroperableModelContract as Model;
 
+use calderawp\interop\Contracts\InteroperableModelContract as Model;
 
 trait ProvidesId
 {
@@ -17,7 +17,8 @@ trait ProvidesId
 	 *
 	 * @return string|int
 	 */
-	public function getId(){
+	public function getId()
+	{
 		return $this->id;
 	}
 

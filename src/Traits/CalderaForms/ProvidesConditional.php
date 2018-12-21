@@ -31,6 +31,4 @@ trait ProvidesConditional
 		$this->conditional = $conditional;
 		return $this;
 	}
-
-
 }

@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop\Traits\CalderaForms;
+
 use calderawp\interop\Contracts\CalderaForms\HasForm;
 use calderawp\interop\Contracts\CalderaContract as Caldera;
 
