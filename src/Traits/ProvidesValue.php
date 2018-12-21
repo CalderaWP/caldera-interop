@@ -3,7 +3,7 @@
 
 namespace calderawp\interop\Traits;
 
-use calderawp\interop\Contracts\InteroperableEntityContract;
+use calderawp\interop\Contracts\HasValue;
 
 trait ProvidesValue
 {
@@ -33,7 +33,7 @@ trait ProvidesValue
 	 *
 	 * @return $this
 	 */
-	public function setValue($value)
+	public function setValue($value) :HasValue
 	{
 		$this->value = $value;
 		return $this;
@@ -44,9 +44,9 @@ trait ProvidesValue
 	 *
 	 * @param string|int|array $default
 	 *
-	 * @return InteroperableEntityContract
+	 * @return HasValue
 	 */
-	public function setDefault($default) : InteroperableEntityContract
+	public function setDefault($default) : HasValue
 	{
 		$this->default = $default;
 		return $this;

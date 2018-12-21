@@ -10,7 +10,7 @@ trait ProvidesId
 	/**
 	 * @var string|int
 	 */
-	private $id;
+	protected $id;
 
 	/**
 	 * Get the ID

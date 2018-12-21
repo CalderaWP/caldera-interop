@@ -3,7 +3,8 @@
 
 namespace calderawp\interop\Contracts\CalderaForms;
 
-use calderawp\interop\Contracts\CalderaContract as Caldera;
+use calderawp\interop\Contracts\InteroperableModelContract as Model;
+
 
 interface HasForm
 {
@@ -20,7 +21,7 @@ interface HasForm
 	 *
 	 * @param HasForm $form
 	 *
-	 * @return Caldera
+	 * @return Model
 	 */
-	public function setForm(HasForm $form): Caldera;
+	public function setForm(HasForm $form): Model;
 }

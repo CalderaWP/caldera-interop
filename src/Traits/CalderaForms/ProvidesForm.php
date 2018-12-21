@@ -5,6 +5,7 @@ namespace calderawp\interop\Traits\CalderaForms;
 
 use calderawp\interop\Contracts\CalderaForms\HasForm;
 use calderawp\interop\Contracts\CalderaContract as Caldera;
+use calderawp\interop\Contracts\InteroperableModelContract as Model;
 
 trait ProvidesForm
 {
@@ -30,7 +31,7 @@ trait ProvidesForm
 	 *
 	 * @return Caldera
 	 */
-	public function setForm(HasForm $form) : Caldera
+	public function setForm(HasForm $form) : Model
 	{
 		$this->form = $form;
 		return $this;

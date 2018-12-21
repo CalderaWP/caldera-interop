@@ -15,7 +15,9 @@ trait ConvertsInteropModelToArray
 	 */
 	public function toArray(): array
 	{
-		$array = [];
+		$array = [
+			'id' => $this->getId()
+		];
 		foreach (get_object_vars($this) as $prop => $value) {
 			$array[$prop] = $this->$prop;
 		}
