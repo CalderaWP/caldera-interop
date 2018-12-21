@@ -3,7 +3,9 @@
 
 namespace calderawp\interop\Contracts;
 
-interface InteroperableCollectionContract
+use calderawp\interop\Contracts\CreatesInteropCollectionsFromArray;
+
+interface InteroperableCollectionContract extends CreatesInteropCollectionsFromArray
 {
 
 	/**
@@ -30,4 +32,13 @@ interface InteroperableCollectionContract
 	 * @return array
 	 */
 	public function toArray() : array;
+
+	/**
+	 * Remove an item from collection
+	 *
+	 * @param InteroperableModelContract $item
+	 *
+	 * @return InteroperableCollectionContract
+	 */
+	public function removeItem(InteroperableModelContract $item) : InteroperableCollectionContract;
 }

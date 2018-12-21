@@ -3,8 +3,7 @@
 
 namespace calderawp\interop\Contracts;
 
-
-interface CreatesFromArray
+interface CreatesInteropModelsFromArray
 {
 	/**
 	 * Create object from array

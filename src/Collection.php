@@ -3,8 +3,11 @@
 
 namespace calderawp\interop;
 
+use calderawp\interop\Contracts\InteroperableCollectionContract;
+use calderawp\interop\Traits\CollectsModels;
+use calderawp\interop\Traits\CreatesCollectionFromArray;
 
-class Collection
+abstract class Collection implements InteroperableCollectionContract
 {
-
+	use CollectsModels;
 }

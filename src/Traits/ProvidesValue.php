@@ -2,8 +2,8 @@
 
 
 namespace calderawp\interop\Traits;
-use calderawp\interop\Contracts\InteroperableEntityContract;
 
+use calderawp\interop\Contracts\InteroperableEntityContract;
 
 trait ProvidesValue
 {

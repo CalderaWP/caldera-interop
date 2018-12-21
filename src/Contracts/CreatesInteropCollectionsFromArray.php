@@ -3,15 +3,16 @@
 
 namespace calderawp\interop\Contracts;
 
+use calderawp\interop\Contracts\InteroperableCollectionContract as Collection;
 
-interface CreatesInteropModelsFromArray
+interface CreatesInteropCollectionsFromArray
 {
 	/**
-	 * Create object from array
+	 * Create collection from array
 	 *
 	 * @param array $items
 	 *
 	 * @return static
 	 */
-	public static function fromArray(array  $items): Interoperable;
+	public static function fromArray(array  $items): Collection;
 }

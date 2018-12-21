@@ -3,30 +3,37 @@
 
 namespace calderawp\interop\Traits;
 
-use calderawp\interop\Contracts\InteroperableModelContract;
-use calderawp\interop\Contracts\InteroperableCollectionContract;
+use calderawp\interop\Contracts\InteroperableModelContract as Model;
+use calderawp\interop\Contracts\InteroperableCollectionContract as Collection;
 
 trait CollectsModels
 {
 
+
+	use CreatesCollectionFromArray;
+
 	/**
-	 * @var InteroperableModelContract[]
+	 * @var Model[]
 	 */
 	protected $items;
 
 	/**
 	 * Add item to collection
 	 *
-	 * @param InteroperableModelContract $item
+	 * @param Model $item
 	 *
-	 * @return InteroperableCollectionContract
+	 * @return Collection
 	 */
-	public function addItem(InteroperableModelContract $item) : InteroperableCollectionContract
+	public function addItem(Model $item) : Collection
 	{
 		call_user_func([$this,$this->setterName()], $item);
 		return $this;
 	}
 
+	protected function resetItems($items)
+	{
+		$this->items = $items;
+	}
 	/**
 	 * Is item in collection?
 	 *
@@ -37,6 +44,22 @@ trait CollectsModels
 	public function has($id) : bool
 	{
 		return array_key_exists($id, $this->toArray());
+	}
+
+	/**
+	 * Remove an item from collection
+	 *
+	 * @param Model $item
+	 *
+	 * @return Collection
+	 */
+	public function removeItem(Model $item) : Collection
+	{
+		if ($this->has($item->getId())) {
+			unset($this->items[$item->getId()]);
+		}
+
+		return $this;
 	}
 
 	/**

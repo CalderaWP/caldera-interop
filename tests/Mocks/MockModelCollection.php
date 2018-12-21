@@ -12,7 +12,7 @@ class MockModelCollection implements InteroperableCollectionContract
 {
 
 	use CollectsModels;
-
+	protected $fields;
 
 	public function setHats(InteroperableModelContract $model)
 	{

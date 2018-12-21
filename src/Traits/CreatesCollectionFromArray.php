@@ -4,6 +4,7 @@
 namespace calderawp\interop\Traits;
 
 use calderawp\interop\Contracts\Interoperable;
+use calderawp\interop\Contracts\InteroperableCollectionContract as Collection;
 
 /**
  * Trait CreatesInteroperableFromArray
@@ -18,7 +19,7 @@ trait CreatesCollectionFromArray
 	 * @param  array $items
 	 * @return static
 	 */
-	public static function fromArray(array $items) : Interoperable
+	public static function fromArray(array $items) : Collection
 	{
 		$obj = new static($items);
 		foreach ($items as $key => $item) {
