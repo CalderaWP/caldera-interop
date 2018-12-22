@@ -11,7 +11,7 @@ interface RestResponseContract
 	 *
 	 * @return array
 	 */
-	public function getData() : array;
+	public function getData(): array;
 
 	/**
 	 * Get response headers
@@ -19,4 +19,13 @@ interface RestResponseContract
 	 * @return array
 	 */
 	public function getHeaders(): array;
+
+
+	public function getStatus(): int;
+
+	public function setStatus(int $code): RestResponseContract;
+
+	public function setHeaders(array $headers): RestResponseContract;
+
+	public function setData(array $data): RestResponseContract;
 }
