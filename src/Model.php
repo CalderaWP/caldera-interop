@@ -3,6 +3,7 @@
 
 namespace calderawp\interop;
 
+use calderawp\caldera\restApi\Response;
 use calderawp\interop\Traits\ConvertsInteropModelToArray;
 use calderawp\interop\Traits\CreatesInteropModelFromArray;
 use calderawp\interop\Contracts\InteroperableModelContract as ModelContract;
@@ -20,9 +21,7 @@ abstract class Model implements ModelContract
 
 	public function toResponse(int$statusCode = 200): RestResponseContract
 	{
-		$response = new class implements RestResponseContract {
-			use ProvidesRestResponse;
-		};
+		$response = new Response();
 		$response->setStatus($statusCode);
 		$response->setData($this->toArray());
 		return $response;
