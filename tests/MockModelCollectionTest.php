@@ -46,6 +46,7 @@ class MockModelCollectionTest extends TestCase
 		$id = 'fld1';
 		$field = \Mockery::mock( 'Hat', InteroperableModelContract::class );
 		$field->shouldReceive('getId' )->andReturn($id);
+		$field->shouldReceive('toArray' )->andReturn([]);
 		$collection = new MockModelCollection();
 		$collection->addItem($field);
 		$this->assertTrue($collection->has($id));
@@ -73,10 +74,13 @@ class MockModelCollectionTest extends TestCase
 		$id = 'fld1';
 		$field = \Mockery::mock( 'Hat', InteroperableModelContract::class );
 		$field->shouldReceive('getId' )->andReturn($id);
+		$field->shouldReceive('toArray' )->andReturn([]);
 
 		$id2 = 'fld2';
 		$field2 = \Mockery::mock( 'Hat', InteroperableModelContract::class );
 		$field2->shouldReceive('getId' )->andReturn($id2);
+		$field2->shouldReceive('toArray' )->andReturn([]);
+
 		$collection = new MockModelCollection();
 		$collection->addItem($field);
 		$collection->addItem($field2);
@@ -95,10 +99,13 @@ class MockModelCollectionTest extends TestCase
 		$id = 'fld1';
 		$field = \Mockery::mock( 'Hat', InteroperableModelContract::class );
 		$field->shouldReceive('getId' )->andReturn($id);
+		$field->shouldReceive('toArray' )->andReturn([]);
 
 		$id2 = 'fld2';
 		$field2 = \Mockery::mock( 'Hat', InteroperableModelContract::class );
 		$field2->shouldReceive('getId' )->andReturn($id2);
+		$field2->shouldReceive('toArray' )->andReturn([]);
+
 		$collection = new MockModelCollection();
 		$collection->addItem($field);
 		$collection->addItem($field2);

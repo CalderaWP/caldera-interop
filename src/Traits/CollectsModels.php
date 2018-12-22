@@ -71,8 +71,12 @@ trait CollectsModels
 	{
 		$items= is_array($this->items)? $this->items : [];
 		foreach ($items as $itemIndex => $item) {
-			if (is_object($item)) {
-				$items[$itemIndex] = $item->toArray();
+			if (is_object($item)&& is_callable([$item,'toArray'])) {
+				try {
+					$items[ $itemIndex ] = $item->toArray();
+				} catch (\Exception $e) {
+					throw $e;
+				}
 			}
 		}
 		return $items;

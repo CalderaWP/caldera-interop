@@ -17,7 +17,9 @@ class CalderaTest extends TestCase
 	public function testToArray()
 	{
 		$forms = $this->getForms();
+		$forms->shouldReceive( 'toArray' )->andReturn([]);
 		$settings = $this->getSettings();
+		$settings->shouldReceive( 'toArray' )->andReturn([]);
 		$id = $this->createFormId();
 		$name = 'Contact Forms';
 		$model = MockCaldera::fromArray([
@@ -29,8 +31,8 @@ class CalderaTest extends TestCase
 		$array = $model->toArray();
 		$this->assertEquals($id, $array['id'] );
 		$this->assertEquals($name, $array['name'] );
-		$this->assertEquals($settings, $array['settings'] );
-		$this->assertEquals($forms, $array['forms'] );
+		$this->assertEquals([], $array['settings'] );
+		$this->assertEquals([], $array['forms'] );
 
 	}
 
