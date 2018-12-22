@@ -3,6 +3,8 @@
 
 namespace calderawp\interop\Traits;
 
+use calderawp\caldera\Forms\FieldModel;
+use calderawp\CalderaContainers\Exceptions\Exception;
 use calderawp\interop\Contracts\Interoperable;
 
 trait ConvertsInteropModelToArray
@@ -19,7 +21,7 @@ trait ConvertsInteropModelToArray
 			'id' => $this->getId()
 		];
 		foreach (get_object_vars($this) as $prop => $value) {
-			$array[$prop] = $this->$prop;
+			$array[$prop] = is_callable([$this->$prop,'toArray'])? $this->$prop->toArray() : $this->$prop;
 		}
 
 		return $array;

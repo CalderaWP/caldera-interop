@@ -3,6 +3,9 @@
 
 namespace calderawp\interop\Contracts;
 
+use calderawp\interop\Contracts\Rest\RestResponseContract;
+use calderawp\interop\Contracts\Rest\RestRequestContract;
+
 interface Interoperable extends Arrayable, CreatesInteropModelsFromArray
 {
 

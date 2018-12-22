@@ -24,7 +24,7 @@ class SomethingTest extends TestCase
 		/** @var \calderawp\interop\Contracts\CalderaForms\HasFields $fields */
 		$fields = \Mockery::mock('MockFields'
 			//,\calderawp\interop\Contracts\CalderaForms\Fields::class
-			);
+		);
 		/** @var \calderawp\interop\Contracts\CalderaForms\HasField $field */
 		$field = \Mockery::mock('MockField'
 			//\calderawp\interop\Contracts\CalderaForms\Field::class

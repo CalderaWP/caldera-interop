@@ -69,7 +69,13 @@ trait CollectsModels
 	 */
 	public function toArray() : array
 	{
-		return is_array($this->items)? $this->items : [];
+		$items= is_array($this->items)? $this->items : [];
+		foreach ($items as $itemIndex => $item) {
+			if (is_object($item)) {
+				$items[$itemIndex] = $item->toArray();
+			}
+		}
+		return $items;
 	}
 
 	abstract protected function setterName(): string;

@@ -33,13 +33,16 @@ trait CreatesInteropModelFromArray
 	/** @inheritdoc */
 	public function __set($name, $value)
 	{
-		if (is_callable([$this,$this->getSetterName($name)])) {
-			call_user_func([$this,$this->getSetterName($name)], $value);
-			return $this;
-		}
 
-		if (property_exists($this, $name)) {
-			$this->$name = $value;
+		if (null !== $value) {
+			if (is_callable([$this, $this->getSetterName($name)])) {
+				call_user_func([$this, $this->getSetterName($name)], $value);
+
+				return $this;
+			}
+			if (property_exists($this, $name)) {
+				$this->$name = $value;
+			}
 		}
 
 		return $this;

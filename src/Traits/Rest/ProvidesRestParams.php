@@ -9,6 +9,7 @@ trait ProvidesRestParams
 {
 	/** @var array */
 	protected $params;
+
 	/**
 	 * Get parameter from request
 	 *
@@ -18,7 +19,7 @@ trait ProvidesRestParams
 	 */
 	public function getParam(string $paramName)
 	{
-		return $this->hasParam($paramName) ? $this->params[$paramName] : null;
+		return $this->hasParam($paramName) ? $this->params[ $paramName ] : null;
 	}
 
 	/**
@@ -29,9 +30,9 @@ trait ProvidesRestParams
 	 *
 	 * @return $this
 	 */
-	public function setParam(string $paramName, $paramValue) : RestRequestContract
+	public function setParam(string $paramName, $paramValue): RestRequestContract
 	{
-		$this->params[$paramName] = $paramValue;
+		$this->params[ $paramName ] = $paramValue;
 		return $this;
 	}
 
@@ -42,12 +43,17 @@ trait ProvidesRestParams
 	 *
 	 * @return bool
 	 */
-	public function hasParam(string $paramName) : bool
+	public function hasParam(string $paramName): bool
 	{
 		return array_key_exists($paramName, $this->getParams());
 	}
 
-	protected function getParams() : array
+	/**
+	 * Get all params of request
+	 *
+	 * @return array
+	 */
+	public function getParams(): array
 	{
 		return is_array($this->params) ? $this->params : [];
 	}
@@ -59,7 +65,7 @@ trait ProvidesRestParams
 	 *
 	 * @return RestRequestContract
 	 */
-	public function setParams(array $params) : RestRequestContract
+	public function setParams(array $params): RestRequestContract
 	{
 	}
 }

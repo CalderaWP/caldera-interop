@@ -16,6 +16,13 @@ interface RestRequestContract
 	public function getParam(string $paramName);
 
 	/**
+	 * Get all params of request
+	 *
+	 * @return array
+	 */
+	public function getParams(): array;
+
+	/**
 	 * Set parameter in request
 	 *
 	 * @param string $paramName
@@ -23,7 +30,7 @@ interface RestRequestContract
 	 *
 	 * @return $this
 	 */
-	public function setParam(string $paramName, $paramValue) : RestRequestContract;
+	public function setParam(string $paramName, $paramValue): RestRequestContract;
 
 	/**
 	 * Set parameters of request
@@ -32,7 +39,7 @@ interface RestRequestContract
 	 *
 	 * @return RestRequestContract
 	 */
-	public function setParams(array $params) : RestRequestContract;
+	public function setParams(array $params): RestRequestContract;
 
 	/**
 	 * Does request have param?
@@ -41,7 +48,7 @@ interface RestRequestContract
 	 *
 	 * @return bool
 	 */
-	public function hasParam(string $paramName) : bool;
+	public function hasParam(string $paramName): bool;
 
 
 	/**
@@ -61,7 +68,7 @@ interface RestRequestContract
 	 *
 	 * @return mixed
 	 */
-	public function setHeader(string $headerName, $headerValue) : RestRequestContract;
+	public function setHeader(string $headerName, $headerValue): RestRequestContract;
 
 	/**
 	 * Does request have header?
@@ -70,5 +77,5 @@ interface RestRequestContract
 	 *
 	 * @return bool
 	 */
-	public function hasHeader(string $headerName) : bool;
+	public function hasHeader(string $headerName): bool;
 }

@@ -5,6 +5,7 @@ namespace calderawp\interop\Traits\CalderaForms;
 
 use calderawp\interop\Contracts\CalderaContract as Caldera;
 use calderawp\interop\Contracts\CalderaForms\HasFields;
+use calderawp\interop\Contracts\CalderaForms\HasField;
 
 trait ProvidesFields
 {
