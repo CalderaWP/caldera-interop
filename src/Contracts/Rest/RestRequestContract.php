@@ -1,7 +1,7 @@
 <?php
 
 
-namespace calderawp\interop\Contracts;
+namespace calderawp\interop\Contracts\Rest;
 
 interface RestRequestContract
 {
@@ -35,6 +35,16 @@ interface RestRequestContract
 	public function setParams(array $params) : RestRequestContract;
 
 	/**
+	 * Does request have param?
+	 *
+	 * @param string $paramName
+	 *
+	 * @return bool
+	 */
+	public function hasParam(string $paramName) : bool;
+
+
+	/**
 	 * Get header from request
 	 *
 	 * @param string $headerName
@@ -51,5 +61,14 @@ interface RestRequestContract
 	 *
 	 * @return mixed
 	 */
-	public function setHeader(string $headerName, $headerValue);
+	public function setHeader(string $headerName, $headerValue) : RestRequestContract;
+
+	/**
+	 * Does request have header?
+	 *
+	 * @param string $headerName
+	 *
+	 * @return bool
+	 */
+	public function hasHeader(string $headerName) : bool;
 }

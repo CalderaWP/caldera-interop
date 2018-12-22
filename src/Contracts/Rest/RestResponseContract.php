@@ -1,7 +1,7 @@
 <?php
 
 
-namespace calderawp\interop\Contracts;
+namespace calderawp\interop\Contracts\Rest;
 
 interface RestResponseContract
 {
