@@ -4,6 +4,7 @@
 namespace calderawp\interop\Contracts;
 
 use calderawp\interop\Contracts\CreatesInteropCollectionsFromArray;
+use calderawp\interop\Contracts\Rest\RestResponseContract;
 
 interface InteroperableCollectionContract extends CreatesInteropCollectionsFromArray
 {
@@ -32,6 +33,13 @@ interface InteroperableCollectionContract extends CreatesInteropCollectionsFromA
 	 * @return array
 	 */
 	public function toArray() : array;
+
+	/**
+	 * Convert to REST API response
+	 *
+	 * @return RestResponseContract
+	 */
+	public function toResponse():RestResponseContract;
 
 	/**
 	 * Remove an item from collection

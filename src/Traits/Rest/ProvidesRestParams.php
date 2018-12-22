@@ -67,5 +67,7 @@ trait ProvidesRestParams
 	 */
 	public function setParams(array $params): RestRequestContract
 	{
+		$this->params = $params;
+		return $this;
 	}
 }

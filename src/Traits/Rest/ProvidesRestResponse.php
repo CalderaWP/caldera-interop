@@ -18,6 +18,7 @@ trait ProvidesRestResponse
 	/** @var array */
 	protected $data;
 
+
 	/**
 	 * Get response data
 	 *

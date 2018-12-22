@@ -7,6 +7,12 @@ interface RestResponseContract
 {
 
 	/**
+	 * @param $items
+	 *
+	 * @return RestResponseContract
+	 */
+	public static function fromArray($items) : RestResponseContract;
+	/**
 	 * Get response data
 	 *
 	 * @return array

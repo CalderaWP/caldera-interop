@@ -14,6 +14,9 @@ trait ProvidesRestEndpoint
 	/** @var string */
 	protected $httpMethod;
 
+
+
+
 	/**
 	 * @param string $uri
 	 *
