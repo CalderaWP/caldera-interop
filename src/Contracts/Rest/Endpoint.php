@@ -53,26 +53,6 @@ interface Endpoint
 	 */
 	public function setHttpMethod(string $httpMethod): Endpoint;
 
-
-	/**
-	 * Get name of filter to apply to before create response
-	 *
-	 * @return string
-	 */
-	public function getPreHookName() : string;
-
-	/**
-	 * Get the name of hook to filter response on
-	 *
-	 * @return string
-	 */
-	public function getResponseHookName(): string;
-	/**
-	 * Get hooks abstraction
-	 *
-	 * @return ApplysFilters
-	 */
-	public function getFilters(): ApplysFilters;
 	/**
 	 * Handle request
 	 *

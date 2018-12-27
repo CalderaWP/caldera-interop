@@ -22,15 +22,6 @@ class MockEndpoint extends MockCaldera implements Endpoint
 		return new Filters();
 	}
 
-	public function getPreHookName(): string
-	{
-		return '';
-	}
-
-	public function getResponseHookName(): string
-	{
-		return '';
-	}
 
 	public function handleRequest(Request $request): Response
 	{

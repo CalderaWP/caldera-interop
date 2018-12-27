@@ -19,7 +19,7 @@ trait ProvidesRoute
 	 */
 	public function addEndpoint(Endpoint $endpoint): Route
 	{
-		$this->endpoints[] = $endpoint;
+		$this->endpoints[Endpoint::class] = $endpoint;
 		return $this;
 	}
 

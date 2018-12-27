@@ -17,7 +17,7 @@ class MockRouteTest extends TestCase
 		$endpoint = new MockEndpoint();
 		$route = new MockRoute();
 		$route->addEndpoint($endpoint);
-		$this->assertEquals([$endpoint], $route->getEndpoints());
+		$this->assertEquals(['calderawp\interop\Contracts\Rest\Endpoint' => $endpoint], $route->getEndpoints());
 	}
 
 	/**
@@ -28,6 +28,6 @@ class MockRouteTest extends TestCase
 		$endpoint = new MockEndpoint();
 		$route = new MockRoute();
 		$route->addEndpoint($endpoint);
-		$this->assertAttributeEquals([$endpoint], 'endpoints', $route);
+		$this->assertAttributeEquals(['calderawp\interop\Contracts\Rest\Endpoint'=>$endpoint], 'endpoints', $route);
 	}
 }
