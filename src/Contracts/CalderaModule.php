@@ -4,6 +4,7 @@
 namespace calderawp\interop\Contracts;
 
 use calderawp\CalderaContainers\Service\Container as ServiceContainer;
+use calderawp\caldera\Core\CalderaCoreContract;
 
 interface CalderaModule
 {
@@ -24,4 +25,11 @@ interface CalderaModule
 
 
 	public function registerServices(ServiceContainer $container): CalderaModule;
+
+	/**
+	 * Get core container
+	 *
+	 * @return CalderaCoreContract
+	 */
+	public function getCore() : CalderaCoreContract;
 }
