@@ -8,7 +8,6 @@ use calderawp\interop\Contracts\Rest\RestResponseContract;
 
 interface InteroperableCollectionContract extends CreatesInteropCollectionsFromArray
 {
-
 	/**
 	 * Add item to collection
 	 *
