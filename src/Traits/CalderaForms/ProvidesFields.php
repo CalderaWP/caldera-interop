@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Traits\CalderaForms;
 
+use calderawp\caldera\Forms\FieldsCollection;
 use calderawp\interop\Contracts\CalderaContract as Caldera;
 use calderawp\interop\Contracts\CalderaForms\HasFields;
 use calderawp\interop\Contracts\CalderaForms\HasField;
@@ -14,7 +15,7 @@ trait ProvidesFields
 	/**
 	 * Get the fields
 	 *
-	 * @return HasFields
+	 * @return FieldsCollection
 	 */
 	public function getFields(): HasFields
 	{
