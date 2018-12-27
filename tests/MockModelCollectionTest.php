@@ -116,4 +116,5 @@ class MockModelCollectionTest extends TestCase
 		$this->assertFalse($collection->has($id));
 		$this->assertTrue($collection->has($id2));
 	}
+
 }

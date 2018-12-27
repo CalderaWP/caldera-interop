@@ -23,5 +23,5 @@ interface CalderaModule
 	public function getServiceContainer() : ServiceContainer;
 
 
-	public function registerServices(): CalderaModule;
+	public function registerServices(ServiceContainer $container): CalderaModule;
 }

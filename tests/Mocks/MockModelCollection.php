@@ -8,6 +8,7 @@ use calderawp\interop\Contracts\Rest\RestResponseContract;
 use calderawp\interop\Traits\CollectsModels;
 use calderawp\interop\Contracts\InteroperableModelContract;
 use calderawp\interop\Contracts\InteroperableCollectionContract;
+use calderawp\interop\Traits\IteratesArray;
 
 class MockModelCollection implements InteroperableCollectionContract
 {

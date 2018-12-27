@@ -16,7 +16,7 @@ abstract class Module implements CalderaModule
 	public function __construct(ServiceContainer $serviceContainer)
 	{
 		$this->serviceContainer = $serviceContainer;
-		$this->registerServices();
+		$this->registerServices($this->serviceContainer);
 	}
 
 	public function getServiceContainer(): ServiceContainer
