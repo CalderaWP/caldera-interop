@@ -66,7 +66,7 @@ trait ProvidesRestEndpoint
 	 */
 	public function getArgs() : array
 	{
-		return $this->args;
+		return is_array($this->args) ? $this->args : [];
 	}
 
 	/**
@@ -76,6 +76,6 @@ trait ProvidesRestEndpoint
 	 */
 	public function getHttpMethod(): string
 	{
-		return $this->httpMethod;
+		return is_string($this->httpMethod)?$this->httpMethod :'GET';
 	}
 }
