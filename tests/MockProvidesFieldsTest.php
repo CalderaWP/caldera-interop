@@ -13,7 +13,7 @@ class MockProvidesFieldTests extends TestCase
 	 */
 	public function testGetField()
 	{
-		$fields = \Mockery::mock( 'Fields', HasFields::class );
+		$fields = \Mockery::mock( 'Field', HasFields::class );
 		$hasFields = new MockProvidesHasFields();
 		$hasFields->setFields($fields);
 		$this->assertSame($fields, $hasFields->getFields() );

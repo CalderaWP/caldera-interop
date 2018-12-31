@@ -23,7 +23,7 @@ class SomethingTest extends TestCase
 	public function testInterfaceMock() {
 		/** @var \calderawp\interop\Contracts\CalderaForms\HasFields $fields */
 		$fields = \Mockery::mock('MockFields'
-			//,\calderawp\interop\Contracts\CalderaForms\Fields::class
+			//,\calderawp\interop\Contracts\CalderaForms\Field::class
 		);
 		/** @var \calderawp\interop\Contracts\CalderaForms\HasField $field */
 		$field = \Mockery::mock('MockField'

@@ -20,7 +20,7 @@ trait EntityFactory
 
 	public function getFields() :HasFields
 	{
-		return \Mockery::mock( 'Fields', HasFields::class );
+		return \Mockery::mock( 'Field', HasFields::class );
 	}
 
 	public function getForm() :HasForm
