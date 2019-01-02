@@ -4,9 +4,10 @@
 namespace calderawp\interop\Contracts\Rest;
 
 use calderawp\caldera\restApi\Exception;
-use calderawp\interop\Contracts\WordPress\ApplysFilters;
 use calderawp\interop\Contracts\Rest\RestRequestContract as Request;
 use calderawp\interop\Contracts\Rest\RestResponseContract as Response;
+use \calderawp\interop\Contracts\TokenContract;
+
 
 interface Endpoint
 {
@@ -63,10 +64,21 @@ interface Endpoint
 	public function handleRequest(Request $request) : Response;
 
 	/**
+	 * Is request authorized or not?
+	 *
 	 * @param Request $request
 	 *
 	 * @return bool
 	 * @throws Exception
 	 */
 	public function authorizeRequest(Request $request) : bool;
+
+	/**
+	 * Get CSFR/JWT token string from request
+	 *
+	 * @param RestRequestContract $request
+	 *
+	 * @return TokenContract
+	 */
+	public function getToken( Request $request) : string ;
 }
