@@ -23,8 +23,6 @@ trait CreatesInteropModelFromArray
 		$obj = new static($items);
 		foreach ($items as $key => $item) {
 			$obj->__set($key, $item);
-
-
 		}
 		if (! empty($items['id'])) {
 			$obj->setId($items[ 'id' ]);
@@ -61,5 +59,4 @@ trait CreatesInteropModelFromArray
 	{
 		return  'set' . ucfirst(strtolower($name));
 	}
-
 }
