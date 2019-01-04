@@ -18,7 +18,7 @@ trait ConvertsInteropModelToArray
 	public function toArray(): array
 	{
 		$array = [
-			'id' => $this->getId()
+			'id' => $this->getId(),
 		];
 		foreach (get_object_vars($this) as $prop => $value) {
 			$array[$prop] = is_callable([$this->$prop,'toArray'])? $this->$prop->toArray() : $this->$prop;
