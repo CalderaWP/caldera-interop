@@ -11,8 +11,7 @@ trait ItemsIterator
 
 	public function getIterator()
 	{
-		$items = is_array($this->items ) ? $this->items : [];
+		$items = is_array($this->items) ? $this->items : [];
 		return new \ArrayIterator($items);
 	}
 }
-

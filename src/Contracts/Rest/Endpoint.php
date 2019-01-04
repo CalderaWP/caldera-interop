@@ -8,7 +8,6 @@ use calderawp\interop\Contracts\Rest\RestRequestContract as Request;
 use calderawp\interop\Contracts\Rest\RestResponseContract as Response;
 use \calderawp\interop\Contracts\TokenContract;
 
-
 interface Endpoint
 {
 
@@ -80,5 +79,5 @@ interface Endpoint
 	 *
 	 * @return TokenContract
 	 */
-	public function getToken( Request $request) : string ;
+	public function getToken(Request $request) : string;
 }

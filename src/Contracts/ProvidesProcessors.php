@@ -2,10 +2,10 @@
 
 
 namespace calderawp\interop\Contracts;
+
 use calderawp\interop\Contracts\ProcessorContract as Processor;
 use calderawp\interop\Contracts\ProcessorCollectionContract as Processors;
 use calderawp\interop\Contracts\CalderaForms\HasProcessors;
-
 
 /**
  * Trait ProvidesProcessors
@@ -43,5 +43,4 @@ trait ProvidesProcessors
 		$this->processors = $processors;
 		return $this;
 	}
-
 }

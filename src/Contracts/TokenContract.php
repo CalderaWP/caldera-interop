@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 interface TokenContract
 {
 	/**

@@ -9,5 +9,4 @@ interface Wpdb
 	public function prepare( $query, $args );
 	public function get_results( $query = null, $output = OBJECT );
 	// phpcs:enable
-
 }
