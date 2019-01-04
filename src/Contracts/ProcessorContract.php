@@ -55,4 +55,9 @@ interface ProcessorContract
 	 * @return FormArrayLike
 	 */
 	public function getForm() : FormArrayLike;
+
+	/**
+	 * @return string
+	 */
+	public function getProcessorType() : string ;
 }
