@@ -4,6 +4,7 @@
 namespace calderawp\interop\Traits\Rest;
 
 use calderawp\interop\Contracts\Rest\RestRequestContract;
+use calderawp\interop\Contracts\HttpRequestContract;
 
 trait ProvidesHttpHeaders
 {
@@ -46,9 +47,9 @@ trait ProvidesHttpHeaders
 	 * @param string $headerName
 	 * @param mixed $headerValue
 	 *
-	 * @return mixed
+	 * @return HttpRequestContract
 	 */
-	public function setHeader(string $headerName, $headerValue): RestRequestContract
+	public function setHeader(string $headerName, $headerValue): HttpRequestContract
 	{
 		$this->headers[ $headerName ] = $headerValue;
 		return $this;

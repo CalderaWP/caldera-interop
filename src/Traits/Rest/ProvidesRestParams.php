@@ -3,7 +3,7 @@
 
 namespace calderawp\interop\Traits\Rest;
 
-use calderawp\interop\Contracts\Rest\RestRequestContract;
+use calderawp\interop\Contracts\HttpRequestContract;
 
 trait ProvidesRestParams
 {
@@ -30,7 +30,7 @@ trait ProvidesRestParams
 	 *
 	 * @return $this
 	 */
-	public function setParam(string $paramName, $paramValue): RestRequestContract
+	public function setParam(string $paramName, $paramValue): HttpRequestContract
 	{
 		$this->params[ $paramName ] = $paramValue;
 		return $this;
@@ -63,9 +63,9 @@ trait ProvidesRestParams
 	 *
 	 * @param array $params
 	 *
-	 * @return RestRequestContract
+	 * @return HttpRequestContract
 	 */
-	public function setParams(array $params): RestRequestContract
+	public function setParams(array $params): HttpRequestContract
 	{
 		$this->params = $params;
 		return $this;

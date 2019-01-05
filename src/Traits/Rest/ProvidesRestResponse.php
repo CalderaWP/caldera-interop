@@ -4,6 +4,7 @@
 namespace calderawp\interop\Traits\Rest;
 
 use calderawp\interop\Contracts\Rest\RestResponseContract;
+use calderawp\interop\Contracts\HttpResponseContract;
 
 trait ProvidesRestResponse
 {
@@ -45,19 +46,19 @@ trait ProvidesRestResponse
 		return is_numeric($this->status) ? intval($this->status) : 200;
 	}
 
-	public function setStatus(int $code): RestResponseContract
+	public function setStatus(int $code): HttpResponseContract
 	{
 		$this->status=$code;
 		return $this;
 	}
 
-	public function setHeaders(array $headers): RestResponseContract
+	public function setHeaders(array $headers): HttpResponseContract
 	{
 		$this->headers = $headers;
 		return $this;
 	}
 
-	public function setData(array $data): RestResponseContract
+	public function setData(array $data): HttpResponseContract
 	{
 		$this->data = $data;
 
