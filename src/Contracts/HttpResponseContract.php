@@ -35,4 +35,20 @@ interface HttpResponseContract
 	public function setHeaders(array $headers): HttpResponseContract;
 
 	public function setData(array $data): HttpResponseContract;
+
+	/**
+	 * Set the HTTP method for the request or response
+	 *
+	 * @return string
+	 */
+	public function getHttpMethod() : string ;
+
+	/**
+	 * Set the HTTP method for the request or response
+	 *
+	 * @param string $method
+	 *
+	 * @return HttpResponseContract
+	 */
+	public function setHttpMethod( string  $method) : HttpResponseContract;
 }

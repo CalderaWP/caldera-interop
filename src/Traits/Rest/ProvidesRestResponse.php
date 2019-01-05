@@ -19,6 +19,27 @@ trait ProvidesRestResponse
 	/** @var array */
 	protected $data;
 
+	/** @var @var string */
+	protected $httpMethod;
+
+	/**
+	 * @return string
+	 */
+	public function getHttpMethod() : string
+	{
+		return $this->httpMethod;
+	}
+
+	/**
+	 * @param string $httpMethod
+	 *
+	 * @return ProvidesRestResponse
+	 */
+	public function setHttpMethod(string$httpMethod) : HttpResponseContract
+	{
+		$this->httpMethod = $httpMethod;
+		return $this;
+	}
 
 	/**
 	 * Get response data

@@ -61,6 +61,13 @@ interface HttpRequestContract
 	public function getHeader(string $headerName);
 
 	/**
+	 * Get all headers
+	 *
+	 * @return array
+	 */
+	public function getHeaders(): array ;
+
+	/**
 	 * Set header in request
 	 *
 	 * @param string $headerName
@@ -78,4 +85,21 @@ interface HttpRequestContract
 	 * @return bool
 	 */
 	public function hasHeader(string $headerName): bool;
+
+
+	/**
+	 * Set the HTTP method for the request or response
+	 *
+	 * @return string
+	 */
+	public function getHttpMethod() : string ;
+
+	/**
+	 * Set the HTTP method for the request or response
+	 *
+	 * @param string $method
+	 *
+	 * @return HttpResponseContract
+	 */
+	public function setHttpMethod( string  $method) : HttpResponseContract;
 }

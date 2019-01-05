@@ -5,6 +5,7 @@ namespace calderawp\interop\Traits\Rest;
 
 use calderawp\interop\Contracts\Rest\RestRequestContract;
 use calderawp\interop\Contracts\HttpRequestContract;
+use calderawp\interop\Contracts\HttpResponseContract;
 
 trait ProvidesHttpHeaders
 {
@@ -55,8 +56,36 @@ trait ProvidesHttpHeaders
 		return $this;
 	}
 
-	protected function getHeaders(): array
+	/** @inheritdoc */
+	public function getHeaders(): array
 	{
 		return is_array($this->headers) ? $this->headers : [];
+	}
+
+	/**
+	 * @var string
+	 */
+	protected $httpMethod;
+	/**
+	 * Set the HTTP method for the request or response
+	 *
+	 * @return string
+	 */
+	public function getHttpMethod() : string {
+		return is_string( $this->httpMethod) ? $this->httpMethod : 'GET';
+	}
+
+	/**
+	 * Set the HTTP method for the request or response
+	 *
+	 * @param string $method
+	 *
+	 * @return HttpResponseContract
+	 */
+	public function setHttpMethod( string  $method) : HttpResponseContract
+	{
+
+		$this->httpMethod = $method;
+		return $this;
 	}
 }
