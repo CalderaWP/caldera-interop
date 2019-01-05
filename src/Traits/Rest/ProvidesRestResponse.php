@@ -60,6 +60,7 @@ trait ProvidesRestResponse
 	public function setData(array $data): RestResponseContract
 	{
 		$this->data = $data;
+
 		return $this;
 	}
 }
