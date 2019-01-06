@@ -5,7 +5,7 @@ namespace calderawp\interop\Contracts;
 
 use calderawp\caldera\Forms\FormArrayLike;
 use calderawp\caldera\Forms\Processing\ProcessorConfig;
-use calderawp\interop\Contracts\UpdateableFormFieldsContract as FormFields;
+use calderawp\interop\Contracts\FieldsArrayLike as FormFields;
 use calderawp\interop\Contracts\Rest\RestRequestContract as Request;
 
 interface ProcessorContract extends Arrayable
@@ -42,27 +42,27 @@ interface ProcessorContract extends Arrayable
 	/**
 	 * Run the pre-process, validation step
 	 *
-	 * @param UpdateableFormFieldsContract $formFields
+	 * @param FieldsArrayLike $formFields
 	 *
-	 * @return UpdateableFormFieldsContract
+	 * @return FieldsArrayLike
 	 */
 	public function preProcess(FormFields $formFields, Request $request): FormFields;
 
 	/**
 	 * Run the main process step
 	 *
-	 * @param UpdateableFormFieldsContract $formFields
+	 * @param FieldsArrayLike $formFields
 	 *
-	 * @return UpdateableFormFieldsContract
+	 * @return FieldsArrayLike
 	 */
 	public function mainProcess(FormFields $formFields, Request $request): FormFields;
 
 	/**
 	 * Run the post-process step
 	 *
-	 * @param UpdateableFormFieldsContract $formFields
+	 * @param FieldsArrayLike $formFields
 	 *
-	 * @return UpdateableFormFieldsContract
+	 * @return FieldsArrayLike
 	 */
 	public function postProcess(FormFields $formFields, Request $request): FormFields;
 

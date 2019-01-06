@@ -3,6 +3,7 @@
 
 namespace calderawp\interop\Contracts;
 
+use calderawp\caldera\Forms\Processing\ProcessorCollection;
 use calderawp\interop\Contracts\ProcessorContract as Processor;
 use calderawp\interop\Contracts\ProcessorCollectionContract as Processors;
 use calderawp\interop\Contracts\CalderaForms\HasProcessors;
@@ -28,6 +29,9 @@ trait ProvidesProcessors
 	 */
 	public function getProcessors() : Processors
 	{
+		if( ! $this->processors ){
+			$this->processors = new ProcessorCollection();
+		}
 		return $this->processors;
 	}
 

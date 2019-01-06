@@ -3,15 +3,12 @@
 
 namespace calderawp\interop;
 
-use calderawp\interop\Contracts\Arrayable;
-
 /**
  * Class ArrayLike
  *
  * Basic array-like object.
- *
  */
-abstract class ArrayLike implements \ArrayAccess, Arrayable
+abstract class ArrayLike implements \calderawp\interop\Contracts\ArrayLike
 {
 
 	/**

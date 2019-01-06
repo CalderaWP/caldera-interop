@@ -15,13 +15,4 @@ interface FiltersDataSource
 	 * @param ApplysFilters $filters
 	 */
 	public function addHooks(ApplysFilters $filters) :void;
-
-	/**
-	 * Get a data source.
-	 *
-	 * @param string $source
-	 *
-	 * @return Source
-	 */
-	public function getDataSource(string  $source) : Source;
 }

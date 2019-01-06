@@ -3,8 +3,9 @@
 
 namespace calderawp\interop\Contracts;
 
+use calderawp\interop\Contracts\Arrayable;
 
-interface ArrayLike
+interface ArrayLike extends Arrayable, \ArrayAccess
 {
 
 }

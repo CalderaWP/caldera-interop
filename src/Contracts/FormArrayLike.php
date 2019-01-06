@@ -3,7 +3,7 @@
 
 namespace calderawp\interop\Contracts;
 
-interface FieldsArrayLike extends ArrayLike
+interface FormArrayLike extends ArrayLike
 {
 
 
