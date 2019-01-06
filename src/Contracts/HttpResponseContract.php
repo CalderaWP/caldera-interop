@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 interface HttpResponseContract
 {
 
@@ -41,7 +40,7 @@ interface HttpResponseContract
 	 *
 	 * @return string
 	 */
-	public function getHttpMethod() : string ;
+	public function getHttpMethod() : string;
 
 	/**
 	 * Set the HTTP method for the request or response
@@ -50,5 +49,5 @@ interface HttpResponseContract
 	 *
 	 * @return HttpResponseContract
 	 */
-	public function setHttpMethod( string  $method) : HttpResponseContract;
+	public function setHttpMethod(string  $method) : HttpResponseContract;
 }

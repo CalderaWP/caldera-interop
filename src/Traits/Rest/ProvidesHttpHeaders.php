@@ -71,8 +71,9 @@ trait ProvidesHttpHeaders
 	 *
 	 * @return string
 	 */
-	public function getHttpMethod() : string {
-		return is_string( $this->httpMethod) ? $this->httpMethod : 'GET';
+	public function getHttpMethod() : string
+	{
+		return is_string($this->httpMethod) ? $this->httpMethod : 'GET';
 	}
 
 	/**
@@ -82,7 +83,7 @@ trait ProvidesHttpHeaders
 	 *
 	 * @return HttpResponseContract
 	 */
-	public function setHttpMethod( string  $method) : HttpResponseContract
+	public function setHttpMethod(string  $method) : HttpResponseContract
 	{
 
 		$this->httpMethod = $method;
