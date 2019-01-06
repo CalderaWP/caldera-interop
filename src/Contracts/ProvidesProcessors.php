@@ -29,7 +29,7 @@ trait ProvidesProcessors
 	 */
 	public function getProcessors() : Processors
 	{
-		if( ! $this->processors ){
+		if (! $this->processors) {
 			$this->processors = new ProcessorCollection();
 		}
 		return $this->processors;
