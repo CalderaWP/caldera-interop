@@ -19,7 +19,9 @@ trait ProvidesFields
 	 */
 	public function getFields(): HasFields
 	{
-		return $this->fields;
+		return ! is_null($this->fields)
+			? $this->fields
+			: new FieldsCollection();
 	}
 
 	/**
