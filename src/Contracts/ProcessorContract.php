@@ -8,9 +8,8 @@ use calderawp\caldera\Forms\Processing\ProcessorConfig;
 use calderawp\interop\Contracts\FieldsArrayLike as FormFields;
 use calderawp\interop\Contracts\Rest\RestRequestContract as Request;
 
-interface ProcessorContract extends Arrayable, ProcessesFormSubmissionContract
+interface ProcessorContract extends Arrayable, ProcessesFormSubmissionContract, HasId
 {
-
 
 	/**
 	 * Check if processor should run, based on conditionals

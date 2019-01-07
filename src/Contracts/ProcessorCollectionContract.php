@@ -24,4 +24,14 @@ interface ProcessorCollectionContract extends InteroperableCollectionContract
 	 * @return bool
 	 */
 	public function hasProcessorOfType(string  $processorType): bool;
+
+
+	/**
+	 * Find item by ID
+	 *
+	 * @param string|int $id
+	 *
+	 * @return Processor|null
+	 */
+	public function getProcessor($id) : ?Processor;
 }

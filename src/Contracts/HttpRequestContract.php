@@ -98,7 +98,7 @@ interface HttpRequestContract
 	 *
 	 * @param string $method
 	 *
-	 * @return HttpResponseContract
+	 * @return
 	 */
-	public function setHttpMethod(string  $method) : HttpResponseContract;
+	public function setHttpMethod(string  $method);
 }

@@ -81,9 +81,9 @@ trait ProvidesHttpHeaders
 	 *
 	 * @param string $method
 	 *
-	 * @return HttpResponseContract
+	 * @return ProvidesHttpHeaders
 	 */
-	public function setHttpMethod(string  $method) : HttpResponseContract
+	public function setHttpMethod(string  $method)
 	{
 
 		$this->httpMethod = $method;
