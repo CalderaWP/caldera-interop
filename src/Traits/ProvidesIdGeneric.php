@@ -5,6 +5,12 @@ namespace calderawp\interop\Traits;
 
 use calderawp\interop\Contracts\InteroperableModelContract as Model;
 
+/**
+ * Trait ProvidesIdGeneric
+ *
+ * Getter and setter (fluent) for property id.
+ * No additional logic provided.
+ */
 trait ProvidesIdGeneric
 {
 	/**
