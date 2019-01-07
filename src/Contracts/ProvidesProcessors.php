@@ -11,7 +11,10 @@ use calderawp\interop\Contracts\CalderaForms\HasProcessors;
 /**
  * Trait ProvidesProcessors
  *
- * Provides implimentation of methods that interface calderawp\interop\Contracts\CalderaForms\HasProcessors requires.
+ * Provides implementation of methods that interface calderawp\interop\Contracts\CalderaForms\HasProcessors requires.
+ *
+ * Primary implementation:
+ * @see /caldera/php-packages/forms/src/Processing/ProcessorCollection.php
  */
 trait ProvidesProcessors
 {
@@ -20,7 +23,6 @@ trait ProvidesProcessors
 	 * @var Processors
 	 */
 	protected $processors;
-
 
 	/**
 	 * Get the processors collection
