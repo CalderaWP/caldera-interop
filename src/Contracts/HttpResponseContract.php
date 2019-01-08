@@ -27,12 +27,38 @@ interface HttpResponseContract
 	public function getHeaders(): array;
 
 
+	/**
+	 * Get the HTTP status code
+	 *
+	 * @return int
+	 */
 	public function getStatus(): int;
 
+	/**
+	 * Set the HTTP status code
+	 *
+	 * @param int $code
+	 *
+	 * @return HttpResponseContract
+	 */
 	public function setStatus(int $code): HttpResponseContract;
 
+	/**
+	 * Set the request headers
+	 *
+	 * @param array $headers
+	 *
+	 * @return HttpResponseContract
+	 */
 	public function setHeaders(array $headers): HttpResponseContract;
 
+	/**
+	 * Set the response body data
+	 *
+	 * @param array $data
+	 *
+	 * @return HttpResponseContract
+	 */
 	public function setData(array $data): HttpResponseContract;
 
 	/**
