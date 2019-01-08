@@ -1,28 +1,31 @@
-# PHP Boilerplate
+# Caldera Interop
 
-A boilerplate for new composer based PHP projects.
+This package is designed to make our object interoperable between frameworks -- WordPress, Slim, Laravel, etc. -- as well as client and server.
 
-## Getting started
+* Interfaces that provide data-typing of entities, more consistent translation to and from array/ JSON/ database serialization and more predictable public APIs of business logic providing classes.
+* Traits that provide implementations of these interfaces. 
+## Usage
 
-```bash
-# With composer
-$ composer create-project kreait/php-boilerplate new-project
+### Install
+* Clone
+    - `git clone`
+* Install
+    - `composer install`
+### Examples
 
-# With git
-$ git clone git@github.com:kreait/php-boilerplate.git new-project && cd $_ && rm -rf .git && git init
-```
+### Adding A Filter (Subscribe)
 
-### Update `composer.json`
+### Applying A Filter (Dispatch)
 
-Replace the Namespaces in the `autoload` and `autoload-dev` sections with your project's namespaces
-and run `composer dump-autoload`.
+### Adding An Action (Subscribe)
+Not yet implemented.
 
-### (Optional) Update `.gitattributes`
+### Doing An Action (Dispatch)
+Not yet implemented.
 
-Remove the comments in `.gitattributes` so that unneeded files for your package won't get included in your releases.
-
-### (Optional) Add `composer.lock` to the `.gitignore` file
-
-If you're creating an application instead of a library, it is considered good practice to commit the `composer.lock` file together with the rest of the code.
-
-### Start coding! :smile:
+## Testing
+* Run unit tests
+    - `composer test:unit`
+    
+## License, Copyright, etc.
+Copyright 2018+ CalderaWP LLC and licensed under the terms of the GNU GPL license. Please share with your neighbor.

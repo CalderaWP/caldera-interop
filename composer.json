@@ -30,7 +30,8 @@
     },
     "scripts": {
         "tests": "composer lints && composer fixes && composer test",
-        "test": "phpunit Tests",
+        "test": "composer test:unit",
+        "test:unit": "phpunit Tests",
         "tests-now": "phpunit Tests --group=now",
         "sniffs": "phpcs src/",
         "fixes": "phpcbf src/",
