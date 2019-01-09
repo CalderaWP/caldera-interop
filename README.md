@@ -1,9 +1,17 @@
 # Caldera Interop
 
-This package is designed to make our object interoperable between frameworks -- WordPress, Slim, Laravel, etc. -- as well as client and server.
+This package is designed to make our objects interoperable between frameworks -- WordPress, Slim, Laravel, etc. -- as well as client and server.
 
 * Interfaces that provide data-typing of entities, more consistent translation to and from array/ JSON/ database serialization and more predictable public APIs of business logic providing classes.
 * Traits that provide implementations of these interfaces. 
+
+## 👀🌋 This Is A Module Of The [Caldera Framework](https://github.com/CalderaWP/caldera)
+* 🌋 Find Caldera Forms Here:
+    - [Caldera Forms on Github](http://github.com/calderawp/caldera-forms/)
+    - [CalderaForms.com](http://calderaforms.com)
+    
+* 🌋 [Issues](https://github.com/CalderaWP/caldera/issues) and [pull requests](https://github.com/CalderaWP/caldera/pulls), should be submitted to the [main Caldera repo](https://github.com/CalderaWP/caldera/pulls).
+
 ## Usage
 
 ### Install
