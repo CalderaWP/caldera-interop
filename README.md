@@ -15,10 +15,11 @@ This package is designed to make our objects interoperable between frameworks --
 ## Usage
 
 ### Install
-* Clone
-    - `git clone`
-* Install
-    - `composer install`
+* Add to your package:
+    - `composer require calderawp/caldera-interop`
+* Install for development
+    - `git clone git@github.com:CalderaWP/cakdera-interop.git && composer install`
+
 ### Examples
 
 ### Adding A Filter (Subscribe)
