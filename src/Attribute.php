@@ -62,8 +62,8 @@ class Attribute implements Arrayable
 		return $obj;
 	}
 
-	protected function validateFormat(string $format = '%s' ){
-		if( ! in_array( $format, ['%s','%d'])){
+	protected function validateFormat(?string $format = '%s' ){
+		if( !is_string($format)||! in_array( $format, ['%s','%d'])){
 			return '%s';
 		}
 		return$format;
@@ -95,10 +95,8 @@ class Attribute implements Arrayable
 	 */
 	public function getFormat(): string
 	{
-		if( ! $this->validateFormat($this->format ) ){
-			return '%s';
-		}
-		return $this->format;
+
+		return $this->validateFormat($this->format );
 	}
 
 	/**
@@ -137,7 +135,7 @@ class Attribute implements Arrayable
 	 */
 	public function getDescription(): string
 	{
-		return $this->description;
+		return is_string($this->description) ? $this->description : '';
 	}
 
 	/**
@@ -156,7 +154,7 @@ class Attribute implements Arrayable
 	 */
 	public function getSqlDescriptor(): string
 	{
-		return $this->sqlDescriptor;
+		return is_string($this->sqlDescriptor) ? $this->sqlDescriptor: '';
 	}
 
 	/**
@@ -214,7 +212,7 @@ class Attribute implements Arrayable
 	 */
 	public function getDataType(): string
 	{
-		return $this->dataType;
+		return is_string($this->dataType) ? $this->dataType : 'string';
 	}
 
 	/**
