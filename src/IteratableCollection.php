@@ -2,8 +2,8 @@
 
 
 namespace calderawp\interop;
-use calderawp\interop\Contracts\Arrayable;
 
+use calderawp\interop\Contracts\Arrayable;
 
 /**
  * Class IteratableCollection
@@ -38,14 +38,15 @@ abstract class IteratableCollection implements Arrayable, \Iterator
 	public function count(): int
 	{
 		$key = $this->storeKey();
-		if( ! $this->isCountable($this->$key)){
+		if (! $this->isCountable($this->$key)) {
 			return 0;
 		}
 		return count($this->$key);
 	}
 
-	protected function isCountable( $var ) :bool {
-		return ( is_array( $var )
+	protected function isCountable($var) :bool
+	{
+		return ( is_array($var)
 			|| $var instanceof \Countable
 			|| $var instanceof \SimpleXMLElement
 			|| $var instanceof \ResourceBundle
@@ -153,7 +154,4 @@ abstract class IteratableCollection implements Arrayable, \Iterator
 
 		return $array;
 	}
-
-
 }
-

@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Traits;
 
-
 use calderawp\interop\Collections\Attributes;
 
 trait ProvidesAttributes
@@ -21,7 +20,6 @@ trait ProvidesAttributes
 	public function getAttributes() : Attributes
 	{
 		return ! is_null($this->attributesCollection) ? $this->attributesCollection : new Attributes();
-
 	}
 
 	/**
@@ -36,6 +34,4 @@ trait ProvidesAttributes
 		$this->attributesCollection = $attributesCollection;
 		return $this;
 	}
-
-
 }

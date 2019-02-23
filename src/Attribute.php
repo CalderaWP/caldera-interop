@@ -43,8 +43,7 @@ class Attribute implements Arrayable
 			->setDescription(
 				isset($items[ 'description' ]) && is_string($items[ 'description' ]) ? $items[ 'description' ] : ''
 			)
-			->setSqlDescriptor(isset($items[ 'sqlDescriptor' ]) && is_string($items[ 'sqlDescriptor' ]) ? $items[ 'sqlDescriptor' ] : ''
-			)
+			->setSqlDescriptor(isset($items[ 'sqlDescriptor' ]) && is_string($items[ 'sqlDescriptor' ]) ? $items[ 'sqlDescriptor' ] : '')
 			->setFormat(
 				isset($items[ 'format' ]) && ($items[ 'format' ]) ? $items[ 'format' ] : '%s'
 			)
@@ -52,18 +51,19 @@ class Attribute implements Arrayable
 				isset($items[ 'dataType' ]) && is_string($items[ 'dataType' ]) ? $items[ 'dataType' ] : 'string'
 			);
 
-		if( isset($items[ 'validateCallback' ]) && is_callable($items[ 'validateCallback' ])){
+		if (isset($items[ 'validateCallback' ]) && is_callable($items[ 'validateCallback' ])) {
 			$obj->setValidateCallback($items[ 'validateCallback' ]);
 		}
-		if( isset($items[ 'sanitizeCallback' ]) && is_callable($items[ 'sanitizeCallback' ])){
+		if (isset($items[ 'sanitizeCallback' ]) && is_callable($items[ 'sanitizeCallback' ])) {
 			$obj->setSanitizeCallback($items[ 'sanitizeCallback' ]);
 		}
 
 		return $obj;
 	}
 
-	protected function validateFormat(?string $format = '%s' ){
-		if( !is_string($format)||! in_array( $format, ['%s','%d'])){
+	protected function validateFormat(?string $format = '%s')
+	{
+		if (!is_string($format)||! in_array($format, ['%s','%d'])) {
 			return '%s';
 		}
 		return$format;
@@ -96,7 +96,7 @@ class Attribute implements Arrayable
 	public function getFormat(): string
 	{
 
-		return $this->validateFormat($this->format );
+		return $this->validateFormat($this->format);
 	}
 
 	/**
@@ -225,6 +225,4 @@ class Attribute implements Arrayable
 		$this->dataType = $dataType;
 		return $this;
 	}
-
-
 }

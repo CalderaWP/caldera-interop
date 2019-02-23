@@ -2,6 +2,7 @@
 
 
 namespace calderawp\interop;
+
 use calderawp\caldera\Messaging\Traits\SimpleRepository;
 use calderawp\caldera\restApi\Response;
 use calderawp\interop\Collections\Attributes;
@@ -10,7 +11,6 @@ use calderawp\interop\Contracts\ConvertsToResponse;
 use calderawp\interop\Contracts\Rest\RestResponseContract;
 use calderawp\interop\Contracts\HasAttributes;
 use calderawp\interop\Traits\ProvidesAttributes;
-
 
 class ComplexEntity implements Arrayable
 {
@@ -23,7 +23,7 @@ class ComplexEntity implements Arrayable
 	 *
 	 * @return ComplexEntity
 	 */
-	public function addAttribute(Attribute $attribute ): ComplexEntity
+	public function addAttribute(Attribute $attribute): ComplexEntity
 	{
 		$this->attributesCollection = $this->getAttributes()->addAttribute($attribute);
 		return $this;
@@ -32,11 +32,11 @@ class ComplexEntity implements Arrayable
 	public function getAllowedProperties(): array
 	{
 		$attributeCollection = ! empty($this->attributesCollection) ? $this->attributesCollection : new Attributes();
-		if( $attributeCollection->empty()){
+		if ($attributeCollection->empty()) {
 			return [];
 		}
 		$allowed = [];
-		foreach ( $attributeCollection->toArray() as $item ){
+		foreach ($attributeCollection->toArray() as $item) {
 			$allowed[] = $item['name'];
 		}
 		return $allowed;
@@ -62,7 +62,7 @@ class ComplexEntity implements Arrayable
 	 *
 	 * @return ComplexEntity
 	 */
-	public static function fromRestResponse( RestResponseContract $response ) : ComplexEntity
+	public static function fromRestResponse(RestResponseContract $response) : ComplexEntity
 	{
 		return static::fromArray($response->getData());
 	}
@@ -75,11 +75,11 @@ class ComplexEntity implements Arrayable
 	 *
 	 * @return ComplexEntity
 	 */
-	public static function fromArray( array $items = []) : ComplexEntity
+	public static function fromArray(array $items = []) : ComplexEntity
 	{
 		$obj = new static();
-		foreach ( $obj->getAllowedProperties() as $prop ){
-			if( isset( $items[$prop ]) ){
+		foreach ($obj->getAllowedProperties() as $prop) {
+			if (isset($items[$prop ])) {
 				$obj->$prop = $items[$prop ];
 			}
 		}
@@ -95,19 +95,17 @@ class ComplexEntity implements Arrayable
 
 	public function get($name, $default = null)
 	{
-		if( $this->allowed($name)&& $this->has($name)){
+		if ($this->allowed($name)&& $this->has($name)) {
 			return $this->attributes[$name];
 		}
 	}
 
 	public function set(string $name, $value)
 	{
-		if( $this->allowed($name)){
+		if ($this->allowed($name)) {
 			 $this->attributes[$name] = $value;
 			 return $this;
 		}
 		throw new Exception('Invalid attribute');
-
 	}
-
 }

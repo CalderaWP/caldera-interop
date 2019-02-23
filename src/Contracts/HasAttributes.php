@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Contracts;
 
-
 use calderawp\interop\Collections\Attributes;
 
 interface HasAttributes

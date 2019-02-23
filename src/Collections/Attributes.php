@@ -3,7 +3,6 @@
 
 namespace calderawp\interop\Collections;
 
-
 use calderawp\interop\Attribute;
 use calderawp\interop\IteratableCollection;
 
@@ -21,7 +20,7 @@ class Attributes extends IteratableCollection
 	/** @inheritdoc */
 	protected function getItems(): array
 	{
-		if( ! is_array($this->attributes)){
+		if (! is_array($this->attributes)) {
 			$this->attributes = [];
 		}
 		return $this->attributes;
@@ -43,7 +42,6 @@ class Attributes extends IteratableCollection
 
 	public function has($attributeName): bool
 	{
-		return array_key_exists($attributeName,$this->getItems());
+		return array_key_exists($attributeName, $this->getItems());
 	}
-
 }
