@@ -27,7 +27,10 @@ class Attribute implements Arrayable
 	protected $dataType;
 	/** @var string */
 	protected $format;
+	/** @var bool */
+	protected $required;
 
+	protected $default;
 	/**
 	 * Create item from array
 	 *
@@ -51,11 +54,18 @@ class Attribute implements Arrayable
 				isset($items[ 'dataType' ]) && is_string($items[ 'dataType' ]) ? $items[ 'dataType' ] : 'string'
 			);
 
+		if (! isset($items[ 'dataType' ]) && isset($items[ 'type' ]) && is_string($items[ 'type' ])) {
+			$obj->setDataType($items[ 'type' ]);
+		}
 		if (isset($items[ 'validateCallback' ]) && is_callable($items[ 'validateCallback' ])) {
 			$obj->setValidateCallback($items[ 'validateCallback' ]);
 		}
 		if (isset($items[ 'sanitizeCallback' ]) && is_callable($items[ 'sanitizeCallback' ])) {
 			$obj->setSanitizeCallback($items[ 'sanitizeCallback' ]);
+		}
+
+		if (isset($items[ 'required' ])) {
+			$obj->setRequired((bool)$items[ 'required' ]);
 		}
 
 		return $obj;
@@ -79,7 +89,8 @@ class Attribute implements Arrayable
 			'validateCallback' => $this->getValidateCallback(),
 			'sanitizeCallback' => $this->getSanitizeCallback(),
 			'format' => $this->getFormat(),
-			'dataType' => $this->getDataType()
+			'dataType' => $this->getDataType(),
+			'required' => $this->isRequired()
 
 		];
 	}
@@ -223,6 +234,44 @@ class Attribute implements Arrayable
 	public function setDataType(string $dataType): Attribute
 	{
 		$this->dataType = $dataType;
+		return $this;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isRequired() : bool
+	{
+		return ! is_null($this->required) && true == $this->required;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getDefault()
+	{
+		return $this->default;
+	}
+
+	/**
+	 * @param mixed $default
+	 *
+	 * @return Attribute
+	 */
+	public function setDefault($default) : Attribute
+	{
+		$this->default = $default;
+		return $this;
+	}
+
+	/**
+	 * @param bool $required
+	 *
+	 * @return Attribute
+	 */
+	public function setRequired(bool $required): Attribute
+	{
+		$this->required = $required;
 		return $this;
 	}
 }

@@ -33,6 +33,46 @@ class AttributeTest extends TestCase
 
 	}
 
+	/**
+	 * @covers \calderawp\interop\Attribute::isRequired()
+	 */
+	public function testIsRequired()
+	{
+		$data = [
+			'name' => 'the-name',
+
+		];
+		$attribute = Attribute::fromArray($data);
+		$this->assertFalse($attribute->isRequired());
+	}
+
+	/**
+	 * @covers \calderawp\interop\Attribute::isRequired()
+	 */
+	public function testIsRequiredNotRequired()
+	{
+		$data = [
+			'name' => 'the-name',
+			'required' => false,
+
+		];
+		$attribute = Attribute::fromArray($data);
+		$this->assertFalse($attribute->isRequired());
+	}
+
+	/**
+	 * @covers \calderawp\interop\Attribute::isRequired()
+	 */
+	public function testIsRequiredIsRequired()
+	{
+		$data = [
+			'name' => 'the-name',
+			'required' => true,
+
+		];
+		$attribute = Attribute::fromArray($data);
+		$this->assertTrue($attribute->isRequired());
+	}
 	public function testFromArrayNoOptionalKeys()
 	{
 
@@ -64,7 +104,8 @@ class AttributeTest extends TestCase
 			'validateCallback' => $validate,
 			'sanitizeCallback' => $sanitize,
 			'dataType' => 'integer',
-			'format' => '%d'
+			'format' => '%d',
+			'required' => true
 		];
 		$attribute = Attribute::fromArray($data);
 		$this->assertEquals($data,$attribute->toArray());
@@ -84,9 +125,24 @@ class AttributeTest extends TestCase
 			'validateCallback' => null,
 			'sanitizeCallback' => null,
 			'dataType' => 'string',
-			'format' => '%s'
+			'format' => '%s',
+			'required' => false
 		];
 		$attribute = Attribute::fromArray($data);
 		$this->assertEquals($expect,$attribute->toArray());
+	}
+
+	public function testAttributeTypeSetFromArray()
+	{
+		$attribute =  Attribute::fromArray([
+			'type' => 'date-time',
+			'required' => false,
+			'description' => 'Time message updated at',
+			'default' =>
+				new \DateTimeImmutable(),
+			'sqlDescriptor' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP',
+			'name' => 'updatedAt',
+		]);
+		$this->assertSame( 'date-time', $attribute->getDataType());
 	}
 }
